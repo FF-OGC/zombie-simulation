@@ -1,0 +1,19 @@
+import "LevelObject.fcc" as levelobject
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import Resources from "EditorGenLib.fcc"
+import MyResources from "EditorGenLib.fcc"
+
+graph GlobalSpawn {
+    func DeactivateSpawnPoint(){
+        var spawnPoint = GetSpawnPoint() 
+        SetActive(spawnPoint, false)
+    }
+
+    func GetSpawnPoint() entity<SpawnPosition>{
+        // var spawnPoint = Resources:Scene_ZS[EResource_Scene_ZS:SPAWN_POINT]
+        var spawnPoint = MyResources:SceneObjects["SPAWN_POINT"] as entity<SpawnPosition>
+        LogInfo("[GlobalSpawn] spawnPoint:"  + spawnPoint)
+        return spawnPoint
+    }
+}

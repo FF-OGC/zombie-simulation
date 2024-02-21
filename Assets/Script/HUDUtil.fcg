@@ -1,0 +1,14 @@
+import "StdLibrary.fcc" as std
+import "LevelObject.fcc" as levelObject 
+import Resources from "EditorGenLib.fcc"
+import "Hud.fcc" as hud 
+import "EditorGenLib.fcc" as editorgenlib
+
+static graph HUDUtil {
+    func CreateCustomHUD(player entity<Player>, hudName string, layer int) entity<CustomHud> {
+        CreateCustomHud(out var createdEntity, player, Resources:UI[hudName])
+        createdEntity<CustomHud>.Depth = layer
+        LogInfo("[HUDUtil] CreateCustomHUD: " + hudName)
+        return createdEntity as entity<CustomHud>
+    }
+}

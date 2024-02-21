@@ -1,0 +1,7 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+
+graph GlobalDebug {
+    IsDebug bool = false
+    IsStageSelectionActive bool = true
+}

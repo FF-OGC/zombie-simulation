@@ -8,9 +8,295 @@
     {
       "Path": "EditorGenLib.fcc",
       "Symbol": {
-        "Components": [],
-        "Events": [],
-        "Graphs": []
+        "Components": [
+          {
+            "Name": "HudButtonWidget",
+            "ID": 41,
+            "Props": []
+          },
+          {
+            "Name": "DataEnum",
+            "Props": [],
+            "ID": 48683945
+          },
+          {
+            "Name": "GameMoneyType",
+            "Props": [],
+            "ID": 39918010
+          },
+          {
+            "Name": "StageEnum",
+            "Props": [],
+            "ID": 87158335
+          },
+          {
+            "Name": "EResource_UI",
+            "ID": 150243,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Scene",
+            "ID": 605687,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Prefab",
+            "ID": 227782,
+            "Props": []
+          },
+          {
+            "Name": "EResource_FCG",
+            "ID": 385437,
+            "Props": []
+          },
+          {
+            "Name": "EResource_FCGC",
+            "ID": 8059,
+            "Props": []
+          },
+          {
+            "Name": "EResource_ECA",
+            "ID": 587899,
+            "Props": []
+          },
+          {
+            "Name": "EResource_ECAC",
+            "ID": 196549,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Texture",
+            "ID": 994388,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Effect",
+            "ID": 763842,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Sound",
+            "ID": 379845,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Item",
+            "ID": 739668,
+            "Props": []
+          },
+          {
+            "Name": "EResource_LevelObject",
+            "ID": 24658,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Cloth",
+            "ID": 706498,
+            "Props": []
+          },
+          {
+            "Name": "EResource_WeaponSkin",
+            "ID": 577633,
+            "Props": []
+          },
+          {
+            "Name": "EResource_VehicleSkin",
+            "ID": 20074,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Emote",
+            "ID": 650419,
+            "Props": []
+          },
+          {
+            "Name": "EResource_CSV",
+            "ID": 346381,
+            "Props": []
+          },
+          {
+            "Name": "EResource_InternalHud",
+            "ID": 841436,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Scene_ZS",
+            "ID": 44424,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
+            "ID": 40465,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_STAGE_SELECTION",
+            "ID": 642284,
+            "Props": []
+          }
+        ],
+        "Events": [
+          {
+            "ID": 100000,
+            "Name": "Player_PlayerJoinGame"
+          },
+          {
+            "ID": 100001,
+            "Name": "HUD_ButtonClicked"
+          },
+          {
+            "ID": 100002,
+            "Name": "Player_PlayerQuitGame"
+          },
+          {
+            "ID": 100005,
+            "Name": "Player_FinishAction"
+          }
+        ],
+        "Graphs": [
+          {
+            "ID": "tZkoCtNH.cie26dz9kk8-lsva08q0-57zh6ws0c8h",
+            "Name": "MyResources",
+            "Props": [
+              {
+                "ID": "v1jhnP4xk",
+                "Name": "Localizations"
+              },
+              {
+                "ID": "v2vHdB9D0",
+                "Name": "Phases"
+              },
+              {
+                "ID": "v26LzDGqW",
+                "Name": "LocalizationsWithParams"
+              },
+              {
+                "ID": "vVUiOGhvq",
+                "Name": "SceneObjects"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "InitPhases",
+                "Name": "InitPhases"
+              },
+              {
+                "ID": "GetLocalizationWParam",
+                "Name": "GetLocalizationWParam"
+              },
+              {
+                "ID": "InitSceneObjects",
+                "Name": "InitSceneObjects"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.ijf90wdz01-lsvavvsx-yg9jqxnuhle",
+            "Name": "MyResourcesLoc",
+            "Props": [],
+            "Funcs": [
+              {
+                "ID": "InitLocalizations",
+                "Name": "InitLocalizations"
+              },
+              {
+                "ID": "GetLocWParams",
+                "Name": "GetLocWParams"
+              }
+            ]
+          },
+          {
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDnltqbi4ju",
+            "Name": "Resources",
+            "Props": [
+              {
+                "ID": "EDITOR_GEN_Resourceui",
+                "Name": "UI"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcescene",
+                "Name": "Scene"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceprefab",
+                "Name": "Prefab"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcefcg",
+                "Name": "FCG"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcefcgc",
+                "Name": "FCGC"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceeca",
+                "Name": "ECA"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceecac",
+                "Name": "ECAC"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceicon",
+                "Name": "Texture"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceeffect",
+                "Name": "Effect"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcesound",
+                "Name": "Sound"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceitem",
+                "Name": "Item"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourcelevelObject",
+                "Name": "LevelObject"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcecloth",
+                "Name": "Cloth"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourceweaponSkin",
+                "Name": "WeaponSkin"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourcevehicleSkin",
+                "Name": "VehicleSkin"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceemote",
+                "Name": "Emote"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcecsv",
+                "Name": "CSV"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourceinternalHud",
+                "Name": "InternalHud"
+              },
+              {
+                "ID": "Editor_Gen_Resource_Scene_ZS",
+                "Name": "Scene_ZS"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_CRAFTLAND_TOKEN_WALLET",
+                "Name": "UI_CRAFTLAND_TOKEN_WALLET"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_STAGE_SELECTION",
+                "Name": "UI_STAGE_SELECTION"
+              }
+            ],
+            "Funcs": []
+          }
+        ]
       }
     }
   ]

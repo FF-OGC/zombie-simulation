@@ -1,6 +1,36 @@
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
+import "Player.fcc" as player
+import "Workflow.fcc" as workflow
+import MyResources from "EditorGenLib.fcc"
 
-graph HelloWorld {
-    // 
+import "./GlobalSpawn.fcg" as GlobalSpawn
+
+graph Global {
+    event OnAwake() {
+        LogInfo("[Global] OnAwake = " + thisEntity<Global>)
+    }
+
+    event OnPlayerJoin(player entity<Player>) {
+        LogInfo("[Global] OnPlayerJoinGame = " + player)     
+        //When player join game      
+        DispatchEvent(Player_PlayerJoinGame, player, nil)                        
+    }
+
+    event OnPlayerQuit(player entity<Player>) {
+        LogInfo("[Global] OnPlayerQuit = " + player)  
+        //When player quit game
+        DispatchEvent(Player_PlayerQuitGame, player, nil)                        
+    }    
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if(phaseIndex == MyResources:Phases["START"]){
+            globalEntity<GlobalSpawn>.DeactivateSpawnPoint()
+        }
+    }
+
+    event OnRoundEnd(roundIndex int) {
+
+    }
 }

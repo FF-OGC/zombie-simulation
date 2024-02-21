@@ -1,0 +1,20 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+
+import "./PlayerStageSelection.fcg" as PlayerStageSelection
+import "./PlayerStageSelectionHUD.fcg" as PlayerStageSelectionHUD
+
+import Resources from "EditorGenLib.fcc"
+
+graph HUDStageSelection {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerStageSelectionHUD>.GetStageSelectionHUDWidget(EResource_UI_STAGE_SELECTION:CONFIRM)) {
+            
+        } else if (button == player<PlayerStageSelectionHUD>.GetStageSelectionHUDWidget(EResource_UI_STAGE_SELECTION:EXIT)) {
+            player<PlayerStageSelection>.EndStageSelection()
+        } else {
+            player<PlayerStageSelection>.SetSelectedStage(button)
+        } 
+    }
+}

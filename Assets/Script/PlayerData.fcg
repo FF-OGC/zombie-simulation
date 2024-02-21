@@ -1,0 +1,118 @@
+import "StdLibrary.fcc" as std
+import "List.fcc" as list 
+import "./PlayerMoney.fcg" as PlayerMoney
+import "EditorGenLib.fcc" as editorGenLib 
+import "Database.fcc" as database 
+import "Player.fcc" as player 
+import "Economy.fcc" as economy 
+import "Math.fcc" as math 
+
+graph PlayerData {
+    LastLoginTime int
+    CurrentReadPos int
+    CurrentCoin int
+
+    func ReadDataInteger(data List<object>, defaultValue int) int {
+        var returnValue = defaultValue
+        if (data[CurrentReadPos] != nil) {
+            returnValue = data[CurrentReadPos] as int
+            CurrentReadPos = CurrentReadPos + 1
+        }
+        return returnValue
+    }
+
+    func InitGenericData() {
+        //Init default data
+        LastLoginTime = 0
+        CurrentCoin = 0
+    }
+    
+    func ReadGenericData(data List<object>) {
+        CurrentReadPos = 0
+        InitGenericData()
+
+        if (data == nil) {
+            return
+        }
+
+        LogInfo("[PlayerData] ReadGenericData = " + data)
+
+        //Load all data from data table
+        CurrentCoin = ReadDataInteger(data, 0)
+        LastLoginTime = ReadDataInteger(data, 0)
+    }
+
+    async func LoadData() {
+        // LogInfo("[PlayerData] LoadData = " + thisEntity<Player>)
+        //Generic data            
+        wait ReadFromDatabase(DataEnum:PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum:GENERIC_DATA, out var genericData, "")
+        ReadGenericData(genericData as List<object>)
+        
+        
+        //Daily data reset
+        CheckResetDaily()
+        //dispatch load data success event
+        DispatchEvent(Player_FinishAction, thisEntity<Player>, List<object>{DataEnum:ACTION_LOAD_DATA_SUCCESS, nil})
+    }
+
+    func GetDataFromUsers() {
+        //Get data from other component
+        CurrentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType:COIN)
+        LogInfo("[PlayerData] GetDataFromUsers: " + CurrentCoin)
+    }
+
+    func PrepareData() List<int> {
+        var playerData = List<int> {}
+        Append(playerData, CurrentCoin)
+        Append(playerData, LastLoginTime)
+        
+        return playerData
+    }
+
+    async func WriteData() {
+        // LogInfo("[PlayerData] WriteData = " + thisEntity<Player>)
+
+        GetDataFromUsers()
+        var playerData = PrepareData()
+        // LogInfo("[PlayerData] WriteData playerData = " + playerData)
+        WriteToDatabase(DataEnum:PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum:GENERIC_DATA, playerData, "") 
+    }
+
+    func AreDatesDifferent(timeStamp1 int, timeStamp2 int) bool{
+        var secondsInMinute = 60
+        var minutesInHour = 60
+        var hoursInDay = 24
+        var secondsInDay = secondsInMinute * minutesInHour * hoursInDay
+        var dayNumber1 = timeStamp1 / secondsInDay
+        var dayNumber2 = timeStamp2 / secondsInDay
+        return (dayNumber1 != dayNumber2)
+    }
+
+    func CheckResetDaily(){
+        var loginTime = GetServerTime()
+        LogInfo("[PlayerData] loginTime: " + loginTime)
+        LogInfo("[PlayerData] LastLoginTime: " + LastLoginTime)
+        if(AreDatesDifferent(loginTime, LastLoginTime)){
+            LastLoginTime = loginTime
+            ResetDataDaily()
+        }
+    }
+
+    func ResetDataDaily(){
+    }
+
+    async func Debug_ResetData(){
+        CurrentCoin = 0
+        thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType:COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType:COIN))
+        WriteData()
+    }
+
+    event Player_PlayerJoinGame() {
+
+    }
+
+    event Player_PlayerQuitGame() {
+        // LogInfo("[PlayerData] Player_PlayerQuitGame = " + thisEntity<Player>)
+        start WriteData()
+    }
+}

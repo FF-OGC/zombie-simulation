@@ -1,7 +1,130 @@
+import "Hud.fcc" as hud
+import "StdLibrary.fcc" as stdLibrary
 
 
 
+// Button control
+partial component HudButtonWidget {
+}
 
 
+// DataEnum, type: String
+enum DataEnum {
+    // ACTION_LOAD_DATA_SUCCESS
+    ACTION_LOAD_DATA_SUCCESS = "LoadDataSuccess"
+
+    // PLAYER_DATA_TABLE
+    PLAYER_DATA_TABLE = "PLAYER_DATA"
+
+    // SKILL_DATA
+    SKILL_DATA = "SkillData"
+
+    // QUEST_DATA
+    QUEST_DATA = "QuestData"
+
+    // GENERIC_DATA
+    GENERIC_DATA = "GenericData"
+
+}
+
+// GameMoneyType, type: Int
+enum GameMoneyType {
+    // COIN
+    COIN = 1
+
+    // TOKEN
+    TOKEN = 2
+
+}
+
+// StageEnum, type: Int
+enum StageEnum {
+    // NONE
+    NONE = 0
+
+    // A1S1
+    A1S1 = 1
+
+    // A1S2
+    A1S2 = 2
+
+}
+
+enum EResource_UI {
+    CRAFTLAND_TOKEN_WALLET = "CRAFTLAND_TOKEN_WALLET"
+    STAGE_SELECTION = "STAGE_SELECTION"
+}
+enum EResource_Scene {
+    ZS = "ZS"
+}
+enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
+    TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
+}
+enum EResource_UI_STAGE_SELECTION {
+    PIVOT_STAGE_SELECTION = "PIVOT_STAGE_SELECTION"
+    BTN_STAGE_1 = "BTN_STAGE_1"
+    BTN_STAGE_2 = "BTN_STAGE_2"
+    CONFIRM = "CONFIRM"
+    EXIT = "EXIT"
+}
+// Player_PlayerJoinGame()
+[platform_server]
+event Player_PlayerJoinGame()
+
+// HUD_ButtonClicked(Button HudButtonWidget, Player Player)
+[platform_server]
+event HUD_ButtonClicked(param1 entity<HudButtonWidget>, param2 entity<Player>)
+
+// Player_PlayerQuitGame()
+[platform_server]
+event Player_PlayerQuitGame()
+
+// Player_PlayerFinishAction(ActionName String, ActionData any)
+[platform_server]
+event Player_FinishAction(param1 string, param2 object)
 
 
+// Assets\ECA\MyResources.eca
+[platform_server]
+declare static graph MyResources {
+    // Localizations
+    Localizations Map<object, object>
+
+    // Phases
+    Phases Map<object, object>
+
+    // LocalizationsWithParams
+    LocalizationsWithParams Map<object, object>
+
+    // SceneObjects
+    SceneObjects Map<object, object>
+
+    // InitPhases()
+    func InitPhases () 
+
+    // GetLocalizationWParam(key String, param ListT_any)
+    func GetLocalizationWParam (param0 string, param1 List<object>) object
+
+    // InitSceneObjects()
+    func InitSceneObjects () 
+
+}
+
+// Assets\ECA\MyResourcesLoc.eca
+[platform_server]
+declare static graph MyResourcesLoc {
+    // InitLocalizations()
+    func InitLocalizations () 
+
+    // GetLocWParams(key String, param ListT_any)
+    func GetLocWParams (param0 string, param1 List<object>) object
+
+}
+
+declare static graph Resources {
+    UI Map<EResource_UI, CustomHudID>
+    Scene Map<EResource_Scene, string>
+
+    UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
+    UI_STAGE_SELECTION Map<EResource_UI_STAGE_SELECTION, CustomHudWidgetID>
+}

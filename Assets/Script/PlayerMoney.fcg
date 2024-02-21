@@ -1,0 +1,95 @@
+import "StdLibrary.fcc" as std
+import "EditorGenLib.fcc" as gen
+import "Math.fcc" as math
+import "./PlayerData.fcg" as PlayerData
+import "./Enum.fcg" as Enum
+import "Economy.fcc" as economy 
+import "Hud.fcc" as hud 
+import "Convert.fcc" as convert 
+// import "./PlayerCurrencyExchange.fcg" as PlayerCurrencyExchange
+import "./PlayerCraftlandToken.fcg" as PlayerCraftlandToken
+import MyResources from "EditorGenLib.fcc"
+
+graph PlayerMoney {
+    _userWallet entity<Wallet>
+    _walletHUD entity<WalletHud>
+        
+    func DisplayWalletHUD() {
+        if (_walletHUD == nil) {
+            DeleteEntity(_walletHUD)                    
+            CreateInternalHud(out var createdHUD, thisEntity<Player>, InternalHudType:WalletHud)
+            _walletHUD = createdHUD<WalletHud>
+        }        
+        if (_userWallet != nil) {
+            for i, currencyHUD in _userWallet<Wallet>.Content {
+                _walletHUD<WalletHud>.BindMoney = currencyHUD
+            }
+        }
+    }
+    
+    func AddMoney(moneyType int, count int) {
+        LogInfo("[PlayerMoney] AddMoney moneyType = " + moneyType +
+                ", count = " + count)        
+        if (moneyType == GameMoneyType:COIN) {            
+            AddMoneyToWallet(_userWallet, MoneyType:Basic, count) 
+            ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("OBTAIN", List<object>{count, "coin"}), ColorRGB(255, 255, 255), 3000)
+            DisplayWalletHUD()
+        }
+
+        if (moneyType == GameMoneyType:TOKEN) {
+            thisEntity<PlayerCraftlandToken>.AddCraftlandTokenByAmount(count)
+            ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("OBTAIN", List<object>{count, "coin"}), ColorRGB(255, 255, 255), 3000)
+        }
+    }
+
+    func GetMoney(moneyType int) int {
+        if (moneyType == GameMoneyType:COIN) {
+            return Round(GetMoneyCount(_userWallet, MoneyType:Basic))
+        }
+
+        if (moneyType == GameMoneyType:TOKEN) {
+            return thisEntity<PlayerCraftlandToken>.GetCraftlandToken()
+        }
+        return 0
+    }
+
+    func ConsumeMoney(moneyType int, count int) bool {
+        if (moneyType == GameMoneyType:COIN) {
+            if (GetMoney(moneyType) >= count) {                                 
+                CostMoneyFromWallet(_userWallet, MoneyType:Basic, count)
+                return true
+            } else {
+                // thisEntity<PlayerCurrencyExchange>.BeginCurrencyExchange(count)
+            }
+        }
+
+        if (moneyType == GameMoneyType:TOKEN) {
+            thisEntity<PlayerCraftlandToken>.DeductCraftlandTokenByAmount(count)
+        }
+
+        return false
+    }
+
+    func CreateUserWallet() {
+        if (_userWallet == nil) {
+            LogInfo("[PlayerMoney] CreateUserWallet = " + thisEntity<Player>)
+            CreateWallet(thisEntity<Player>, thisEntity<Entity>, out var createdWallet)
+            _userWallet = createdWallet
+        }        
+    }
+
+    event Player_PlayerJoinGame() {
+        LogInfo("[PlayerMoney] Player_PlayerJoinGame = " + thisEntity<Player>)
+        CreateUserWallet()
+        DisplayWalletHUD()
+    }
+
+    event Player_FinishAction(action string, data object) {        
+        if (ToString(action) == ToString(Enum:ACTION_LOAD_DATA_SUCCESS)) {
+            LogInfo("[PlayerMoney] LoadDataSuccess CurrentCoin = " + thisEntity<PlayerData>.CurrentCoin)
+            CreateUserWallet()
+            AddMoneyToWallet(_userWallet, MoneyType:Basic, thisEntity<PlayerData>.CurrentCoin)        
+            DisplayWalletHUD()
+        }
+    }
+}

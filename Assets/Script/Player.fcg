@@ -1,0 +1,30 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "AI.fcc" as ai
+import "Player.fcc" as player
+
+import "./GlobalSpawn.fcg" as GlobalSpawn
+
+import "./PlayerStageSelectionHUD.fcg" as PlayerStageSelectionHUD
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+import "Workflow.fcc" as workflow
+
+
+graph Player {
+    event Player_PlayerJoinGame() {
+        start InitAllHUD() 
+    }
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        thisEntity<PlayerDefaultHUD>.SetCountdownTimerHUD(phase)
+    }
+
+    async func InitAllHUD(){
+        thisEntity<PlayerStageSelectionHUD>.InitStageSelectionHUD()
+        WaitForSeconds(500)
+    }
+
+    func DeleteAllHUD(){
+        thisEntity<PlayerStageSelectionHUD>.DeleteStageSelectionHUD()
+    }
+}

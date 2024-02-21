@@ -1,0 +1,12 @@
+import "StdLibrary.fcc" as std
+
+static graph Enum {
+    //Player action
+    ACTION_LOAD_DATA_SUCCESS = "LoadDataSuccess"
+    
+    //Data key
+    PLAYER_DATA_TABLE = "PLAYER_DATA"
+    GENERIC_DATA = "GenericData"
+    SKILL_DATA = "SkillData"
+    QUEST_DATA = "QuestData"
+}
