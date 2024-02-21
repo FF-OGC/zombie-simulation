@@ -1,0 +1,17 @@
+{
+  "NameSpace": {
+    "Name": "tZkoCtNH",
+    "ID": 0,
+    "UIDSeed": 1
+  },
+  "FileSpaces": [
+    {
+      "Path": "EditorGenLib.fcc",
+      "Symbol": {
+        "Components": [],
+        "Events": [],
+        "Graphs": []
+      }
+    }
+  ]
+}
