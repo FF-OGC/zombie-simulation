@@ -50,9 +50,74 @@ enum StageEnum {
 
 }
 
+// MaterialEnum, type: String
+enum MaterialEnum {
+    // WOOD_LOG
+    WOOD_LOG = "MAT_WOOD_LOG"
+
+}
+
+// RecipeEnum, type: String
+enum RecipeEnum {
+    // MATERIAL_PROCESSOR
+    MATERIAL_PROCESSOR = "REC_MATERIAL_PROCESSOR"
+
+}
+
+// PetEnum, type: String
+enum PetEnum {
+    // DOG
+    DOG = "PET_DOG"
+
+}
+
+// ZoneEnum, type: String
+enum ZoneEnum {
+    // NONE
+    NONE = "Z_NONE"
+
+    // BASE
+    BASE = "Z_BASE"
+
+    // LVL000
+    LVL000 = "Z_LVL_000"
+
+    // LVL010
+    LVL010 = "Z_LVL_010"
+
+    // LVL020
+    LVL020 = "Z_LVL_020"
+
+    // LVL030
+    LVL030 = "Z_LVL_030"
+
+    // LVL040
+    LVL040 = "Z_LVL_040"
+
+    // LVL050
+    LVL050 = "Z_LVL_050"
+
+    // LVL060
+    LVL060 = "Z_LVL_060"
+
+    // LVL070
+    LVL070 = "Z_LVL_070"
+
+    // LVL080
+    LVL080 = "Z_LVL_080"
+
+    // LVL090
+    LVL090 = "Z_LVL_090"
+
+    // LVL100
+    LVL100 = "Z_LVL_100"
+
+}
+
 enum EResource_UI {
     CRAFTLAND_TOKEN_WALLET = "CRAFTLAND_TOKEN_WALLET"
-    STAGE_SELECTION = "STAGE_SELECTION"
+    ZONE_SELECTION = "ZONE_SELECTION"
+    MENU = "MENU"
 }
 enum EResource_Scene {
     ZS = "ZS"
@@ -60,12 +125,14 @@ enum EResource_Scene {
 enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
     TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
 }
-enum EResource_UI_STAGE_SELECTION {
-    PIVOT_STAGE_SELECTION = "PIVOT_STAGE_SELECTION"
-    BTN_STAGE_1 = "BTN_STAGE_1"
-    BTN_STAGE_2 = "BTN_STAGE_2"
-    CONFIRM = "CONFIRM"
-    EXIT = "EXIT"
+enum EResource_UI_ZONE_SELECTION {
+    BTN_ZONE_000 = "BTN_ZONE_000"
+    BTN_ZONE_010 = "BTN_ZONE_010"
+    BTN_CONFIRM = "BTN_CONFIRM"
+    BTN_EXIT = "BTN_EXIT"
+}
+enum EResource_UI_MENU {
+    BTN_MAP = "BTN_MAP"
 }
 // Player_PlayerJoinGame()
 [platform_server]
@@ -99,6 +166,15 @@ declare static graph MyResources {
     // SceneObjects
     SceneObjects Map<object, object>
 
+    // MaterialLocalizations
+    MaterialLocalizations Map<object, object>
+
+    // PetLocalizations
+    PetLocalizations Map<object, object>
+
+    // RecipeLocalizations
+    RecipeLocalizations Map<object, object>
+
     // InitPhases()
     func InitPhases () 
 
@@ -119,6 +195,15 @@ declare static graph MyResourcesLoc {
     // GetLocWParams(key String, param ListT_any)
     func GetLocWParams (param0 string, param1 List<object>) object
 
+    // InitPetLocalizations()
+    func InitPetLocalizations () 
+
+    // InitRecipeLocalizations()
+    func InitRecipeLocalizations () 
+
+    // InitMaterialLocalizations()
+    func InitMaterialLocalizations () 
+
 }
 
 declare static graph Resources {
@@ -126,5 +211,6 @@ declare static graph Resources {
     Scene Map<EResource_Scene, string>
 
     UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
-    UI_STAGE_SELECTION Map<EResource_UI_STAGE_SELECTION, CustomHudWidgetID>
+    UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>
+    UI_MENU Map<EResource_UI_MENU, CustomHudWidgetID>
 }

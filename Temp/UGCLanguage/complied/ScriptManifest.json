@@ -2,7 +2,8 @@
   "ScriptDepend": {
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbC5mY2c=": {
       "Scripts": [
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFNwYXduLmZjZw=="
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFNwYXduLmZjZw==",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c="
       ],
       "ComponentItems": null,
       "PartialPropItems": {},
@@ -11,6 +12,38 @@
         100000,
         100002
       ]
+    },
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFBldC5mY2c=": {
+      "Scripts": null,
+      "ComponentItems": [
+        15074376
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        15074376
+      ],
+      "EventItems": null
+    },
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFpvbmVTZWxlY3Rpb24uZmNn": {
+      "Scripts": null,
+      "ComponentItems": [
+        92435776
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        92435776
+      ],
+      "EventItems": null
+    },
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRE1lbnUuZmNn": {
+      "Scripts": [
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn"
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVREJ1dHRvbi5mY2c=": {
       "Scripts": [
@@ -23,29 +56,44 @@
         100001
       ]
     },
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFN0YWdlU2VsZWN0aW9uLmZjZw==": {
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFpvbmVTZWxlY3Rpb24uZmNn": {
       "Scripts": [
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uLmZjZw==",
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uSFVELmZjZw=="
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn"
       ],
       "ComponentItems": [
-        623196
+        986809
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        623196
+        986809
       ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=": {
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFNwYXduLmZjZw==",
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uSFVELmZjZw==",
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlZmF1bHRIVUQuZmNn"
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlZmF1bHRIVUQuZmNn",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn"
       ],
       "ComponentItems": null,
       "PartialPropItems": {},
       "EnumItems": null,
+      "EventItems": null
+    },
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn": {
+      "Scripts": [
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
+      ],
+      "ComponentItems": [
+        305302
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        305302
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1vbmV5LmZjZw==": {
@@ -68,13 +116,13 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
       "ComponentItems": [
-        303002,
-        550757
+        305302,
+        344632
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        303002,
-        550757
+        305302,
+        344632
       ],
       "EventItems": null
     },
@@ -95,38 +143,39 @@
         100005
       ]
     },
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uLmZjZw==": {
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn": {
       "Scripts": [
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uSFVELmZjZw=="
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFpvbmVTZWxlY3Rpb24uZmNn"
       ],
       "ComponentItems": [
-        623196,
-        87158335
+        986809,
+        92435776
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        623196,
-        87158335
+        986809,
+        92435776
       ],
       "EventItems": null
     },
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uSFVELmZjZw==": {
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn": {
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
       "ComponentItems": [
-        303002
+        305302
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        303002
+        305302
       ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1RyaWdnZXJTdGFnZVNlbGVjdGlvbi5mY2c=": {
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbERlYnVnLmZjZw==",
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uLmZjZw=="
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn"
       ],
       "ComponentItems": null,
       "PartialPropItems": {},
@@ -139,10 +188,12 @@
     "EditorGenLib",
     "Player",
     "Workflow",
+    "Strings",
     "LevelObject",
+    "AI",
+    "Combat",
     "Hud",
     "Playable",
-    "AI",
     "GameResult",
     "Convert",
     "FF_Platform",
@@ -155,20 +206,26 @@
   "GraphID2Path": {
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0VudW0uZmNn": "./Assets/Script/Enum.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbC5mY2c=": "./Assets/Script/Global.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbE1hdGVyaWFsLmZjZw==": "./Assets/Script/GlobalMaterial.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbENyYWZ0aW5nLmZjZw==": "./Assets/Script/GlobalCrafting.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbERlYnVnLmZjZw==": "./Assets/Script/GlobalDebug.fcg",
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFN0YWdlU2VsZWN0aW9uLmZjZw==": "./Assets/Script/GlobalStageSelection.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFBldC5mY2c=": "./Assets/Script/GlobalPet.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFNwYXduLmZjZw==": "./Assets/Script/GlobalSpawn.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFpvbmVTZWxlY3Rpb24uZmNn": "./Assets/Script/GlobalZoneSelection.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRE1lbnUuZmNn": "./Assets/Script/HUDMenu.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVREJ1dHRvbi5mY2c=": "./Assets/Script/HUDButton.fcg",
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFN0YWdlU2VsZWN0aW9uLmZjZw==": "./Assets/Script/HUDStageSelection.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn": "./Assets/Script/HUDUtil.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFpvbmVTZWxlY3Rpb24uZmNn": "./Assets/Script/HUDZoneSelection.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=": "./Assets/Script/Player.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn": "./Assets/Script/PlayerMenu.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1vbmV5LmZjZw==": "./Assets/Script/PlayerMoney.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0bGFuZFRva2VuLmZjZw==": "./Assets/Script/PlayerCraftlandToken.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRhdGEuZmNn": "./Assets/Script/PlayerData.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlZmF1bHRIVUQuZmNn": "./Assets/Script/PlayerDefaultHUD.fcg",
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uLmZjZw==": "./Assets/Script/PlayerStageSelection.fcg",
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YWdlU2VsZWN0aW9uSFVELmZjZw==": "./Assets/Script/PlayerStageSelectionHUD.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXQuZmNn": "./Assets/Script/PlayerStat.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclNGWC5mY2c=": "./Assets/Script/PlayerSFX.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn": "./Assets/Script/PlayerZoneSelection.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn": "./Assets/Script/PlayerZoneSelectionHUD.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1RyaWdnZXJTdGFnZVNlbGVjdGlvbi5mY2c=": "./Assets/Script/TriggerStageSelection.fcg"
   }
 }

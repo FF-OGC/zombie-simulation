@@ -1,9 +1,9 @@
 ü
-(tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0VudW0uZmNnB
+(tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0VudW0uZmNnM
+./Assets/Script/Enum.fcg:5:4ACTION_LOAD_DATA_SUCCESS":LoadDataSuccessB
 ./Assets/Script/Enum.fcg:8:4PLAYER_DATA_TABLE":PLAYER_DATA=
 ./Assets/Script/Enum.fcg:9:4GENERIC_DATA":GenericData:
 ./Assets/Script/Enum.fcg:10:4
 SKILL_DATA":	SkillData:
 ./Assets/Script/Enum.fcg:11:4
-QUEST_DATA":	QuestDataM
-./Assets/Script/Enum.fcg:5:4ACTION_LOAD_DATA_SUCCESS":LoadDataSuccess*Enum0
+QUEST_DATA":	QuestData*Enum0

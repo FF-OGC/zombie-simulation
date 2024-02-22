@@ -30,108 +30,133 @@
             "ID": 87158335
           },
           {
+            "Name": "MaterialEnum",
+            "Props": [],
+            "ID": 71462941
+          },
+          {
+            "Name": "RecipeEnum",
+            "Props": [],
+            "ID": 30062858
+          },
+          {
+            "Name": "PetEnum",
+            "Props": [],
+            "ID": 15074376
+          },
+          {
+            "Name": "ZoneEnum",
+            "Props": [],
+            "ID": 92435776
+          },
+          {
             "Name": "EResource_UI",
-            "ID": 150243,
+            "ID": 50473,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 605687,
+            "ID": 731247,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 227782,
+            "ID": 594565,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 385437,
+            "ID": 744021,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 8059,
+            "ID": 526583,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 587899,
+            "ID": 186499,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 196549,
+            "ID": 233970,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 994388,
+            "ID": 438827,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 763842,
+            "ID": 255274,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 379845,
+            "ID": 986409,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 739668,
+            "ID": 917171,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 24658,
+            "ID": 7187,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 706498,
+            "ID": 951479,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 577633,
+            "ID": 881340,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 20074,
+            "ID": 671273,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 650419,
+            "ID": 887849,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 346381,
+            "ID": 99943,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 841436,
+            "ID": 455928,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 44424,
+            "ID": 901694,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 40465,
+            "ID": 414284,
             "Props": []
           },
           {
-            "Name": "EResource_UI_STAGE_SELECTION",
-            "ID": 642284,
+            "Name": "EResource_UI_ZONE_SELECTION",
+            "ID": 484970,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_MENU",
+            "ID": 99225,
             "Props": []
           }
         ],
@@ -173,6 +198,18 @@
               {
                 "ID": "vVUiOGhvq",
                 "Name": "SceneObjects"
+              },
+              {
+                "ID": "vYjvhhwtf",
+                "Name": "MaterialLocalizations"
+              },
+              {
+                "ID": "v6x6t1ciL",
+                "Name": "PetLocalizations"
+              },
+              {
+                "ID": "vkKo5H55F",
+                "Name": "RecipeLocalizations"
               }
             ],
             "Funcs": [
@@ -202,11 +239,23 @@
               {
                 "ID": "GetLocWParams",
                 "Name": "GetLocWParams"
+              },
+              {
+                "ID": "InitPetLocalizations",
+                "Name": "InitPetLocalizations"
+              },
+              {
+                "ID": "InitRecipeLocalizations",
+                "Name": "InitRecipeLocalizations"
+              },
+              {
+                "ID": "InitMaterialLocalizations",
+                "Name": "InitMaterialLocalizations"
               }
             ]
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDnltqbi4ju",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_ID9hbvunquz",
             "Name": "Resources",
             "Props": [
               {
@@ -290,8 +339,12 @@
                 "Name": "UI_CRAFTLAND_TOKEN_WALLET"
               },
               {
-                "ID": "Editor_Gen_Resource_UI_STAGE_SELECTION",
-                "Name": "UI_STAGE_SELECTION"
+                "ID": "Editor_Gen_Resource_UI_ZONE_SELECTION",
+                "Name": "UI_ZONE_SELECTION"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_MENU",
+                "Name": "UI_MENU"
               }
             ],
             "Funcs": []

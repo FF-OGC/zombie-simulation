@@ -1,0 +1,32 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+
+graph GlobalZoneSelection {
+    _zoneTeleportLocationMap Map<string, Vector3>
+    _hasInit bool
+    
+    func InitGlobalZoneSelection(){
+        if(!_hasInit){
+            SetZoneTeleportLocationMap()
+            _hasInit = true
+        }
+    }
+
+    func SetZoneTeleportLocationMap(){
+        _zoneTeleportLocationMap = Map<string, Vector3>{}
+        _zoneTeleportLocationMap[ZoneEnum:BASE] = GetLocationFromObject("SPAWN_POINT")
+        _zoneTeleportLocationMap[ZoneEnum:LVL000] = GetLocationFromObject("000_TP_TRIGGER")
+    }
+
+    func GetZoneTeleportLocation(zoneEnum string) Vector3{
+        InitGlobalZoneSelection()
+        return _zoneTeleportLocationMap[zoneEnum]
+    }
+
+    func GetLocationFromObject(key string) Vector3{
+        var obj = MyResources:SceneObjects[key] as entity<LevelObject>
+        LogInfo("[GlobalZoneSelection] obj: " + obj + " " + obj<Transform>.Position)
+        return obj<Transform>.Position
+    }
+}

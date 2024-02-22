@@ -1,0 +1,13 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerMenu.fcg" as PlayerMenu
+import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
+
+graph HUDMenu {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU:BTN_MAP)) {
+            LogInfo("[HUDMenu] btnMap: " + button) 
+            player<PlayerZoneSelection>.BeginZoneSelection()
+        } 
+    }
+}

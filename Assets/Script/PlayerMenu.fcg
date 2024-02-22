@@ -1,0 +1,44 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import "AI.fcc" as ai
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+
+graph PlayerMenu {
+    _menuHUD entity<CustomHud>
+
+    func InitMenuHUD(){
+        if(_menuHUD == nil){
+            _menuHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:MENU, 4)
+            LogInfo("[PlayerMenuHUD] _menuHUD: " + _menuHUD)
+            _menuHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DisplayMenuHUD(){
+        InitMenuHUD()
+        ResetMenuHUD()
+        if(!_menuHUD<CustomHud>.Visibility){
+            _menuHUD<CustomHud>.Visibility = true         
+        }
+    }
+
+    func ResetMenuHUD(){
+
+    }
+
+    func CloseMenuHUD(){
+        if(_menuHUD != nil){
+            _menuHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteMenuHUD(){
+        DeleteEntity(_menuHUD)
+    }
+
+    func GetMenuHUDWidget(eResourceUIMenu string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _menuHUD, Resources:UI_MENU[eResourceUIMenu])
+    }
+}

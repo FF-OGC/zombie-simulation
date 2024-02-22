@@ -2,3 +2,6 @@ Key,English,Traditional Chinese,Thai,Vietnamese,Indonesia,Brazilian Portuguese,S
 GAME_NAME,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim,zombie sim
 GAME_DESCRIPTION,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp,temp
 OBTAIN,Obtained {0} {1},獲得{0} {1},ได้รับ {0} {1},Nhận được {0} xu,Diperoleh {0} {1},Obtido {0} {1},Obtenido {0} {1},Получен {0} {1},Obtenu {0} {1},Erhalten {0} {1},Elde edilen {0} {1},प्राप्त {0} {1},Obținut {0} {1},تم الحصول عليها {0} {1},ရရှိသော {0} 0} {1},حاصل {0} {1},প্রাপ্ত {0} {1}
+MAT_WOOD_LOG,Wood log,木材原木,ไม้ซุง,Khúc gỗ,Log kayu,Tronco de madeira,Tronco de madera,Бревно,Bûche de bois,Holzstamm,Ahşap kütük,लकड़ी का लट्ठा,Jurnal de lemn,سجل الخشب,သစ်သားမှတ်တမ်း,لکڑی نوشتہ جات,কাঠ লগ
+REC_MATERIAL_PROCESSOR,Material Processor,材料處理器,เครื่องประมวลผลวัสดุ,Máy xử lý nguyên liệu,Prosesor material,Processador de materiais,Procesador de materiales,Материальный процессор,Processeur de matériaux,Materialprozessor,Malzeme işlemcisi,सामग्री प्रक्रमक,Procesor de materiale,معالج المواد,ပစ္စည်း Processor,مادی پروسیسر,উপাদান প্রসেসর
+PET_DOG,Corgi,科爾基,คอร์กี้,Chó Corgi,Corgi,Corgi,Corgi,Корги,Corgi,Corgi,Corgi,CORGI,Corgi,كورجي,corgi,کورگی,করগি
