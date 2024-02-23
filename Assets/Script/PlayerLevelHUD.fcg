@@ -1,0 +1,38 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+
+graph PlayerLevelHUD {
+    _levelHUD entity<CustomHud>
+
+    func InitLevelHUD(){
+        if(_levelHUD == nil){
+            _levelHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:LEVEL, 4)
+            _levelHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DisplayLevelHUD(){
+        InitLevelHUD()
+        ResetLevelHUD()
+        if(!_levelHUD<CustomHud>.Visibility){
+            _levelHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ResetLevelHUD(){
+
+    }
+
+    func CloseLevelHUD(){
+        if(_levelHUD != nil){
+            _levelHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteLevelHUD(){
+        DeleteEntity(_levelHUD)
+    }
+}

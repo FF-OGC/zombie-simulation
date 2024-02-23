@@ -8,28 +8,14 @@ graph PlayerStat {
 
     _hasInit bool
     _killCount int
-    _exp int
 
 
     func InitPlayerStat(){
         // Check for stored data first before initialize
         if(!_hasInit){
-            _exp = 0
             _killCount = 0
             _hasInit = true
         }
-    }
-
-    func IncreaseExpByAmount(amount int){
-        _exp += amount
-    }
-
-    func DecreaseExpByAmount(amount int){
-        _exp -= amount
-    }
-
-    func GetExp() int{
-        return _exp
     }
 
     func IncreaseKillCountByAmount(amount int){

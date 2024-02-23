@@ -63,10 +63,12 @@ graph PlayerCraftlandToken {
 
     func DeductCraftlandTokenByAmount(amount int){
         var succeed = false
+
         while(!succeed){
             CostTokenFromPlayer(thisEntity<Player>, 19002, amount, out var result)
             succeed = result
         }
+
         UpdateCraftlandTokenWalletHUD()
     }
 }

@@ -3,6 +3,10 @@ import "EditorGenLib.fcc" as editorGenLib
 import "AI.fcc" as ai
 import "Player.fcc" as player
 import "Workflow.fcc" as workflow
+import "Combat.fcc" as combat
+
+import Resources from "EditorGenLib.fcc"
+import MyResources from "EditorGenLib.fcc"
 
 import "./GlobalSpawn.fcg" as GlobalSpawn
 
@@ -10,17 +14,24 @@ import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "./PlayerMenu.fcg" as PlayerMenu
 import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
-import "Combat.fcc" as combat
-
+import "./PlayerCraftlandToken.fcg" as PlayerCraftlandToken
+import "./PlayerLevelHUD.fcg" as PlayerLevelHUD
+import "LevelObject.fcc" as levelobject
 
 graph Player {
     event Player_PlayerJoinGame() {
         start InitAllHUD() 
         thisEntity<PlayerMenu>.DisplayMenuHUD()
+        thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
+
+        CreateLevelObject(out var createdEntity, Vector3{-300, 6.5, -402}, DynamicCreateItemID:Zombie)
+        // createdEntity<Transform>.Position = thisEntity<Transform>.Position
+        LogInfo("[Player] createdEntity: " + createdEntity + ", " + createdEntity<Transform>.Position)
+        // createdEntity<Transform>.Position = Vector3{-300, 6.5, -402}
     }
 
     event Player_PlayerQuitGame() {
-        RunOnKilled()
+        start RunOnKilled()
     }
     
     event OnPhaseStart(phase entity<Phase>) {
@@ -30,13 +41,16 @@ graph Player {
     event OnBeKilled(attacker entity<Entity>,
       damageType DamageType,
       beDamagedPart HitBodyPart) {
-        RunOnKilled()
+        start RunOnKilled()
     }
 
     async func InitAllHUD(){
         thisEntity<PlayerZoneSelectionHUD>.InitZoneSelectionHUD()
         WaitForSeconds(500)
         thisEntity<PlayerMenu>.InitMenuHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerLevelHUD>.InitLevelHUD()
+        WaitForSeconds(500)
     }
 
     func DeleteAllHUD(){
@@ -44,7 +58,10 @@ graph Player {
         thisEntity<PlayerMenu>.DeleteMenuHUD()
     }
 
-    func RunOnKilled(){
+    async func RunOnKilled(){
         thisEntity<PlayerZoneSelection>.StopPlayerFromTeleporting()
+        WaitForNextFrame()
+        Revive(thisEntity<Player>)
     }
+
 }

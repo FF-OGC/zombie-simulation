@@ -5,6 +5,7 @@ import "Hud.fcc" as hud
 import "AI.fcc" as ai
 import "Player.fcc" as player
 import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
+import MyResources from "EditorGenLib.fcc"
 
 graph PlayerZoneSelection {
     _buttonZoneMap Map<entity<HudButtonWidget>, ZoneEnum>
@@ -39,12 +40,12 @@ graph PlayerZoneSelection {
 
     func ConfirmZoneSelection(){
         if(_selectedZone == ZoneEnum:NONE){
-            ShowTips(thisEntity<Player>, "", ColorRGB(255, 255, 255), 3000)
+            ShowTips(thisEntity<Player>, MyResources:Localizations["ZONE_SELECTION_NO_ZONE_SELECTED"], ColorRGB(255, 255, 255), 3000)
             return 
         }
 
         if(_isTeleporting){
-            ShowTips(thisEntity<Player>, "", ColorRGB(255, 255, 255), 3000)
+            ShowTips(thisEntity<Player>, MyResources:Localizations["ZONE_SELECTION_IS_TELEPORTING"], ColorRGB(255, 255, 255), 3000)
             return
         }
 
@@ -75,7 +76,8 @@ graph PlayerZoneSelection {
             return
         }
 
-        Teleport(thisEntity<Player>, globalEntity<GlobalZoneSelection>.GetZoneTeleportLocation(_selectedZone), Vector3{0, 0, 0})
+        Teleport(thisEntity<Player>, globalEntity<GlobalZoneSelection>.GetZoneTeleportLocation(_selectedZone) + Vector3{0, 3, 0}, Vector3{0, 0, 0})
+        StopPlayerFromTeleporting()
     }
 
     func SetSelectedZone(button entity<HudButtonWidget>){

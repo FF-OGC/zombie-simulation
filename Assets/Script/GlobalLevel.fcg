@@ -1,0 +1,51 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Map.fcc" as map
+import "List.fcc" as list
+
+graph GlobalLevel {
+    EXP_MAX int = 100
+    EXP_MIN int = 0
+
+    _levelExpMap Map<int, int>
+    _hasInit bool
+
+    func InitGlobalLevel(){
+        if(!_hasInit){
+            SetLevelExpMap()
+            _hasInit = true
+        }
+    }
+
+    func SetLevelExpMap(){
+        _levelExpMap = Map<int, int>{}
+        _levelExpMap[0] = 0
+        _levelExpMap[1] = 10
+        _levelExpMap[2] = 20
+        _levelExpMap[3] = 30
+        _levelExpMap[4] = 40
+        _levelExpMap[5] = 50
+        _levelExpMap[6] = 60
+        _levelExpMap[7] = 70
+        _levelExpMap[8] = 80
+        _levelExpMap[9] = 90
+        _levelExpMap[10] = 100
+    }
+
+    func GetLevelExpRequirement(level int) int{
+        InitGlobalLevel()
+        return _levelExpMap[level]
+    }
+    
+    func GetLevelList() List<int>{
+        InitGlobalLevel()
+        return GetAllKeys(_levelExpMap) as List<int>
+    }
+
+    func GetMaxLevel() int{
+        InitGlobalLevel()
+        Max(GetLevelList(), out var isSuceed, out var maxLvl)
+        return maxLvl as int
+    }
+
+}

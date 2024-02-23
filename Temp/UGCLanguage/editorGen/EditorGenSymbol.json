@@ -51,112 +51,117 @@
           },
           {
             "Name": "EResource_UI",
-            "ID": 50473,
+            "ID": 787817,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 731247,
+            "ID": 4695,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 594565,
+            "ID": 487779,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 744021,
+            "ID": 477269,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 526583,
+            "ID": 342087,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 186499,
+            "ID": 743440,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 233970,
+            "ID": 665420,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 438827,
+            "ID": 126293,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 255274,
+            "ID": 259259,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 986409,
+            "ID": 705299,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 917171,
+            "ID": 334004,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 7187,
+            "ID": 227141,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 951479,
+            "ID": 988141,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 881340,
+            "ID": 221428,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 671273,
+            "ID": 633575,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 887849,
+            "ID": 552025,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 99943,
+            "ID": 716380,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 455928,
+            "ID": 733982,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 901694,
+            "ID": 635144,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 414284,
+            "ID": 72927,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 484970,
+            "ID": 429035,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 99225,
+            "ID": 227507,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_LEVEL",
+            "ID": 617142,
             "Props": []
           }
         ],
@@ -224,6 +229,10 @@
               {
                 "ID": "InitSceneObjects",
                 "Name": "InitSceneObjects"
+              },
+              {
+                "ID": "CreateZombie",
+                "Name": "CreateZombie"
               }
             ]
           },
@@ -255,7 +264,7 @@
             ]
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_ID9hbvunquz",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDnwkidmm94",
             "Name": "Resources",
             "Props": [
               {
@@ -345,6 +354,10 @@
               {
                 "ID": "Editor_Gen_Resource_UI_MENU",
                 "Name": "UI_MENU"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_LEVEL",
+                "Name": "UI_LEVEL"
               }
             ],
             "Funcs": []

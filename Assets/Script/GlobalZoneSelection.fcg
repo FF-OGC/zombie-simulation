@@ -17,6 +17,7 @@ graph GlobalZoneSelection {
         _zoneTeleportLocationMap = Map<string, Vector3>{}
         _zoneTeleportLocationMap[ZoneEnum:BASE] = GetLocationFromObject("SPAWN_POINT")
         _zoneTeleportLocationMap[ZoneEnum:LVL000] = GetLocationFromObject("000_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL010] = GetLocationFromObject("010_TP_TRIGGER")
     }
 
     func GetZoneTeleportLocation(zoneEnum string) Vector3{

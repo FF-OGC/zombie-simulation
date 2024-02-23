@@ -112,12 +112,31 @@ enum ZoneEnum {
     // LVL100
     LVL100 = "Z_LVL_100"
 
+    // WB20
+    WB20 = "Z_WB_20"
+
+    // WB40
+    WB40 = "Z_WB_40"
+
+    // WB60
+    WB60 = "Z_WB_60"
+
+    // WB80
+    WB80 = "Z_WB_80"
+
+    // WB100
+    WB100 = "Z_WB_100"
+
+    // WBF
+    WBF = "Z_WB_FINAL"
+
 }
 
 enum EResource_UI {
     CRAFTLAND_TOKEN_WALLET = "CRAFTLAND_TOKEN_WALLET"
     ZONE_SELECTION = "ZONE_SELECTION"
     MENU = "MENU"
+    LEVEL = "LEVEL"
 }
 enum EResource_Scene {
     ZS = "ZS"
@@ -184,6 +203,9 @@ declare static graph MyResources {
     // InitSceneObjects()
     func InitSceneObjects () 
 
+    // CreateZombie(playerLoc Vector3, player Player)
+    func CreateZombie (param0 Vector3, param1 entity<Player>) 
+
 }
 
 // Assets\ECA\MyResourcesLoc.eca
@@ -213,4 +235,5 @@ declare static graph Resources {
     UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
     UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>
     UI_MENU Map<EResource_UI_MENU, CustomHudWidgetID>
+
 }
