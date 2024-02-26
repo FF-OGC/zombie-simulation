@@ -11,7 +11,7 @@ graph HUDMenu {
             LogInfo("[HUDMenu] btnMap: " + button) 
             player<PlayerZoneSelection>.BeginZoneSelection()
             // CreateLevelObject(out var createdEntity, Vector3{-300, 6.5, -402}, DynamicCreateItemID:Zombie)
-            MyResources:CreateZombie(player<Transform>.Position, player)
+            // MyResources:CreateZombie(player<Transform>.Position, player)
             // LogInfo("[HUD_ButtonClicked] createdEntity: " + createdEntity + " " + createdEntity<Transform>.Position)
         } 
     }

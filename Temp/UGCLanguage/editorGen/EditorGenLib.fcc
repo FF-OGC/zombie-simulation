@@ -1,10 +1,34 @@
 import "Hud.fcc" as hud
+import "AI.fcc" as aI
 import "StdLibrary.fcc" as stdLibrary
+import "LevelObject.fcc" as levelObject
 
 
 
 // Button control
 partial component HudButtonWidget {
+}
+
+// Mob Spawner
+[combine CustomizeTrigger]
+component MobSpawner {
+    // Type
+    Type AIType
+
+    // TotalCount
+    TotalCount int
+
+}
+
+// Boss Spawner
+component BossSpawner {
+}
+
+// Component
+partial component Component {
+    // Type
+    Type AIType
+
 }
 
 
@@ -141,6 +165,9 @@ enum EResource_UI {
 enum EResource_Scene {
     ZS = "ZS"
 }
+enum EResource_Prefab {
+    REGULAR_ZOMBIE = "REGULAR_ZOMBIE"
+}
 enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
     TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
 }
@@ -231,6 +258,7 @@ declare static graph MyResourcesLoc {
 declare static graph Resources {
     UI Map<EResource_UI, CustomHudID>
     Scene Map<EResource_Scene, string>
+    Prefab Map<EResource_Prefab, PrefabID>
 
     UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
     UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>

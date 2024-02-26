@@ -23,11 +23,6 @@ graph Player {
         start InitAllHUD() 
         thisEntity<PlayerMenu>.DisplayMenuHUD()
         thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
-
-        CreateLevelObject(out var createdEntity, Vector3{-300, 6.5, -402}, DynamicCreateItemID:Zombie)
-        // createdEntity<Transform>.Position = thisEntity<Transform>.Position
-        LogInfo("[Player] createdEntity: " + createdEntity + ", " + createdEntity<Transform>.Position)
-        // createdEntity<Transform>.Position = Vector3{-300, 6.5, -402}
     }
 
     event Player_PlayerQuitGame() {

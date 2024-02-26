@@ -2,7 +2,7 @@
   "NameSpace": {
     "Name": "tZkoCtNH",
     "ID": 0,
-    "UIDSeed": 1
+    "UIDSeed": 100006
   },
   "FileSpaces": [
     {
@@ -13,6 +13,35 @@
             "Name": "HudButtonWidget",
             "ID": 41,
             "Props": []
+          },
+          {
+            "Name": "MobSpawner",
+            "ID": 100000,
+            "Props": [
+              {
+                "ID": 100004,
+                "Name": "Type"
+              },
+              {
+                "ID": 100005,
+                "Name": "TotalCount"
+              }
+            ]
+          },
+          {
+            "Name": "BossSpawner",
+            "ID": 100001,
+            "Props": []
+          },
+          {
+            "Name": "Component",
+            "ID": 164,
+            "Props": [
+              {
+                "ID": 100002,
+                "Name": "Type"
+              }
+            ]
           },
           {
             "Name": "DataEnum",
@@ -51,117 +80,117 @@
           },
           {
             "Name": "EResource_UI",
-            "ID": 787817,
+            "ID": 78675,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 4695,
+            "ID": 743199,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 487779,
+            "ID": 610446,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 477269,
+            "ID": 664804,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 342087,
+            "ID": 349398,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 743440,
+            "ID": 125699,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 665420,
+            "ID": 491322,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 126293,
+            "ID": 512037,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 259259,
+            "ID": 188852,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 705299,
+            "ID": 490582,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 334004,
+            "ID": 309780,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 227141,
+            "ID": 788963,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 988141,
+            "ID": 395652,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 221428,
+            "ID": 712260,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 633575,
+            "ID": 580741,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 552025,
+            "ID": 353394,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 716380,
+            "ID": 787412,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 733982,
+            "ID": 152198,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 635144,
+            "ID": 648723,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 72927,
+            "ID": 958059,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 429035,
+            "ID": 531400,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 227507,
+            "ID": 207215,
             "Props": []
           },
           {
             "Name": "EResource_UI_LEVEL",
-            "ID": 617142,
+            "ID": 246697,
             "Props": []
           }
         ],
@@ -264,7 +293,7 @@
             ]
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDnwkidmm94",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDubyphamxm",
             "Name": "Resources",
             "Props": [
               {
