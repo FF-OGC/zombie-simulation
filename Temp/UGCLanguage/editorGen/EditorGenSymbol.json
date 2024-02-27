@@ -80,117 +80,117 @@
           },
           {
             "Name": "EResource_UI",
-            "ID": 78675,
+            "ID": 683702,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 743199,
+            "ID": 321742,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 610446,
+            "ID": 593530,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 664804,
+            "ID": 951269,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 349398,
+            "ID": 91935,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 125699,
+            "ID": 197319,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 491322,
+            "ID": 931588,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 512037,
+            "ID": 215352,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 188852,
+            "ID": 633458,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 490582,
+            "ID": 301773,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 309780,
+            "ID": 792259,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 788963,
+            "ID": 157967,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 395652,
+            "ID": 281295,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 712260,
+            "ID": 206774,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 580741,
+            "ID": 905239,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 353394,
+            "ID": 713405,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 787412,
+            "ID": 689421,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 152198,
+            "ID": 691791,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 648723,
+            "ID": 121088,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 958059,
+            "ID": 525665,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 531400,
+            "ID": 47665,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 207215,
+            "ID": 553674,
             "Props": []
           },
           {
             "Name": "EResource_UI_LEVEL",
-            "ID": 246697,
+            "ID": 401056,
             "Props": []
           }
         ],
@@ -293,7 +293,7 @@
             ]
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDubyphamxm",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDatof08nib",
             "Name": "Resources",
             "Props": [
               {

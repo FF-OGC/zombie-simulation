@@ -1,7 +1,6 @@
 import "Hud.fcc" as hud
 import "AI.fcc" as aI
 import "StdLibrary.fcc" as stdLibrary
-import "LevelObject.fcc" as levelObject
 
 
 
@@ -10,7 +9,7 @@ partial component HudButtonWidget {
 }
 
 // Mob Spawner
-[combine CustomizeTrigger]
+[combine Entity]
 component MobSpawner {
     // Type
     Type AIType
