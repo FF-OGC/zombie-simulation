@@ -1,6 +1,67 @@
+import "Convert.fcc" as convert
+import "List.fcc" as list
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
+import Resources from "EditorGenLib.fcc"
+import "./ZoneBossManager.fcg" as ZoneBossManager
 
-graph HelloWorld {
-    // 
+graph GlobalZoneBossManager {
+    GLOBAL_SPAWN_INTERVAL int = 10 // 10 seconds
+    _hasInit bool
+    _typePrefabMap Map<int, PrefabID>
+    _bossSpawnList List<entity<Entity>>
+
+    func InitGlobalZoneBossManager(){
+        var prefabID = ToString(Resources:Prefab[EResource_Prefab:MECHANICAL_SPIDER_BOSS])
+        if(prefabID != nil){
+            SetTypePrefabMap()
+        }
+
+        if(!_hasInit){
+            _hasInit = true
+        }
+    }
+
+    func GlobalZoneSpawnLoopContent(loopCount int){
+        // LogInfo("[GlobalZoneMobManager] LoopContent: " + _spawnZoneList)
+
+        // Check if this is the loop to spawn 
+        if(loopCount % GLOBAL_SPAWN_INTERVAL != 0){
+            return
+        }
+
+        // Loop through each spawn zone to call the its loop content
+        for i = 0, Length(_bossSpawnList), 1{
+            var bossSpawn = _bossSpawnList[i]
+            // bossSpawn<ZoneBossManager>.MobStuckCheckLoopContent()
+            bossSpawn<ZoneBossManager>.SpawningLoopContent()
+        }
+    }
+
+    func SetTypePrefabMap(){
+        if(_typePrefabMap != nil){
+            return 
+        }
+
+        _typePrefabMap = Map<int, PrefabID>{}
+        _typePrefabMap[BossEnum:MECHANICAL_SPIDER] = Resources:Prefab[EResource_Prefab:MECHANICAL_SPIDER_BOSS]
+    }
+
+    func GetTypePrefab(bossEnum int) PrefabID{
+        InitGlobalZoneBossManager()
+        return _typePrefabMap[bossEnum]
+    }
+
+    func InsertZoneSpawnList(bossSpawner entity<BossSpawner>){
+        // LogInfo("[GlobalZoneBossManager] InsertZoneSpawnList: " + bossSpawner)
+        if(_bossSpawnList == nil){
+            _bossSpawnList = List<entity<Entity>>{}
+        }
+
+        if(Contains(_bossSpawnList, bossSpawner)){
+            return
+        }
+
+        Append(_bossSpawnList, bossSpawner)
+    }
 }

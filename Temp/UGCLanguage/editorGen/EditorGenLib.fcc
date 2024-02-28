@@ -1,6 +1,6 @@
 import "Hud.fcc" as hud
-import "AI.fcc" as aI
 import "StdLibrary.fcc" as stdLibrary
+import "AI.fcc" as aI
 
 
 
@@ -20,7 +20,14 @@ component MobSpawner {
 }
 
 // Boss Spawner
+[combine Entity]
 component BossSpawner {
+    // Type
+    Type BossEnum
+
+    // TotalCount
+    TotalCount int
+
 }
 
 // Component
@@ -135,23 +142,30 @@ enum ZoneEnum {
     // LVL100
     LVL100 = "Z_LVL_100"
 
-    // WB20
-    WB20 = "Z_WB_20"
+    // WB020
+    WB020 = "Z_WB_020"
 
-    // WB40
-    WB40 = "Z_WB_40"
+    // WB040
+    WB040 = "Z_WB_040"
 
-    // WB60
-    WB60 = "Z_WB_60"
+    // WB060
+    WB060 = "Z_WB_060"
 
-    // WB80
-    WB80 = "Z_WB_80"
+    // WB080
+    WB080 = "Z_WB_080"
 
     // WB100
     WB100 = "Z_WB_100"
 
     // WBF
     WBF = "Z_WB_FINAL"
+
+}
+
+// BossEnum, type: Int
+enum BossEnum {
+    // MECHANICAL_SPIDER
+    MECHANICAL_SPIDER = 0
 
 }
 
@@ -166,6 +180,11 @@ enum EResource_Scene {
 }
 enum EResource_Prefab {
     REGULAR_ZOMBIE = "REGULAR_ZOMBIE"
+    AXE_ZOMBIE = "AXE_ZOMBIE"
+    TOSSING_ZOMBIE = "TOSSING_ZOMBIE"
+    RED_TOSSING_ZOMBIE = "RED_TOSSING_ZOMBIE"
+    SHIELDED_ZOMBIE = "SHIELDED_ZOMBIE"
+    MECHANICAL_SPIDER_BOSS = "MECHANICAL_SPIDER_BOSS"
 }
 enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
     TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
@@ -175,6 +194,7 @@ enum EResource_UI_ZONE_SELECTION {
     BTN_ZONE_010 = "BTN_ZONE_010"
     BTN_CONFIRM = "BTN_CONFIRM"
     BTN_EXIT = "BTN_EXIT"
+    BTN_WB_020 = "BTN_WB_020"
 }
 enum EResource_UI_MENU {
     BTN_MAP = "BTN_MAP"

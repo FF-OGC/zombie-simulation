@@ -18,6 +18,7 @@ graph PlayerZoneSelection {
             _buttonZoneMap = Map<entity<HudButtonWidget>, ZoneEnum>{}
             _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION:BTN_ZONE_000)] = ZoneEnum:LVL000
             _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION:BTN_ZONE_010)] = ZoneEnum:LVL010
+            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION:BTN_WB_020)] = ZoneEnum:WB020
             _hasInit = true
         }
     }

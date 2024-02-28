@@ -1,18 +1,0 @@
-Ã
-0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclNGWC5mY2c="Ã
-!./Assets/Script/PlayerSFX.fcg:7:4PlaySFXOnceÛ"($:"./Assets/Script/PlayerSFX.fcg:7:21*€
-!./Assets/Script/PlayerSFX.fcg:8:8Invoke PlaySoundùJ"<:
-"./Assets/Script/PlayerSFX.fcg:8:18Invoke ThisEntityêN"ca
-"./Assets/Script/PlayerSFX.fcg:8:38Invoke GetLocalVar÷"$:"./Assets/Script/PlayerSFX.fcg:7:21BHˇˇˇˇˇˇˇˇˇ"ª
-"./Assets/Script/PlayerSFX.fcg:11:4PlaySFXOverTimeÛ"P%:#./Assets/Script/PlayerSFX.fcg:11:31%:#./Assets/Script/PlayerSFX.fcg:11:53*à
-"./Assets/Script/PlayerSFX.fcg:12:8Invoke CreateSoundÀN"%:#./Assets/Script/PlayerSFX.fcg:12:28"=;
-#./Assets/Script/PlayerSFX.fcg:12:40Invoke ThisEntityêN"ec
-#./Assets/Script/PlayerSFX.fcg:12:60Invoke GetLocalVar÷"%:#./Assets/Script/PlayerSFX.fcg:11:31*ü
-"./Assets/Script/PlayerSFX.fcg:13:8Invoke PlayµN"ec
-#./Assets/Script/PlayerSFX.fcg:13:13Invoke GetLocalVar÷"%:#./Assets/Script/PlayerSFX.fcg:12:28" *•
-"./Assets/Script/PlayerSFX.fcg:14:8Invoke WaitForSecondsÒ"ec
-#./Assets/Script/PlayerSFX.fcg:14:23Invoke GetLocalVar÷"%:#./Assets/Script/PlayerSFX.fcg:11:53*ú
-"./Assets/Script/PlayerSFX.fcg:15:8Invoke Pause∂N"ec
-#./Assets/Script/PlayerSFX.fcg:15:14Invoke GetLocalVar÷"%:#./Assets/Script/PlayerSFX.fcg:12:28*£
-"./Assets/Script/PlayerSFX.fcg:16:8Invoke DeleteEntity¶N"ec
-#./Assets/Script/PlayerSFX.fcg:16:21Invoke GetLocalVar÷"%:#./Assets/Script/PlayerSFX.fcg:12:28BBHˇˇˇˇˇˇˇˇˇ*	PlayerSFX0
