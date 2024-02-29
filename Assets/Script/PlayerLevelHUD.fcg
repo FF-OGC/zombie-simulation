@@ -35,4 +35,8 @@ graph PlayerLevelHUD {
     func DeleteLevelHUD(){
         DeleteEntity(_levelHUD)
     }
+
+    func GetLevelHUDWidget(eResourceUILevel string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _levelHUD, Resources:UI_ZONE_SELECTION[eResourceUILevel])
+    }
 }

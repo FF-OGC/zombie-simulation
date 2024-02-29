@@ -1,9 +1,10 @@
+import "Map.fcc" as map
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import MyResources from "EditorGenLib.fcc"
 
 graph GlobalMaterial {
-    _materialNameMap Map<string, LocString>
+    _materialNameMap Map<string, object>
     _hasInit bool
 
     func InitGlobalMaterial(){
@@ -14,12 +15,17 @@ graph GlobalMaterial {
     }
 
     func SetMaterialNameMap(){
-        _materialNameMap = Map<int, LocString>{}
-        // _materialNameMap[MaterialEnum:WOOD_LOG] = MyResources:MaterialLocalizations[MaterialEnum:WOOD_LOG] as LocString
+        _materialNameMap = Map<string, object>{}
+        _materialNameMap[MaterialEnum:WOOD_LOG] = MyResources:MaterialLocalizations[MaterialEnum:WOOD_LOG]
     }
 
     func GetMaterialName(materialEnum string) LocString{
         InitGlobalMaterial()
-        return _materialNameMap[materialEnum]
+        return _materialNameMap[materialEnum] as LocString
+    }
+
+    func GetMaterialList() List<string>{
+        InitGlobalMaterial()
+        return GetAllKeys(_materialNameMap) as List<string>
     }
 }

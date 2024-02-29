@@ -1,6 +1,79 @@
+import "List.fcc" as list
+import "Convert.fcc" as convert
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalMaterial.fcg" as GlobalMaterial
+import "Strings.fcc" as strings
+import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
 
-graph HelloWorld {
-    // 
+import MyResources from "EditorGenLib.fcc"
+import MyResourcesLoc from "EditorGenLib.fcc"
+
+graph PlayerInventory {
+    _inventoryMap Map<string, int>
+    _hasInit bool
+
+    func InitPlayerInventory(){
+        if(!_hasInit){
+            SetPlayerInventoryMap()
+            _hasInit = true
+        }
+    }
+
+    func SetPlayerInventoryMap(){
+        // Get inventory from saved data first
+
+        // If no data from saved data then init
+        if(_inventoryMap != nil){
+            return
+        }
+
+        _inventoryMap = Map<string, int>{}
+        var materialList = globalEntity<GlobalMaterial>.GetMaterialList()
+        LogInfo("[PlayerInventory] materialList: " + materialList + " " + list:Length(materialList))
+
+        for i = 0, list:Length(materialList), 1{
+            var material = materialList[i]
+            _inventoryMap[material] = 0
+        }
+    }
+
+    func BeginPlayerInventorySystem(){
+        InitPlayerInventory()
+        thisEntity<PlayerInventoryHUD>.DisplayInventoryHUD()
+    }
+
+    func IncreaseItemByAmount(materialEnum string, amount int){
+        LogInfo("[PlayerInventory] material before +: " + materialEnum + " " + _inventoryMap[materialEnum])
+
+        // Add mat to inventory
+        var currentMatAmount = _inventoryMap[materialEnum]
+        var totalMatAmount = currentMatAmount + amount
+        _inventoryMap[materialEnum] = totalMatAmount
+
+        // Set Obtain noti
+        var materialAmountStr =  "x" + ToString(amount)
+        ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        LogInfo("[PlayerInventory] material after +: " + materialEnum + " " + _inventoryMap[materialEnum])
+    }
+
+    func GetItemAmount(materialEnum string) int{
+        return _inventoryMap[materialEnum]
+    }
+
+    func DecreaseItemByAmount(materialEnum string, amount int){
+        LogInfo("[PlayerInventory] material before -: " + materialEnum + " " + _inventoryMap[materialEnum])
+
+        // Consume mat from inventory
+        var currentMatAmount = _inventoryMap[materialEnum]
+        var totalMatAmount = currentMatAmount + amount
+        _inventoryMap[materialEnum] = totalMatAmount
+
+        // Set Consumption noti
+        var materialAmountStr = "x" + ToString(amount)
+        ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        LogInfo("[PlayerInventory] material after -: " + materialEnum + " " + _inventoryMap[materialEnum])
+    }
+
+    
 }

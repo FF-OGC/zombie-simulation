@@ -52,12 +52,16 @@ graph GlobalZoneBossManager {
         return _typePrefabMap[bossEnum]
     }
 
+    func GetBossSpawnList() List<entity<Entity>>{
+        return _bossSpawnList
+    }
+
     func InsertZoneSpawnList(bossSpawner entity<BossSpawner>){
-        // LogInfo("[GlobalZoneBossManager] InsertZoneSpawnList: " + bossSpawner)
+        LogInfo("[GlobalZoneBossManager] InsertZoneSpawnList: " + bossSpawner<Transform>.Position + " " + _bossSpawnList)
+
         if(_bossSpawnList == nil){
             _bossSpawnList = List<entity<Entity>>{}
         }
-
         if(Contains(_bossSpawnList, bossSpawner)){
             return
         }

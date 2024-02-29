@@ -94,117 +94,127 @@
           },
           {
             "Name": "EResource_UI",
-            "ID": 471034,
+            "ID": 105830,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 153215,
+            "ID": 808504,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 255059,
+            "ID": 445098,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 251502,
+            "ID": 219268,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 403683,
+            "ID": 595444,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 67791,
+            "ID": 962077,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 341656,
+            "ID": 444773,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 685057,
+            "ID": 114653,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 191260,
+            "ID": 871418,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 479196,
+            "ID": 728049,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 226640,
+            "ID": 852209,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 270645,
+            "ID": 382562,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 549295,
+            "ID": 136355,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 572474,
+            "ID": 581238,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 484249,
+            "ID": 318295,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 907442,
+            "ID": 385079,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 241182,
+            "ID": 927388,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 142320,
+            "ID": 553677,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 757533,
+            "ID": 624274,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 581829,
+            "ID": 449238,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 69449,
+            "ID": 382569,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 83956,
+            "ID": 166817,
             "Props": []
           },
           {
             "Name": "EResource_UI_LEVEL",
-            "ID": 280075,
+            "ID": 279788,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_INVENTORY",
+            "ID": 274375,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_DEBUG",
+            "ID": 758213,
             "Props": []
           }
         ],
@@ -276,6 +286,10 @@
               {
                 "ID": "CreateZombie",
                 "Name": "CreateZombie"
+              },
+              {
+                "ID": "SetHookGun",
+                "Name": "SetHookGun"
               }
             ]
           },
@@ -307,7 +321,7 @@
             ]
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_ID20c1b3pxr",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDlcymmw9dw",
             "Name": "Resources",
             "Props": [
               {
@@ -401,6 +415,14 @@
               {
                 "ID": "Editor_Gen_Resource_UI_LEVEL",
                 "Name": "UI_LEVEL"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_INVENTORY",
+                "Name": "UI_INVENTORY"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_DEBUG",
+                "Name": "UI_DEBUG"
               }
             ],
             "Funcs": []

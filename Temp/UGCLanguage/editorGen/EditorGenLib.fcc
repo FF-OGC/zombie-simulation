@@ -92,6 +92,9 @@ enum RecipeEnum {
     // MATERIAL_PROCESSOR
     MATERIAL_PROCESSOR = "REC_MATERIAL_PROCESSOR"
 
+    // MP5
+    MP5 = "REC_MP5"
+
 }
 
 // PetEnum, type: String
@@ -174,6 +177,8 @@ enum EResource_UI {
     ZONE_SELECTION = "ZONE_SELECTION"
     MENU = "MENU"
     LEVEL = "LEVEL"
+    INVENTORY = "INVENTORY"
+    DEBUG = "DEBUG"
 }
 enum EResource_Scene {
     ZS = "ZS"
@@ -195,9 +200,37 @@ enum EResource_UI_ZONE_SELECTION {
     BTN_CONFIRM = "BTN_CONFIRM"
     BTN_EXIT = "BTN_EXIT"
     BTN_WB_020 = "BTN_WB_020"
+    BTN_ZONE_020 = "BTN_ZONE_020"
+    BTN_ZONE_030 = "BTN_ZONE_030"
+    BTN_ZONE_040 = "BTN_ZONE_040"
+    BTN_ZONE_050 = "BTN_ZONE_050"
+    BTN_ZONE_060 = "BTN_ZONE_060"
+    BTN_ZONE_070 = "BTN_ZONE_070"
+    BTN_ZONE_080 = "BTN_ZONE_080"
+    BTN_ZONE_090 = "BTN_ZONE_090"
+    BTN_WB_040 = "BTN_WB_040"
+    BTN_WB_060 = "BTN_WB_060"
+    BTN_WB_080 = "BTN_WB_080"
+    BTN_WB_100 = "BTN_WB_100"
+    BTN_WB_F = "BTN_WB_F"
 }
 enum EResource_UI_MENU {
     BTN_MAP = "BTN_MAP"
+    BTN_DEBUG = "BTN_DEBUG"
+}
+enum EResource_UI_LEVEL {
+    PIVOT_LEVEL = "PIVOT_LEVEL"
+}
+enum EResource_UI_INVENTORY {
+    PIVOT_INVENTORY = "PIVOT_INVENTORY"
+    PIVOT_PROMPT = "PIVOT_PROMPT"
+    BTN_PROMPT = "BTN_PROMPT"
+}
+enum EResource_UI_DEBUG {
+    TXT_ZOMBIE_COUNT = "TXT_ZOMBIE_COUNT"
+    TXT_ZOMBIE_MAX = "TXT_ZOMBIE_MAX"
+    BTN_PLUS_100 = "BTN_PLUS_100"
+    BTN_MINUS_100 = "BTN_MINUS_100"
 }
 // Player_PlayerJoinGame()
 [platform_server]
@@ -252,6 +285,9 @@ declare static graph MyResources {
     // CreateZombie(playerLoc Vector3, player Player)
     func CreateZombie (param0 Vector3, param1 entity<Player>) 
 
+    // SetHookGun()
+    func SetHookGun () 
+
 }
 
 // Assets\ECA\MyResourcesLoc.eca
@@ -282,5 +318,7 @@ declare static graph Resources {
     UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
     UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>
     UI_MENU Map<EResource_UI_MENU, CustomHudWidgetID>
-
+    UI_LEVEL Map<EResource_UI_LEVEL, CustomHudWidgetID>
+    UI_INVENTORY Map<EResource_UI_INVENTORY, CustomHudWidgetID>
+    UI_DEBUG Map<EResource_UI_DEBUG, CustomHudWidgetID>
 }
