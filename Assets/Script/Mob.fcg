@@ -1,0 +1,48 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Combat.fcc" as combat
+import "./ZoneMobManager.fcg" as ZoneMobManager
+import "AI.fcc" as ai
+import "./GlobalLoop.fcg" as GlobalLoop
+import "./PlayerLevel.fcg" as PlayerLevel
+import "./PlayerInventory.fcg" as PlayerInventory
+
+graph Mob {
+    LOOP_ELIM_DELTA int = 300
+    _spawner entity<MobSpawner>
+    _loopSinceHit int
+    _expAmount int
+
+    event OnAwake() {
+        thisEntity<AI>.IsDeadDrop = false
+        _loopSinceHit = 0
+        _expAmount = 1
+    }
+
+    event OnTakeDamage(attacker entity<Entity>,
+      damageType DamageType,
+      value int,
+      beDamagedPart HitBodyPart) {
+        _loopSinceHit = globalEntity<GlobalLoop>.GetLoopCount()
+    }
+
+    event OnBeKilled(attacker entity<Entity>,
+      damageType DamageType,
+      beDamagedPart HitBodyPart) {
+        _spawner<ZoneMobManager>.RemoveMobFromList(thisEntity<Entity>)
+        attacker<PlayerLevel>.IncreaseExpByAmount(_expAmount)
+        attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum:WOOD_LOG, 1)
+    }
+
+    func StuckCheckLoopContent(){
+        var currentLoop = globalEntity<GlobalLoop>.GetLoopCount()
+        if(currentLoop - _loopSinceHit > LOOP_ELIM_DELTA){
+            Kill(thisEntity<CombatEntity>) 
+        }
+    }
+
+    func SetSpawner(spawner entity<MobSpawner>){
+        _spawner = spawner
+    }
+
+}

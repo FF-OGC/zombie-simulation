@@ -1,0 +1,18 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Playable.fcc" as playable
+import "Workflow.fcc" as workflow
+
+graph LogTrigger {
+    event OnAwake() {
+        LogInfo("[LogTrigger] OnAwake: " + thisEntity)
+    }    
+
+    event OnPhaseStart(phase entity<Phase>) {
+        LogInfo("[LogTrigger] OnPhaseStart: " + thisEntity + " " + phase)
+    }
+
+    event OnGameStart() {
+        LogInfo("[LogTrigger] OnGameStart: " + thisEntity)
+    }
+}

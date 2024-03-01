@@ -1,0 +1,52 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import "./HUDUtil.fcg" as HUDUtil
+import Resources from "EditorGenLib.fcc"
+
+graph PlayerInventoryHUD {
+    _inventoryHUD entity<CustomHud>
+
+    func InitInventoryHUD(){
+        if(_inventoryHUD == nil){
+            _inventoryHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:INVENTORY, 4)
+            _inventoryHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DisplayInventoryHUD(){
+        InitInventoryHUD()
+        ResetInventoryHUD()
+        if(!_inventoryHUD<CustomHud>.Visibility){
+            _inventoryHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func CloseInventoryHUD(){
+        if(_inventoryHUD != nil){
+            _inventoryHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func ResetInventoryHUD(){
+
+    }
+
+    func DeleteInventoryHUD(){
+        DeleteEntity(_inventoryHUD)
+    }
+
+    func ToggleInventory(){
+        var pivotInventory = GetInventoryHUDWidget(EResource_UI_INVENTORY:PIVOT_INVENTORY)
+        if(pivotInventory<HudWidget>.Active){
+            pivotInventory<HudWidget>.Active = false
+        } else {
+            pivotInventory<HudWidget>.Active = true
+        }
+    }
+
+    func GetInventoryHUDWidget(eResourceUIInventory string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _inventoryHUD, Resources:UI_INVENTORY[eResourceUIInventory])
+    }
+
+}

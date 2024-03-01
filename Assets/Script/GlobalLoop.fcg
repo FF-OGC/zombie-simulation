@@ -1,0 +1,48 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
+
+graph GlobalLoop {
+    _loopCount int = 0
+    _isLooping bool = true
+
+    event OnAwake() {
+        _loopCount = 0
+        while(_isLooping){
+            WaitForSeconds(1000)
+            LogInfo("[GlobalLoop] LoopCount: " + _loopCount)
+            StartZoneMobManagerLoop()
+            StartZoneBossManagerLoop()
+            _loopCount += 1
+        }
+    }
+
+    func StartZoneMobManagerLoop(){
+        if(!_isLooping){
+            return
+        }
+
+        thisEntity<GlobalZoneMobManager>.GlobalZoneSpawnLoopContent(_loopCount)
+    }
+
+    func StartZoneBossManagerLoop(){
+        if(!_isLooping){
+            return
+        }
+        thisEntity<GlobalZoneBossManager>.GlobalZoneSpawnLoopContent(_loopCount)
+    }
+
+    func SetIsLooping(isLooping bool){
+        LogInfo("[GlobalLoop] isLooping: " + isLooping)
+        _isLooping = isLooping
+    }
+
+    func GetLoopCount() int{
+        return _loopCount
+    }
+    
+    func GetIsLooping() bool{
+        return _isLooping
+    }
+}

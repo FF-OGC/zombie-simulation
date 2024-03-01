@@ -1,0 +1,90 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
+import "Playable.fcc" as playable
+import "List.fcc" as list
+import "./Boss.fcg" as Boss
+
+graph ZoneBossManager {
+    X_DELTA float = 10.0
+    Z_DELTA float = 10.0
+    
+    _type int
+    _totalCount int
+    _bossList List<entity<Entity>>
+    _isSpawning bool
+    _hasInit bool
+
+    event OnAwake() {
+        LogInfo("[ZoneBossManager] new manager: " + thisEntity<Entity>)
+        BeginBossSpawning()
+    } 
+
+    func InitZoneBossManager(){
+        if(!_hasInit){
+            //The check exist due to not being able to set default enum value.
+            _type = thisEntity<BossSpawner>.Type
+            if(_type == 0){
+                _type = BossEnum:MECHANICAL_SPIDER
+            }
+            _totalCount = thisEntity<BossSpawner>.TotalCount
+            _bossList = List<entity<Entity>>{}
+
+            _isSpawning = true
+            _hasInit = true
+        }
+    }
+
+    func BeginBossSpawning(){
+        InitZoneBossManager()
+        globalEntity<GlobalZoneBossManager>.InsertZoneSpawnList(thisEntity<BossSpawner>)
+    }
+
+    func SpawningLoopContent(){
+        LogInfo("[ZoneBossManager] SpawningLoopContent")
+
+        if(!_isSpawning){
+            return
+        }
+
+        if(GetBossSpawnCount() >= _totalCount){
+            return
+        }
+        
+        var spawnLocation = GetSpawnLocation()
+        CreateFromPrefab(out var createdEntity, globalEntity<GlobalZoneBossManager>.GetTypePrefab(_type))
+        InsertBossToList(createdEntity)
+        createdEntity<Transform>.Position = spawnLocation
+        createdEntity<Boss>.SetSpawner(thisEntity<BossSpawner>)
+    }
+
+    func EndBossSpawningLoopContent(){
+        _isSpawning = false
+    }
+
+    func GetBossType() int{
+        return _type
+    }
+
+    func GetSpawnLocation() Vector3{
+        return thisEntity<Transform>.Position
+    }
+
+    func GetBossSpawnCount() int{
+        return Length(_bossList)
+    }
+
+    func InsertBossToList(boss entity<Entity>){
+        if(Contains(_bossList, boss)){
+            return
+        }
+
+        Append(_bossList, boss)
+        // LogInfo("[ZoneBossManager] _bossList: " + _mobList)
+    }
+
+    func RemoveBossFromList(boss entity<Entity>){
+        Delete(_bossList, boss)
+        // LogInfo("[ZoneBossManager] _bossList: " + _mobList)
+    }
+}
