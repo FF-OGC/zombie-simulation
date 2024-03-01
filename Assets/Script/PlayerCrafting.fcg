@@ -12,5 +12,6 @@ graph PlayerCrafting {
 
     func Craft(recipeEnum string){
         //Check if available
+        
     }
 }

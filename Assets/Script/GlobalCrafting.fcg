@@ -1,15 +1,21 @@
+import "Math.fcc" as math
+import "Database.fcc" as database
 import "Map.fcc" as map
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import MyResources from "EditorGenLib.fcc"
+import Resources from "EditorGenLib.fcc"
 
 graph GlobalCrafting {
     _recipeNameMap Map<string, object>
+    _recipeMaterialMap Map<string,Map<string,int>>
+    _recipeMaterialMapNotUse Map<string,Map<string,int>>
     _hasInit bool
 
     func InitGlobalCrafting(){
         if(!_hasInit){
             SetRecipeNameMap()
+            SetRecipeMaterialMap()
             _hasInit = true
         }
     }
@@ -29,4 +35,35 @@ graph GlobalCrafting {
         InitGlobalCrafting()
         return GetAllKeys(_recipeNameMap)
     }
+
+
+    func SetRecipeMaterialMap(){
+        _recipeMaterialMap = Map<string,Map<string,int>>{}
+        _recipeMaterialMapNotUse = Map<string,Map<string,int>>{}
+
+        var csv = ReadCSV(Resources:CSV[EResource_CSV:CRAFTING])
+        var inUseIndex = 1
+        var recIDIndex = 3
+        var woodIndex = 6
+        var cooperIndex = 7
+        var ironIndex = 8
+        var wood_ID = "WOOD_LOG"
+        var cooper_ID = "COOPER_ORE"
+        var iron_ID = "IRON_ORE"
+
+        for key, row in csv {
+            LogInfo(row[inUseIndex])
+            if row[inUseIndex] as string == "TRUE" {
+                _recipeMaterialMap[row[recIDIndex]] = Map<string,int>{wood_ID:row[woodIndex] as int, cooper_ID:row[cooperIndex] as int, iron_ID:row[ironIndex] as int}
+            } else {
+                _recipeMaterialMapNotUse[row[recIDIndex]] = Map<string,int>{wood_ID:row[woodIndex] as int, cooper_ID:row[cooperIndex] as int, iron_ID:row[ironIndex] as int}
+            }       
+        }
+    }
+
+    func GetRecipeMaterial(recipeEnum string) Map<string,int>{
+        InitGlobalCrafting()
+        return _recipeMaterialMap[recipeEnum]
+    }
+
 }

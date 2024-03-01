@@ -58,11 +58,13 @@
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbENyYWZ0aW5nLmZjZw==": {
       "Scripts": null,
       "ComponentItems": [
-        30062858
+        30062858,
+        349756
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        30062858
+        30062858,
+        349756
       ],
       "EventItems": null
     },
@@ -92,12 +94,12 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVCb3NzTWFuYWdlci5mY2c="
       ],
       "ComponentItems": [
-        741600,
+        733388,
         23664846
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        741600,
+        733388,
         23664846
       ],
       "EventItems": null
@@ -107,11 +109,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVNb2JNYW5hZ2VyLmZjZw=="
       ],
       "ComponentItems": [
-        741600
+        733388
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        741600
+        733388
       ],
       "EventItems": null
     },
@@ -130,14 +132,15 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn",
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn",
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlYnVnSFVELmZjZw=="
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlYnVnSFVELmZjZw==",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbENyYWZ0aW5nLmZjZw=="
       ],
       "ComponentItems": [
-        689355
+        760265
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        689355
+        760265
       ],
       "EventItems": null
     },
@@ -152,17 +155,30 @@
         100001
       ]
     },
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRENyYWZ0aW5nLmZjZw==": {
+      "Scripts": [
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0SFVELmZjZw=="
+      ],
+      "ComponentItems": [
+        751158
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        751158
+      ],
+      "EventItems": null
+    },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRERlYnVnLmZjZw==": {
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlYnVnSFVELmZjZw==",
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlYnVnLmZjZw=="
       ],
       "ComponentItems": [
-        445095
+        919943
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        445095
+        919943
       ],
       "EventItems": null
     },
@@ -171,11 +187,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckludmVudG9yeUhVRC5mY2c="
       ],
       "ComponentItems": [
-        310205
+        827689
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        310205
+        827689
       ],
       "EventItems": null
     },
@@ -185,11 +201,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn"
       ],
       "ComponentItems": [
-        897011
+        999283
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        897011
+        999283
       ],
       "EventItems": null
     },
@@ -216,9 +232,13 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        729871
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        729871
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1vbmV5LmZjZw==": {
@@ -236,16 +256,31 @@
       ],
       "EventItems": null
     },
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0SFVELmZjZw==": {
+      "Scripts": [
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
+      ],
+      "ComponentItems": [
+        729871
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        729871
+      ],
+      "EventItems": null
+    },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0bGFuZFRva2VuLmZjZw==": {
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
       "ComponentItems": [
-        154673
+        729871,
+        353493
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        154673
+        729871,
+        353493
       ],
       "EventItems": null
     },
@@ -279,9 +314,13 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        729871
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        729871
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckludmVudG9yeS5mY2c=": {
@@ -299,11 +338,13 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
       "ComponentItems": [
-        310205
+        729871,
+        827689
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        310205
+        729871,
+        827689
       ],
       "EventItems": null
     },
@@ -320,9 +361,13 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        729871
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        729871
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn": {
@@ -331,12 +376,12 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFpvbmVTZWxlY3Rpb24uZmNn"
       ],
       "ComponentItems": [
-        897011,
+        999283,
         92435776
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        897011,
+        999283,
         92435776
       ],
       "EventItems": null
@@ -345,9 +390,13 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        729871
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        729871
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1RyaWdnZXJTdGFnZVNlbGVjdGlvbi5mY2c=": {
@@ -411,13 +460,13 @@
     "Workflow",
     "LevelObject",
     "Items",
+    "Math",
+    "Database",
     "Map",
     "Physics",
-    "Math",
     "Hud",
     "GameResult",
     "FF_Platform",
-    "Database",
     "Economy"
   ],
   "ForceExportScripts": {},
@@ -438,6 +487,7 @@
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFpvbmVTZWxlY3Rpb24uZmNn": "./Assets/Script/GlobalZoneSelection.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRE1lbnUuZmNn": "./Assets/Script/HUDMenu.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVREJ1dHRvbi5mY2c=": "./Assets/Script/HUDButton.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRENyYWZ0aW5nLmZjZw==": "./Assets/Script/HUDCrafting.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRERlYnVnLmZjZw==": "./Assets/Script/HUDDebug.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVREludmVudG9yeS5mY2c=": "./Assets/Script/HUDInventory.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn": "./Assets/Script/HUDUtil.fcg",
@@ -446,6 +496,7 @@
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=": "./Assets/Script/Player.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn": "./Assets/Script/PlayerMenu.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1vbmV5LmZjZw==": "./Assets/Script/PlayerMoney.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0SFVELmZjZw==": "./Assets/Script/PlayerCraftHUD.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0aW5nLmZjZw==": "./Assets/Script/PlayerCrafting.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0bGFuZFRva2VuLmZjZw==": "./Assets/Script/PlayerCraftlandToken.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRhdGEuZmNn": "./Assets/Script/PlayerData.fcg",

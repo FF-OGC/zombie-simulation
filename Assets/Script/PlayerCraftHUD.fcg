@@ -1,0 +1,42 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+
+graph PlayerCraftingHUD {
+    _craftHUD entity<CustomHud>
+
+    func InitCraftHUD(){
+        if(_craftHUD == nil){
+            _craftHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:CRAFTING, 4)
+            _craftHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DisplayCraftHUD(){
+        InitCraftHUD()
+        ResetCraftHUD()
+        if(!_craftHUD<CustomHud>.Visibility){
+            _craftHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ResetCraftHUD(){
+
+    }
+
+    func CloseCraftHUD(){
+        if(_craftHUD != nil){
+            _craftHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteCraftHUD(){
+        DeleteEntity(_craftHUD)
+    }
+
+    func GetCraftHUDWidget(eResourceUILevel string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _craftHUD, Resources:UI_CRAFTING[eResourceUILevel])
+    }
+}

@@ -94,127 +94,132 @@
           },
           {
             "Name": "EResource_UI",
-            "ID": 78857,
+            "ID": 895997,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 726808,
+            "ID": 795001,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 817305,
+            "ID": 270950,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 737420,
+            "ID": 208524,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 32282,
+            "ID": 576482,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 910663,
+            "ID": 71953,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 489208,
+            "ID": 252539,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 50173,
+            "ID": 268233,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 389233,
+            "ID": 790303,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 852487,
+            "ID": 502777,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 270254,
+            "ID": 593619,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 511932,
+            "ID": 398684,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 378687,
+            "ID": 750217,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 938391,
+            "ID": 482417,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 324678,
+            "ID": 212001,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 712811,
+            "ID": 568571,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 724979,
+            "ID": 956443,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 552472,
+            "ID": 43414,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 159940,
+            "ID": 857640,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 875127,
+            "ID": 684744,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 963238,
+            "ID": 410222,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 174942,
+            "ID": 167408,
             "Props": []
           },
           {
             "Name": "EResource_UI_LEVEL",
-            "ID": 266455,
+            "ID": 246678,
             "Props": []
           },
           {
             "Name": "EResource_UI_INVENTORY",
-            "ID": 510544,
+            "ID": 807561,
             "Props": []
           },
           {
             "Name": "EResource_UI_DEBUG",
-            "ID": 636654,
+            "ID": 509364,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_CRAFTING",
+            "ID": 581931,
             "Props": []
           }
         ],
@@ -321,7 +326,7 @@
             ]
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDno8jiiv6a",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDgowujsejo",
             "Name": "Resources",
             "Props": [
               {
@@ -423,6 +428,10 @@
               {
                 "ID": "Editor_Gen_Resource_UI_DEBUG",
                 "Name": "UI_DEBUG"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_CRAFTING",
+                "Name": "UI_CRAFTING"
               }
             ],
             "Funcs": []

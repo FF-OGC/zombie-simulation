@@ -1,0 +1,19 @@
+—
+4tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRENyYWZ0aW5nLmZjZw==â°çÇ
+EditorGenLib.fcc:249:0HUD_ButtonClickedÛ"R&:$./Assets/Script/HUDCrafting.fcg:5:28&:$./Assets/Script/HUDCrafting.fcg:5:60*Ò
+#./Assets/Script/HUDCrafting.fcg:6:8Invoke ProcessCtlIfÈ"”–
+$./Assets/Script/HUDCrafting.fcg:6:19Invoke Compare§"ge
+$./Assets/Script/HUDCrafting.fcg:6:12Invoke GetLocalVar÷"&:$./Assets/Script/HUDCrafting.fcg:5:28"("ß§
+$./Assets/Script/HUDCrafting.fcg:6:22Invoke GetCraftHUDWidgetÙ"ge
+$./Assets/Script/HUDCrafting.fcg:6:22Invoke GetLocalVar÷"&:$./Assets/Script/HUDCrafting.fcg:5:60"::8tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0SFVELmZjZw=="):'./Assets/Script/PlayerCraftHUD.fcg:39:4":	BTN_CLOSE"”–
+$./Assets/Script/HUDCrafting.fcg:9:26Invoke Compare§"ge
+$./Assets/Script/HUDCrafting.fcg:9:19Invoke GetLocalVar÷"&:$./Assets/Script/HUDCrafting.fcg:5:28"("ß§
+$./Assets/Script/HUDCrafting.fcg:9:29Invoke GetCraftHUDWidgetÙ"ge
+$./Assets/Script/HUDCrafting.fcg:9:29Invoke GetLocalVar÷"&:$./Assets/Script/HUDCrafting.fcg:5:60"::8tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0SFVELmZjZw=="):'./Assets/Script/PlayerCraftHUD.fcg:39:4":	BTN_CRAFT*À
+$./Assets/Script/HUDCrafting.fcg:6:11	CodeBlockÛ"*˙
+$./Assets/Script/HUDCrafting.fcg:7:12Invoke LogInfo"øº
+$./Assets/Script/HUDCrafting.fcg:7:45Invoke Connect≠":[HUDCrafting] btnMap: "ge
+$./Assets/Script/HUDCrafting.fcg:7:47Invoke GetLocalVar÷"&:$./Assets/Script/HUDCrafting.fcg:5:28*ì
+$./Assets/Script/HUDCrafting.fcg:8:12Invoke CloseCraftHUDÙ"ge
+$./Assets/Script/HUDCrafting.fcg:8:12Invoke GetLocalVar÷"&:$./Assets/Script/HUDCrafting.fcg:5:60"::8tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckNyYWZ0SFVELmZjZw=="):'./Assets/Script/PlayerCraftHUD.fcg:29:4"*8
+$./Assets/Script/HUDCrafting.fcg:9:18	CodeBlockÛ"B))B*HUDCrafting0

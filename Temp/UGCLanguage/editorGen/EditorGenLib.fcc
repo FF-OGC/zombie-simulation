@@ -179,6 +179,7 @@ enum EResource_UI {
     LEVEL = "LEVEL"
     INVENTORY = "INVENTORY"
     DEBUG = "DEBUG"
+    CRAFTING = "CRAFTING"
 }
 enum EResource_Scene {
     ZS = "ZS"
@@ -190,6 +191,9 @@ enum EResource_Prefab {
     RED_TOSSING_ZOMBIE = "RED_TOSSING_ZOMBIE"
     SHIELDED_ZOMBIE = "SHIELDED_ZOMBIE"
     MECHANICAL_SPIDER_BOSS = "MECHANICAL_SPIDER_BOSS"
+}
+enum EResource_CSV {
+    CRAFTING = "CRAFTING"
 }
 enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
     TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
@@ -231,6 +235,10 @@ enum EResource_UI_DEBUG {
     TXT_ZOMBIE_MAX = "TXT_ZOMBIE_MAX"
     BTN_PLUS_100 = "BTN_PLUS_100"
     BTN_MINUS_100 = "BTN_MINUS_100"
+}
+enum EResource_UI_CRAFTING {
+    BTN_CRAFT = "BTN_CRAFT"
+    BTN_CLOSE = "BTN_CLOSE"
 }
 // Player_PlayerJoinGame()
 [platform_server]
@@ -314,6 +322,7 @@ declare static graph Resources {
     UI Map<EResource_UI, CustomHudID>
     Scene Map<EResource_Scene, string>
     Prefab Map<EResource_Prefab, PrefabID>
+    CSV Map<EResource_CSV, CsvID>
 
     UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
     UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>
@@ -321,4 +330,5 @@ declare static graph Resources {
     UI_LEVEL Map<EResource_UI_LEVEL, CustomHudWidgetID>
     UI_INVENTORY Map<EResource_UI_INVENTORY, CustomHudWidgetID>
     UI_DEBUG Map<EResource_UI_DEBUG, CustomHudWidgetID>
+    UI_CRAFTING Map<EResource_UI_CRAFTING, CustomHudWidgetID>
 }
