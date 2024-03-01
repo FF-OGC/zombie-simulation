@@ -1,3 +1,4 @@
+import "Combat.fcc" as combat
 import "List.fcc" as list
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
@@ -34,7 +35,7 @@ graph ZoneMobManager {
             _mobList = List<entity<Entity>>{}
 
             _totalMobCount = thisEntity<MobSpawner>.TotalCount
-            _isSpawning = true
+            _isSpawning = false
             _hasInit = true
         }
     }
@@ -45,7 +46,8 @@ graph ZoneMobManager {
     }
 
     async func SpawningLoopContent(){
-        // LogInfo("[ZoneMobManager] SpawningLoopContent")
+        InitZoneMobManager()
+        LogInfo("[ZoneMobManager] SpawningLoopContent" + _mobList)
         if(!_isSpawning){
             return
         }
@@ -75,10 +77,21 @@ graph ZoneMobManager {
         // LogInfo("[ZoneMobManager] mobList: " + _mobList)
     }
 
+    func EliminateAllZombieInCurrentZone(){
+        while(Length(_mobList) != 0){
+            var mob = _mobList[0]
+            Kill(mob<CombatEntity>)
+        } 
+    }
 
+    func StartMobSpawningLoopContent(){
+        _isSpawning = true
+    }
+    
     func EndMobSpawningLoopContent(){
         _isSpawning = false
     }
+
 
     func GetZombieType() int{
         return _type

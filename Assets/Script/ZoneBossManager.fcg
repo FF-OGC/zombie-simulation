@@ -40,22 +40,35 @@ graph ZoneBossManager {
         globalEntity<GlobalZoneBossManager>.InsertZoneSpawnList(thisEntity<BossSpawner>)
     }
 
-    func SpawningLoopContent(){
+    async func SpawningLoopContent(){
+        InitZoneBossManager()
         LogInfo("[ZoneBossManager] SpawningLoopContent")
+        // This is here since it does not init some time
+        if(_bossList == nil){
+            _bossList = List<entity<Entity>>{}
+        }
 
         if(!_isSpawning){
             return
         }
 
+        LogInfo("[ZoneBossManager] exceed: " + _bossList + " " + _type + " " + GetBossSpawnCount() + " " + (GetBossSpawnCount() >= _totalCount))
         if(GetBossSpawnCount() >= _totalCount){
             return
         }
         
         var spawnLocation = GetSpawnLocation()
         CreateFromPrefab(out var createdEntity, globalEntity<GlobalZoneBossManager>.GetTypePrefab(_type))
+
+        if(createdEntity == nil){
+            return 
+        }
+
         InsertBossToList(createdEntity)
         createdEntity<Transform>.Position = spawnLocation
         createdEntity<Boss>.SetSpawner(thisEntity<BossSpawner>)
+        LogInfo("[ZoneBossManager] _bossList: "  + thisEntity<Entity>.Name + " " + _bossList + " " + spawnLocation)
+        WaitForNextFrame()
     }
 
     func EndBossSpawningLoopContent(){

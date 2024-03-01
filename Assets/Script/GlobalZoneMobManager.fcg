@@ -46,7 +46,9 @@ graph GlobalZoneMobManager {
         if(_spawnZoneList == nil){
             _spawnZoneList = List<entity<Entity>>{}
         }
+        
         LogInfo("[GlobalZoneMobManager] contain spawnZone: " + Contains(_spawnZoneList, mobSpawner))
+
         if(Contains(_spawnZoneList, mobSpawner)){
             LogInfo("[GlobalZoneMobManager] duplicate")
             return
@@ -57,14 +59,14 @@ graph GlobalZoneMobManager {
 
     // This is called in the GlobalLoop 
     func GlobalZoneSpawnLoopContent(loopCount int){
-        // InitGlobalZoneMobManager()
-        // LogInfo("[GlobalZoneMobManager] LoopContent: " + _spawnZoneList)
+        InitGlobalZoneMobManager()
 
         // Check if this is the loop to spawn 
         if(loopCount % GLOBAL_SPAWN_INTERVAL != 0){
             return
         }
 
+        LogInfo("[GlobalZoneMobManager] LoopContent: " + Length(_spawnZoneList))
         // Loop through each spawn zone to call the its loop content
         for i = 0, Length(_spawnZoneList), 1{
             var spawnZone = _spawnZoneList[i]

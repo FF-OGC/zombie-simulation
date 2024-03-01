@@ -15,7 +15,7 @@
 !./Assets/Script/HUDMenu.fcg:12:41Invoke Connect­":[HUDMenu] btnMap: "a_
 !./Assets/Script/HUDMenu.fcg:12:43Invoke GetLocalVarÖ"#:!./Assets/Script/HUDMenu.fcg:10:28*˜
 !./Assets/Script/HUDMenu.fcg:13:12Invoke BeginZoneSelectionô"a_
-!./Assets/Script/HUDMenu.fcg:13:12Invoke GetLocalVarÖ"#:!./Assets/Script/HUDMenu.fcg:10:60">:<tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn".:,./Assets/Script/PlayerZoneSelection.fcg:43:4"*²
+!./Assets/Script/HUDMenu.fcg:13:12Invoke GetLocalVarÖ"#:!./Assets/Script/HUDMenu.fcg:10:60">:<tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn".:,./Assets/Script/PlayerZoneSelection.fcg:44:4"*²
 !./Assets/Script/HUDMenu.fcg:14:17	CodeBlockó"*ì
 !./Assets/Script/HUDMenu.fcg:15:12Invoke LogInfo"´±
 !./Assets/Script/HUDMenu.fcg:15:43Invoke Connect­":[HUDMenu] btnDebug: "a_

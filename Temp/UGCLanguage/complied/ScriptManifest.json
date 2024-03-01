@@ -92,12 +92,12 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVCb3NzTWFuYWdlci5mY2c="
       ],
       "ComponentItems": [
-        741600,
+        909802,
         23664846
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        741600,
+        909802,
         23664846
       ],
       "EventItems": null
@@ -107,11 +107,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVNb2JNYW5hZ2VyLmZjZw=="
       ],
       "ComponentItems": [
-        741600
+        909802
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        741600
+        909802
       ],
       "EventItems": null
     },
@@ -133,11 +133,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlYnVnSFVELmZjZw=="
       ],
       "ComponentItems": [
-        689355
+        921482
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        689355
+        921482
       ],
       "EventItems": null
     },
@@ -158,11 +158,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlYnVnLmZjZw=="
       ],
       "ComponentItems": [
-        445095
+        385332
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        445095
+        385332
       ],
       "EventItems": null
     },
@@ -171,11 +171,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckludmVudG9yeUhVRC5mY2c="
       ],
       "ComponentItems": [
-        310205
+        177462
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        310205
+        177462
       ],
       "EventItems": null
     },
@@ -185,11 +185,11 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn"
       ],
       "ComponentItems": [
-        897011
+        960751
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        897011
+        960751
       ],
       "EventItems": null
     },
@@ -216,9 +216,13 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        875926
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        875926
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1vbmV5LmZjZw==": {
@@ -241,11 +245,13 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
       "ComponentItems": [
-        154673
+        875926,
+        317029
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        154673
+        875926,
+        317029
       ],
       "EventItems": null
     },
@@ -279,9 +285,13 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        875926
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        875926
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckludmVudG9yeS5mY2c=": {
@@ -299,11 +309,13 @@
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
       "ComponentItems": [
-        310205
+        875926,
+        177462
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        310205
+        875926,
+        177462
       ],
       "EventItems": null
     },
@@ -320,23 +332,28 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        875926
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        875926
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn": {
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn",
-        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFpvbmVTZWxlY3Rpb24uZmNn"
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbFpvbmVTZWxlY3Rpb24uZmNn",
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0dsb2JhbERlYnVnLmZjZw=="
       ],
       "ComponentItems": [
-        897011,
+        960751,
         92435776
       ],
       "PartialPropItems": {},
       "EnumItems": [
-        897011,
+        960751,
         92435776
       ],
       "EventItems": null
@@ -345,9 +362,13 @@
       "Scripts": [
         "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn"
       ],
-      "ComponentItems": null,
+      "ComponentItems": [
+        875926
+      ],
       "PartialPropItems": {},
-      "EnumItems": null,
+      "EnumItems": [
+        875926
+      ],
       "EventItems": null
     },
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1RyaWdnZXJTdGFnZVNlbGVjdGlvbi5mY2c=": {
@@ -394,6 +415,15 @@
           100005
         ]
       },
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVUcmlnZ2VyLmZjZw==": {
+      "Scripts": [
+        "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVNb2JNYW5hZ2VyLmZjZw=="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
       "EnumItems": null,
       "EventItems": null
     }
@@ -463,6 +493,7 @@
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1RyaWdnZXJTdGFnZVNlbGVjdGlvbi5mY2c=": "./Assets/Script/TriggerStageSelection.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbWJpZUhlaWdodENoZWNrLmZjZw==": "./Assets/Script/ZombieHeightCheck.fcg",
     "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVCb3NzTWFuYWdlci5mY2c=": "./Assets/Script/ZoneBossManager.fcg",
-    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVNb2JNYW5hZ2VyLmZjZw==": "./Assets/Script/ZoneMobManager.fcg"
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVNb2JNYW5hZ2VyLmZjZw==": "./Assets/Script/ZoneMobManager.fcg",
+    "tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1pvbmVUcmlnZ2VyLmZjZw==": "./Assets/Script/ZoneTrigger.fcg"
   }
 }
