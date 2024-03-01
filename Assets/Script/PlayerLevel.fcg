@@ -1,0 +1,76 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalLevel.fcg" as GlobalLevel
+import "Strings.fcc" as strings
+import MyResources from "EditorGenLib.fcc"
+
+graph PlayerLevel {
+    _exp int
+    _hasInit bool
+
+    func InitPlayerLevel(){
+        // Get data from data storage first if not there then init
+
+        if(!_hasInit){
+            _exp = 30
+            _hasInit = true
+        }
+    }
+
+    func IncreaseExpByAmount(amount int){
+        _exp += amount
+
+        if(_exp > globalEntity<GlobalLevel>.EXP_MAX){
+            ShowTips(thisEntity<Player>, MyResources:Localizations["LEVEL_MAX_EXP"], ColorRGB(255, 255, 255), 3000)
+            _exp = globalEntity<GlobalLevel>.EXP_MAX
+        }
+    }
+
+    func DecreaseExpByAmount(amount int){
+        _exp -= amount
+
+        if(_exp < globalEntity<GlobalLevel>.EXP_MIN){
+            _exp = globalEntity<GlobalLevel>.EXP_MIN
+        }
+    }
+    
+    func GetExp() int{
+        return _exp
+    }
+
+    func GetLvl() int{
+        var levelList = globalEntity<GlobalLevel>.GetLevelList()
+        var currentLevel = 0
+
+        for i = 0, Length(levelList), 1{
+            var level = levelList[i]
+            var levelExpNeeded = globalEntity<GlobalLevel>.GetLevelExpRequirement(level)
+            if(_exp >= levelExpNeeded){
+                currentLevel = level
+            } else {
+                break
+            }
+        }
+        LogInfo("[PlayerLevel] currentLevel: " + currentLevel)
+        return currentLevel
+    }
+
+    func GetExpRequiredToNextLvl() int{
+        var nextLevel = GetLvl() + 1
+        var nextLevelNeedExp = globalEntity<GlobalLevel>.GetLevelExpRequirement(nextLevel)
+
+        var requiredExp = 0
+
+        LogInfo("[PlayerLevel] GetExpRequiredToNextLvl: " + requiredExp)
+        return requiredExp
+    }
+
+    // For displaying exp from current level
+    func GetExpFromCurrentLvl() int{
+        var currentLevel = GetLvl()
+        var currentLevelNeedExp = globalEntity<GlobalLevel>.GetLevelExpRequirement(currentLevel)
+        var expFromCurrentLvl =  _exp - currentLevelNeedExp
+        LogInfo("[PlayerLevel] GetExpFromCurrentLvl: " + expFromCurrentLvl)
+        return expFromCurrentLvl
+    }
+}

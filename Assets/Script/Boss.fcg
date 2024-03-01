@@ -1,0 +1,35 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Combat.fcc" as combat
+import "AI.fcc" as ai
+import "./ZoneBossManager.fcg" as ZoneBossManager
+import "./PlayerLevel.fcg" as PlayerLevel
+import "./PlayerInventory.fcg" as PlayerInventory
+
+graph Boss {
+    _spawner entity<BossSpawner>
+    _expAmount int
+
+    event OnAwake() {
+    
+    }
+
+    event OnTakeDamage(attacker entity<Entity>,
+      damageType DamageType,
+      value int,
+      beDamagedPart HitBodyPart) {
+    
+    }
+
+    event OnBeKilled(attacker entity<Entity>,
+      damageType DamageType,
+      beDamagedPart HitBodyPart) {
+        _spawner<ZoneBossManager>.RemoveBossFromList(thisEntity<Entity>)    
+        attacker<PlayerLevel>.IncreaseExpByAmount(_expAmount)
+        attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum:WOOD_LOG, 1)
+    }
+
+    func SetSpawner(spawner entity<BossSpawner>){
+        _spawner = spawner
+    }
+}

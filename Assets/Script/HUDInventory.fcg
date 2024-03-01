@@ -1,0 +1,12 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
+
+graph HUDInventory {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerInventoryHUD>.GetInventoryHUDWidget(EResource_UI_INVENTORY:BTN_PROMPT)) {
+            LogInfo("[HUDInventory] btnMap: " + button) 
+            player<PlayerInventoryHUD>.ToggleInventory()
+        } 
+    }
+}

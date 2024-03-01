@@ -1,0 +1,120 @@
+import "List.fcc" as list
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
+import "Physics.fcc" as physics
+import "Math.fcc" as math
+import "./Mob.fcg" as Mob
+import "Workflow.fcc" as workflow
+import "AI.fcc" as ai
+
+import Resources from "EditorGenLib.fcc"
+
+graph ZoneMobManager {
+    X_DELTA float = 10.0
+    Z_DELTA float = 10.0
+    
+    _type int
+    _mobList List<entity<Entity>>
+    _totalMobCount int
+    _isSpawning bool
+    _hasInit bool
+
+    event OnAwake() {
+        BeginMobSpawning()
+    } 
+
+    func InitZoneMobManager(){
+        if(!_hasInit){
+            //The check exist due to not being able to set default enum value.
+            _type = thisEntity<MobSpawner>.Type
+            if(_type == 0){
+                _type = AIType:UGCAI
+            }
+            _mobList = List<entity<Entity>>{}
+
+            _totalMobCount = thisEntity<MobSpawner>.TotalCount
+            _isSpawning = true
+            _hasInit = true
+        }
+    }
+
+    func BeginMobSpawning(){
+        InitZoneMobManager()
+        globalEntity<GlobalZoneMobManager>.InsertZoneSpawnList(thisEntity<MobSpawner>)
+    }
+
+    async func SpawningLoopContent(){
+        // LogInfo("[ZoneMobManager] SpawningLoopContent")
+        if(!_isSpawning){
+            return
+        }
+
+        while(GetCurrentMobCount() < _totalMobCount){
+            var spawnLocation = GetRandomizeSpawnLocation()
+            // LogInfo("[ZoneMobManager] _type: " + _type + " " + thisEntity<MobSpawner>.Type + " " + AIType:UGCAI)
+            // LogInfo("[ZoneMobManager] _prefabID: " + Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE])
+            // LogInfo("[ZoneMobManager] _totalMobCount: " + _totalMobCount)
+            CreateFromPrefab(out var createdEntity, globalEntity<GlobalZoneMobManager>.GetTypePrefab(_type))
+            InsertMobToList(createdEntity)
+            // CreateFromPrefab(out var createdEntity, Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE])
+            createdEntity<Transform>.Position = spawnLocation
+            // AddScript(createdEntity, Mob)
+            createdEntity<Mob>.SetSpawner(thisEntity<MobSpawner>)
+            WaitForNextFrame()
+            // LogInfo("[ZoneMobManager] createdEntity: " + createdEntity + " " + createdEntity<Transform>.Position)
+            // IncrementCurrentMobCount()
+        }
+    }
+
+    func MobStuckCheckLoopContent(){
+        while(Length(_mobList) != 0){
+            var mob = _mobList[0]
+            mob<Mob>.StuckCheckLoopContent()
+        }
+        // LogInfo("[ZoneMobManager] mobList: " + _mobList)
+    }
+
+
+    func EndMobSpawningLoopContent(){
+        _isSpawning = false
+    }
+
+    func GetZombieType() int{
+        return _type
+    }
+
+    func GetRandomizeSpawnLocation() Vector3{
+        var position = thisEntity<Transform>.Position        
+        var highPosition = position + Vector3{0, 20, 0}
+        SingleRaycast(highPosition, Vector3{0, -1, 0}, 40, List<int>{0}, false, out var hitEntity, out var hitPosition, out var hitDistance, out var hitNormal) 
+        // LogInfo("[ZoneMobManager] hitDistance: " + hitDistance + " " + hitPosition)
+
+        var randomizedXPosition = position.X + RandomFloat(-X_DELTA, X_DELTA)
+        var randomizedZPosition = position.Z + RandomFloat(-Z_DELTA, Z_DELTA)
+        var updatedYPosition = hitPosition.Y
+
+        var updatedPosition = Vector3{randomizedXPosition, updatedYPosition, randomizedZPosition}
+        // LogInfo("[ZoneMobManager] updatedPosition: " + updatedPosition)
+        return updatedPosition
+    }
+
+    func GetCurrentMobCount() int{
+        return Length(_mobList)
+    }
+
+    func InsertMobToList(mob entity<Entity>){
+        if(Contains(_mobList, mob)){
+            return
+        }
+
+        Append(_mobList, mob)
+        // LogInfo("[ZoneMobManager] _mobList: " + _mobList)
+    }
+
+    func RemoveMobFromList(mob entity<Entity>){
+        Delete(_mobList, mob)
+        // LogInfo("[ZoneMobManager] _mobList: " + _mobList)
+    }
+
+}

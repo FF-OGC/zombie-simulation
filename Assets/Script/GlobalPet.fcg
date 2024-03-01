@@ -1,0 +1,25 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+
+graph GlobalPet {   
+    _petNameMap Map<string, LocString>
+    _hasInit bool
+
+    func InitGlobalPet(){
+        if(!_hasInit){
+            SetPetNameMap()
+            _hasInit = true
+        }
+    }
+
+    func SetPetNameMap(){
+        _petNameMap = Map<string, LocString>{}
+        _petNameMap[PetEnum:DOG] = MyResources:PetLocalizations[PetEnum:DOG] as LocString
+    }
+
+    func GetPetName(petEnum string) LocString{
+        InitGlobalPet()
+        return _petNameMap[petEnum]
+    }
+}

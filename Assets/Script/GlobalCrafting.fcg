@@ -1,0 +1,32 @@
+import "Map.fcc" as map
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+
+graph GlobalCrafting {
+    _recipeNameMap Map<string, object>
+    _hasInit bool
+
+    func InitGlobalCrafting(){
+        if(!_hasInit){
+            SetRecipeNameMap()
+            _hasInit = true
+        }
+    }
+
+    func SetRecipeNameMap(){
+        _recipeNameMap = Map<string, object>{}
+        _recipeNameMap[RecipeEnum:MATERIAL_PROCESSOR] = MyResources:RecipeLocalizations[RecipeEnum:MATERIAL_PROCESSOR]
+        _recipeNameMap[RecipeEnum:MP5] = MyResources:RecipeLocalizations[RecipeEnum:MATERIAL_PROCESSOR]
+    }
+
+    func GetRecipeName(recipeEnum string) LocString{
+        InitGlobalCrafting()
+        return _recipeNameMap[recipeEnum] as LocString
+    }
+
+    func GetRecipeList() List<string>{
+        InitGlobalCrafting()
+        return GetAllKeys(_recipeNameMap)
+    }
+}

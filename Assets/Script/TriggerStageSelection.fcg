@@ -1,0 +1,20 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "LevelObject.fcc" as levelobject
+import "./GlobalDebug.fcg" as GlobalDebug
+import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
+
+graph TriggerZoneSelection {
+    event OnPlayerEnterTrigger(player entity<Player>) {
+        if(globalEntity<GlobalDebug>.IsStageSelectionActive){
+            // LogInfo("[]")
+            player<PlayerZoneSelection>.BeginZoneSelection()
+        }
+    }
+
+    event OnPlayerLeaveTrigger(player entity<Player>) {
+        if(globalEntity<GlobalDebug>.IsStageSelectionActive){
+            player<PlayerZoneSelection>.EndZoneSelection() 
+        }
+    }
+}

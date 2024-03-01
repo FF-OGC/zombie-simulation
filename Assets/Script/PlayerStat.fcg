@@ -1,0 +1,32 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "LevelObject.fcc" as levelobject
+
+graph PlayerStat {
+    ORIGINAL_MAX_HP int = 200
+    ORIGINAL_MAX_EP int = 200
+
+    _hasInit bool
+    _killCount int
+
+
+    func InitPlayerStat(){
+        // Check for stored data first before initialize
+        if(!_hasInit){
+            _killCount = 0
+            _hasInit = true
+        }
+    }
+
+    func IncreaseKillCountByAmount(amount int){
+        _killCount += amount
+    }
+
+    func DecreaseKillCountByAmount(amount int){
+        _killCount -= amount
+    }
+
+    func GetKillCount() int{
+        return _killCount
+    }
+}

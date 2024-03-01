@@ -1,0 +1,16 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+
+graph PlayerCrafting {
+    _hasInit bool
+
+    func InitPlayerCrafting(){
+        if(!_hasInit){
+            _hasInit = true
+        }
+    }
+
+    func Craft(recipeEnum string){
+        //Check if available
+    }
+}

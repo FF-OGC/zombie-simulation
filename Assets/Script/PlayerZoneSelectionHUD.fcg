@@ -1,0 +1,47 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+
+import Resources from "EditorGenLib.fcc"
+
+import "./HUDUtil.fcg" as HUDUtil
+
+graph PlayerZoneSelectionHUD {
+    _zoneSelectionHUD entity<CustomHud>
+
+    func InitZoneSelectionHUD(){
+        if(_zoneSelectionHUD == nil){
+            _zoneSelectionHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:ZONE_SELECTION, 4)
+            LogInfo("[PlayerZoneSelectionHUD] _zoneSelectionHUD: " + _zoneSelectionHUD)
+            _zoneSelectionHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DisplayZoneSelectionHUD(){
+        InitZoneSelectionHUD()
+        ResetZoneSelectionHUD()
+
+        if(!_zoneSelectionHUD<CustomHud>.Visibility){
+            _zoneSelectionHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func CloseZoneSelectionHUD(){
+        if(_zoneSelectionHUD != nil){
+            _zoneSelectionHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func ResetZoneSelectionHUD(){
+
+    }
+
+    func DeleteZoneSelectionHUD(){
+        DeleteEntity(_zoneSelectionHUD)
+    }
+
+    func GetZoneSelectionHUDWidget(eResourceUIZoneSelection string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _zoneSelectionHUD, Resources:UI_ZONE_SELECTION[eResourceUIZoneSelection])
+    }
+
+}

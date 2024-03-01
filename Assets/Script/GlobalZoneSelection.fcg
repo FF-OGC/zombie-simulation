@@ -1,0 +1,47 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+
+graph GlobalZoneSelection {
+    _zoneTeleportLocationMap Map<string, Vector3>
+    _hasInit bool
+    
+    func InitGlobalZoneSelection(){
+        if(!_hasInit){
+            SetZoneTeleportLocationMap()
+            _hasInit = true
+        }
+    }
+
+    func SetZoneTeleportLocationMap(){
+        _zoneTeleportLocationMap = Map<string, Vector3>{}
+        _zoneTeleportLocationMap[ZoneEnum:BASE] = GetLocationFromObject("SPAWN_POINT")
+        _zoneTeleportLocationMap[ZoneEnum:LVL000] = GetLocationFromObject("000_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL010] = GetLocationFromObject("010_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL020] = GetLocationFromObject("020_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL030] = GetLocationFromObject("030_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL040] = GetLocationFromObject("040_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL050] = GetLocationFromObject("050_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL060] = GetLocationFromObject("060_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL070] = GetLocationFromObject("070_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL080] = GetLocationFromObject("080_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:LVL090] = GetLocationFromObject("090_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:WB020] = GetLocationFromObject("WB_020_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:WB040] = GetLocationFromObject("WB_040_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:WB060] = GetLocationFromObject("WB_060_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:WB080] = GetLocationFromObject("WB_080_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:WB100] = GetLocationFromObject("WB_100_TP_TRIGGER")
+        _zoneTeleportLocationMap[ZoneEnum:WBF] = GetLocationFromObject("WB_F_TP_TRIGGER")
+    }
+
+    func GetZoneTeleportLocation(zoneEnum string) Vector3{
+        InitGlobalZoneSelection()
+        return _zoneTeleportLocationMap[zoneEnum]
+    }
+
+    func GetLocationFromObject(key string) Vector3{
+        var obj = MyResources:SceneObjects[key] as entity<LevelObject>
+        LogInfo("[GlobalZoneSelection] obj: " + obj + " " + obj<Transform>.Position)
+        return obj<Transform>.Position
+    }
+}

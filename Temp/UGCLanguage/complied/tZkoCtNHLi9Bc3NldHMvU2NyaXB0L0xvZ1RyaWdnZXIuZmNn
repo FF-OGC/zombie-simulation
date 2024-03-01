@@ -1,0 +1,18 @@
+ì
+0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0xvZ1RyaWdnZXIuZmNný¸÷
+StdLibrary.fcc:1262:0OnAwakeó"*Í
+"./Assets/Script/LogTrigger.fcg:8:8Invoke LogInfo"”‘
+#./Assets/Script/LogTrigger.fcg:8:41Invoke Connect­":[LogTrigger] OnAwake: "=;
+#./Assets/Script/LogTrigger.fcg:8:43Invoke ThisEntityNŸš
+Workflow.fcc:45:0OnPhaseStartó"*&:$./Assets/Script/LogTrigger.fcg:11:23*Á
+#./Assets/Script/LogTrigger.fcg:12:8Invoke LogInfo"‡„
+$./Assets/Script/LogTrigger.fcg:12:65Invoke Connect­"ßÜ
+$./Assets/Script/LogTrigger.fcg:12:59Invoke Connect­"›˜
+$./Assets/Script/LogTrigger.fcg:12:46Invoke Connect­":[LogTrigger] OnPhaseStart: "><
+$./Assets/Script/LogTrigger.fcg:12:48Invoke ThisEntityN": "ge
+$./Assets/Script/LogTrigger.fcg:12:67Invoke GetLocalVarÖ"&:$./Assets/Script/LogTrigger.fcg:11:23B‡‚
+StdLibrary.fcc:1250:0OnGameStartó"*Ô
+#./Assets/Script/LogTrigger.fcg:16:8Invoke LogInfo"š—
+$./Assets/Script/LogTrigger.fcg:16:45Invoke Connect­":[LogTrigger] OnGameStart: "><
+$./Assets/Script/LogTrigger.fcg:16:47Invoke ThisEntityN*
+LogTrigger0

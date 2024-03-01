@@ -1,0 +1,19 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Physics.fcc" as physics
+
+graph ZombieHeightCheck {
+    event OnAwake() {
+        start LogDistanceFromGroundLoop()
+    }    
+
+    async func LogDistanceFromGroundLoop(){
+        while(true){
+            WaitForSeconds(2000)
+            var enemy = thisEntity<Entity>
+            var enemyPosition = thisEntity<Transform>.Position
+            SingleRaycast(enemyPosition, Vector3{0, -1, 0}, 10, List<int>{0}, false, out var hitEntity, out var hitPosition, out var hitDistance, out var hitNormal) 
+            LogInfo("[ZombieHeightCheck] hitDistance: " + hitDistance + " " + hitPosition)
+        }
+    }
+}

@@ -1,0 +1,73 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud 
+import "Workflow.fcc" as workflow 
+import "GameResult.fcc" as gameResult 
+
+graph PlayerDefaultHUD {
+    _countdownHUD entity<PhaseCountDownHud>
+    _resultBannerHUD entity<ResultBannerHud>
+    _tweenTipsHUD entity<TweenTipsHud>
+    _fiveSecondCountDownHUD entity<FiveSecondCountDownHud>
+    _curentPhaseEntity entity<Phase>
+
+    func SetCountdownTimerHUD(phaseEntity entity<Phase>){
+        DeleteEntity(_countdownHUD)
+        _curentPhaseEntity = phaseEntity
+        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType:PhaseCountDownHud)
+        _countdownHUD = createdEntity as entity<PhaseCountDownHud>;
+        _countdownHUD<PhaseCountDownHud>.Duration = phaseEntity<Phase>.PhaseDuration / 1000
+        _countdownHUD<PhaseCountDownHud>.BaseTime = globalEntity<Global>.GameTime / 1000
+        _countdownHUD<PhaseCountDownHud>.Visibility = true
+    }
+
+    func DeleteCountdownTimerHUD(){
+        DeleteEntity(_countdownHUD)
+    }
+
+    func HideCountdownTimerHUD(){
+        if(_countdownHUD != nil){
+            _countdownHUD<PhaseCountDownHud>.Visibility = false
+        }
+    }
+
+    func ShowCountdownTimerHUD(){
+        if(_countdownHUD != nil){
+            _countdownHUD<PhaseCountDownHud>.Visibility = true
+        }
+    }
+
+    func SetFiveSecondCountdownHUD(){
+        DeleteEntity(_fiveSecondCountDownHUD)
+        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType:FiveSecondCountDownHud)
+        _fiveSecondCountDownHUD = createdEntity as entity<FiveSecondCountDownHud>
+        _fiveSecondCountDownHUD<FiveSecondCountDownHud>.LocalPosition = Vector3{0, -300, 0}
+        _fiveSecondCountDownHUD<FiveSecondCountDownHud>.Visibility = true
+    }
+
+    func DeleteFiveSecondCountdownHUD(){
+        DeleteEntity(_fiveSecondCountDownHUD)
+    }
+
+    func SetMatchResult(result MatchResultType){
+        DeleteEntity(_resultBannerHUD)
+        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType:ResultBannerHud)
+        _resultBannerHUD = createdEntity as entity<ResultBannerHud>
+        _resultBannerHUD<ResultBannerHud>.EnableLocalization = true
+        _resultBannerHUD<ResultBannerHud>.Result = result
+    }
+
+    func DeleteMatchResult(){
+        DeleteEntity(_resultBannerHUD)
+    }
+
+    func SetTweenTipsHUD(description object, paramList List<int>){
+        DeleteEntity(_tweenTipsHUD)
+        CreateInternalHud(out var createdFloatingNotiHUD, thisEntity<Player>, InternalHudType:TweenTipsHud)
+        _tweenTipsHUD = createdFloatingNotiHUD as entity<TweenTipsHud>
+        _tweenTipsHUD<TweenTipsHud>.EnableLocalization = true
+        _tweenTipsHUD<TweenTipsHud>.Params = paramList
+        _tweenTipsHUD<TweenTipsHud>.TipsType = 0
+        _tweenTipsHUD<TweenTipsHud>.Description = description as LocString
+    }
+}

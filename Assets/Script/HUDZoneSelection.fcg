@@ -1,0 +1,23 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+
+import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
+import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
+
+import Resources from "EditorGenLib.fcc"
+
+graph HUDZoneSelection {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION:BTN_CONFIRM)) {
+            LogInfo("[HUDZoneSelection] confirm stage selection button: " + button) 
+            player<PlayerZoneSelection>.ConfirmZoneSelection()
+        } else if (button == player<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION:BTN_EXIT)) {
+            LogInfo("[HUDZoneSelection] exit stage selection button: " + button)
+            player<PlayerZoneSelection>.EndZoneSelection()
+        } else {
+            LogInfo("[HUDZoneSelection] select stage button: " + button)
+            player<PlayerZoneSelection>.SetSelectedZone(button)
+        } 
+    }
+}

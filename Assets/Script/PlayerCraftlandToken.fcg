@@ -1,0 +1,74 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./HUDUtil.fcg" as HUDUtil
+import "Hud.fcc" as hud 
+import MyResources from "EditorGenLib.fcc"
+import "Convert.fcc" as convert 
+import "FF_Platform.fcc" as fF_Platform 
+import Resources from "EditorGenLib.fcc"
+
+graph PlayerCraftlandToken {
+    _tokenWalletHUD entity<CustomHud>
+
+    func GetCraftlandToken() int{
+        var succeed = false
+        var count = 0
+        var tokenCount = 0
+        while (!succeed && (count != 10)) {
+            GetPlayerTokenCount(thisEntity<Player>, 19002, out var quantity, out var result)
+            if(result){
+                tokenCount = quantity
+            }
+            succeed = result
+            count += 1
+        }
+        if(count == 10){
+            tokenCount = 10000
+        }
+
+        return tokenCount
+    }
+
+    func SetCraftlandTokenWalletHUD(){
+        if(_tokenWalletHUD == nil){
+            _tokenWalletHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:CRAFTLAND_TOKEN_WALLET, 6) 
+        }
+        _tokenWalletHUD<CustomHud>.Visibility = true
+        UpdateCraftlandTokenWalletHUD()
+    }
+
+    func CloseCraftlandTokenWalletHUD(){
+        if(_tokenWalletHUD != nil){
+            _tokenWalletHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteCraftlandTokenWalletHUD(){
+        DeleteEntity(_tokenWalletHUD)
+    }
+
+    func UpdateCraftlandTokenWalletHUD(){
+        var txtCraftlandToken = GetWidgetFromCustomHud(thisEntity<Player>, _tokenWalletHUD, Resources:UI_CRAFTLAND_TOKEN_WALLET[EResource_UI_CRAFTLAND_TOKEN_WALLET:TXT_CRAFTLAND_TOKEN] as CustomHudWidgetID) as entity<HudWidget>
+        txtCraftlandToken<HudLabelWidget>.Text = ToString(GetCraftlandToken())
+    }
+
+    func AddCraftlandTokenByAmount(amount int){
+        var succeed = false
+        while(!succeed){
+            AddTokenToPlayer(thisEntity<Player>, 19002, amount, out var result)
+            succeed = result
+        }
+        UpdateCraftlandTokenWalletHUD()
+    }
+
+    func DeductCraftlandTokenByAmount(amount int){
+        var succeed = false
+
+        while(!succeed){
+            CostTokenFromPlayer(thisEntity<Player>, 19002, amount, out var result)
+            succeed = result
+        }
+
+        UpdateCraftlandTokenWalletHUD()
+    }
+}

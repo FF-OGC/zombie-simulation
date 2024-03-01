@@ -1,7 +1,324 @@
+import "Hud.fcc" as hud
+import "StdLibrary.fcc" as stdLibrary
+import "AI.fcc" as aI
 
 
 
+// Button control
+partial component HudButtonWidget {
+}
+
+// Mob Spawner
+[combine Entity]
+component MobSpawner {
+    // Type
+    Type AIType
+
+    // TotalCount
+    TotalCount int
+
+}
+
+// Boss Spawner
+[combine Entity]
+component BossSpawner {
+    // Type
+    Type BossEnum
+
+    // TotalCount
+    TotalCount int
+
+}
+
+// Component
+partial component Component {
+    // Type
+    Type AIType
+
+}
 
 
+// DataEnum, type: String
+enum DataEnum {
+    // ACTION_LOAD_DATA_SUCCESS
+    ACTION_LOAD_DATA_SUCCESS = "LoadDataSuccess"
+
+    // PLAYER_DATA_TABLE
+    PLAYER_DATA_TABLE = "PLAYER_DATA"
+
+    // SKILL_DATA
+    SKILL_DATA = "SkillData"
+
+    // QUEST_DATA
+    QUEST_DATA = "QuestData"
+
+    // GENERIC_DATA
+    GENERIC_DATA = "GenericData"
+
+}
+
+// GameMoneyType, type: Int
+enum GameMoneyType {
+    // COIN
+    COIN = 1
+
+    // TOKEN
+    TOKEN = 2
+
+}
+
+// StageEnum, type: Int
+enum StageEnum {
+    // NONE
+    NONE = 0
+
+    // A1S1
+    A1S1 = 1
+
+    // A1S2
+    A1S2 = 2
+
+}
+
+// MaterialEnum, type: String
+enum MaterialEnum {
+    // WOOD_LOG
+    WOOD_LOG = "MAT_WOOD_LOG"
+
+}
+
+// RecipeEnum, type: String
+enum RecipeEnum {
+    // MATERIAL_PROCESSOR
+    MATERIAL_PROCESSOR = "REC_MATERIAL_PROCESSOR"
+
+    // MP5
+    MP5 = "REC_MP5"
+
+}
+
+// PetEnum, type: String
+enum PetEnum {
+    // DOG
+    DOG = "PET_DOG"
+
+}
+
+// ZoneEnum, type: String
+enum ZoneEnum {
+    // NONE
+    NONE = "Z_NONE"
+
+    // BASE
+    BASE = "Z_BASE"
+
+    // LVL000
+    LVL000 = "Z_LVL_000"
+
+    // LVL010
+    LVL010 = "Z_LVL_010"
+
+    // LVL020
+    LVL020 = "Z_LVL_020"
+
+    // LVL030
+    LVL030 = "Z_LVL_030"
+
+    // LVL040
+    LVL040 = "Z_LVL_040"
+
+    // LVL050
+    LVL050 = "Z_LVL_050"
+
+    // LVL060
+    LVL060 = "Z_LVL_060"
+
+    // LVL070
+    LVL070 = "Z_LVL_070"
+
+    // LVL080
+    LVL080 = "Z_LVL_080"
+
+    // LVL090
+    LVL090 = "Z_LVL_090"
+
+    // LVL100
+    LVL100 = "Z_LVL_100"
+
+    // WB020
+    WB020 = "Z_WB_020"
+
+    // WB040
+    WB040 = "Z_WB_040"
+
+    // WB060
+    WB060 = "Z_WB_060"
+
+    // WB080
+    WB080 = "Z_WB_080"
+
+    // WB100
+    WB100 = "Z_WB_100"
+
+    // WBF
+    WBF = "Z_WB_FINAL"
+
+}
+
+// BossEnum, type: Int
+enum BossEnum {
+    // MECHANICAL_SPIDER
+    MECHANICAL_SPIDER = 0
+
+}
+
+enum EResource_UI {
+    CRAFTLAND_TOKEN_WALLET = "CRAFTLAND_TOKEN_WALLET"
+    ZONE_SELECTION = "ZONE_SELECTION"
+    MENU = "MENU"
+    LEVEL = "LEVEL"
+    INVENTORY = "INVENTORY"
+    DEBUG = "DEBUG"
+}
+enum EResource_Scene {
+    ZS = "ZS"
+}
+enum EResource_Prefab {
+    REGULAR_ZOMBIE = "REGULAR_ZOMBIE"
+    AXE_ZOMBIE = "AXE_ZOMBIE"
+    TOSSING_ZOMBIE = "TOSSING_ZOMBIE"
+    RED_TOSSING_ZOMBIE = "RED_TOSSING_ZOMBIE"
+    SHIELDED_ZOMBIE = "SHIELDED_ZOMBIE"
+    MECHANICAL_SPIDER_BOSS = "MECHANICAL_SPIDER_BOSS"
+}
+enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
+    TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
+}
+enum EResource_UI_ZONE_SELECTION {
+    BTN_ZONE_000 = "BTN_ZONE_000"
+    BTN_ZONE_010 = "BTN_ZONE_010"
+    BTN_CONFIRM = "BTN_CONFIRM"
+    BTN_EXIT = "BTN_EXIT"
+    BTN_WB_020 = "BTN_WB_020"
+    BTN_ZONE_020 = "BTN_ZONE_020"
+    BTN_ZONE_030 = "BTN_ZONE_030"
+    BTN_ZONE_040 = "BTN_ZONE_040"
+    BTN_ZONE_050 = "BTN_ZONE_050"
+    BTN_ZONE_060 = "BTN_ZONE_060"
+    BTN_ZONE_070 = "BTN_ZONE_070"
+    BTN_ZONE_080 = "BTN_ZONE_080"
+    BTN_ZONE_090 = "BTN_ZONE_090"
+    BTN_WB_040 = "BTN_WB_040"
+    BTN_WB_060 = "BTN_WB_060"
+    BTN_WB_080 = "BTN_WB_080"
+    BTN_WB_100 = "BTN_WB_100"
+    BTN_WB_F = "BTN_WB_F"
+}
+enum EResource_UI_MENU {
+    BTN_MAP = "BTN_MAP"
+    BTN_DEBUG = "BTN_DEBUG"
+}
+enum EResource_UI_LEVEL {
+    PIVOT_LEVEL = "PIVOT_LEVEL"
+}
+enum EResource_UI_INVENTORY {
+    PIVOT_INVENTORY = "PIVOT_INVENTORY"
+    PIVOT_PROMPT = "PIVOT_PROMPT"
+    BTN_PROMPT = "BTN_PROMPT"
+}
+enum EResource_UI_DEBUG {
+    TXT_ZOMBIE_COUNT = "TXT_ZOMBIE_COUNT"
+    TXT_ZOMBIE_MAX = "TXT_ZOMBIE_MAX"
+    BTN_PLUS_100 = "BTN_PLUS_100"
+    BTN_MINUS_100 = "BTN_MINUS_100"
+}
+// Player_PlayerJoinGame()
+[platform_server]
+event Player_PlayerJoinGame()
+
+// HUD_ButtonClicked(Button HudButtonWidget, Player Player)
+[platform_server]
+event HUD_ButtonClicked(param1 entity<HudButtonWidget>, param2 entity<Player>)
+
+// Player_PlayerQuitGame()
+[platform_server]
+event Player_PlayerQuitGame()
+
+// Player_PlayerFinishAction(ActionName String, ActionData any)
+[platform_server]
+event Player_FinishAction(param1 string, param2 object)
 
 
+// Assets\ECA\MyResources.eca
+[platform_server]
+declare static graph MyResources {
+    // Localizations
+    Localizations Map<object, object>
+
+    // Phases
+    Phases Map<object, object>
+
+    // LocalizationsWithParams
+    LocalizationsWithParams Map<object, object>
+
+    // SceneObjects
+    SceneObjects Map<object, object>
+
+    // MaterialLocalizations
+    MaterialLocalizations Map<object, object>
+
+    // PetLocalizations
+    PetLocalizations Map<object, object>
+
+    // RecipeLocalizations
+    RecipeLocalizations Map<object, object>
+
+    // InitPhases()
+    func InitPhases () 
+
+    // GetLocalizationWParam(key String, param ListT_any)
+    func GetLocalizationWParam (param0 string, param1 List<object>) object
+
+    // InitSceneObjects()
+    func InitSceneObjects () 
+
+    // CreateZombie(playerLoc Vector3, player Player)
+    func CreateZombie (param0 Vector3, param1 entity<Player>) 
+
+    // SetHookGun()
+    func SetHookGun () 
+
+}
+
+// Assets\ECA\MyResourcesLoc.eca
+[platform_server]
+declare static graph MyResourcesLoc {
+    // InitLocalizations()
+    func InitLocalizations () 
+
+    // GetLocWParams(key String, param ListT_any)
+    func GetLocWParams (param0 string, param1 List<object>) object
+
+    // InitPetLocalizations()
+    func InitPetLocalizations () 
+
+    // InitRecipeLocalizations()
+    func InitRecipeLocalizations () 
+
+    // InitMaterialLocalizations()
+    func InitMaterialLocalizations () 
+
+}
+
+declare static graph Resources {
+    UI Map<EResource_UI, CustomHudID>
+    Scene Map<EResource_Scene, string>
+    Prefab Map<EResource_Prefab, PrefabID>
+
+    UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
+    UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>
+    UI_MENU Map<EResource_UI_MENU, CustomHudWidgetID>
+    UI_LEVEL Map<EResource_UI_LEVEL, CustomHudWidgetID>
+    UI_INVENTORY Map<EResource_UI_INVENTORY, CustomHudWidgetID>
+    UI_DEBUG Map<EResource_UI_DEBUG, CustomHudWidgetID>
+}

@@ -1,0 +1,91 @@
+import "LevelObject.fcc" as levelobject
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "AI.fcc" as ai
+import Resources from "EditorGenLib.fcc"
+import "./ZoneMobManager.fcg" as ZoneMobManager
+import "List.fcc" as list
+import "Convert.fcc" as convert
+
+graph GlobalZoneMobManager {
+    GLOBAL_SPAWN_INTERVAL int = 10 // 10 seconds
+    _typePrefabMap Map<int, PrefabID>
+    _spawnZoneList List<entity<Entity>>
+    _hasInit bool
+
+    func InitGlobalZoneMobManager(){
+        // This must be here due to the prefabID not being init at the start of the game
+        var prefabID = ToString(Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE])
+        // LogInfo("[GlobalZoneMobManager] prefabID: " + prefabID)
+        if(prefabID != nil){
+            SetTypePrefabMap()
+        }
+
+        if(!_hasInit){
+
+            _hasInit = true
+        }
+    }
+
+    func SetTypePrefabMap(){
+        if(_typePrefabMap != nil){
+            return 
+        }
+
+        _typePrefabMap = Map<int, PrefabID>{}
+        _typePrefabMap[AIType:UGCAI] = Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE]
+        _typePrefabMap[AIType:ThrowZombie] = Resources:Prefab[EResource_Prefab:TOSSING_ZOMBIE]
+        _typePrefabMap[AIType:ThrowRedZombie] = Resources:Prefab[EResource_Prefab:RED_TOSSING_ZOMBIE]
+        _typePrefabMap[AIType:WoodCutZombie] = Resources:Prefab[EResource_Prefab:AXE_ZOMBIE]
+        _typePrefabMap[AIType:TankZombie] = Resources:Prefab[EResource_Prefab:SHIELDED_ZOMBIE]
+    }
+
+    func InsertZoneSpawnList(mobSpawner entity<MobSpawner>){
+        // LogInfo("[GlobalZoneMobManager] InsertZoneSpawnList: " + mobSpawner)
+        // InitGlobalZoneMobManager()
+        if(_spawnZoneList == nil){
+            _spawnZoneList = List<entity<Entity>>{}
+        }
+        LogInfo("[GlobalZoneMobManager] contain spawnZone: " + Contains(_spawnZoneList, mobSpawner))
+        if(Contains(_spawnZoneList, mobSpawner)){
+            LogInfo("[GlobalZoneMobManager] duplicate")
+            return
+        }
+
+        Append(_spawnZoneList, mobSpawner)
+    }
+
+    // This is called in the GlobalLoop 
+    func GlobalZoneSpawnLoopContent(loopCount int){
+        // InitGlobalZoneMobManager()
+        // LogInfo("[GlobalZoneMobManager] LoopContent: " + _spawnZoneList)
+
+        // Check if this is the loop to spawn 
+        if(loopCount % GLOBAL_SPAWN_INTERVAL != 0){
+            return
+        }
+
+        // Loop through each spawn zone to call the its loop content
+        for i = 0, Length(_spawnZoneList), 1{
+            var spawnZone = _spawnZoneList[i]
+            spawnZone<ZoneMobManager>.MobStuckCheckLoopContent()
+            start spawnZone<ZoneMobManager>.SpawningLoopContent()
+        }
+    }
+
+    func GetSpawnZoneList() List<entity<Entity>>{
+        return _spawnZoneList
+    }
+
+    func GetTypePrefab(aiType int) PrefabID{
+        InitGlobalZoneMobManager()
+        // LogInfo("[GlobalZoneMobManager] PrefabID: " + aiType + " " + _typePrefabMap[aiType])
+        return _typePrefabMap[aiType]
+    }
+
+    func GetTypePrefabMap() Map<int, PrefabID>{
+        InitGlobalZoneMobManager()
+        // LogInfo("[GlobalZoneMobManager] typePrefabMap: " + _typePrefabMap)
+        return _typePrefabMap
+    }
+}

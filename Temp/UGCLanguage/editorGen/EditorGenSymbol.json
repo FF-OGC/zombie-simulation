@@ -2,15 +2,432 @@
   "NameSpace": {
     "Name": "tZkoCtNH",
     "ID": 0,
-    "UIDSeed": 1
+    "UIDSeed": 100008
   },
   "FileSpaces": [
     {
       "Path": "EditorGenLib.fcc",
       "Symbol": {
-        "Components": [],
-        "Events": [],
-        "Graphs": []
+        "Components": [
+          {
+            "Name": "HudButtonWidget",
+            "ID": 41,
+            "Props": []
+          },
+          {
+            "Name": "MobSpawner",
+            "ID": 100000,
+            "Props": [
+              {
+                "ID": 100004,
+                "Name": "Type"
+              },
+              {
+                "ID": 100005,
+                "Name": "TotalCount"
+              }
+            ]
+          },
+          {
+            "Name": "BossSpawner",
+            "ID": 100001,
+            "Props": [
+              {
+                "ID": 100006,
+                "Name": "Type"
+              },
+              {
+                "ID": 100007,
+                "Name": "TotalCount"
+              }
+            ]
+          },
+          {
+            "Name": "Component",
+            "ID": 164,
+            "Props": [
+              {
+                "ID": 100002,
+                "Name": "Type"
+              }
+            ]
+          },
+          {
+            "Name": "DataEnum",
+            "Props": [],
+            "ID": 48683945
+          },
+          {
+            "Name": "GameMoneyType",
+            "Props": [],
+            "ID": 39918010
+          },
+          {
+            "Name": "StageEnum",
+            "Props": [],
+            "ID": 87158335
+          },
+          {
+            "Name": "MaterialEnum",
+            "Props": [],
+            "ID": 71462941
+          },
+          {
+            "Name": "RecipeEnum",
+            "Props": [],
+            "ID": 30062858
+          },
+          {
+            "Name": "PetEnum",
+            "Props": [],
+            "ID": 15074376
+          },
+          {
+            "Name": "ZoneEnum",
+            "Props": [],
+            "ID": 92435776
+          },
+          {
+            "Name": "BossEnum",
+            "Props": [],
+            "ID": 23664846
+          },
+          {
+            "Name": "EResource_UI",
+            "ID": 6222,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Scene",
+            "ID": 87553,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Prefab",
+            "ID": 45078,
+            "Props": []
+          },
+          {
+            "Name": "EResource_FCG",
+            "ID": 736899,
+            "Props": []
+          },
+          {
+            "Name": "EResource_FCGC",
+            "ID": 691948,
+            "Props": []
+          },
+          {
+            "Name": "EResource_ECA",
+            "ID": 180429,
+            "Props": []
+          },
+          {
+            "Name": "EResource_ECAC",
+            "ID": 379402,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Texture",
+            "ID": 34801,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Effect",
+            "ID": 492264,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Sound",
+            "ID": 485738,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Item",
+            "ID": 805557,
+            "Props": []
+          },
+          {
+            "Name": "EResource_LevelObject",
+            "ID": 54599,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Cloth",
+            "ID": 394804,
+            "Props": []
+          },
+          {
+            "Name": "EResource_WeaponSkin",
+            "ID": 550335,
+            "Props": []
+          },
+          {
+            "Name": "EResource_VehicleSkin",
+            "ID": 568512,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Emote",
+            "ID": 901163,
+            "Props": []
+          },
+          {
+            "Name": "EResource_CSV",
+            "ID": 207563,
+            "Props": []
+          },
+          {
+            "Name": "EResource_InternalHud",
+            "ID": 766674,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Scene_ZS",
+            "ID": 292808,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
+            "ID": 42,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_ZONE_SELECTION",
+            "ID": 470305,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_MENU",
+            "ID": 808962,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_LEVEL",
+            "ID": 630537,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_INVENTORY",
+            "ID": 81462,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_DEBUG",
+            "ID": 466651,
+            "Props": []
+          }
+        ],
+        "Events": [
+          {
+            "ID": 100000,
+            "Name": "Player_PlayerJoinGame"
+          },
+          {
+            "ID": 100001,
+            "Name": "HUD_ButtonClicked"
+          },
+          {
+            "ID": 100002,
+            "Name": "Player_PlayerQuitGame"
+          },
+          {
+            "ID": 100005,
+            "Name": "Player_FinishAction"
+          }
+        ],
+        "Graphs": [
+          {
+            "ID": "tZkoCtNH.cie26dz9kk8-lsva08q0-57zh6ws0c8h",
+            "Name": "MyResources",
+            "Props": [
+              {
+                "ID": "v1jhnP4xk",
+                "Name": "Localizations"
+              },
+              {
+                "ID": "v2vHdB9D0",
+                "Name": "Phases"
+              },
+              {
+                "ID": "v26LzDGqW",
+                "Name": "LocalizationsWithParams"
+              },
+              {
+                "ID": "vVUiOGhvq",
+                "Name": "SceneObjects"
+              },
+              {
+                "ID": "vYjvhhwtf",
+                "Name": "MaterialLocalizations"
+              },
+              {
+                "ID": "v6x6t1ciL",
+                "Name": "PetLocalizations"
+              },
+              {
+                "ID": "vkKo5H55F",
+                "Name": "RecipeLocalizations"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "InitPhases",
+                "Name": "InitPhases"
+              },
+              {
+                "ID": "GetLocalizationWParam",
+                "Name": "GetLocalizationWParam"
+              },
+              {
+                "ID": "InitSceneObjects",
+                "Name": "InitSceneObjects"
+              },
+              {
+                "ID": "CreateZombie",
+                "Name": "CreateZombie"
+              },
+              {
+                "ID": "SetHookGun",
+                "Name": "SetHookGun"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.ijf90wdz01-lsvavvsx-yg9jqxnuhle",
+            "Name": "MyResourcesLoc",
+            "Props": [],
+            "Funcs": [
+              {
+                "ID": "InitLocalizations",
+                "Name": "InitLocalizations"
+              },
+              {
+                "ID": "GetLocWParams",
+                "Name": "GetLocWParams"
+              },
+              {
+                "ID": "InitPetLocalizations",
+                "Name": "InitPetLocalizations"
+              },
+              {
+                "ID": "InitRecipeLocalizations",
+                "Name": "InitRecipeLocalizations"
+              },
+              {
+                "ID": "InitMaterialLocalizations",
+                "Name": "InitMaterialLocalizations"
+              }
+            ]
+          },
+          {
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDlcymmw9dw",
+            "Name": "Resources",
+            "Props": [
+              {
+                "ID": "EDITOR_GEN_Resourceui",
+                "Name": "UI"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcescene",
+                "Name": "Scene"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceprefab",
+                "Name": "Prefab"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcefcg",
+                "Name": "FCG"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcefcgc",
+                "Name": "FCGC"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceeca",
+                "Name": "ECA"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceecac",
+                "Name": "ECAC"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceicon",
+                "Name": "Texture"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceeffect",
+                "Name": "Effect"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcesound",
+                "Name": "Sound"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceitem",
+                "Name": "Item"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourcelevelObject",
+                "Name": "LevelObject"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcecloth",
+                "Name": "Cloth"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourceweaponSkin",
+                "Name": "WeaponSkin"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourcevehicleSkin",
+                "Name": "VehicleSkin"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceemote",
+                "Name": "Emote"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcecsv",
+                "Name": "CSV"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourceinternalHud",
+                "Name": "InternalHud"
+              },
+              {
+                "ID": "Editor_Gen_Resource_Scene_ZS",
+                "Name": "Scene_ZS"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_CRAFTLAND_TOKEN_WALLET",
+                "Name": "UI_CRAFTLAND_TOKEN_WALLET"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_ZONE_SELECTION",
+                "Name": "UI_ZONE_SELECTION"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_MENU",
+                "Name": "UI_MENU"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_LEVEL",
+                "Name": "UI_LEVEL"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_INVENTORY",
+                "Name": "UI_INVENTORY"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_DEBUG",
+                "Name": "UI_DEBUG"
+              }
+            ],
+            "Funcs": []
+          }
+        ]
       }
     }
   ]

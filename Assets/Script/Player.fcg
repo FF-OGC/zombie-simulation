@@ -1,0 +1,80 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "AI.fcc" as ai
+import "Player.fcc" as player
+import "Workflow.fcc" as workflow
+import "Combat.fcc" as combat
+
+import Resources from "EditorGenLib.fcc"
+import MyResources from "EditorGenLib.fcc"
+
+import "./GlobalSpawn.fcg" as GlobalSpawn
+
+import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+import "./PlayerMenu.fcg" as PlayerMenu
+import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
+import "./PlayerCraftlandToken.fcg" as PlayerCraftlandToken
+import "./PlayerLevelHUD.fcg" as PlayerLevelHUD
+import "./PlayerInventory.fcg" as PlayerInventory
+import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
+import "./PlayerDebug.fcg" as PlayerDebug
+import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
+import "LevelObject.fcc" as levelobject
+import "Items.fcc" as items
+
+graph Player {
+    event Player_PlayerJoinGame() {
+        start InitAllHUD() 
+        thisEntity<PlayerMenu>.DisplayMenuHUD()
+        thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
+        thisEntity<PlayerInventory>.BeginPlayerInventorySystem()
+        // Preload()
+        // MyResources:SetHookGun()
+    }
+
+    event Player_PlayerQuitGame() {
+        start RunOnKilled()
+    }
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        thisEntity<PlayerDefaultHUD>.SetCountdownTimerHUD(phase)
+    }
+
+    event OnBeKilled(attacker entity<Entity>,
+      damageType DamageType,
+      beDamagedPart HitBodyPart) {
+        start RunOnKilled()
+    }
+
+    async func InitAllHUD(){
+        thisEntity<PlayerZoneSelectionHUD>.InitZoneSelectionHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerMenu>.InitMenuHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerLevelHUD>.InitLevelHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerInventoryHUD>.InitInventoryHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerDebugHUD>.InitDebugHUD()
+        WaitForSeconds(100)
+    }
+
+    func DeleteAllHUD(){
+        thisEntity<PlayerZoneSelectionHUD>.DeleteZoneSelectionHUD()
+        thisEntity<PlayerMenu>.DeleteMenuHUD()
+    }
+
+    // func Preload(){
+    //     AddItemToPlayer(thisEntity<Player>, ItemIDType:NewHookGun, 1, out var addedItemList)
+    //     var hookGun = addedItemList[0]
+    //     hookGun<HookGun>.
+    // }
+
+    async func RunOnKilled(){
+        thisEntity<PlayerZoneSelection>.StopPlayerFromTeleporting()
+        WaitForNextFrame()
+        Revive(thisEntity<Player>)
+    }
+
+}
