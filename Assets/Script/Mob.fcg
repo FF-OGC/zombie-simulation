@@ -6,6 +6,7 @@ import "AI.fcc" as ai
 import "./GlobalLoop.fcg" as GlobalLoop
 import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerInventory.fcg" as PlayerInventory
+import "Playable.fcc" as playable
 
 graph Mob {
     LOOP_ELIM_DELTA int = 300
@@ -43,6 +44,10 @@ graph Mob {
 
     func SetSpawner(spawner entity<MobSpawner>){
         _spawner = spawner
+    }
+
+    func EliminateSelf(){
+        MakeDamage(thisEntity<CombatEntity>, nil, DamageType:KillZone, 9999)
     }
 
 }

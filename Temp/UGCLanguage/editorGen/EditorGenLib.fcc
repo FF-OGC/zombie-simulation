@@ -37,6 +37,10 @@ partial component Component {
 
 }
 
+// Cluster
+component Cluster {
+}
+
 
 // DataEnum, type: String
 enum DataEnum {
