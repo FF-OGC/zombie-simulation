@@ -29,7 +29,7 @@ graph Player {
         thisEntity<PlayerMenu>.DisplayMenuHUD()
         thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
         thisEntity<PlayerInventory>.BeginPlayerInventorySystem()
-        // Preload()
+        Preload()
         // MyResources:SetHookGun()
     }
 
@@ -65,11 +65,9 @@ graph Player {
         thisEntity<PlayerMenu>.DeleteMenuHUD()
     }
 
-    // func Preload(){
-    //     AddItemToPlayer(thisEntity<Player>, ItemIDType:NewHookGun, 1, out var addedItemList)
-    //     var hookGun = addedItemList[0]
-    //     hookGun<HookGun>.
-    // }
+    func Preload(){
+        AddItemToPlayer(thisEntity<Player>, ItemIDType:UZI, 1, out var addedItemList)
+    }
 
     async func RunOnKilled(){
         thisEntity<PlayerZoneSelection>.StopPlayerFromTeleporting()
