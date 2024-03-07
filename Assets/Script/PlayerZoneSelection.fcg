@@ -7,6 +7,7 @@ import "Player.fcc" as player
 import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
 import MyResources from "EditorGenLib.fcc"
 import "./GlobalDebug.fcg" as GlobalDebug
+import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
 
 graph PlayerZoneSelection {
     _buttonZoneMap Map<entity<HudButtonWidget>, ZoneEnum>
@@ -95,7 +96,11 @@ graph PlayerZoneSelection {
             return
         }
 
+        // Check for distance to start spawning zombie
+        globalEntity<GlobalZoneMobManager>.NotifyDistanceChecking(thisEntity<Player>)
+
         Teleport(thisEntity<Player>, globalEntity<GlobalZoneSelection>.GetZoneTeleportLocation(_selectedZone) + Vector3{0, 3, 0}, Vector3{0, 0, 0})
+        
         StopPlayerFromTeleporting()
     }
 

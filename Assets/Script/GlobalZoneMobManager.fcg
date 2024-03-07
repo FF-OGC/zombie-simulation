@@ -6,11 +6,14 @@ import Resources from "EditorGenLib.fcc"
 import "./ZoneMobManager.fcg" as ZoneMobManager
 import "List.fcc" as list
 import "Convert.fcc" as convert
+import "./Cluster.fcg" as Cluster
 
 graph GlobalZoneMobManager {
     GLOBAL_SPAWN_INTERVAL int = 10 // 10 seconds
+    CLUSTER_RADIUS int = 50
     _typePrefabMap Map<int, PrefabID>
     _spawnZoneList List<entity<Entity>>
+    _clusterList List<entity<Cluster>>
     _hasInit bool
 
     func InitGlobalZoneMobManager(){
@@ -50,11 +53,26 @@ graph GlobalZoneMobManager {
         LogInfo("[GlobalZoneMobManager] contain spawnZone: " + Contains(_spawnZoneList, mobSpawner))
 
         if(Contains(_spawnZoneList, mobSpawner)){
-            LogInfo("[GlobalZoneMobManager] duplicate")
+            LogInfo("[GlobalZoneMobManager] duplicate mobSpawner")
             return
         }
 
         Append(_spawnZoneList, mobSpawner)
+    }
+
+    func InsertClusterList(cluster entity<Cluster>){
+        if(_clusterList == nil){
+            _clusterList = List<entity<Cluster>>{}
+        }
+
+        LogInfo("[GlobalZoneMobManager] contain cluster: " + Contains(_clusterList, cluster))
+
+        if(Contains(_clusterList, cluster)){
+            LogInfo("[GlobalZoneMobManager] duplicate cluster")
+            return 
+        }
+
+        Append(_clusterList, cluster)
     }
 
     // This is called in the GlobalLoop 
@@ -72,6 +90,25 @@ graph GlobalZoneMobManager {
             var spawnZone = _spawnZoneList[i]
             spawnZone<ZoneMobManager>.MobStuckCheckLoopContent()
             start spawnZone<ZoneMobManager>.SpawningLoopContent()
+        }
+    }
+
+    func NotifyDistanceChecking(player entity<Player>){
+        LogInfo("[GlobalZoneMobManager] _clusterList: " + _clusterList)
+        for i = 0, Length(_clusterList), 1{
+            var cluster = _clusterList[i]
+            cluster<Cluster>.CheckPlayerDistance(player)
+        }
+    }
+
+    func EliminateAllZombie(){
+        InitGlobalZoneMobManager()
+
+        LogInfo("[GlobalZoneMobManager] LoopContent: " + Length(_spawnZoneList))
+        // Loop through each spawn zone to call the its loop content
+        for i = 0, Length(_spawnZoneList), 1{
+            var spawnZone = _spawnZoneList[i]
+            spawnZone<ZoneMobManager>.EliminateAllZombieInCurrentZone()
         }
     }
 

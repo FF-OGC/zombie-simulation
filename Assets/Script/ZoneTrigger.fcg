@@ -3,6 +3,7 @@ import "EditorGenLib.fcc" as editorGenLib
 import "LevelObject.fcc" as levelobject
 import "List.fcc" as list
 import "./ZoneMobManager.fcg" as ZoneMobManager
+import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
 
 graph ZoneTrigger {
     _mobSpawnerList List<entity<Entity>>
@@ -10,20 +11,22 @@ graph ZoneTrigger {
 
     event OnPlayerEnterTrigger(player entity<Player>) {
         LogInfo("[ZoneTrigger] player enter: " + player)
-        if(_playerList == nil){
-            _playerList = List<entity<Player>>{}
-        }
-        Append(_playerList, player)
-        CheckTurnOnSpawning()
+        // if(_playerList == nil){
+        //     _playerList = List<entity<Player>>{}
+        // }
+        // Append(_playerList, player)
+        // CheckTurnOnSpawning()
+        globalEntity<GlobalZoneMobManager>.NotifyDistanceChecking(player)
     }
 
     event OnPlayerLeaveTrigger(player entity<Player>) {
         LogInfo("[ZoneTrigger] player leave: " + player)
-        if(_playerList == nil){
-            _playerList = List<entity<Player>>{}
-        }
-        Delete(_playerList, player)
-        CheckTurnOnSpawning()
+        // if(_playerList == nil){
+        //     _playerList = List<entity<Player>>{}
+        // }
+        // Delete(_playerList, player)
+        // CheckTurnOnSpawning()
+        globalEntity<GlobalZoneMobManager>.NotifyDistanceChecking(player)
     }
 
     func CheckTurnOnSpawning(){
