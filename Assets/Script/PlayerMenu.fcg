@@ -10,7 +10,7 @@ graph PlayerMenu {
 
     func InitMenuHUD(){
         if(_menuHUD == nil){
-            _menuHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:MENU, 4)
+            _menuHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.MENU, 4)
             LogInfo("[PlayerMenuHUD] _menuHUD: " + _menuHUD)
             _menuHUD<CustomHud>.Visibility = false
         }
@@ -39,6 +39,6 @@ graph PlayerMenu {
     }
 
     func GetMenuHUDWidget(eResourceUIMenu string) entity<HudWidget>{
-        return GetWidgetFromCustomHud(thisEntity<Player>, _menuHUD, Resources:UI_MENU[eResourceUIMenu])
+        return GetWidgetFromCustomHud(thisEntity<Player>, _menuHUD, Resources.UI_MENU[eResourceUIMenu])
     }
 }

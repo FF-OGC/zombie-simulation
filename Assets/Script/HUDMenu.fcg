@@ -8,10 +8,10 @@ import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 
 graph HUDMenu {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
-        if (button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU:BTN_MAP)) {
+        if (button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_MAP)) {
             LogInfo("[HUDMenu] btnMap: " + button) 
             player<PlayerZoneSelection>.BeginZoneSelection()
-        } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU:BTN_DEBUG)){
+        } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_DEBUG)){
             LogInfo("[HUDMenu] btnDebug: " + button)
             player<PlayerDebugHUD>.ToggleDebugHUD()
         } 

@@ -16,8 +16,9 @@ graph GlobalMaterial {
 
     func SetMaterialNameMap(){
         _materialNameMap = Map<string, object>{}
-        _materialNameMap[MaterialEnum:WOOD_LOG] = MyResources:MaterialLocalizations[MaterialEnum:WOOD_LOG]
+        _materialNameMap[MaterialEnum.WOOD_LOG] = MyResources.MaterialLocalizations[MaterialEnum.WOOD_LOG]
     }
+   
 
     func GetMaterialName(materialEnum string) LocString{
         InitGlobalMaterial()

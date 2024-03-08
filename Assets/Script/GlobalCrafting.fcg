@@ -16,8 +16,8 @@ graph GlobalCrafting {
 
     func SetRecipeNameMap(){
         _recipeNameMap = Map<string, object>{}
-        _recipeNameMap[RecipeEnum:MATERIAL_PROCESSOR] = MyResources:RecipeLocalizations[RecipeEnum:MATERIAL_PROCESSOR]
-        _recipeNameMap[RecipeEnum:MP5] = MyResources:RecipeLocalizations[RecipeEnum:MATERIAL_PROCESSOR]
+        _recipeNameMap[RecipeEnum.MATERIAL_PROCESSOR] = MyResources.RecipeLocalizations[RecipeEnum.MATERIAL_PROCESSOR]
+        _recipeNameMap[RecipeEnum.MP5] = MyResources.RecipeLocalizations[RecipeEnum.MATERIAL_PROCESSOR]
     }
 
     func GetRecipeName(recipeEnum string) LocString{

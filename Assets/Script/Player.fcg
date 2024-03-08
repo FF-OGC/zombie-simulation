@@ -30,7 +30,7 @@ graph Player {
         thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
         thisEntity<PlayerInventory>.BeginPlayerInventorySystem()
         Preload()
-        // MyResources:SetHookGun()
+        // MyResources.SetHookGun()
     }
 
     event Player_PlayerQuitGame() {
@@ -66,7 +66,7 @@ graph Player {
     }
 
     func Preload(){
-        AddItemToPlayer(thisEntity<Player>, ItemIDType:UZI, 1, out var addedItemList)
+        AddItemToPlayer(thisEntity<Player>, ItemIDType.UZI, 1, out var addedItemList)
     }
 
     async func RunOnKilled(){

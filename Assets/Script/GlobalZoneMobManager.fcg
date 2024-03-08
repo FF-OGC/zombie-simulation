@@ -18,7 +18,7 @@ graph GlobalZoneMobManager {
 
     func InitGlobalZoneMobManager(){
         // This must be here due to the prefabID not being init at the start of the game
-        var prefabID = ToString(Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE])
+        var prefabID = ToString(Resources.Prefab[EResource_Prefab.REGULAR_ZOMBIE])
         // LogInfo("[GlobalZoneMobManager] prefabID: " + prefabID)
         if(prefabID != nil){
             SetTypePrefabMap()
@@ -36,11 +36,11 @@ graph GlobalZoneMobManager {
         }
 
         _typePrefabMap = Map<int, PrefabID>{}
-        _typePrefabMap[AIType:UGCAI] = Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE]
-        _typePrefabMap[AIType:ThrowZombie] = Resources:Prefab[EResource_Prefab:TOSSING_ZOMBIE]
-        _typePrefabMap[AIType:ThrowRedZombie] = Resources:Prefab[EResource_Prefab:RED_TOSSING_ZOMBIE]
-        _typePrefabMap[AIType:WoodCutZombie] = Resources:Prefab[EResource_Prefab:AXE_ZOMBIE]
-        _typePrefabMap[AIType:TankZombie] = Resources:Prefab[EResource_Prefab:SHIELDED_ZOMBIE]
+        _typePrefabMap[AIType.UGCAI] = Resources.Prefab[EResource_Prefab.REGULAR_ZOMBIE]
+        _typePrefabMap[AIType.ThrowZombie] = Resources.Prefab[EResource_Prefab.TOSSING_ZOMBIE]
+        _typePrefabMap[AIType.ThrowRedZombie] = Resources.Prefab[EResource_Prefab.RED_TOSSING_ZOMBIE]
+        _typePrefabMap[AIType.WoodCutZombie] = Resources.Prefab[EResource_Prefab.AXE_ZOMBIE]
+        _typePrefabMap[AIType.TankZombie] = Resources.Prefab[EResource_Prefab.SHIELDED_ZOMBIE]
     }
 
     func InsertZoneSpawnList(mobSpawner entity<MobSpawner>){

@@ -7,17 +7,23 @@ import "./GlobalLoop.fcg" as GlobalLoop
 import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerInventory.fcg" as PlayerInventory
 import "Playable.fcc" as playable
+import "Math.fcc" as math
 
 graph Mob {
     LOOP_ELIM_DELTA int = 300
+
+    _lvl int
+    _atk int 
+    _maxHp int 
+    _chaseVicinity float
+    _speed float
+
     _spawner entity<MobSpawner>
     _loopSinceHit int
     _expAmount int
 
     event OnAwake() {
-        thisEntity<AI>.IsDeadDrop = false
-        _loopSinceHit = 0
-        _expAmount = 1
+        BeginMob()   
     }
 
     event OnTakeDamage(attacker entity<Entity>,
@@ -32,7 +38,14 @@ graph Mob {
       beDamagedPart HitBodyPart) {
         _spawner<ZoneMobManager>.RemoveMobFromList(thisEntity<Entity>)
         attacker<PlayerLevel>.IncreaseExpByAmount(_expAmount)
-        attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum:WOOD_LOG, 1)
+        attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.WOOD_LOG, 1)
+    }
+
+    func BeginMob(){
+        thisEntity<AI>.IsDeadDrop = false
+        LogInfo("[Mob] Chase Vicinity: " + thisEntity<AI>.AIType + " " + thisEntity<AI>.DetectRange + " " + thisEntity<AI>.RunSpeed)
+        _loopSinceHit = 0
+        _expAmount = 1
     }
 
     func StuckCheckLoopContent(){
@@ -46,8 +59,39 @@ graph Mob {
         _spawner = spawner
     }
 
+    func SetLvl(level int){
+        _lvl = level + GetLvlDelta()
+        
+
+    }
+
+    func GetLvlDelta() int{
+        return RandomInt(-5 , 5)
+    }
+
+    func SetAtk(atk int){
+        _atk = atk
+        thisEntity<AI>.AttackDamage = _atk
+    }
+
+    func SetHP(maxHP int){
+        _maxHp = maxHP
+        thisEntity<AI>.HPMax = _maxHp
+        thisEntity<AI>.HP = _maxHp
+    }
+
+    func SetChaseVicinity(chaseVicinity int){
+        _chaseVicinity = chaseVicinity        
+        thisEntity<AI>.DetectRange = _chaseVicinity
+    }
+
+    func SetSpeed(speed int){
+        _speed = speed
+        thisEntity<AI>.RunSpeed = _speed
+    }
+
     func EliminateSelf(){
-        MakeDamage(thisEntity<CombatEntity>, nil, DamageType:KillZone, 9999)
+        MakeDamage(thisEntity<CombatEntity>, nil, DamageType.KillZone, 9999)
     }
 
 }

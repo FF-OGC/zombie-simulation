@@ -45,19 +45,19 @@ graph PlayerData {
     async func LoadData() {
         // LogInfo("[PlayerData] LoadData = " + thisEntity<Player>)
         //Generic data            
-        wait ReadFromDatabase(DataEnum:PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum:GENERIC_DATA, out var genericData, "")
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, out var genericData, "")
         ReadGenericData(genericData as List<object>)
         
         
         //Daily data reset
         CheckResetDaily()
         //dispatch load data success event
-        DispatchEvent(Player_FinishAction, thisEntity<Player>, List<object>{DataEnum:ACTION_LOAD_DATA_SUCCESS, nil})
+        DispatchEvent(Player_FinishAction, thisEntity<Player>, List<object>{DataEnum.ACTION_LOAD_DATA_SUCCESS, nil})
     }
 
     func GetDataFromUsers() {
         //Get data from other component
-        CurrentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType:COIN)
+        CurrentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN)
         LogInfo("[PlayerData] GetDataFromUsers: " + CurrentCoin)
     }
 
@@ -75,7 +75,7 @@ graph PlayerData {
         GetDataFromUsers()
         var playerData = PrepareData()
         // LogInfo("[PlayerData] WriteData playerData = " + playerData)
-        WriteToDatabase(DataEnum:PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum:GENERIC_DATA, playerData, "") 
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, playerData, "") 
     }
 
     func AreDatesDifferent(timeStamp1 int, timeStamp2 int) bool{
@@ -103,7 +103,7 @@ graph PlayerData {
 
     async func Debug_ResetData(){
         CurrentCoin = 0
-        thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType:COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType:COIN))
+        thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType.COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN))
         WriteData()
     }
 

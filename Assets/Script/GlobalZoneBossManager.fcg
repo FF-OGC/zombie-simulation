@@ -13,7 +13,7 @@ graph GlobalZoneBossManager {
     _bossSpawnList List<entity<Entity>>
 
     func InitGlobalZoneBossManager(){
-        var prefabID = ToString(Resources:Prefab[EResource_Prefab:MECHANICAL_SPIDER_BOSS])
+        var prefabID = ToString(Resources.Prefab[EResource_Prefab.MECHANICAL_SPIDER_BOSS])
         if(prefabID != nil){
             SetTypePrefabMap()
         }
@@ -45,7 +45,7 @@ graph GlobalZoneBossManager {
         }
 
         _typePrefabMap = Map<int, PrefabID>{}
-        _typePrefabMap[BossEnum:MECHANICAL_SPIDER] = Resources:Prefab[EResource_Prefab:MECHANICAL_SPIDER_BOSS]
+        _typePrefabMap[BossEnum.MECHANICAL_SPIDER] = Resources.Prefab[EResource_Prefab.MECHANICAL_SPIDER_BOSS]
     }
 
     func GetTypePrefab(bossEnum int) PrefabID{

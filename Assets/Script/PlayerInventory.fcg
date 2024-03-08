@@ -30,9 +30,9 @@ graph PlayerInventory {
 
         _inventoryMap = Map<string, int>{}
         var materialList = globalEntity<GlobalMaterial>.GetMaterialList()
-        LogInfo("[PlayerInventory] materialList: " + materialList + " " + list:Length(materialList))
+        LogInfo("[PlayerInventory] materialList: " + materialList + " " + list.Length(materialList))
 
-        for i = 0, list:Length(materialList), 1{
+        for i = 0, list.Length(materialList), 1{
             var material = materialList[i]
             _inventoryMap[material] = 0
         }
@@ -53,7 +53,7 @@ graph PlayerInventory {
 
         // Set Obtain noti
         var materialAmountStr =  "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
         LogInfo("[PlayerInventory] material after +: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 
@@ -71,7 +71,7 @@ graph PlayerInventory {
 
         // Set Consumption noti
         var materialAmountStr = "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
         LogInfo("[PlayerInventory] material after -: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 

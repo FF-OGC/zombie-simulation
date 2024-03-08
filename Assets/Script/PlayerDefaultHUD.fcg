@@ -14,7 +14,7 @@ graph PlayerDefaultHUD {
     func SetCountdownTimerHUD(phaseEntity entity<Phase>){
         DeleteEntity(_countdownHUD)
         _curentPhaseEntity = phaseEntity
-        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType:PhaseCountDownHud)
+        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType.PhaseCountDownHud)
         _countdownHUD = createdEntity as entity<PhaseCountDownHud>;
         _countdownHUD<PhaseCountDownHud>.Duration = phaseEntity<Phase>.PhaseDuration / 1000
         _countdownHUD<PhaseCountDownHud>.BaseTime = globalEntity<Global>.GameTime / 1000
@@ -39,7 +39,7 @@ graph PlayerDefaultHUD {
 
     func SetFiveSecondCountdownHUD(){
         DeleteEntity(_fiveSecondCountDownHUD)
-        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType:FiveSecondCountDownHud)
+        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType.FiveSecondCountDownHud)
         _fiveSecondCountDownHUD = createdEntity as entity<FiveSecondCountDownHud>
         _fiveSecondCountDownHUD<FiveSecondCountDownHud>.LocalPosition = Vector3{0, -300, 0}
         _fiveSecondCountDownHUD<FiveSecondCountDownHud>.Visibility = true
@@ -51,7 +51,7 @@ graph PlayerDefaultHUD {
 
     func SetMatchResult(result MatchResultType){
         DeleteEntity(_resultBannerHUD)
-        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType:ResultBannerHud)
+        CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType.ResultBannerHud)
         _resultBannerHUD = createdEntity as entity<ResultBannerHud>
         _resultBannerHUD<ResultBannerHud>.EnableLocalization = true
         _resultBannerHUD<ResultBannerHud>.Result = result
@@ -63,7 +63,7 @@ graph PlayerDefaultHUD {
 
     func SetTweenTipsHUD(description object, paramList List<int>){
         DeleteEntity(_tweenTipsHUD)
-        CreateInternalHud(out var createdFloatingNotiHUD, thisEntity<Player>, InternalHudType:TweenTipsHud)
+        CreateInternalHud(out var createdFloatingNotiHUD, thisEntity<Player>, InternalHudType.TweenTipsHud)
         _tweenTipsHUD = createdFloatingNotiHUD as entity<TweenTipsHud>
         _tweenTipsHUD<TweenTipsHud>.EnableLocalization = true
         _tweenTipsHUD<TweenTipsHud>.Params = paramList

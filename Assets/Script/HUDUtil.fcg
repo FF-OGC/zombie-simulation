@@ -6,7 +6,7 @@ import "EditorGenLib.fcc" as editorgenlib
 
 static graph HUDUtil {
     func CreateCustomHUD(player entity<Player>, eResourceUI string, layer int) entity<CustomHud> {
-        CreateCustomHud(out var createdEntity, player, Resources:UI[eResourceUI])
+        CreateCustomHud(out var createdEntity, player, Resources.UI[eResourceUI])
         createdEntity<CustomHud>.Depth = layer
         LogInfo("[HUDUtil] CreateCustomHUD: " + eResourceUI)
         return createdEntity as entity<CustomHud>
