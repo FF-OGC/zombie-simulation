@@ -8,6 +8,7 @@ import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerInventory.fcg" as PlayerInventory
 import "Playable.fcc" as playable
 import "Math.fcc" as math
+import "./GlobalMob.fcg" as GlobalMob
 
 graph Mob {
     LOOP_ELIM_DELTA int = 300
@@ -61,8 +62,14 @@ graph Mob {
 
     func SetLvl(level int){
         _lvl = level + GetLvlDelta()
-        
+        //TODO: Test if it is added correctly
+        SetAtk(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.ATK) as int) 
+        SetHP(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.HP) as int)
+        SetChaseVicinity(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.CHASE_VICINITY))
+        SetSpeed(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.SPEED))
+        SetExpAmount(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.EXP))
 
+        LogInfo("[Mob] stat: " + " atk: " + _atk + ", hp: " + _maxHp + ", chase vicinity: " + _chaseVicinity + ", speed: " + _speed + ", exp: " + _expAmount) 
     }
 
     func GetLvlDelta() int{
@@ -80,14 +87,18 @@ graph Mob {
         thisEntity<AI>.HP = _maxHp
     }
 
-    func SetChaseVicinity(chaseVicinity int){
+    func SetChaseVicinity(chaseVicinity float){
         _chaseVicinity = chaseVicinity        
         thisEntity<AI>.DetectRange = _chaseVicinity
     }
 
-    func SetSpeed(speed int){
+    func SetSpeed(speed float){
         _speed = speed
         thisEntity<AI>.RunSpeed = _speed
+    }
+
+    func SetExpAmount(exp int){
+        _expAmount = exp
     }
 
     func EliminateSelf(){

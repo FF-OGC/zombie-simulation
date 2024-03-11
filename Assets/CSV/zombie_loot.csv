@@ -1,0 +1,8 @@
+Zombie,MAT_WOOD_LOG,MAT_COPPER_ORE,MAT_IRON_ORE,Total
+Regular,0.25,0.5,0.25,1
+Axe,0.75,0.25,0,1
+Shielded,0.25,0,0.75,1
+Tossing,0.5,0.5,0,1
+Mutated tossing,0,0.25,0.75,1
+Self-explode,0.25,0.5,0.25,1
+Total,2,2,2,

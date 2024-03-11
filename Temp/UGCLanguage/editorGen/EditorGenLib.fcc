@@ -176,6 +176,44 @@ enum BossEnum {
 
 }
 
+// StatType, type: Int
+enum StatType {
+    // ATK
+    ATK = 0
+
+    // HP
+    HP = 1
+
+    // SPEED
+    SPEED = 2
+
+    // CHASE_VICINITY
+    CHASE_VICINITY = 3
+
+    // EXP
+    EXP = 4
+
+}
+
+// DifficultyEnum, type: Int
+enum DifficultyEnum {
+    // DIF_LVL_1
+    DIF_LVL_1 = 1
+
+    // DIF_LVL_2
+    DIF_LVL_2 = 2
+
+    // DIF_LVL_3
+    DIF_LVL_3 = 3
+
+    // DIF_LVL_4
+    DIF_LVL_4 = 4
+
+    // DIF_LVL_5
+    DIF_LVL_5 = 5
+
+}
+
 enum EResource_UI {
     CRAFTLAND_TOKEN_WALLET = "CRAFTLAND_TOKEN_WALLET"
     ZONE_SELECTION = "ZONE_SELECTION"
@@ -194,6 +232,10 @@ enum EResource_Prefab {
     RED_TOSSING_ZOMBIE = "RED_TOSSING_ZOMBIE"
     SHIELDED_ZOMBIE = "SHIELDED_ZOMBIE"
     MECHANICAL_SPIDER_BOSS = "MECHANICAL_SPIDER_BOSS"
+}
+enum EResource_CSV {
+    ZOMBIE_FACT = "ZOMBIE_FACT"
+    ZOMBIE_LOOT = "ZOMBIE_LOOT"
 }
 enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
     TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
@@ -314,15 +356,3 @@ declare static graph MyResourcesLoc {
 
 }
 
-declare static graph Resources {
-    UI Map<EResource_UI, CustomHudID>
-    Scene Map<EResource_Scene, string>
-    Prefab Map<EResource_Prefab, PrefabID>
-
-    UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
-    UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>
-    UI_MENU Map<EResource_UI_MENU, CustomHudWidgetID>
-    UI_LEVEL Map<EResource_UI_LEVEL, CustomHudWidgetID>
-    UI_INVENTORY Map<EResource_UI_INVENTORY, CustomHudWidgetID>
-    UI_DEBUG Map<EResource_UI_DEBUG, CustomHudWidgetID>
-}
