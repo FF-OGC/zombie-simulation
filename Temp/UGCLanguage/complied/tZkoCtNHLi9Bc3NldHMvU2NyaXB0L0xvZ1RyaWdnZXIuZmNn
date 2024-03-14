@@ -1,0 +1,18 @@
+£	
+0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0xvZ1RyaWdnZXIuZmNn¸ˆ
+StdLibrary.fcc:1262:0OnAwakeó"*Ş
+"./Assets/Script/LogTrigger.fcg:8:8Invoke LogInfo"š—
+#./Assets/Script/LogTrigger.fcg:8:41Invoke Connect­":[LogTrigger] OnAwake: "A?
+#./Assets/Script/LogTrigger.fcg:8:43Invoke ThisEntityNH±HHÿÿÿÿÿÿÿÿÿ´¯
+Workflow.fcc:45:0OnPhaseStartó"*&:$./Assets/Script/LogTrigger.fcg:11:23*Ö
+#./Assets/Script/LogTrigger.fcg:12:8Invoke LogInfo"‘
+$./Assets/Script/LogTrigger.fcg:12:65Invoke Connect­"çä
+$./Assets/Script/LogTrigger.fcg:12:59Invoke Connect­"¡
+$./Assets/Script/LogTrigger.fcg:12:46Invoke Connect­":[LogTrigger] OnPhaseStart: "B@
+$./Assets/Script/LogTrigger.fcg:12:48Invoke ThisEntityNH±H": H"ge
+$./Assets/Script/LogTrigger.fcg:12:67Invoke GetLocalVarÖ"&:$./Assets/Script/LogTrigger.fcg:11:23HHÿÿÿÿÿÿÿÿÿB˜“
+StdLibrary.fcc:1250:0OnGameStartó"*å
+#./Assets/Script/LogTrigger.fcg:16:8Invoke LogInfo" 
+$./Assets/Script/LogTrigger.fcg:16:45Invoke Connect­":[LogTrigger] OnGameStart: "B@
+$./Assets/Script/LogTrigger.fcg:16:47Invoke ThisEntityNH±HHÿÿÿÿÿÿÿÿÿ*
+LogTrigger0

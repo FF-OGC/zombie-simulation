@@ -1,6 +1,14 @@
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "LevelObject.fcc" as levelobject
+import "Convert.fcc" as Convert
+import "./PlayerData.fcg" as PlayerData
+import "List.fcc" as List
+import "Map.fcc" as Map
+import "./PlayerStatHUD.fcg" as PlayerStatHUD
+import "./PlayerLevel.fcg" as PlayerLevel
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+import "./Enum.fcg" as Enum
 
 graph PlayerStat {
     ORIGINAL_MAX_HP int = 200
@@ -8,38 +16,219 @@ graph PlayerStat {
     ORIGINAL_ATK int = 10
 
     _hasInit bool
-    _killCount int
-    _maxHP int
-    _atk int
-
+    _statMap Map<int, int>
+    _remainingStatPoint int
+    _adjustingRemainingStatPoint int
+    _statPointMap Map<int, int>
+    _statPointAdjustmentMap Map<int, int>
 
     func InitPlayerStat(){
         // Check for stored data first before initialize
         if(!_hasInit){
-            _killCount = 0
-            _maxHP = ORIGINAL_MAX_HP
-            _atk = ORIGINAL_ATK
+            SetStatMap()
+            _remainingStatPoint = thisEntity<PlayerLevel>.GetLvl()
+            UpdateStatMap()
+            SetStatPointAdjustmentMap()
             _hasInit = true
         }
     }
 
-    func IncreaseKillCountByAmount(amount int){
-        _killCount += amount
+    func BeginPlayerStat(){
+        InitPlayerStat()
+        ResetPlayerStat()
+        thisEntity<PlayerStatHUD>.DisplayStatHUD()
     }
 
-    func DecreaseKillCountByAmount(amount int){
-        _killCount -= amount
+    func ResetPlayerStat(){
+        _adjustingRemainingStatPoint = _remainingStatPoint
+        ResetStatPointAdjustmentMap()
     }
 
-    func GetKillCount() int{
-        return _killCount
+    func EndPlayerStat(){
+        thisEntity<PlayerStatHUD>.CloseStatHUD()
     }
 
-    func GetHPMax() int {
-        return _maxHP
+    func SetStatMap(){
+        if(_statMap == nil){
+            _statMap = Map<int, int>{}
+            _statMap[StatType.KILL_COUNT] = 0
+            _statMap[StatType.ATK] = ORIGINAL_ATK
+            _statMap[StatType.MAX_HP] = ORIGINAL_MAX_HP
+        }
+    }
+    
+    func SetStatPointAdjustmentMap(){
+        if(_statPointAdjustmentMap == nil){
+            _statPointAdjustmentMap = Map<int, int>{}
+        }
     }
 
-    func GetAtk() int {
-        return _atk
+    func ResetStatPointAdjustmentMap(){
+        SetStatPointAdjustmentMap()
+        _statPointAdjustmentMap[StatType.ATK] = 0
+        _statPointAdjustmentMap[StatType.MAX_HP] = 0
+    }
+
+    func UpdateStatMap(){
+        var statTypeList = GetAllKeys(_statPointMap)
+        for i = 0, List.Length(statTypeList), 1{
+            var statType = statTypeList[i] as int
+            var statPoint = _statPointMap[statType] as int
+            var stat = _statMap[statType] as int
+            AdjustStatByAmount(statType, statPoint, false)
+            _remainingStatPoint -= statPoint
+        }
+    }
+
+    func SetStatPointMap(){
+        if(_statPointMap == nil){
+            _remainingStatPoint = 0
+            _statPointMap = Map<int, int>{}
+            _statPointMap[StatType.ATK] = 0
+            _statPointMap[StatType.MAX_HP] = 0
+        }
+    }
+
+    func GetRemainingStatPoint() int{
+        return _remainingStatPoint
+    }
+
+    func AdjustStatPoint(statType int, amount int, isDecreasing bool){
+        SetStatPointMap()
+        if(_remainingStatPoint < amount){
+            LogInfo("[PlayerStat] Not enough remaining stat point")
+            return
+        }
+
+        var mult = 1
+        if(isDecreasing){
+            mult = -1
+        }
+
+        _statPointMap[statType] += mult * amount
+        AdjustStatByPoint(statType, amount, isDecreasing)
+        _remainingStatPoint += mult * amount
+    }
+
+    func AdjustStatPointAdjustmentMap(statType int, amount int, isDecreasing bool){
+        SetStatPointAdjustmentMap()
+        if(_adjustingRemainingStatPoint < amount){
+            LogInfo("[PlayerStat] Not enough remaining stat point")
+        }
+
+        var mult = 1
+        if(isDecreasing){
+            mult = -1
+        }
+
+        _statPointAdjustmentMap[statType] += mult * amount
+        _adjustingRemainingStatPoint += mult * amount
+    }
+    
+    func AdjustStatByPoint(statType int, statPointAmount int, isDecreasing bool){
+        SetStatMap()
+
+        var mult = 1
+        if(isDecreasing){
+            mult = -1 
+        }
+
+        if(statType == StatType.ATK){
+            _statMap[StatType.ATK] += mult * statPointAmount
+            LogInfo("[PlayerStat] atk increase by: " + statPointAmount + ", totaling: " + _statMap[StatType.ATK])
+            return 
+        }
+
+        if(statType == StatType.MAX_HP){
+            _statMap[StatType.MAX_HP] += mult * statPointAmount * 10
+            thisEntity<Player>.HPMAX = _statMap[StatType.MAX_HP]
+            thisEntity<PlayerDefaultHUD>.UpdatePlayerHeadHUD()
+            LogInfo("[PlayerStat] max hp increase by: " + statPointAmount * 10 + ", totaling: " + _statMap[StatType.MAX_HP])
+            return
+        }
+
+        var statTypeExceptionList = List<int>{StatType.KILL_COUNT}
+
+        if(Contains(statTypeExceptionList, statType)){
+            LogInfo("[PlayerStat] Increasing stat through point could not be applied")
+            return
+        }
+    }
+
+    func AdjustStatByAmount(statType int, statAmount int, isDecrease bool){
+        SetStatMap()
+
+        var mult = 1
+        if(isDecrease){
+            mult = -1
+        }
+        if(statType == StatType.ATK){
+            _statMap[StatType.ATK] += mult * statAmount
+            LogInfo("[PlayerStat] atk increase by: " + statAmount + ", totaling: " + _statMap[StatType.ATK])
+            return 
+        }
+
+        if(statType == StatType.MAX_HP){
+            _statMap[StatType.MAX_HP] += mult * statAmount
+            thisEntity<Player>.HPMAX = _statMap[StatType.MAX_HP]
+            thisEntity<PlayerDefaultHUD>.UpdatePlayerHeadHUD()
+            LogInfo("[PlayerStat] max hp increase by: " + statAmount + ", totaling: " + _statMap[StatType.MAX_HP])
+            return
+        }
+
+        if(statType == StatType.KILL_COUNT){
+            _statMap[StatType.KILL_COUNT] += mult * statAmount
+            LogInfo("[PlayerStat] killcount increase by: " + statAmount + ", totaling: " + _statMap[StatType.KILL_COUNT])
+            return
+        }
+
+        var statTypeExceptionList = List<int>{}
+
+        if(Contains(statTypeExceptionList, statType)){
+            LogInfo("[PlayerStat] Increasing stat through point could not be applied")
+            return
+        }
+    }
+
+    func ConfirmStatAdjustment(){
+        var statTypeList = GetAllKeys(_statPointAdjustmentMap)
+        for i = 0, List.Length(statTypeList), 1{
+            var statType = statTypeList[i] as int
+            var statPointAdjustment = _statPointAdjustmentMap[statType] as int
+            AdjustStatPoint(statType, statPointAdjustment, false)
+        }
+    }
+
+    func GetStatListFromStatMap() List<int>{
+        var statList = List<int>{}
+        var statKeyList = GetAllKeys(_statPointMap)
+        for i = 0, List.Length(statKeyList), 1{
+            var statKey = statKeyList[i] as int
+            var stat = _statMap[statKey] as int
+            Append(statList, stat)
+        }
+
+        LogInfo("[PlayerStat] statList: " + statList)
+        return statList
+    }
+
+    func GetStatMapFromStatList(statList List<int>) Map<int, int>{
+        var newStatMap = Map<int, int>{}
+        var keyList = GetAllKeys(_statMap)
+        for i = 0, List.Length(keyList), 1{
+            var key = keyList[i]
+            var stat = statList[i]
+            newStatMap[key] = stat
+        }
+        return newStatMap
+    }
+
+    event Player_FinishAction(action string, data object) {        
+        if (ToString(action) == ToString(Enum.ACTION_LOAD_DATA_SUCCESS)) {
+            LogInfo("[PlayerStat] LoadDataSuccess _statList = " + thisEntity<PlayerData>._statList)
+            LogInfo("[PlayerStat] LoadDataSuccess _exp = " + thisEntity<PlayerData>._exp)
+
+            _statPointMap = GetStatMapFromStatList(thisEntity<PlayerData>._statList)
+        }
     }
 }

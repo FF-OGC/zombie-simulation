@@ -6,29 +6,34 @@ import "Database.fcc" as database
 import "Player.fcc" as player 
 import "Economy.fcc" as economy 
 import "Math.fcc" as math 
+import "./PlayerStat.fcg" as PlayerStat
+import "./PlayerLevel.fcg" as PlayerLevel
 
 graph PlayerData {
-    LastLoginTime int
-    CurrentReadPos int
-    CurrentCoin int
+    _lastLoginTime int
+    _currentReadPos int
+    _currentCoin int
+
+    _exp int
+    _statList List<int>
 
     func ReadDataInteger(data List<object>, defaultValue int) int {
         var returnValue = defaultValue
-        if (data[CurrentReadPos] != nil) {
-            returnValue = data[CurrentReadPos] as int
-            CurrentReadPos = CurrentReadPos + 1
+        if (data[_currentReadPos] != nil) {
+            returnValue = data[_currentReadPos] as int
+            _currentReadPos = _currentReadPos + 1
         }
         return returnValue
     }
 
     func InitGenericData() {
         //Init default data
-        LastLoginTime = 0
-        CurrentCoin = 0
+        _lastLoginTime = 0
+        _currentCoin = 0
     }
     
     func ReadGenericData(data List<object>) {
-        CurrentReadPos = 0
+        _currentReadPos = 0
         InitGenericData()
 
         if (data == nil) {
@@ -38,8 +43,29 @@ graph PlayerData {
         LogInfo("[PlayerData] ReadGenericData = " + data)
 
         //Load all data from data table
-        CurrentCoin = ReadDataInteger(data, 0)
-        LastLoginTime = ReadDataInteger(data, 0)
+        _currentCoin = ReadDataInteger(data, 0)
+        _lastLoginTime = ReadDataInteger(data, 0)
+    }
+
+    func InitStatData(){
+        _exp = 0
+        _statList = List<int>{}
+    }
+
+    func ReadStatData(data List<object>){
+        _currentReadPos = 0
+        InitStatData()
+        if(data == nil){
+            return 
+        }
+        
+        LogInfo("[PlayerData] ReadStatData = " + data)
+
+        _exp = ReadDataInteger(data, 0)
+        for i = 0, list.Length(data) - 1, 1{
+            var stat = ReadDataInteger(data, 0)
+            Append(_statList, stat)
+        }
     }
 
     async func LoadData() {
@@ -47,7 +73,9 @@ graph PlayerData {
         //Generic data            
         wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, out var genericData, "")
         ReadGenericData(genericData as List<object>)
-        
+
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, out var statData, "")
+        ReadStatData(statData as List<object>)
         
         //Daily data reset
         CheckResetDaily()
@@ -57,25 +85,33 @@ graph PlayerData {
 
     func GetDataFromUsers() {
         //Get data from other component
-        CurrentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN)
-        LogInfo("[PlayerData] GetDataFromUsers: " + CurrentCoin)
+        _currentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN)
+        _exp = thisEntity<PlayerLevel>.GetExp()
+        _statList = thisEntity<PlayerStat>.GetStatListFromStatMap()
+        LogInfo("[PlayerData] GetDataFromUsers: " + _currentCoin)
     }
 
     func PrepareData() List<int> {
-        var playerData = List<int> {}
-        Append(playerData, CurrentCoin)
-        Append(playerData, LastLoginTime)
-        
+        var playerData = List<int>{}
+        Append(playerData, _currentCoin)
+        Append(playerData, _lastLoginTime)
         return playerData
     }
 
-    async func WriteData() {
-        // LogInfo("[PlayerData] WriteData = " + thisEntity<Player>)
+    func PrepareStatData() List<int>{
+        var statData = List<int>{}
+        Append(statData, _exp)
+        AppendRange(statData, _statList)
+        return statData
+    }
 
+    async func WriteData() {
         GetDataFromUsers()
         var playerData = PrepareData()
+        var statData = PrepareStatData()
         // LogInfo("[PlayerData] WriteData playerData = " + playerData)
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, playerData, "") 
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, statData, "") 
     }
 
     func AreDatesDifferent(timeStamp1 int, timeStamp2 int) bool{
@@ -91,9 +127,9 @@ graph PlayerData {
     func CheckResetDaily(){
         var loginTime = GetServerTime()
         LogInfo("[PlayerData] loginTime: " + loginTime)
-        LogInfo("[PlayerData] LastLoginTime: " + LastLoginTime)
-        if(AreDatesDifferent(loginTime, LastLoginTime)){
-            LastLoginTime = loginTime
+        LogInfo("[PlayerData] _lastLoginTime: " + _lastLoginTime)
+        if(AreDatesDifferent(loginTime, _lastLoginTime)){
+            _lastLoginTime = loginTime
             ResetDataDaily()
         }
     }
@@ -102,7 +138,7 @@ graph PlayerData {
     }
 
     async func Debug_ResetData(){
-        CurrentCoin = 0
+        _currentCoin = 0
         thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType.COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN))
         WriteData()
     }

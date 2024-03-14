@@ -4,6 +4,8 @@ import "AI.fcc" as ai
 import "Player.fcc" as player
 import "Workflow.fcc" as workflow
 import "Combat.fcc" as combat
+import "LevelObject.fcc" as levelobject
+import "Items.fcc" as items
 
 import Resources from "EditorGenLib.fcc"
 import MyResources from "EditorGenLib.fcc"
@@ -20,8 +22,9 @@ import "./PlayerInventory.fcg" as PlayerInventory
 import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
 import "./PlayerDebug.fcg" as PlayerDebug
 import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
-import "LevelObject.fcc" as levelobject
-import "Items.fcc" as items
+import "./PlayerStatHUD.fcg" as PlayerStatHUD
+import "./PlayerData.fcg" as PlayerData
+
 
 graph Player {
     event Player_PlayerJoinGame() {
@@ -31,6 +34,9 @@ graph Player {
         thisEntity<PlayerInventory>.BeginPlayerInventorySystem()
         Preload()
         // MyResources.SetHookGun()
+        thisEntity<PlayerData>.LoadData()
+        WaitForSeconds(500)
+        thisEntity<PlayerDefaultHUD>.SetPlayerHeadHUD()
     }
 
     event Player_PlayerQuitGame() {
@@ -58,6 +64,7 @@ graph Player {
         WaitForSeconds(500)
         thisEntity<PlayerDebugHUD>.InitDebugHUD()
         WaitForSeconds(100)
+        thisEntity<PlayerStatHUD>.InitStatHUD()
     }
 
     func DeleteAllHUD(){
@@ -66,13 +73,13 @@ graph Player {
     }
 
     func Preload(){
-        AddItemToPlayer(thisEntity<Player>, ItemIDType.UZI, 1, out var addedItemList)
+        AddItemToPlayer(thisEntity<Player> as entity<Player>, ItemIDType.UZI, 1, out var addedItemList)
     }
 
     async func RunOnKilled(){
         thisEntity<PlayerZoneSelection>.StopPlayerFromTeleporting()
         WaitForNextFrame()
-        Revive(thisEntity<Player>)
+        Revive(thisEntity<Player> as entity<Player>)
     }
 
 }

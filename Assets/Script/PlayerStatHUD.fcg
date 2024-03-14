@@ -1,0 +1,180 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as Hud
+import "./HUDUtil.fcg" as HUDUtil
+import Resources from "EditorGenLib.fcc"
+import MyResources from "EditorGenLib.fcc"
+import "./PlayerStat.fcg" as PlayerStat
+import "Map.fcc" as Map
+import "Convert.fcc" as Convert
+import "Strings.fcc" as Strings
+import "List.fcc" as List
+
+graph PlayerStatHUD {
+    _statHUD entity<CustomHud>
+    _isBtnConfirmActive bool
+    _statTypeBtnIncMap Map<int, entity<HudWidget>>
+    _btnStatTypeIncMap Map<entity<HudWidget>, int>
+
+    _statTypeBtnDecMap Map<int, entity<HudWidget>>
+    _btnStatTypeDecMap Map<entity<HudWidget>, int>
+    _statTypeTxtMap Map<int, entity<HudWidget>>
+    _tempStatAdjustMap Map<int, int>
+
+    _hasInit bool
+    
+    func InitStatHUD(){
+        if(_statHUD == nil){
+            _statHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.PLAYER_STAT, 4)
+            _statHUD<CustomHud>.Visibility = false
+            SetStatTypeMap()
+        }
+    }
+
+    func SetStatTypeMap(){
+        _statTypeBtnIncMap = Map<int, entity<HudWidget>>{}
+        _statTypeBtnDecMap = Map<int, entity<HudWidget>>{}
+        _statTypeTxtMap = Map<int, entity<HudWidget>>{}
+        _btnStatTypeDecMap = Map<entity<HudWidget>, int>{}
+        _btnStatTypeDecMap = Map<entity<HudWidget>, int>{}
+
+        _statTypeBtnIncMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_INCREASE_ATK)
+        _statTypeBtnIncMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_INCREASE_HP)
+
+        _statTypeBtnDecMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_DECREASE_ATK)
+        _statTypeBtnDecMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_DECREASE_HP)
+
+        var statTypeList = GetAllKeys(_statTypeBtnIncMap)
+        for i = 0, List.Length(statTypeList), 1{
+            var statType = statTypeList[i] as int
+            var btnInc = _statTypeBtnIncMap[statType] as entity<HudWidget>
+            var btnDec = _statTypeBtnDecMap[statType] as entity<HudWidget>
+            _btnStatTypeDecMap[btnDec] = statType
+            _btnStatTypeIncMap[btnInc] = statType
+        }
+
+        _statTypeTxtMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.TXT_ATK)
+        _statTypeTxtMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.TXT_HP)
+    }
+    
+    func DisplayStatHUD(){
+        InitStatHUD()
+        ResetStatHUD()
+        if(!_statHUD<CustomHud>.Visibility){
+            _statHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ResetStatHUD(){
+        UpdateTxtStatHUD()
+        UpdateBtnStatHUD()
+    }
+
+    func UpdateTxtStatHUD(){
+        var statTypeList = GetAllKeys(thisEntity<PlayerStat>._statPointMap)
+        for i = 0, List.Length(statTypeList), 1{
+            var statType = statTypeList[i]
+            var statPoint = thisEntity<PlayerStat>._statPointMap[statType]
+            var statPointAdjustment = thisEntity<PlayerStat>._statPointAdjustmentMap[statType]
+            var txt = _statTypeTxtMap[statType]
+            txt<HudLabelWidget>.Text = ToString(statPoint + statPointAdjustment)
+
+            if(statPointAdjustment > 0){
+                txt<HudLabelWidget>.Color = ColorRGB(0, 255, 0)
+            } else {
+                txt<HudLabelWidget>.Color = ColorRGB(255, 255, 255)
+            }
+        }
+        var txtRemaining = GetStatHUDWidget(EResource_UI_PLAYER_STAT.TXT_REMAIN)
+        txtRemaining<HudLabelWidget>.Text = ToString(thisEntity<PlayerStat>._adjustingRemainingStatPoint)
+    }
+
+    func UpdateBtnStatHUD(){
+        var statTypeList = GetAllKeys(thisEntity<PlayerStat>._statPointAdjustmentMap)
+        var adjustingRemainingStatPoint = thisEntity<PlayerStat>._adjustingRemainingStatPoint
+        var btnConfirm = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_CONFIRM)
+
+        for i = 0, List.Length(statTypeList), 1{
+            var statType = statTypeList[i]
+            var statPointAdjustment = thisEntity<PlayerStat>._statPointAdjustmentMap[statType]
+            var btnInc = _statTypeBtnIncMap[statType]
+            var btnDec = _statTypeBtnDecMap[statType]
+
+            if(adjustingRemainingStatPoint > 0){
+                btnInc<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_MID_PRESS]
+            } else {
+                btnInc<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_DISABLE]
+            }
+
+            if(statPointAdjustment > 0){
+                btnDec<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_MID_PRESS]
+                btnConfirm<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_MID_PRESS]
+            } else{
+                btnDec<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_DISABLE]
+                btnConfirm<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_DISABLE]
+            }
+        }
+    }
+
+    func CloseStatHUD(){
+        if(_statHUD != nil){
+            _statHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteStatHUD(){
+        DeleteEntity(_statHUD)
+    }
+
+    func SetConfirmBtnActivity(isActive bool){
+        var btnConfirm  = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_CONFIRM)
+
+        if(isActive){
+            btnConfirm<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_MID_PRESS]            
+            _isBtnConfirmActive = true
+            return
+        }
+
+        if(!isActive){
+            btnConfirm<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_DISABLE]
+            _isBtnConfirmActive = false
+            return
+        }
+    }
+
+
+    func ClickButton(button entity<HudButtonWidget>){
+        if(thisEntity<PlayerStat>._adjustingRemainingStatPoint <= 0){
+            LogInfo("[PlayerStatHUD] No more stat point remaining")
+            ShowTips(thisEntity<Player>, MyResources.Localizations["NO_REMAINING_STAT_POINT"], ColorRGB(255, 255, 255), 3000)
+            return
+        }
+
+        var statType = 0
+        var isDecreasing = false
+        if(_btnStatTypeDecMap[button] != nil){
+            statType = _btnStatTypeDecMap[button] 
+        } else {
+            statType = _btnStatTypeIncMap[button]
+            isDecreasing = true
+        }
+
+        thisEntity<PlayerStat>.AdjustStatPointAdjustmentMap(statType, 1, isDecreasing)
+        UpdateTxtStatHUD()
+        UpdateBtnStatHUD()
+    }
+
+    func ClickConfirmBtn(){
+        if(!_isBtnConfirmActive){
+            ShowTips(thisEntity<Player>, MyResources.Localizations["BTN_CONFIRM_NOT_ACTIVE"], ColorRGB(255, 255, 255), 3000)
+            return
+        }
+
+        // TODO: Implement click confirm btn
+        thisEntity<PlayerStat>.ConfirmStatAdjustment()
+    }
+
+    func GetStatHUDWidget(eResourceUIPlayerStat string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _statHUD, Resources.UI_PLAYER_STAT[eResourceUIPlayerStat])
+    }
+}

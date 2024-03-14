@@ -1,3 +1,4 @@
+import "List.fcc" as List
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "AI.fcc" as ai
@@ -19,8 +20,8 @@ graph GlobalMob {
     func SetTypeStatMultMap(){
         _typeDifficultyLvlStatMap = Map<int, Map<string, Map<int, Map<int, float>>>>{}
         _typeStatList = ReadCSV(Resources.CSV[EResource_CSV.ZOMBIE_FACT])
-        LogInfo("[GlobalMob] zombieFactList: " + zombieFactList)
-        for i = 0, Length(_typeStatList), 1{
+        LogInfo("[GlobalMob] _typeStatList: " + _typeStatList)
+        for i = 0, List.Length(_typeStatList), 1{
             var typeStat = _typeStatList[i]
             var zombieType = typeStat[1] as int
             var difficultyType = typeStat[3] as int
@@ -33,7 +34,7 @@ graph GlobalMob {
 
             var statMap = Map<int, float>{}
             statMap[StatType.ATK] = atk
-            statMap[StatType.HP] = hp
+            statMap[StatType.MAX_HP] = hp
             statMap[StatType.SPEED] = speed
             statMap[StatType.CHASE_VICINITY] = chaseVicinity
             statMap[StatType.EXP] = exp

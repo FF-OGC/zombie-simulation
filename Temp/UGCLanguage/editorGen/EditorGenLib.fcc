@@ -59,6 +59,9 @@ enum DataEnum {
     // GENERIC_DATA
     GENERIC_DATA = "GenericData"
 
+    // STAT_DATA
+    STAT_DATA = "StatData"
+
 }
 
 // GameMoneyType, type: Int
@@ -181,8 +184,8 @@ enum StatType {
     // ATK
     ATK = 0
 
-    // HP
-    HP = 1
+    // MAX_HP
+    MAX_HP = 1
 
     // SPEED
     SPEED = 2
@@ -192,6 +195,18 @@ enum StatType {
 
     // EXP
     EXP = 4
+
+    // KILL_COUNT
+    KILL_COUNT = 5
+
+    // CURRENT_HP
+    CURRENT_HP = 6
+
+    // MAX_EP
+    MAX_EP = 7
+
+    // CURRENT_EP
+    CURRENT_EP = 8
 
 }
 
@@ -221,6 +236,7 @@ enum EResource_UI {
     LEVEL = "LEVEL"
     INVENTORY = "INVENTORY"
     DEBUG = "DEBUG"
+    PLAYER_STAT = "PLAYER_STAT"
 }
 enum EResource_Scene {
     ZS = "ZS"
@@ -232,6 +248,10 @@ enum EResource_Prefab {
     RED_TOSSING_ZOMBIE = "RED_TOSSING_ZOMBIE"
     SHIELDED_ZOMBIE = "SHIELDED_ZOMBIE"
     MECHANICAL_SPIDER_BOSS = "MECHANICAL_SPIDER_BOSS"
+}
+enum EResource_Texture {
+    BTN_MID_PRESS = "BTN_MID_PRESS"
+    BTN_DISABLE = "BTN_DISABLE"
 }
 enum EResource_CSV {
     ZOMBIE_FACT = "ZOMBIE_FACT"
@@ -263,6 +283,7 @@ enum EResource_UI_ZONE_SELECTION {
 enum EResource_UI_MENU {
     BTN_MAP = "BTN_MAP"
     BTN_DEBUG = "BTN_DEBUG"
+    BTN_STAT = "BTN_STAT"
 }
 enum EResource_UI_LEVEL {
     PIVOT_LEVEL = "PIVOT_LEVEL"
@@ -277,6 +298,17 @@ enum EResource_UI_DEBUG {
     TXT_ZOMBIE_MAX = "TXT_ZOMBIE_MAX"
     BTN_PLUS_100 = "BTN_PLUS_100"
     BTN_MINUS_100 = "BTN_MINUS_100"
+}
+enum EResource_UI_PLAYER_STAT {
+    BTN_INCREASE_HP = "BTN_INCREASE_HP"
+    BTN_DECREASE_HP = "BTN_DECREASE_HP"
+    BTN_INCREASE_ATK = "BTN_INCREASE_ATK"
+    BTN_DECREASE_ATK = "BTN_DECREASE_ATK"
+    BTN_CONFIRM = "BTN_CONFIRM"
+    BTN_EXIT = "BTN_EXIT"
+    TXT_REMAIN = "TXT_REMAIN"
+    TXT_HP = "TXT_HP"
+    TXT_ATK = "TXT_ATK"
 }
 // Player_PlayerJoinGame()
 [platform_server]
@@ -356,3 +388,18 @@ declare static graph MyResourcesLoc {
 
 }
 
+declare static graph Resources {
+    UI Map<EResource_UI, CustomHudID>
+    Scene Map<EResource_Scene, string>
+    Prefab Map<EResource_Prefab, PrefabID>
+    Texture Map<EResource_Texture, SpriteID>
+    CSV Map<EResource_CSV, CsvID>
+
+    UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
+    UI_ZONE_SELECTION Map<EResource_UI_ZONE_SELECTION, CustomHudWidgetID>
+    UI_MENU Map<EResource_UI_MENU, CustomHudWidgetID>
+    UI_LEVEL Map<EResource_UI_LEVEL, CustomHudWidgetID>
+    UI_INVENTORY Map<EResource_UI_INVENTORY, CustomHudWidgetID>
+    UI_DEBUG Map<EResource_UI_DEBUG, CustomHudWidgetID>
+    UI_PLAYER_STAT Map<EResource_UI_PLAYER_STAT, CustomHudWidgetID>
+}

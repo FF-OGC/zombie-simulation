@@ -3,6 +3,7 @@ import "EditorGenLib.fcc" as editorGenLib
 import "Hud.fcc" as hud 
 import "Workflow.fcc" as workflow 
 import "GameResult.fcc" as gameResult 
+import "./PlayerLevel.fcg" as PlayerLevel
 
 graph PlayerDefaultHUD {
     _countdownHUD entity<PhaseCountDownHud>
@@ -10,6 +11,7 @@ graph PlayerDefaultHUD {
     _tweenTipsHUD entity<TweenTipsHud>
     _fiveSecondCountDownHUD entity<FiveSecondCountDownHud>
     _curentPhaseEntity entity<Phase>
+    _playerHeadHUD entity<PlayerHeadHud>
 
     func SetCountdownTimerHUD(phaseEntity entity<Phase>){
         DeleteEntity(_countdownHUD)
@@ -69,5 +71,25 @@ graph PlayerDefaultHUD {
         _tweenTipsHUD<TweenTipsHud>.Params = paramList
         _tweenTipsHUD<TweenTipsHud>.TipsType = 0
         _tweenTipsHUD<TweenTipsHud>.Description = description as LocString
+    }
+
+    func SetPlayerHeadHUD(){
+        DeleteEntity(_playerHeadHUD)
+        CreateInternalHud(out var createdHeadHUD, nil, InternalHudType.PlayerHeadHud)
+        _playerHeadHUD = createdHeadHUD as entity<PlayerHeadHud>
+        _playerHeadHUD<PlayerHeadHud>.CurrentHp = thisEntity<Player>.HP
+        _playerHeadHUD<PlayerHeadHud>.Level = thisEntity<PlayerLevel>.GetLvl()
+        _playerHeadHUD<PlayerHeadHud>.PlayerName = thisEntity<Player>.NickName
+        _playerHeadHUD<PlayerHeadHud>.FollowTarget = thisEntity<Player>
+        _playerHeadHUD<PlayerHeadHud>.TotalHp = thisEntity<Player>.HPMAX
+        _playerHeadHUD<PlayerHeadHud>.Offset = Vector3{0, 1.5, 0}
+        // _playerHeadHUD<PlayerHeadHud>.
+    }
+
+    func UpdatePlayerHeadHUD(){
+        SetPlayerHeadHUD()
+        _playerHeadHUD<PlayerHeadHud>.CurrentHp = thisEntity<Player>.HP
+        _playerHeadHUD<PlayerHeadHud>.Level = thisEntity<PlayerLevel>.GetLvl()
+        _playerHeadHUD<PlayerHeadHud>.TotalHp = thisEntity<Player>.HPMAX
     }
 }

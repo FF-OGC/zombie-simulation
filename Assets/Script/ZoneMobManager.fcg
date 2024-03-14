@@ -67,6 +67,7 @@ graph ZoneMobManager {
             createdEntity<Transform>.Position = spawnLocation
             // AddScript(createdEntity, Mob)
             createdEntity<Mob>.SetSpawner(thisEntity<MobSpawner>)
+            createdEntity<Mob>.SetType(_type)
             WaitForNextFrame()
             // LogInfo("[ZoneMobManager] createdEntity: " + createdEntity + " " + createdEntity<Transform>.Position)
             // IncrementCurrentMobCount()
