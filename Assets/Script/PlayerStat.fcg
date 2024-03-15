@@ -40,8 +40,10 @@ graph PlayerStat {
     }
 
     func ResetPlayerStat(){
+        UpdateRemainingStatPoint()
         _adjustingRemainingStatPoint = _remainingStatPoint
         ResetStatPointAdjustmentMap()
+        thisEntity<PlayerStatHUD>.ResetStatHUD()
     }
 
     func EndPlayerStat(){
@@ -82,7 +84,6 @@ graph PlayerStat {
 
     func SetStatPointMap(){
         if(_statPointMap == nil){
-            _remainingStatPoint = 0
             _statPointMap = Map<int, int>{}
             _statPointMap[StatType.ATK] = 0
             _statPointMap[StatType.MAX_HP] = 0
@@ -93,8 +94,23 @@ graph PlayerStat {
         return _remainingStatPoint
     }
 
+    func UpdateRemainingStatPoint(){
+        var lvl = thisEntity<PlayerLevel>.GetLvl()
+        var statTypeList = GetAllKeys(_statPointMap)
+        var statPointUsed = 0
+        for i = 0, List.Length(statTypeList), 1{
+            var statType = statTypeList[i] as int
+            statPointUsed += _statPointMap[statType] as int
+        }
+
+        _remainingStatPoint = lvl - statPointUsed
+        LogInfo("[PlayerStat] _remainingStatPoint: " + _remainingStatPoint)
+    }
+
     func AdjustStatPoint(statType int, amount int, isDecreasing bool){
         SetStatPointMap()
+
+        LogInfo("[PlayerStat] StatPointmap before: " + _statPointMap + " " + _remainingStatPoint + " " + amount)
         if(_remainingStatPoint < amount){
             LogInfo("[PlayerStat] Not enough remaining stat point")
             return
@@ -104,16 +120,24 @@ graph PlayerStat {
         if(isDecreasing){
             mult = -1
         }
-
-        _statPointMap[statType] += mult * amount
+        var currentStatPoint = _statPointMap[statType]
+        _statPointMap[statType] = currentStatPoint + mult * amount
         AdjustStatByPoint(statType, amount, isDecreasing)
-        _remainingStatPoint += mult * amount
+        _remainingStatPoint += (-1) * mult * amount
+        LogInfo("[PlayerStat] statPointMap: " + _statPointMap)
     }
 
     func AdjustStatPointAdjustmentMap(statType int, amount int, isDecreasing bool){
+        LogInfo("[PlayerStat] adjustadjust: " + statType + " " + amount + " " + isDecreasing + " " + _adjustingRemainingStatPoint + " " + _remainingStatPoint)
         SetStatPointAdjustmentMap()
-        if(_adjustingRemainingStatPoint < amount){
+        if(_adjustingRemainingStatPoint < amount && !isDecreasing){
             LogInfo("[PlayerStat] Not enough remaining stat point")
+            return
+        }
+
+        if((_adjustingRemainingStatPoint + amount) > _remainingStatPoint && isDecreasing){
+            LogInfo("[PlayerStat] No more statPoint")
+            return
         }
 
         var mult = 1
@@ -121,8 +145,10 @@ graph PlayerStat {
             mult = -1
         }
 
-        _statPointAdjustmentMap[statType] += mult * amount
-        _adjustingRemainingStatPoint += mult * amount
+        var currentStatPointAdjustment = _statPointAdjustmentMap[statType]
+        _statPointAdjustmentMap[statType] = currentStatPointAdjustment + mult * amount
+        _adjustingRemainingStatPoint += (-1) * mult * amount
+        LogInfo("[PlayerStat] adjustadjust: " + statType + " " + amount + " " + isDecreasing + " " + _adjustingRemainingStatPoint + " " + _remainingStatPoint)
     }
     
     func AdjustStatByPoint(statType int, statPointAmount int, isDecreasing bool){
@@ -134,14 +160,17 @@ graph PlayerStat {
         }
 
         if(statType == StatType.ATK){
-            _statMap[StatType.ATK] += mult * statPointAmount
+            var currentATK = _statMap[StatType.ATK]
+            _statMap[StatType.ATK] = currentATK + mult * statPointAmount
             LogInfo("[PlayerStat] atk increase by: " + statPointAmount + ", totaling: " + _statMap[StatType.ATK])
             return 
         }
 
         if(statType == StatType.MAX_HP){
-            _statMap[StatType.MAX_HP] += mult * statPointAmount * 10
+            var currentMaxHP = _statMap[StatType.MAX_HP]
+            _statMap[StatType.MAX_HP] = currentMaxHP + mult * statPointAmount * 10
             thisEntity<Player>.HPMAX = _statMap[StatType.MAX_HP]
+            thisEntity<Player>.HP += mult * statPointAmount * 10
             thisEntity<PlayerDefaultHUD>.UpdatePlayerHeadHUD()
             LogInfo("[PlayerStat] max hp increase by: " + statPointAmount * 10 + ", totaling: " + _statMap[StatType.MAX_HP])
             return
@@ -163,21 +192,25 @@ graph PlayerStat {
             mult = -1
         }
         if(statType == StatType.ATK){
+            var currentATK = _statMap[StatType.ATK]
             _statMap[StatType.ATK] += mult * statAmount
             LogInfo("[PlayerStat] atk increase by: " + statAmount + ", totaling: " + _statMap[StatType.ATK])
             return 
         }
 
         if(statType == StatType.MAX_HP){
-            _statMap[StatType.MAX_HP] += mult * statAmount
+            var currentMaxHP = _statMap[StatType.MAX_HP]
+            _statMap[StatType.MAX_HP] = currentMaxHP + mult * statAmount
             thisEntity<Player>.HPMAX = _statMap[StatType.MAX_HP]
+            thisEntity<Player>.HP += mult * statAmount
             thisEntity<PlayerDefaultHUD>.UpdatePlayerHeadHUD()
             LogInfo("[PlayerStat] max hp increase by: " + statAmount + ", totaling: " + _statMap[StatType.MAX_HP])
             return
         }
 
         if(statType == StatType.KILL_COUNT){
-            _statMap[StatType.KILL_COUNT] += mult * statAmount
+            var currentKillCount = _statMap[StatType.KILL_COUNT]
+            _statMap[StatType.KILL_COUNT] = currentKillCount + mult * statAmount
             LogInfo("[PlayerStat] killcount increase by: " + statAmount + ", totaling: " + _statMap[StatType.KILL_COUNT])
             return
         }
@@ -195,8 +228,19 @@ graph PlayerStat {
         for i = 0, List.Length(statTypeList), 1{
             var statType = statTypeList[i] as int
             var statPointAdjustment = _statPointAdjustmentMap[statType] as int
+            // LogInfo("[PlayerStat] statPointAdjustment: " + statPointAdjustment + " " + statType)
             AdjustStatPoint(statType, statPointAdjustment, false)
         }
+        LogInfo("[PlayerStat] statPointMap: " + _statPointMap)
+        ResetStatPointAdjustmentMap()
+        start thisEntity<PlayerData>.WriteData()
+    }
+
+    func IsStatNotAdjusted(statType int) bool{
+        if(_statPointAdjustmentMap[statType] > 0){
+            return false
+        }
+        return true
     }
 
     func GetStatListFromStatMap() List<int>{
@@ -204,7 +248,7 @@ graph PlayerStat {
         var statKeyList = GetAllKeys(_statPointMap)
         for i = 0, List.Length(statKeyList), 1{
             var statKey = statKeyList[i] as int
-            var stat = _statMap[statKey] as int
+            var stat = _statPointMap[statKey] as int
             Append(statList, stat)
         }
 
@@ -212,23 +256,26 @@ graph PlayerStat {
         return statList
     }
 
-    func GetStatMapFromStatList(statList List<int>) Map<int, int>{
+    func GetStatMapFromStatList(statPointList List<int>) Map<int, int>{
+        SetStatPointMap()
         var newStatMap = Map<int, int>{}
-        var keyList = GetAllKeys(_statMap)
+        var keyList = GetAllKeys(_statPointMap)
         for i = 0, List.Length(keyList), 1{
-            var key = keyList[i]
-            var stat = statList[i]
+            var key = keyList[i] as int
+            var stat = statPointList[i] as int
+            LogInfo("[PlayerStat] key: " + key + ", " + stat)
             newStatMap[key] = stat
         }
+        LogInfo("[PlayerStat] newStatMap: " + newStatMap)
         return newStatMap
     }
 
     event Player_FinishAction(action string, data object) {        
         if (ToString(action) == ToString(Enum.ACTION_LOAD_DATA_SUCCESS)) {
-            LogInfo("[PlayerStat] LoadDataSuccess _statList = " + thisEntity<PlayerData>._statList)
-            LogInfo("[PlayerStat] LoadDataSuccess _exp = " + thisEntity<PlayerData>._exp)
+            LogInfo("[PlayerStat] LoadDataSuccess _statPoint = " + thisEntity<PlayerData>._statPointList)
 
-            _statPointMap = GetStatMapFromStatList(thisEntity<PlayerData>._statList)
+            _statPointMap = GetStatMapFromStatList(thisEntity<PlayerData>._statPointList)
+            LogInfo("[PlayerStat] _statPointMap: " + _statPointMap)
         }
     }
 }

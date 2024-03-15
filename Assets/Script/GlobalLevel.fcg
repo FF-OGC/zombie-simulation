@@ -1,35 +1,35 @@
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "Map.fcc" as map
-import "List.fcc" as list
+import "List.fcc" as List
+import "Database.fcc" as Database
+import Resources from "EditorGenLib.fcc"
 
 graph GlobalLevel {
-    EXP_MAX int = 100
     EXP_MIN int = 0
 
     _levelExpMap Map<int, int>
+    _levelExpList List<List<object>>
+    _levelList List<int>
     _hasInit bool
 
     func InitGlobalLevel(){
         if(!_hasInit){
-            SetLevelExpMap()
+            SetLevelExp()
             _hasInit = true
         }
     }
 
-    func SetLevelExpMap(){
+    func SetLevelExp(){
         _levelExpMap = Map<int, int>{}
-        _levelExpMap[0] = 0
-        _levelExpMap[1] = 10
-        _levelExpMap[2] = 20
-        _levelExpMap[3] = 30
-        _levelExpMap[4] = 40
-        _levelExpMap[5] = 50
-        _levelExpMap[6] = 60
-        _levelExpMap[7] = 70
-        _levelExpMap[8] = 80
-        _levelExpMap[9] = 90
-        _levelExpMap[10] = 100
+        _levelList = List<int>{}
+        _levelExpList = ReadCSV(Resources.CSV[EResource_CSV.PLAYER_EXP_REQUIREMENT])
+        for i = 2, List.Length(_levelExpList), 1{
+            var list = _levelExpList[i]
+            Append(_levelList, list[0] as int)
+            _levelExpMap[list[0] as int] = list[1] as int
+        }
+        LogInfo("[GlobalLevel] _levelExpMap: " + _levelExpMap)
     }
 
     func GetLevelExpRequirement(level int) int{
@@ -39,13 +39,18 @@ graph GlobalLevel {
     
     func GetLevelList() List<int>{
         InitGlobalLevel()
-        return GetAllKeys(_levelExpMap) as List<int>
+        return _levelList
     }
 
     func GetMaxLevel() int{
         InitGlobalLevel()
         Max(GetLevelList(), out var isSuceed, out var maxLvl)
         return maxLvl as int
+    }
+
+    func GetMaxExpRequired() int{
+        InitGlobalLevel()
+        return _levelExpMap[GetMaxLevel()]
     }
 
 }

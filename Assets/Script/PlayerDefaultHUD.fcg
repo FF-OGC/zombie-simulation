@@ -86,10 +86,15 @@ graph PlayerDefaultHUD {
         // _playerHeadHUD<PlayerHeadHud>.
     }
 
+    func GetAllRemainingPlayer(){
+        var key = GetAllPlayers()
+        
+    }
+
     func UpdatePlayerHeadHUD(){
         SetPlayerHeadHUD()
-        _playerHeadHUD<PlayerHeadHud>.CurrentHp = thisEntity<Player>.HP
         _playerHeadHUD<PlayerHeadHud>.Level = thisEntity<PlayerLevel>.GetLvl()
         _playerHeadHUD<PlayerHeadHud>.TotalHp = thisEntity<Player>.HPMAX
+        _playerHeadHUD<PlayerHeadHud>.CurrentHp = thisEntity<Player>.HP
     }
 }

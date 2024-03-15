@@ -13,7 +13,7 @@ graph HUDDebug {
             LogInfo("[HUDDebug] btnPlus100: " + button) 
         } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_MINUS_100)) {
             LogInfo("[HUDDebug] btnMinus100: " + button) 
-            thisEntity<PlayerLevel>.IncreaseExpByAmount(1000000)
+            player<PlayerLevel>.IncreaseExpByAmount(1000000)
         }
     }
 }

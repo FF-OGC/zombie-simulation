@@ -1,6 +1,6 @@
 ’-
 ,tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=© ¢
-EditorGenLib.fcc:315:0Player_PlayerJoinGameó"*i
+EditorGenLib.fcc:316:0Player_PlayerJoinGameó"*i
 ./Assets/Script/Player.fcg:31:8Invoke InitAllHUD÷"!:./Assets/Script/Player.fcg:56:4"Hÿÿÿÿÿÿÿÿÿ*ä
 ./Assets/Script/Player.fcg:32:8Invoke DisplayMenuHUDô"=;
 ./Assets/Script/Player.fcg:32:8Invoke ThisEntityNH±"2:0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn"%:#./Assets/Script/PlayerMenu.fcg:19:4"Hÿÿÿÿÿÿÿÿÿ*Š
@@ -14,7 +14,7 @@
 ./Assets/Script/Player.fcg:38:8Invoke WaitForSecondsñ"(ôHÿÿÿÿÿÿÿÿÿ*ô
 ./Assets/Script/Player.fcg:39:8Invoke SetPlayerHeadHUDô"=;
 ./Assets/Script/Player.fcg:39:8Invoke ThisEntityNH±"::8tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlZmF1bHRIVUQuZmNn"+:)./Assets/Script/PlayerDefaultHUD.fcg:76:4"Hÿÿÿÿÿÿÿÿÿ©¢¢
-EditorGenLib.fcc:323:0Player_PlayerQuitGameó"*j
+EditorGenLib.fcc:324:0Player_PlayerQuitGameó"*j
 ./Assets/Script/Player.fcg:43:8Invoke RunOnKilled÷"!:./Assets/Script/Player.fcg:79:4"Hÿÿÿÿÿÿÿÿÿ³®
 Workflow.fcc:45:0OnPhaseStartó"&": ./Assets/Script/Player.fcg:46:23*Ù
 ./Assets/Script/Player.fcg:47:8Invoke SetCountdownTimerHUDô"=;
@@ -24,7 +24,16 @@
 OnBeKilledó"l": ./Assets/Script/Player.fcg:50:21!:./Assets/Script/Player.fcg:51:6!:./Assets/Script/Player.fcg:52:6*j
 ./Assets/Script/Player.fcg:53:8Invoke RunOnKilled÷"!:./Assets/Script/Player.fcg:79:4"HÿÿÿÿÿÿÿÿÿB
 
-BB"ö
+BB"ò
+./Assets/Script/Player.fcg:75:4Preloadó"*³
+./Assets/Script/Player.fcg:76:8Invoke AddItemToPlayer€"><
+ ./Assets/Script/Player.fcg:76:24Invoke ThisEntityNH±"(:"("": ./Assets/Script/Player.fcg:76:89HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ"‘
+./Assets/Script/Player.fcg:79:4RunOnKilledó"*„
+./Assets/Script/Player.fcg:80:8 Invoke StopPlayerFromTeleportingô"=;
+./Assets/Script/Player.fcg:80:8Invoke ThisEntityNH±">:<tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn".:,./Assets/Script/PlayerZoneSelection.fcg:81:4"Hÿÿÿÿÿÿÿÿÿ*H
+./Assets/Script/Player.fcg:81:8Invoke WaitForNextFrameðHÿÿÿÿÿÿÿÿÿ*~
+./Assets/Script/Player.fcg:82:8Invoke Revive™N"><
+ ./Assets/Script/Player.fcg:82:15Invoke ThisEntityNH±HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ"ö
 ./Assets/Script/Player.fcg:56:4
 InitAllHUDó"*†
 ./Assets/Script/Player.fcg:57:8Invoke InitZoneSelectionHUDô"=;
@@ -43,18 +52,9 @@ InitAllHUDó"*†
 ./Assets/Script/Player.fcg:65:8Invoke ThisEntityNH±"::8tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllckRlYnVnSFVELmZjZw=="):'./Assets/Script/PlayerDebugHUD.fcg:10:4"Hÿÿÿÿÿÿÿÿÿ*J
 ./Assets/Script/Player.fcg:66:8Invoke WaitForSecondsñ"(dHÿÿÿÿÿÿÿÿÿ*è
 ./Assets/Script/Player.fcg:67:8Invoke InitStatHUDô"=;
-./Assets/Script/Player.fcg:67:8Invoke ThisEntityNH±"6:4tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXRIVUQuZmNn"(:&./Assets/Script/PlayerStatHUD.fcg:26:4"HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ"²
+./Assets/Script/Player.fcg:67:8Invoke ThisEntityNH±"6:4tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXRIVUQuZmNn"(:&./Assets/Script/PlayerStatHUD.fcg:25:4"HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ"²
 ./Assets/Script/Player.fcg:70:4DeleteAllHUDó"*ˆ
 ./Assets/Script/Player.fcg:71:8Invoke DeleteZoneSelectionHUDô"=;
 ./Assets/Script/Player.fcg:71:8Invoke ThisEntityNH±"B:@tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb25IVUQuZmNn"1:/./Assets/Script/PlayerZoneSelectionHUD.fcg:39:4"Hÿÿÿÿÿÿÿÿÿ*ã
 ./Assets/Script/Player.fcg:72:8Invoke DeleteMenuHUDô"=;
-./Assets/Script/Player.fcg:72:8Invoke ThisEntityNH±"2:0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn"%:#./Assets/Script/PlayerMenu.fcg:37:4"HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ"ò
-./Assets/Script/Player.fcg:75:4Preloadó"*³
-./Assets/Script/Player.fcg:76:8Invoke AddItemToPlayer€"><
- ./Assets/Script/Player.fcg:76:24Invoke ThisEntityNH±"(:"("": ./Assets/Script/Player.fcg:76:89HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ"‘
-./Assets/Script/Player.fcg:79:4RunOnKilledó"*„
-./Assets/Script/Player.fcg:80:8 Invoke StopPlayerFromTeleportingô"=;
-./Assets/Script/Player.fcg:80:8Invoke ThisEntityNH±">:<tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclpvbmVTZWxlY3Rpb24uZmNn".:,./Assets/Script/PlayerZoneSelection.fcg:81:4"Hÿÿÿÿÿÿÿÿÿ*H
-./Assets/Script/Player.fcg:81:8Invoke WaitForNextFrameðHÿÿÿÿÿÿÿÿÿ*~
-./Assets/Script/Player.fcg:82:8Invoke Revive™N"><
- ./Assets/Script/Player.fcg:82:15Invoke ThisEntityNH±HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ*Player0
+./Assets/Script/Player.fcg:72:8Invoke ThisEntityNH±"2:0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllck1lbnUuZmNn"%:#./Assets/Script/PlayerMenu.fcg:37:4"HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿ*Player0

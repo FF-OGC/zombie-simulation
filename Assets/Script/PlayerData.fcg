@@ -15,7 +15,7 @@ graph PlayerData {
     _currentCoin int
 
     _exp int
-    _statList List<int>
+    _statPointList List<int>
 
     func ReadDataInteger(data List<object>, defaultValue int) int {
         var returnValue = defaultValue
@@ -49,7 +49,7 @@ graph PlayerData {
 
     func InitStatData(){
         _exp = 0
-        _statList = List<int>{}
+        _statPointList = List<int>{}
     }
 
     func ReadStatData(data List<object>){
@@ -64,12 +64,12 @@ graph PlayerData {
         _exp = ReadDataInteger(data, 0)
         for i = 0, list.Length(data) - 1, 1{
             var stat = ReadDataInteger(data, 0)
-            Append(_statList, stat)
+            Append(_statPointList, stat)
         }
     }
 
     async func LoadData() {
-        // LogInfo("[PlayerData] LoadData = " + thisEntity<Player>)
+        LogInfo("[PlayerData] LoadData = " + thisEntity<Player>)
         //Generic data            
         wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, out var genericData, "")
         ReadGenericData(genericData as List<object>)
@@ -87,7 +87,7 @@ graph PlayerData {
         //Get data from other component
         _currentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN)
         _exp = thisEntity<PlayerLevel>.GetExp()
-        _statList = thisEntity<PlayerStat>.GetStatListFromStatMap()
+        _statPointList = thisEntity<PlayerStat>.GetStatListFromStatMap()
         LogInfo("[PlayerData] GetDataFromUsers: " + _currentCoin)
     }
 
@@ -101,7 +101,7 @@ graph PlayerData {
     func PrepareStatData() List<int>{
         var statData = List<int>{}
         Append(statData, _exp)
-        AppendRange(statData, _statList)
+        AppendRange(statData, _statPointList)
         return statData
     }
 
@@ -109,7 +109,7 @@ graph PlayerData {
         GetDataFromUsers()
         var playerData = PrepareData()
         var statData = PrepareStatData()
-        // LogInfo("[PlayerData] WriteData playerData = " + playerData)
+        LogInfo("[PlayerData] WriteData playerData = " + playerData)
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, playerData, "") 
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, statData, "") 
     }
@@ -139,7 +139,9 @@ graph PlayerData {
 
     async func Debug_ResetData(){
         _currentCoin = 0
+        _exp = 0
         thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType.COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN))
+        thisEntity<PlayerLevel>.DecreaseExpByAmount(thisEntity<PlayerLevel>.GetExp())
         WriteData()
     }
 

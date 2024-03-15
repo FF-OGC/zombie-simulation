@@ -15,4 +15,7 @@
         "**/*.fbx": true,
         "Cache/": true,
         "Libraries/": true
-    },"workbench.colorTheme":"Default Dark Modern"}
+    },
+    "workbench.colorTheme": "Default Dark Modern",
+    "path-intellisense.extensionOnImport": true
+}
