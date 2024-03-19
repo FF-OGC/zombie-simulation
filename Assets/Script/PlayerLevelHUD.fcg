@@ -9,7 +9,7 @@ graph PlayerLevelHUD {
 
     func InitLevelHUD(){
         if(_levelHUD == nil){
-            _levelHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:LEVEL, 4)
+            _levelHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.LEVEL, 4)
             _levelHUD<CustomHud>.Visibility = false
         }
     }
@@ -37,6 +37,6 @@ graph PlayerLevelHUD {
     }
 
     func GetLevelHUDWidget(eResourceUILevel string) entity<HudWidget>{
-        return GetWidgetFromCustomHud(thisEntity<Player>, _levelHUD, Resources:UI_ZONE_SELECTION[eResourceUILevel])
+        return GetWidgetFromCustomHud(thisEntity<Player>, _levelHUD, Resources.UI_ZONE_SELECTION[eResourceUILevel])
     }
 }

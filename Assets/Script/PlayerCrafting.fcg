@@ -1,17 +1,64 @@
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalCrafting.fcg" as GlobalCrafting
+import "./PlayerInventory.fcg" as PlayerInventory
+import "Convert.fcc" as convert
+import "./PlayerData.fcg" as PlayerData
+import "Items.fcc" as Items
+
 
 graph PlayerCrafting {
     _hasInit bool
-
+    
     func InitPlayerCrafting(){
         if(!_hasInit){
             _hasInit = true
         }
     }
 
-    func Craft(recipeEnum string){
+   async func Craft(recipeEnum string){
+
         //Check if available
-        
+        if !thisEntity<PlayerInventory>.CheckHasItem(recipeEnum) {
+            var recipeMatMap = globalEntity<GlobalCrafting>.GetRecipeMaterial(recipeEnum)
+            var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+            var craftable = true
+
+
+            for mat, amount in recipeMatMap {
+                LogInfo(mat + ": " + amount)
+                StringToInt(amount, out var amountInt, out var success)
+                thisEntity<PlayerInventory>.IncreaseItemByAmount(mat,100)
+                if thisEntity<PlayerInventory>.GetItemAmount(mat) < amountInt{
+                    craftable = false
+                }
+            }
+            // Craftable
+            if craftable {
+                LogInfo("Craft success")
+                for mat, amount in recipeMatMap {
+                    StringToInt(amount, out var amountInt, out var success)
+                    thisEntity<PlayerInventory>.DecreaseItemByAmount(mat, amountInt)
+                }
+
+                if globalEntity<GlobalCrafting>.CheckIsGun(recipeEnum) {
+                    // Craft Gun
+                    thisEntity<PlayerInventory>.AddGun(recipeEnum)
+                } else {
+                    // Craft Attachment
+                    thisEntity<PlayerInventory>.AddAttachment(recipeEnum)
+                    AddItemToPlayer(thisEntity<Player> as entity<Player>, recipeMap[recipeEnum][4] as ItemIDType,2,out var addedItems)
+                }
+
+                thisEntity<PlayerData>.WriteData()
+
+
+            } else { // Not craftable
+                //display insufficient materials
+                LogInfo("Craft fail")
+            }
+        } else {
+            LogInfo("Already crafted")
+        }
     }
 }

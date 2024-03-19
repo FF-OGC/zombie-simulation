@@ -15,7 +15,7 @@ graph GlobalPet {
 
     func SetPetNameMap(){
         _petNameMap = Map<string, LocString>{}
-        _petNameMap[PetEnum:DOG] = MyResources:PetLocalizations[PetEnum:DOG] as LocString
+        _petNameMap[PetEnum.DOG] = MyResources.PetLocalizations[PetEnum.DOG] as LocString
     }
 
     func GetPetName(petEnum string) LocString{

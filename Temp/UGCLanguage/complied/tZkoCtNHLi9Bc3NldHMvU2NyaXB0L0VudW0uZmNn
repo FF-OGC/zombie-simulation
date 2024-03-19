@@ -1,9 +1,11 @@
-ü
-(tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0VudW0uZmNnM
+”
+(tZkoCtNHLi9Bc3NldHMvU2NyaXB0L0VudW0uZmNn:
+./Assets/Script/Enum.fcg:12:4
+SKILL_DATA":	SkillData:
+./Assets/Script/Enum.fcg:13:4
+QUEST_DATA":	QuestDataM
 ./Assets/Script/Enum.fcg:5:4ACTION_LOAD_DATA_SUCCESS":LoadDataSuccessB
 ./Assets/Script/Enum.fcg:8:4PLAYER_DATA_TABLE":PLAYER_DATA=
-./Assets/Script/Enum.fcg:9:4GENERIC_DATA":GenericData:
-./Assets/Script/Enum.fcg:10:4
-SKILL_DATA":	SkillData:
-./Assets/Script/Enum.fcg:11:4
-QUEST_DATA":	QuestData*Enum0
+./Assets/Script/Enum.fcg:9:4GENERIC_DATA":GenericDataC
+./Assets/Script/Enum.fcg:10:4GUN_UNLOCK_DATA":GunUnlockDataQ
+./Assets/Script/Enum.fcg:11:4ATTACHMENT_UNLOCK_DATA":AttachmentUnlockData*Enum0

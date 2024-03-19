@@ -9,7 +9,7 @@ graph PlayerDebugHUD {
 
     func InitDebugHUD(){
         if(_debugHUD == nil){
-            _debugHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:DEBUG, 4)
+            _debugHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.DEBUG, 4)
             _debugHUD<CustomHud>.Visibility = false
         }
     }
@@ -51,6 +51,6 @@ graph PlayerDebugHUD {
     }
 
     func GetDebugHUDWidget(eResourceUIDebug string) entity<HudWidget>{
-        return GetWidgetFromCustomHud(thisEntity<Player>, _debugHUD, Resources:UI_DEBUG[eResourceUIDebug])
+        return GetWidgetFromCustomHud(thisEntity<Player>, _debugHUD, Resources.UI_DEBUG[eResourceUIDebug])
     }
 }

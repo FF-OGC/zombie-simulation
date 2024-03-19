@@ -9,10 +9,10 @@ import Resources from "EditorGenLib.fcc"
 
 graph HUDZoneSelection {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
-        if (button == player<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION:BTN_CONFIRM)) {
+        if (button == player<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_CONFIRM)) {
             LogInfo("[HUDZoneSelection] confirm stage selection button: " + button) 
             player<PlayerZoneSelection>.ConfirmZoneSelection()
-        } else if (button == player<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION:BTN_EXIT)) {
+        } else if (button == player<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_EXIT)) {
             LogInfo("[HUDZoneSelection] exit stage selection button: " + button)
             player<PlayerZoneSelection>.EndZoneSelection()
         } else {

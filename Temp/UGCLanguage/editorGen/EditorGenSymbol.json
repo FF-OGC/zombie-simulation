@@ -2,7 +2,7 @@
   "NameSpace": {
     "Name": "tZkoCtNH",
     "ID": 0,
-    "UIDSeed": 100008
+    "UIDSeed": 100009
   },
   "FileSpaces": [
     {
@@ -53,6 +53,16 @@
             ]
           },
           {
+            "Name": "BaseTrigger",
+            "ID": 100003,
+            "Props": [
+              {
+                "ID": 100008,
+                "Name": "Name"
+              }
+            ]
+          },
+          {
             "Name": "DataEnum",
             "Props": [],
             "ID": 48683945
@@ -93,133 +103,153 @@
             "ID": 23664846
           },
           {
+            "Name": "TierEnum",
+            "Props": [],
+            "ID": 64354004
+          },
+          {
+            "Name": "CustomEnum30737081",
+            "Props": [],
+            "ID": 30737081
+          },
+          {
+            "Name": "CustomEnum72048329",
+            "Props": [],
+            "ID": 72048329
+          },
+          {
             "Name": "EResource_UI",
-            "ID": 895997,
+            "ID": 739249,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 795001,
+            "ID": 831273,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 270950,
+            "ID": 785911,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 208524,
+            "ID": 368560,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 576482,
+            "ID": 572419,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 71953,
+            "ID": 721419,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 252539,
+            "ID": 145652,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 268233,
+            "ID": 235913,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 790303,
+            "ID": 417405,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 502777,
+            "ID": 418912,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 593619,
+            "ID": 33510,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 398684,
+            "ID": 655734,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 750217,
+            "ID": 311692,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 482417,
+            "ID": 728031,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 212001,
+            "ID": 490200,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 568571,
+            "ID": 18244,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 956443,
+            "ID": 569157,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 43414,
+            "ID": 445359,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 857640,
+            "ID": 632236,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 684744,
+            "ID": 45217,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 410222,
+            "ID": 282847,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 167408,
+            "ID": 762595,
             "Props": []
           },
           {
             "Name": "EResource_UI_LEVEL",
-            "ID": 246678,
+            "ID": 665321,
             "Props": []
           },
           {
             "Name": "EResource_UI_INVENTORY",
-            "ID": 807561,
+            "ID": 437511,
             "Props": []
           },
           {
             "Name": "EResource_UI_DEBUG",
-            "ID": 509364,
+            "ID": 205468,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTING",
-            "ID": 581931,
+            "ID": 308327,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_ARMORY",
+            "ID": 568519,
             "Props": []
           }
         ],
@@ -239,6 +269,10 @@
           {
             "ID": 100005,
             "Name": "Player_FinishAction"
+          },
+          {
+            "ID": 100003,
+            "Name": "signal_55019324"
           }
         ],
         "Graphs": [
@@ -273,6 +307,10 @@
               {
                 "ID": "vkKo5H55F",
                 "Name": "RecipeLocalizations"
+              },
+              {
+                "ID": "v4VcHeG09",
+                "Name": "CraftingMap"
               }
             ],
             "Funcs": [
@@ -295,6 +333,10 @@
               {
                 "ID": "SetHookGun",
                 "Name": "SetHookGun"
+              },
+              {
+                "ID": "InitCraftingMap",
+                "Name": "InitCraftingMap"
               }
             ]
           },
@@ -326,7 +368,481 @@
             ]
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDgowujsejo",
+            "ID": "tZkoCtNH.rqvzy85v6o-lt3w1fuq-zqtht6jslca",
+            "Name": "rqvzy85v6o_lt3w1fuq_zqtht6jslca",
+            "Props": [
+              {
+                "ID": "vocmZpKeB",
+                "Name": "vocmZpKeB"
+              },
+              {
+                "ID": "vhoHcyFzZ",
+                "Name": "vhoHcyFzZ"
+              },
+              {
+                "ID": "vyKiLfWnI",
+                "Name": "vyKiLfWnI"
+              },
+              {
+                "ID": "vmKg7i3bE",
+                "Name": "vmKg7i3bE"
+              },
+              {
+                "ID": "vVxQCZHc4",
+                "Name": "vVxQCZHc4"
+              },
+              {
+                "ID": "vuv54lBPy",
+                "Name": "vuv54lBPy"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "switchState",
+                "Name": "U_O_5Fi3E_B1_Q__xnea"
+              },
+              {
+                "ID": "playAnimation",
+                "Name": "_5c_4q99CN_s43__TaFt8"
+              },
+              {
+                "ID": "initBossConfig",
+                "Name": "v_q__w_Vk_gQUqx_q7D_"
+              },
+              {
+                "ID": "initHPBar",
+                "Name": "dH_YwmX_I_x1K_tL_P_Y"
+              },
+              {
+                "ID": "recievedDamage",
+                "Name": "YwRw__dfiJ1qW4vrVd_G"
+              },
+              {
+                "ID": "recievedDamageUI",
+                "Name": "ww_2pf_eVPD_ShTF9p_P"
+              },
+              {
+                "ID": "turnOnMetalZone",
+                "Name": "_7_M__j_C_x_N_JuFtb_n"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.6jgno0c7s5r-lt6oa192-kprjcm2u2wg",
+            "Name": "_6jgno0c7s5r_lt6oa192_kprjcm2u2wg",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "tZkoCtNH.4moc860elv6-lt3uf93b-xf0b0a972k",
+            "Name": "_4moc860elv6_lt3uf93b_xf0b0a972k",
+            "Props": [
+              {
+                "ID": "vAN7XesXo",
+                "Name": "vAN7XesXo"
+              },
+              {
+                "ID": "vGUO0sy55",
+                "Name": "vGUO0sy55"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "hasTarget",
+                "Name": "_ni_EGPyqU_j8vP_l_33"
+              },
+              {
+                "ID": "findPath",
+                "Name": "wFGwDwOL_3b_dyz_Nzvd"
+              },
+              {
+                "ID": "pauseMovement",
+                "Name": "WJYn_d___pljWkdhG0jS"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+            "Name": "az1dhtt0mk_lt44c2xt_6p2n7qamuo",
+            "Props": [
+              {
+                "ID": "vD1zJDxFs",
+                "Name": "vD1zJDxFs"
+              },
+              {
+                "ID": "vWyN7R5Tv",
+                "Name": "vWyN7R5Tv"
+              },
+              {
+                "ID": "vEb40kw05",
+                "Name": "vEb40kw05"
+              },
+              {
+                "ID": "vjDE4cG4E",
+                "Name": "vjDE4cG4E"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "skill0",
+                "Name": "uk_JWQMiYDMZ_i_O_oG_"
+              },
+              {
+                "ID": "initSkillCoolDown",
+                "Name": "M_ESiltvSSkPZ__k_r_R"
+              },
+              {
+                "ID": "resetCoolDown0",
+                "Name": "Vfgv7Y_IzHOhWapro_Q_"
+              },
+              {
+                "ID": "createFireBall",
+                "Name": "_3__suzmw__jn__5DO0_3"
+              },
+              {
+                "ID": "dealDamage",
+                "Name": "_G___iVAIp3__yf__H_T"
+              },
+              {
+                "ID": "createDamageZone",
+                "Name": "eMw__nk3J_0r___DkmG3"
+              },
+              {
+                "ID": "createFireBall2",
+                "Name": "_NcSw_b9____sFvbhs9_"
+              },
+              {
+                "ID": "createExplostion",
+                "Name": "_0nAO_D__5ss__CjSq_B"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.h1ohs1m71m4-lt6wuucx-qp6g6zwtp8q",
+            "Name": "h1ohs1m71m4_lt6wuucx_qp6g6zwtp8q",
+            "Props": [
+              {
+                "ID": "vv7zz6VEg",
+                "Name": "vv7zz6VEg"
+              },
+              {
+                "ID": "vY3UvWRWz",
+                "Name": "vY3UvWRWz"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "skill1",
+                "Name": "wFGwDwOL_3b_dyz_Nzvd_"
+              },
+              {
+                "ID": "resetCoolDown1",
+                "Name": "Vfgv7Y_IzHOhWapro_Q__"
+              },
+              {
+                "ID": "initSkillCoolDown",
+                "Name": "M_ESiltvSSkPZ__k_r_R_"
+              },
+              {
+                "ID": "createDamageZone",
+                "Name": "eMw__nk3J_0r___DkmG3_"
+              },
+              {
+                "ID": "prepareSkill1",
+                "Name": "_Ivh_ego_w_vYK_rHL0_"
+              },
+              {
+                "ID": "createDamageZone2",
+                "Name": "b_L_df_c__j_t2___gPw"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.0yjz5oj2u97a-lto1xl3n-2rauopimfhp",
+            "Name": "_0yjz5oj2u97a_lto1xl3n_2rauopimfhp",
+            "Props": [
+              {
+                "ID": "vv7zz6VEg",
+                "Name": "vv7zz6VEg_"
+              },
+              {
+                "ID": "vY3UvWRWz",
+                "Name": "vY3UvWRWz_"
+              },
+              {
+                "ID": "vLZxXEiTS",
+                "Name": "vLZxXEiTS"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "skill2",
+                "Name": "wFGwDwOL_3b_dyz_Nzvd_"
+              },
+              {
+                "ID": "resetCoolDown2",
+                "Name": "Vfgv7Y_IzHOhWapro_Q__"
+              },
+              {
+                "ID": "initSkillCoolDown",
+                "Name": "M_ESiltvSSkPZ__k_r_R_"
+              },
+              {
+                "ID": "createMinion",
+                "Name": "_c1jhx_z_7Z2__Mu__mt"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.p5deu27l7ab-ltp8w6ng-mh95zhv93wm",
+            "Name": "p5deu27l7ab_ltp8w6ng_mh95zhv93wm",
+            "Props": [
+              {
+                "ID": "vLB4IYzJx",
+                "Name": "vLB4IYzJx"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "resetCoolDown",
+                "Name": "Vfgv7Y_IzHOhWapro_Q__"
+              },
+              {
+                "ID": "initCoolDown",
+                "Name": "M_ESiltvSSkPZ__k_r_R_"
+              },
+              {
+                "ID": "skill3",
+                "Name": "A_suQ1_O__71_acru_nV"
+              },
+              {
+                "ID": "slowPlayer",
+                "Name": "_780FdnU1Pt__x15k___G"
+              },
+              {
+                "ID": "resetSpeed",
+                "Name": "VuOsHd_RSJg8F__dLMy2"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.hd7857e07ef-lt70pm9x-h7uu92ey7kg",
+            "Name": "hd7857e07ef_lt70pm9x_h7uu92ey7kg",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "tZkoCtNH.cxgdu4e4lsr-ltqz1pvf-563jlz6ejmf",
+            "Name": "cxgdu4e4lsr_ltqz1pvf_563jlz6ejmf",
+            "Props": [
+              {
+                "ID": "v0lh1LD6a",
+                "Name": "v0lh1LD6a"
+              }
+            ],
+            "Funcs": []
+          },
+          {
+            "ID": "tZkoCtNH.zwyxrywmajh-ltnrwc0o-1g15lvkcced",
+            "Name": "zwyxrywmajh_ltnrwc0o_1g15lvkcced",
+            "Props": [
+              {
+                "ID": "vqzhkNLY2",
+                "Name": "vqzhkNLY2"
+              },
+              {
+                "ID": "vjHRfpDRJ",
+                "Name": "vjHRfpDRJ"
+              },
+              {
+                "ID": "vzcvlHtKh",
+                "Name": "vzcvlHtKh"
+              },
+              {
+                "ID": "v5DTzJTqz",
+                "Name": "v5DTzJTqz"
+              },
+              {
+                "ID": "vClNvbyZI",
+                "Name": "vClNvbyZI"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "switchState",
+                "Name": "U_O_5Fi3E_B1_Q__xnea_"
+              },
+              {
+                "ID": "playAnimation",
+                "Name": "_5c_4q99CN_s43__TaFt8_"
+              },
+              {
+                "ID": "recievedDamage",
+                "Name": "YwRw__dfiJ1qW4vrVd_G_"
+              },
+              {
+                "ID": "initHPBar",
+                "Name": "dH_YwmX_I_x1K_tL_P_Y_"
+              },
+              {
+                "ID": "initMinionConfig",
+                "Name": "v_q__w_Vk_gQUqx_q7D__"
+              },
+              {
+                "ID": "recievedDamageUI",
+                "Name": "ww_2pf_eVPD_ShTF9p_P_"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.dzoo1bqhrq-ltnt9hjf-kkgcgqtz4hl",
+            "Name": "dzoo1bqhrq_ltnt9hjf_kkgcgqtz4hl",
+            "Props": [],
+            "Funcs": [
+              {
+                "ID": "checkInRange",
+                "Name": "Pc_8_lXo_k__S8ekYoJI"
+              },
+              {
+                "ID": "Detonate",
+                "Name": "_Vx64N_g_3__V_6MbqPO"
+              },
+              {
+                "ID": "dealDamage",
+                "Name": "_G___iVAIp3__yf__H_T_"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.9u091un9mpt-ltms5t4k-847t94icxjh",
+            "Name": "_9u091un9mpt_ltms5t4k_847t94icxjh",
+            "Props": [
+              {
+                "ID": "vAN7XesXo",
+                "Name": "vAN7XesXo_"
+              },
+              {
+                "ID": "vGUO0sy55",
+                "Name": "vGUO0sy55_"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "hasTarget",
+                "Name": "_ni_EGPyqU_j8vP_l_33_"
+              },
+              {
+                "ID": "findPath",
+                "Name": "wFGwDwOL_3b_dyz_Nzvd_"
+              },
+              {
+                "ID": "pauseMovement",
+                "Name": "WJYn_d___pljWkdhG0jS_"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.s47wmlifjvj-lt44yuwa-zwnytdtqerr",
+            "Name": "s47wmlifjvj_lt44yuwa_zwnytdtqerr",
+            "Props": [
+              {
+                "ID": "vKZB1uuVT",
+                "Name": "vKZB1uuVT"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "finishSkill",
+                "Name": "W_gTHB6____5h5_AZgr_"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.fe750i123t-ltqw9yh7-zvhnt7ul5s",
+            "Name": "fe750i123t_ltqw9yh7_zvhnt7ul5s",
+            "Props": [
+              {
+                "ID": "vK93fHBLJ",
+                "Name": "vK93fHBLJ"
+              }
+            ],
+            "Funcs": [
+              {
+                "ID": "finishSkill",
+                "Name": "W_gTHB6____5h5_AZgr__"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.8ftkl1saim-lt41ckmn-bc92kh88ydm",
+            "Name": "_8ftkl1saim_lt41ckmn_bc92kh88ydm",
+            "Props": [],
+            "Funcs": [
+              {
+                "ID": "HasTarget",
+                "Name": "g_9Tr7ir__A___u0K5__"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.b6dkq52elku-ltqorg3y-7puczn8jxmu",
+            "Name": "b6dkq52elku_ltqorg3y_7puczn8jxmu",
+            "Props": [],
+            "Funcs": [
+              {
+                "ID": "IsPhase1",
+                "Name": "g_9Tr7ir__A___u0K5___"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.0qtw0c9tts-ltqqzsgg-jh447jzjv1",
+            "Name": "_0qtw0c9tts_ltqqzsgg_jh447jzjv1",
+            "Props": [],
+            "Funcs": [
+              {
+                "ID": "IsPhase2",
+                "Name": "g_9Tr7ir__A___u0K5___"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.n17lu0rmzme-ltnue35u-nzapdspto5r",
+            "Name": "n17lu0rmzme_ltnue35u_nzapdspto5r",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "tZkoCtNH.8ww0zxdf59w-ltmslq4s-t7cbsp4taog",
+            "Name": "_8ww0zxdf59w_ltmslq4s_t7cbsp4taog",
+            "Props": [],
+            "Funcs": [
+              {
+                "ID": "HasTarget",
+                "Name": "g_9Tr7ir__A___u0K5___"
+              }
+            ]
+          },
+          {
+            "ID": "tZkoCtNH.cj13u49ra1p-ltmsmrze-kyhsma13h5f",
+            "Name": "cj13u49ra1p_ltmsmrze_kyhsma13h5f",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "tZkoCtNH.pzmjz413dp-lt41cqjs-yyf0hlbtcor",
+            "Name": "pzmjz413dp_lt41cqjs_yyf0hlbtcor",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "tZkoCtNH.8mes2fwpaba-ltqwmema-nk0yh4gt8h",
+            "Name": "_8mes2fwpaba_ltqwmema_nk0yh4gt8h",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDc70pdb7vk",
             "Name": "Resources",
             "Props": [
               {
@@ -432,6 +948,10 @@
               {
                 "ID": "Editor_Gen_Resource_UI_CRAFTING",
                 "Name": "UI_CRAFTING"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_ARMORY",
+                "Name": "UI_ARMORY"
               }
             ],
             "Funcs": []

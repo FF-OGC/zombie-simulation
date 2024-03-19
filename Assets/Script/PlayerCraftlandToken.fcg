@@ -31,7 +31,7 @@ graph PlayerCraftlandToken {
 
     func SetCraftlandTokenWalletHUD(){
         if(_tokenWalletHUD == nil){
-            _tokenWalletHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:CRAFTLAND_TOKEN_WALLET, 6) 
+            _tokenWalletHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.CRAFTLAND_TOKEN_WALLET, 4) 
         }
         _tokenWalletHUD<CustomHud>.Visibility = true
         UpdateCraftlandTokenWalletHUD()
@@ -48,7 +48,7 @@ graph PlayerCraftlandToken {
     }
 
     func UpdateCraftlandTokenWalletHUD(){
-        var txtCraftlandToken = GetWidgetFromCustomHud(thisEntity<Player>, _tokenWalletHUD, Resources:UI_CRAFTLAND_TOKEN_WALLET[EResource_UI_CRAFTLAND_TOKEN_WALLET:TXT_CRAFTLAND_TOKEN] as CustomHudWidgetID) as entity<HudWidget>
+        var txtCraftlandToken = GetWidgetFromCustomHud(thisEntity<Player>, _tokenWalletHUD, Resources.UI_CRAFTLAND_TOKEN_WALLET[EResource_UI_CRAFTLAND_TOKEN_WALLET.TXT_CRAFTLAND_TOKEN] as CustomHudWidgetID) as entity<HudWidget>
         txtCraftlandToken<HudLabelWidget>.Text = ToString(GetCraftlandToken())
     }
 

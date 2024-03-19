@@ -11,7 +11,7 @@ graph PlayerZoneSelectionHUD {
 
     func InitZoneSelectionHUD(){
         if(_zoneSelectionHUD == nil){
-            _zoneSelectionHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:ZONE_SELECTION, 4)
+            _zoneSelectionHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.ZONE_SELECTION, 4)
             LogInfo("[PlayerZoneSelectionHUD] _zoneSelectionHUD: " + _zoneSelectionHUD)
             _zoneSelectionHUD<CustomHud>.Visibility = false
         }
@@ -41,7 +41,7 @@ graph PlayerZoneSelectionHUD {
     }
 
     func GetZoneSelectionHUDWidget(eResourceUIZoneSelection string) entity<HudWidget>{
-        return GetWidgetFromCustomHud(thisEntity<Player>, _zoneSelectionHUD, Resources:UI_ZONE_SELECTION[eResourceUIZoneSelection])
+        return GetWidgetFromCustomHud(thisEntity<Player>, _zoneSelectionHUD, Resources.UI_ZONE_SELECTION[eResourceUIZoneSelection])
     }
 
 }

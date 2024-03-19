@@ -1,0 +1,148 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "./GlobalCrafting.fcg" as GlobalCrafting
+import "Items.fcc" as items
+import "Math.fcc" as math
+import "./PlayerInventory.fcg" as PlayerInventory
+import "./GlobalArmory.fcg" as GlobalArmory
+import "List.fcc" as List
+import "Map.fcc" as Map
+
+graph PlayerArmoryHUD {
+    _armoryHUD entity<CustomHud>
+    _chosenWeapon = List<string>{}
+    _addedGun = List<string>{}
+    _firstSlot = true
+    _firstSlotGunTag string
+
+    async func InitArmoryHUD(){
+        if(_armoryHUD == nil){
+            _armoryHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.ARMORY, 5)
+            _armoryHUD<CustomHud>.Visibility = false
+            SetWeaponArmoryHUD()
+        }
+    }
+
+    async func DisplayArmoryHUD(){
+        InitArmoryHUD()
+        ResetArmoryHUD()
+        if(!_armoryHUD<CustomHud>.Visibility){
+            _armoryHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    async func ResetArmoryHUD(){
+        SetWeaponArmoryHUD()
+    }
+
+    func CloseArmoryHUD(){
+        if(_armoryHUD != nil){
+            _armoryHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteArmoryHUD(){
+        DeleteEntity(_armoryHUD)
+    }
+
+    async func SetWeaponArmoryHUD() {
+        var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+        var gunChoiceControl = GetArmoryHUDWidget(EResource_UI_ARMORY.BTN_GUNCHOICE)
+        var gunOrder = thisEntity<PlayerInventory>._gunOrder
+        var editingGunChoice = gunChoiceControl
+
+        var tierIndex = 0
+        var imageIndex = 1
+        var nameIndex = 2
+        var typeIndex = 3
+
+    
+ 
+
+        for key, weapon in gunOrder {
+            if thisEntity<PlayerInventory>.CheckHasGun(weapon) && !Contains(_addedGun,weapon){
+                if !_firstSlot {  
+                    CloneEntity(out var clonedentity,gunChoiceControl)
+                    editingGunChoice = clonedentity as entity<HudWidget>
+                    DeleteTag(editingGunChoice,_firstSlotGunTag as text)
+                    DeleteTag(editingGunChoice,"gun")
+                } else {
+                    _firstSlotGunTag = weapon
+                }
+
+                var color = globalEntity<GlobalCrafting>.GetTierColor(recipeMap[weapon][tierIndex] as int) as Color
+                // editingGunChoice<HudButtonWidget>.Color = color
+                var children = GetChildren(editingGunChoice)
+                var image = children[0]
+                var text = children[1]
+                image<HudImageWidget>.SpriteName = recipeMap[weapon][imageIndex] as IconType
+                text<HudLabelWidget>.Text = recipeMap[weapon][nameIndex] as text
+                AddTag(editingGunChoice,weapon as text)
+                AddTag(editingGunChoice,"gun")
+
+                _firstSlot = false
+                Append(_addedGun,weapon)
+            }
+        }
+    }
+
+    func SetWeaponInfo(recipe string) {
+
+        var temp = GetArmoryHUDWidget(EResource_UI_ARMORY.PIVOT_GUN_INFO)
+        temp<HudWidget>.Active = true
+
+        _chosenWeapon = List<string>{recipe}
+        var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+        var attachmentList = globalEntity<GlobalArmory>.GetGunAttachmentList(recipe)
+
+        var gunInfoHolder = GetChildren(GetArmoryHUDWidget(EResource_UI_ARMORY.PIVOT_GUN_INFO))
+        var gunImage = gunInfoHolder[0]
+        var gunText = gunInfoHolder[1]
+
+        var bisScope = thisEntity<PlayerInventory>.GetBestInSlotScope()
+        var bisMuzzle = thisEntity<PlayerInventory>.GetBestInSlotMuzzle()
+        var bisMagazine = thisEntity<PlayerInventory>.GetBestInSlotMagazine()
+        var bisForegrip = thisEntity<PlayerInventory>.GetBestInSlotForegrip()
+        var bisStock = thisEntity<PlayerInventory>.GetBestInSlotStock()
+        var bisAttachment = List<string>{bisScope, bisMuzzle, bisMagazine, bisForegrip, bisStock}
+
+        var scopeBtn = gunInfoHolder[2] as entity<HudWidget>
+        var muzzleBtn = gunInfoHolder[3] as entity<HudWidget>
+        var magazineBtn = gunInfoHolder[4] as entity<HudWidget>
+        var foregripBtn = gunInfoHolder[5] as entity<HudWidget>
+        var stockBtn = gunInfoHolder[6] as entity<HudWidget>
+        var attachmentBtn = List<entity<HudWidget>>{scopeBtn, muzzleBtn, magazineBtn, foregripBtn, stockBtn}
+
+        gunImage<HudImageWidget>.SpriteName = recipeMap[recipe][1] as IconType
+        gunText<HudLabelWidget>.Text = recipeMap[recipe][2] as text
+
+        for key, attachment in attachmentBtn {
+            if attachmentList[key] == 1 {
+                SetInfoForAttachment(attachment,bisAttachment[key])
+                attachment<HudWidget>.Active = true
+                Append(_chosenWeapon,bisAttachment[key])
+            } else {
+                attachment<HudWidget>.Active = false
+            }
+        }
+
+    }
+
+    func SetInfoForAttachment(attachmentUI entity<HudWidget>, bisAttachment string) {
+        var children = GetChildren(attachmentUI)
+        var attachmentName = children[1]
+
+        attachmentName<HudLabelWidget>.Text = bisAttachment
+    }
+
+    func GetChosenWeapon() List<string> {
+        return _chosenWeapon
+    }
+
+    func GetArmoryHUDWidget(eResourceUILevel string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _armoryHUD, Resources.UI_ARMORY[eResourceUILevel])
+    }
+}

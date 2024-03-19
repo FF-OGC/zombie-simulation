@@ -6,11 +6,17 @@ import "Database.fcc" as database
 import "Player.fcc" as player 
 import "Economy.fcc" as economy 
 import "Math.fcc" as math 
+import "./GlobalGun.fcg" as GlobalGun
+import "./GlobalAttachment.fcg" as GlobalAttachment 
+import "Items.fcc" as items
+import"./PlayerInventory.fcg" as PlayerInventory
 
 graph PlayerData {
     LastLoginTime int
     CurrentReadPos int
     CurrentCoin int
+    GunUnlockList List<int>
+    AttachmentUnlockList List<int>
 
     func ReadDataInteger(data List<object>, defaultValue int) int {
         var returnValue = defaultValue
@@ -25,6 +31,7 @@ graph PlayerData {
         //Init default data
         LastLoginTime = 0
         CurrentCoin = 0
+
     }
     
     func ReadGenericData(data List<object>) {
@@ -45,19 +52,29 @@ graph PlayerData {
     async func LoadData() {
         // LogInfo("[PlayerData] LoadData = " + thisEntity<Player>)
         //Generic data            
-        wait ReadFromDatabase(DataEnum:PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum:GENERIC_DATA, out var genericData, "")
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, out var genericData, "")
         ReadGenericData(genericData as List<object>)
         
-        
+        //Gun unlock data
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA, out var gunUnlockData, "")
+        GunUnlockList = gunUnlockData as List<int>
+
+        //Attachment unlock data
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.ATTACHMENT_UNLOCK_DATA, out var attachmentUnlockData, "")
+        AttachmentUnlockList = attachmentUnlockData as List<int>
+
         //Daily data reset
         CheckResetDaily()
         //dispatch load data success event
-        DispatchEvent(Player_FinishAction, thisEntity<Player>, List<object>{DataEnum:ACTION_LOAD_DATA_SUCCESS, nil})
+        DispatchEvent(Player_FinishAction, thisEntity<Player>, List<object>{DataEnum.ACTION_LOAD_DATA_SUCCESS, nil})
     }
+
 
     func GetDataFromUsers() {
         //Get data from other component
-        CurrentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType:COIN)
+        CurrentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN)
+        GunUnlockList = thisEntity<PlayerInventory>.GetGunList()
+        AttachmentUnlockList = thisEntity<PlayerInventory>.GetAttachmentList()
         LogInfo("[PlayerData] GetDataFromUsers: " + CurrentCoin)
     }
 
@@ -70,12 +87,14 @@ graph PlayerData {
     }
 
     async func WriteData() {
-        // LogInfo("[PlayerData] WriteData = " + thisEntity<Player>)
+        LogInfo("[PlayerData] WriteData = " + thisEntity<Player>)
 
         GetDataFromUsers()
         var playerData = PrepareData()
         // LogInfo("[PlayerData] WriteData playerData = " + playerData)
-        WriteToDatabase(DataEnum:PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum:GENERIC_DATA, playerData, "") 
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, playerData, "") 
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA , GunUnlockList, "") 
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.ATTACHMENT_UNLOCK_DATA, AttachmentUnlockList, "") 
     }
 
     func AreDatesDifferent(timeStamp1 int, timeStamp2 int) bool{
@@ -103,7 +122,9 @@ graph PlayerData {
 
     async func Debug_ResetData(){
         CurrentCoin = 0
-        thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType:COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType:COIN))
+        thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType.COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN))
+        thisEntity<PlayerInventory>.RemoveAllItems()
+        LogInfo("inventory: " + thisEntity<PlayerInventory>._gunInventoryMap)
         WriteData()
     }
 

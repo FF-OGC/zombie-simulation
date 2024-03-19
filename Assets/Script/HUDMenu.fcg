@@ -6,17 +6,18 @@ import "LevelObject.fcc" as levelobject
 import MyResources from "EditorGenLib.fcc"
 import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 import "./GlobalCrafting.fcg" as GlobalCrafting
+import "./PlayerInventory.fcg" as PlayerInventory
+import "./PlayerData.fcg" as PlayerData
+import "Items.fcc" as Items
+import Resources from "EditorGenLib.fcc"
 
 graph HUDMenu {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
-        if (button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU:BTN_MAP)) {
+        if (button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_MAP)) {
             LogInfo("[HUDMenu] btnMap: " + button) 
             player<PlayerZoneSelection>.BeginZoneSelection()
-        } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU:BTN_DEBUG)){
-            LogInfo("[HUDMenu] btnDebug: " + button)
-            player<PlayerDebugHUD>.ToggleDebugHUD()
-
-            globalEntity<GlobalCrafting>.SetRecipeMaterialMap()   
+        } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_DEBUG)){
+            player<PlayerData>.Debug_ResetData()
         } 
     }
 }

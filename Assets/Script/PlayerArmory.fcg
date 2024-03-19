@@ -1,0 +1,51 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalCrafting.fcg" as GlobalCrafting
+import "./PlayerInventory.fcg" as PlayerInventory
+import "Convert.fcc" as convert
+import "./GlobalGun.fcg" as GlobalGun
+import "./GlobalAttachment.fcg" as GlobalAttachment
+import "Items.fcc" as Items
+
+graph PlayerArmory {
+    _hasInit bool
+    _gunOrder List<string>
+    _attachmentOrder List<string>
+    _recipeMap Map<string, List<object>>
+
+    func InitPlayerArmory(){
+        if(!_hasInit){
+            _hasInit = true
+            SetOrder()
+            SetRecipeMap()
+        }
+    }
+
+    func SetOrder() {
+        _gunOrder = globalEntity<GlobalGun>.GetGunListTemp()
+        _attachmentOrder = globalEntity<GlobalAttachment>.GetAttachmentListTemp()
+    }
+
+    func SetRecipeMap() {
+        _recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+    }
+
+    func Equip(gun List<string>) {
+        InitPlayerArmory()
+        LogInfo("gun:" + gun)
+
+        for key, value in gun {
+            if (key == 0) {
+                AddItemToPlayer(thisEntity<Player> as entity<Player>, _recipeMap[gun[key]][4] as ItemIDType, 1,out var addedItems)
+            } else {
+                // if value != "None" {
+                //     AddAttachments(thisEntity<Player> as entity<Player>, SwitchEquipSlot.PrimaryWeapon1,_recipeMap[gun[key]][4] as ItemIDType,out var isSuccessful, out var addedAttachment)
+                // }
+                
+            }
+        }
+    }
+
+
+
+}

@@ -25,7 +25,7 @@ graph ZoneBossManager {
             //The check exist due to not being able to set default enum value.
             _type = thisEntity<BossSpawner>.Type
             if(_type == 0){
-                _type = BossEnum:MECHANICAL_SPIDER
+                _type = BossEnum.MECHANICAL_SPIDER
             }
             _totalCount = thisEntity<BossSpawner>.TotalCount
             _bossList = List<entity<Entity>>{}
