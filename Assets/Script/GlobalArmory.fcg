@@ -1,0 +1,55 @@
+import "List.fcc" as List
+import "Items.fcc" as items
+import "Math.fcc" as math
+import "Database.fcc" as database
+import "Map.fcc" as map
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+import Resources from "EditorGenLib.fcc"
+
+graph GlobalArmory {
+
+    _hasInit bool
+    _gunAttachmentMap Map<string,List<int>>
+
+    func InitGlobalCrafting(){
+        if(!_hasInit){
+            SetGunAttachmentMap()
+            _hasInit = true
+        }
+    }
+
+    func SetGunAttachmentMap() {
+        _gunAttachmentMap = Map<string,List<int>>{}
+        
+        var csv = ReadCSV(Resources.CSV[EResource_CSV.GUN_ATTACHMENT])
+        var recipeIndex = 0
+        var scopeIndex = 1
+        var muzzleIndex = 2
+        var magzineIndex = 3
+        var foregripIndex = 4
+        var stockIndex = 5
+        var chipIndex = 6
+
+        for key, row in csv {
+            var tempList = List<int>{}
+            for key, column in row {
+                if column == "TRUE" {
+                    Append(tempList,1)
+                } else if column == "FALSE" {
+                    Append(tempList,0)
+                }
+            }
+            _gunAttachmentMap[row[recipeIndex]] = tempList
+        }
+
+    }
+
+    func GetGunAttachmentList(gun string) List<int>{
+        InitGlobalCrafting()
+        return _gunAttachmentMap[gun]
+    }
+
+
+}

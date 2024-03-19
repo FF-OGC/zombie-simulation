@@ -1,0 +1,17 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
+import "./PlayerCrafting.fcg" as PlayerCrafting
+import "Hud.fcc" as hud
+graph HUDCrafting {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CLOSE)) {
+            LogInfo("[HUDCrafting] btnMap: " + button) 
+            player<PlayerCraftHUD>.CloseCraftHUD()
+        } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)){
+            player<PlayerCrafting>.Craft(player<PlayerCraftHUD>.GetChosenWeapon())
+        } else {
+            player<PlayerCraftHUD>.SetWeaponInfo(button<Entity>.TagsList[0])
+        }
+    }
+}

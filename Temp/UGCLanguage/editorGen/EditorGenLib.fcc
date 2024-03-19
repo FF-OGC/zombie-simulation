@@ -1,6 +1,9 @@
 import "Hud.fcc" as hud
 import "StdLibrary.fcc" as stdLibrary
 import "AI.fcc" as aI
+import "Playable.fcc" as playable
+import "LevelObject.fcc" as levelObject
+import "BehaviourTree.fcc" as behaviourTree
 
 
 
@@ -37,8 +40,16 @@ partial component Component {
 
 }
 
+<<<<<<< HEAD
+// BaseTrigger
+component BaseTrigger {
+    // Name
+    Name string
+
+=======
 // Cluster
 component Cluster {
+>>>>>>> origin/feature
 }
 
 
@@ -59,8 +70,16 @@ enum DataEnum {
     // GENERIC_DATA
     GENERIC_DATA = "GenericData"
 
+<<<<<<< HEAD
     // STAT_DATA
     STAT_DATA = "StatData"
+=======
+    // GUN_UNLOCK_DATA
+    GUN_UNLOCK_DATA = "GunUnlockData"
+
+    // ATTACHMENT_UNLOCK_DATA
+    ATTACHMENT_UNLOCK_DATA = "AttachmentUnlockData"
+>>>>>>> origin/feature
 
 }
 
@@ -101,6 +120,138 @@ enum RecipeEnum {
 
     // MP5
     MP5 = "REC_MP5"
+
+    // AN94
+    AN94 = "REC_AN94"
+
+    // KAR98
+    KAR98 = "REC_KAR98"
+
+    // M1887
+    M1887 = "REC_M1887"
+
+    // PAN
+    PAN = "REC_PAN"
+
+    // UMP
+    UMP = "REC_UMP"
+
+    // SCOPE_1
+    SCOPE_1 = "REC_SCOPE_1"
+
+    // SCOPE_2
+    SCOPE_2 = "REC_SCOPE_2"
+
+    // SCOPE_3
+    SCOPE_3 = "REC_SCOPE_3"
+
+    // MUZZLE_1
+    MUZZLE_1 = "REC_MUZZLE_1"
+
+    // MUZZLE_2
+    MUZZLE_2 = "REC_MUZZLE_2"
+
+    // MUZZLE_3
+    MUZZLE_3 = "REC_MUZZLE_3"
+
+    // MAGAZINE_1
+    MAGAZINE_1 = "REC_MAGAZINE_1"
+
+    // MAGAZINE_2
+    MAGAZINE_2 = "REC_MAGAZINE_2"
+
+    // MAGAZINE_3
+    MAGAZINE_3 = "REC_MAGAZINE_3"
+
+    // FOREGRIP_1
+    FOREGRIP_1 = "REC_FOREGRIP_1"
+
+    // FOREGRIP_2
+    FOREGRIP_2 = "REC_FOREGRIP_2"
+
+    // FOREGRIP_3
+    FOREGRIP_3 = "REC_FOREGRIP_3"
+
+    // STOCK_1
+    STOCK_1 = "REC_STOCK_1"
+
+    // STOCK_2
+    STOCK_2 = "REC_STOCK_2"
+
+    // STOCK_3
+    STOCK_3 = "REC_STOCK_3"
+
+    // M1014
+    M1014 = "REC_M1014"
+
+    // MAG7
+    MAG7 = "REC_MAG7"
+
+    // TROGON
+    TROGON = "REC_TROGON"
+
+    // CHARGE
+    CHARGE = "REC_CHARGE"
+
+    // M4A1
+    M4A1 = "REC_M4A1"
+
+    // AK47
+    AK47 = "REC_AK47"
+
+    // SCAR
+    SCAR = "REC_SCAR"
+
+    // GROZA
+    GROZA = "REC_GROZA"
+
+    // BIZON
+    BIZON = "REC_BIZON"
+
+    // P90
+    P90 = "REC_P90"
+
+    // MP40
+    MP40 = "REC_MP40"
+
+    // SKS
+    SKS = "REC_SKS"
+
+    // M24
+    M24 = "REC_M24"
+
+    // M82B
+    M82B = "REC_M82B"
+
+    // AWM
+    AWM = "REC_AWM"
+
+    // PARANG
+    PARANG = "REC_PARANG"
+
+    // BAT
+    BAT = "REC_BAT"
+
+    // SCYTHE
+    SCYTHE = "REC_SCYTHE"
+
+    // KATANA
+    KATANA = "REC_KATANA"
+
+    // UZI
+    UZI = "REC_UZI"
+
+    // DE
+    DE = "REC_DE"
+
+    // RGS
+    RGS = "REC_RGS"
+
+    // FLAMETHROWER
+    FLAMETHROWER = "REC_FLAMETHROWER"
+
+    // HOOKGUN
+    HOOKGUN = "REC_HOOKGUN"
 
 }
 
@@ -179,6 +330,7 @@ enum BossEnum {
 
 }
 
+<<<<<<< HEAD
 // StatType, type: Int
 enum StatType {
     // ATK
@@ -226,6 +378,59 @@ enum DifficultyEnum {
 
     // DIF_LVL_5
     DIF_LVL_5 = 5
+=======
+// TierEnum, type: Int
+enum TierEnum {
+    // Tier5
+    Tier5 = 5
+
+    // Tier4
+    Tier4 = 4
+
+    // Tier3
+    Tier3 = 3
+
+    // Tier2
+    Tier2 = 2
+
+    // Tier1
+    Tier1 = 1
+
+    // Tier0
+    Tier0 = 0
+
+}
+
+// Boss State, type: Int
+enum CustomEnum30737081 {
+    // Idle
+    enumMemberE44088464 = 0
+
+    // Walk
+    enumMemberE26093291 = 1
+
+    // Skill0
+    enumMemberE98081745 = 2
+
+    // Skill1
+    enumMemberE78420768 = 3
+
+    // Skill2
+    enumMemberE96589545 = 4
+
+    // Dead
+    enumMemberE49487108 = 5
+
+}
+
+// Boss Phase, type: Int
+enum CustomEnum72048329 {
+    // Phase1
+    enumMemberE57796212 = 1
+
+    // Phase2
+    enumMemberE28969225 = 2
+>>>>>>> origin/feature
 
 }
 
@@ -236,7 +441,12 @@ enum EResource_UI {
     LEVEL = "LEVEL"
     INVENTORY = "INVENTORY"
     DEBUG = "DEBUG"
+<<<<<<< HEAD
     PLAYER_STAT = "PLAYER_STAT"
+=======
+    CRAFTING = "CRAFTING"
+    ARMORY = "ARMORY"
+>>>>>>> origin/feature
 }
 enum EResource_Scene {
     ZS = "ZS"
@@ -250,6 +460,7 @@ enum EResource_Prefab {
     MECHANICAL_SPIDER_BOSS = "MECHANICAL_SPIDER_BOSS"
 }
 enum EResource_Texture {
+<<<<<<< HEAD
     BTN_MID_PRESS = "BTN_MID_PRESS"
     BTN_DISABLE = "BTN_DISABLE"
 }
@@ -257,6 +468,61 @@ enum EResource_CSV {
     ZOMBIE_FACT = "ZOMBIE_FACT"
     ZOMBIE_LOOT = "ZOMBIE_LOOT"
     PLAYER_EXP_REQUIREMENT = "PLAYER_EXP_REQUIREMENT"
+=======
+    ICON_MP5 = "ICON_MP5"
+    ICON_M1887 = "ICON_M1887"
+    ICON_MAG7 = "ICON_MAG7"
+    ICON_TROGON = "ICON_TROGON"
+    ICON_CHARGE = "ICON_CHARGE"
+    ICON_AN94 = "ICON_AN94"
+    ICON_M4A1 = "ICON_M4A1"
+    ICON_AK = "ICON_AK"
+    ICON_SCAR = "ICON_SCAR"
+    ICON_UMP = "ICON_UMP"
+    ICON_BIZON = "ICON_BIZON"
+    ICON_P90 = "ICON_P90"
+    ICON_MP40 = "ICON_MP40"
+    ICON_KAR98K = "ICON_KAR98K"
+    ICON_SKS = "ICON_SKS"
+    ICON_M24 = "ICON_M24"
+    ICON_M82B = "ICON_M82B"
+    ICON_AWM = "ICON_AWM"
+    ICON_PAN = "ICON_PAN"
+    ICON_SCYTHE = "ICON_SCYTHE"
+    ICON_KATANA = "ICON_KATANA"
+    ICON_UZI = "ICON_UZI"
+    ICON_DE = "ICON_DE"
+    ICON_RGS = "ICON_RGS"
+    ICON_FLAMETHROWER = "ICON_FLAMETHROWER"
+    ICON_HOOKGUN = "ICON_HOOKGUN"
+    ICON_GROZA = "ICON_GROZA"
+    ICON_M1014 = "ICON_M1014"
+    ICON_PARANG = "ICON_PARANG"
+    ICON_BAT = "ICON_BAT"
+    ICON_SCOPE = "ICON_SCOPE"
+    ICON_MUZZLE_1 = "ICON_MUZZLE_1"
+    ICON_MUZZLE_2 = "ICON_MUZZLE_2"
+    ICON_MUZZLE_3 = "ICON_MUZZLE_3"
+    ICON_MAGAZINE_1 = "ICON_MAGAZINE_1"
+    ICON_MAGAZINE_2 = "ICON_MAGAZINE_2"
+    ICON_MAGAZINE_3 = "ICON_MAGAZINE_3"
+    ICON_FOREGRIP_1 = "ICON_FOREGRIP_1"
+    ICON_FOREGRIP_2 = "ICON_FOREGRIP_2"
+    ICON_FOREGRIP_3 = "ICON_FOREGRIP_3"
+    ICON_STOCK_1 = "ICON_STOCK_1"
+    ICON_STOCK_2 = "ICON_STOCK_2"
+    ICON_STOCK_3 = "ICON_STOCK_3"
+}
+enum EResource_Item {
+    TROGON = "TROGON"
+    PAN = "PAN"
+    Scope2 = "Scope2"
+    FlameGun = "FlameGun"
+}
+enum EResource_CSV {
+    CRAFTING = "CRAFTING"
+    GUN_ATTACHMENT = "GUN_ATTACHMENT"
+>>>>>>> origin/feature
 }
 enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
     TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
@@ -300,6 +566,7 @@ enum EResource_UI_DEBUG {
     BTN_PLUS_100 = "BTN_PLUS_100"
     BTN_MINUS_100 = "BTN_MINUS_100"
 }
+<<<<<<< HEAD
 enum EResource_UI_PLAYER_STAT {
     BTN_INCREASE_HP = "BTN_INCREASE_HP"
     BTN_DECREASE_HP = "BTN_DECREASE_HP"
@@ -310,6 +577,19 @@ enum EResource_UI_PLAYER_STAT {
     TXT_REMAIN = "TXT_REMAIN"
     TXT_HP = "TXT_HP"
     TXT_ATK = "TXT_ATK"
+=======
+enum EResource_UI_CRAFTING {
+    BTN_CRAFT = "BTN_CRAFT"
+    BTN_CLOSE = "BTN_CLOSE"
+    BTN_GUNCHOICE = "BTN_GUNCHOICE"
+    PIVOT_GUN_INFO = "PIVOT_GUN_INFO"
+}
+enum EResource_UI_ARMORY {
+    BTN_CLOSE = "BTN_CLOSE"
+    BTN_EQUIP = "BTN_EQUIP"
+    BTN_GUNCHOICE = "BTN_GUNCHOICE"
+    PIVOT_GUN_INFO = "PIVOT_GUN_INFO"
+>>>>>>> origin/feature
 }
 // Player_PlayerJoinGame()
 [platform_server]
@@ -326,6 +606,10 @@ event Player_PlayerQuitGame()
 // Player_PlayerFinishAction(ActionName String, ActionData any)
 [platform_server]
 event Player_FinishAction(param1 string, param2 object)
+
+// switchPhase(BossPhase Int)
+[platform_server]
+event signal_55019324(param1 int)
 
 
 // Assets\ECA\MyResources.eca
@@ -352,6 +636,9 @@ declare static graph MyResources {
     // RecipeLocalizations
     RecipeLocalizations Map<object, object>
 
+    // CraftingMap
+    CraftingMap Map<object, object>
+
     // InitPhases()
     func InitPhases () 
 
@@ -366,6 +653,9 @@ declare static graph MyResources {
 
     // SetHookGun()
     func SetHookGun () 
+
+    // InitCraftingMap()
+    func InitCraftingMap () 
 
 }
 
@@ -389,11 +679,362 @@ declare static graph MyResourcesLoc {
 
 }
 
+// Assets\ECA\Boss\Boss.eca
+[platform_server]
+declare graph rqvzy85v6o_lt3w1fuq_zqtht6jslca {
+    // BossState
+    vocmZpKeB CustomEnum30737081
+
+    // maxHP
+    vhoHcyFzZ int
+
+    // HP
+    vyKiLfWnI int
+
+    // HPbar
+    vmKg7i3bE entity<PlayerHeadHud>
+
+    // unbreakableState
+    vVxQCZHc4 List<object>
+
+    // BossPhase
+    vuv54lBPy CustomEnum72048329
+
+    // switchState(state CustomEnum30737081)
+    func U_O_5Fi3E_B1_Q__xnea (param0 CustomEnum30737081) 
+
+    // playAnimation(state CustomEnum30737081)
+    func _5c_4q99CN_s43__TaFt8 (param0 CustomEnum30737081) 
+
+    // initBossConfig()
+    func v_q__w_Vk_gQUqx_q7D_ () 
+
+    // initHPBar()
+    func dH_YwmX_I_x1K_tL_P_Y () 
+
+    // recievedDamage(damage Int)
+    func YwRw__dfiJ1qW4vrVd_G (param0 int) 
+
+    // recievedDamageUI(damage Int)
+    func ww_2pf_eVPD_ShTF9p_P (param0 int) 
+
+    // turnOnMetalZone()
+    func _7_M__j_C_x_N_JuFtb_n () 
+
+}
+
+// Assets\ECA\Boss\BossIdle.eca
+[platform_server]
+declare graph _6jgno0c7s5r_lt6oa192_kprjcm2u2wg {
+}
+
+// Assets\ECA\Boss\BossMovement.eca
+[platform_server]
+declare graph _4moc860elv6_lt3uf93b_xf0b0a972k {
+    // target
+    vAN7XesXo entity<Player>
+
+    // motion
+    vGUO0sy55 entity<RelativeFrame>
+
+    // hasTarget()
+    func _ni_EGPyqU_j8vP_l_33 () bool
+
+    // findPath(speed Float)
+    func wFGwDwOL_3b_dyz_Nzvd (param0 float) 
+
+    // pauseMovement()
+    func WJYn_d___pljWkdhG0jS () 
+
+}
+
+// Assets\ECA\Boss\BossSkill0.eca
+[platform_server]
+declare graph az1dhtt0mk_lt44c2xt_6p2n7qamuo {
+    // coolDown
+    vD1zJDxFs object
+
+    // currentCoolDown
+    vWyN7R5Tv object
+
+    // coolDown0
+    vEb40kw05 int
+
+    // objectList
+    vjDE4cG4E object
+
+    // skill0(coolDown Int, fireballNum Int)
+    func uk_JWQMiYDMZ_i_O_oG_ (param0 int, param1 int) 
+
+    // initSkillCoolDown()
+    func M_ESiltvSSkPZ__k_r_R () 
+
+    // resetCoolDown0()
+    func Vfgv7Y_IzHOhWapro_Q_ () 
+
+    // createFireBall(start any, end any)
+    func _3__suzmw__jn__5DO0_3 (param0 object, param1 object) 
+
+    // dealDamage(entity EffectEntity)
+    func _G___iVAIp3__yf__H_T (param0 entity<EffectEntity>) 
+
+    // createDamageZone(location any)
+    func eMw__nk3J_0r___DkmG3 (param0 object) object
+
+    // createFireBall2(start any, end any)
+    func _NcSw_b9____sFvbhs9_ (param0 object, param1 object) 
+
+    // createExplostion(location Vector3)
+    func _0nAO_D__5ss__CjSq_B (param0 Vector3) 
+
+}
+
+// Assets\ECA\Boss\BossSkill1.eca
+[platform_server]
+declare graph h1ohs1m71m4_lt6wuucx_qp6g6zwtp8q {
+    // motion
+    vv7zz6VEg entity<RelativeFrame>
+
+    // coolDown1
+    vY3UvWRWz int
+
+    // skill1(coolDown Int)
+    func wFGwDwOL_3b_dyz_Nzvd_ (param0 int) 
+
+    // resetCoolDown1()
+    func Vfgv7Y_IzHOhWapro_Q__ () 
+
+    // initSkillCoolDown()
+    func M_ESiltvSSkPZ__k_r_R_ () 
+
+    // createDamageZone(location any, delta any)
+    func eMw__nk3J_0r___DkmG3_ (param0 object, param1 object) object
+
+    // prepareSkill1(targetPosition Vector3)
+    func _Ivh_ego_w_vYK_rHL0_ (param0 Vector3) 
+
+    // createDamageZone2(location any, delta any)
+    func b_L_df_c__j_t2___gPw (param0 object, param1 object) object
+
+}
+
+// Assets\ECA\Boss\BossSkill2.eca
+[platform_server]
+declare graph _0yjz5oj2u97a_lto1xl3n_2rauopimfhp {
+    // motion
+    vv7zz6VEg_ entity<RelativeFrame>
+
+    // coolDown1
+    vY3UvWRWz_ int
+
+    // CoolDown2
+    vLZxXEiTS int
+
+    // skill2(coolDown Int)
+    func wFGwDwOL_3b_dyz_Nzvd_ (param0 int) 
+
+    // resetCoolDown2()
+    func Vfgv7Y_IzHOhWapro_Q__ () 
+
+    // initSkillCoolDown()
+    func M_ESiltvSSkPZ__k_r_R_ () 
+
+    // createMinion()
+    func _c1jhx_z_7Z2__Mu__mt () 
+
+}
+
+// Assets\ECA\Boss\BossSkill3.eca
+[platform_server]
+declare graph p5deu27l7ab_ltp8w6ng_mh95zhv93wm {
+    // coolDown3
+    vLB4IYzJx int
+
+    // resetCoolDown()
+    func Vfgv7Y_IzHOhWapro_Q__ () 
+
+    // initCoolDown()
+    func M_ESiltvSSkPZ__k_r_R_ () 
+
+    // skill3(coolDown Int)
+    func A_suQ1_O__71_acru_nV (param0 int) 
+
+    // slowPlayer()
+    func _780FdnU1Pt__x15k___G () 
+
+    // resetSpeed()
+    func VuOsHd_RSJg8F__dLMy2 () 
+
+}
+
+// Assets\ECA\Boss\Trigger\Skill1Trigger.eca
+[platform_server]
+declare graph hd7857e07ef_lt70pm9x_h7uu92ey7kg {
+}
+
+// Assets\ECA\Boss\Trigger\TriggerMetalZone.eca
+[platform_server]
+declare graph cxgdu4e4lsr_ltqz1pvf_563jlz6ejmf {
+    // inTrigger
+    v0lh1LD6a bool
+
+}
+
+// Assets\ECA\Minion\Minion.eca
+[platform_server]
+declare graph zwyxrywmajh_ltnrwc0o_1g15lvkcced {
+    // MinionState
+    vqzhkNLY2 CustomEnum30737081
+
+    // HPBar
+    vjHRfpDRJ entity<PlayerHeadHud>
+
+    // maxHP
+    vzcvlHtKh int
+
+    // HP
+    v5DTzJTqz int
+
+    // unbreakableState
+    vClNvbyZI List<object>
+
+    // switchState(state CustomEnum30737081)
+    func U_O_5Fi3E_B1_Q__xnea_ (param0 CustomEnum30737081) 
+
+    // playAnimation(state CustomEnum30737081)
+    func _5c_4q99CN_s43__TaFt8_ (param0 CustomEnum30737081) 
+
+    // recievedDamage(damage Int)
+    func YwRw__dfiJ1qW4vrVd_G_ (param0 int) 
+
+    // initHPBar()
+    func dH_YwmX_I_x1K_tL_P_Y_ () 
+
+    // initMinionConfig()
+    func v_q__w_Vk_gQUqx_q7D__ () 
+
+    // recievedDamageUI(damage Int)
+    func ww_2pf_eVPD_ShTF9p_P_ (param0 int) 
+
+}
+
+// Assets\ECA\Minion\MinionAttack.eca
+[platform_server]
+declare graph dzoo1bqhrq_ltnt9hjf_kkgcgqtz4hl {
+    // checkInRange()
+    func Pc_8_lXo_k__S8ekYoJI () bool
+
+    // Detonate()
+    func _Vx64N_g_3__V_6MbqPO () 
+
+    // dealDamage(entity CustomLevelObject)
+    func _G___iVAIp3__yf__H_T_ (param0 entity<CustomLevelObject>) 
+
+}
+
+// Assets\ECA\Minion\MinionMovement.eca
+[platform_server]
+declare graph _9u091un9mpt_ltms5t4k_847t94icxjh {
+    // target
+    vAN7XesXo_ entity<Player>
+
+    // motion
+    vGUO0sy55_ entity<RelativeFrame>
+
+    // hasTarget()
+    func _ni_EGPyqU_j8vP_l_33_ () bool
+
+    // findPath()
+    func wFGwDwOL_3b_dyz_Nzvd_ () 
+
+    // pauseMovement()
+    func WJYn_d___pljWkdhG0jS_ () 
+
+}
+
+// Assets\ECA\Behavior ECA\Attack.eca
+[platform_server]
+declare graph s47wmlifjvj_lt44yuwa_zwnytdtqerr {
+    // skillInProgress
+    vKZB1uuVT bool
+
+    // finishSkill(owner BehaviourTreeAttachable)
+    func W_gTHB6____5h5_AZgr_ (param0 entity<BTreeAttachable>) 
+
+}
+
+// Assets\ECA\Behavior ECA\Attack2.eca
+[platform_server]
+declare graph fe750i123t_ltqw9yh7_zvhnt7ul5s {
+    // skillInProgress
+    vK93fHBLJ bool
+
+    // finishSkill(owner BehaviourTreeAttachable)
+    func W_gTHB6____5h5_AZgr__ (param0 entity<BTreeAttachable>) 
+
+}
+
+// Assets\ECA\Behavior ECA\HasTarget.eca
+[platform_server]
+declare graph _8ftkl1saim_lt41ckmn_bc92kh88ydm {
+    // HasTarget(owner BehaviourTreeAttachable)
+    func g_9Tr7ir__A___u0K5__ (param0 entity<BTreeAttachable>) bool
+
+}
+
+// Assets\ECA\Behavior ECA\IsPhase1.eca
+[platform_server]
+declare graph b6dkq52elku_ltqorg3y_7puczn8jxmu {
+    // IsPhase1(owner BehaviourTreeAttachable)
+    func g_9Tr7ir__A___u0K5___ (param0 entity<BTreeAttachable>) bool
+
+}
+
+// Assets\ECA\Behavior ECA\IsPhase2.eca
+[platform_server]
+declare graph _0qtw0c9tts_ltqqzsgg_jh447jzjv1 {
+    // IsPhase2(owner BehaviourTreeAttachable)
+    func g_9Tr7ir__A___u0K5___ (param0 entity<BTreeAttachable>) bool
+
+}
+
+// Assets\ECA\Behavior ECA\MinionAttack.eca
+[platform_server]
+declare graph n17lu0rmzme_ltnue35u_nzapdspto5r {
+}
+
+// Assets\ECA\Behavior ECA\MinionHasTarget.eca
+[platform_server]
+declare graph _8ww0zxdf59w_ltmslq4s_t7cbsp4taog {
+    // HasTarget(owner BehaviourTreeAttachable)
+    func g_9Tr7ir__A___u0K5___ (param0 entity<BTreeAttachable>) bool
+
+}
+
+// Assets\ECA\Behavior ECA\MinionMove.eca
+[platform_server]
+declare graph cj13u49ra1p_ltmsmrze_kyhsma13h5f {
+}
+
+// Assets\ECA\Behavior ECA\Move.eca
+[platform_server]
+declare graph pzmjz413dp_lt41cqjs_yyf0hlbtcor {
+}
+
+// Assets\ECA\Behavior ECA\Move2.eca
+[platform_server]
+declare graph _8mes2fwpaba_ltqwmema_nk0yh4gt8h {
+}
+
 declare static graph Resources {
     UI Map<EResource_UI, CustomHudID>
     Scene Map<EResource_Scene, string>
     Prefab Map<EResource_Prefab, PrefabID>
     Texture Map<EResource_Texture, SpriteID>
+<<<<<<< HEAD
+=======
+    Item Map<EResource_Item, ItemID>
+>>>>>>> origin/feature
     CSV Map<EResource_CSV, CsvID>
 
     UI_CRAFTLAND_TOKEN_WALLET Map<EResource_UI_CRAFTLAND_TOKEN_WALLET, CustomHudWidgetID>
@@ -402,5 +1043,10 @@ declare static graph Resources {
     UI_LEVEL Map<EResource_UI_LEVEL, CustomHudWidgetID>
     UI_INVENTORY Map<EResource_UI_INVENTORY, CustomHudWidgetID>
     UI_DEBUG Map<EResource_UI_DEBUG, CustomHudWidgetID>
+<<<<<<< HEAD
     UI_PLAYER_STAT Map<EResource_UI_PLAYER_STAT, CustomHudWidgetID>
+=======
+    UI_CRAFTING Map<EResource_UI_CRAFTING, CustomHudWidgetID>
+    UI_ARMORY Map<EResource_UI_ARMORY, CustomHudWidgetID>
+>>>>>>> origin/feature
 }
