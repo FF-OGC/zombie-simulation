@@ -21,7 +21,7 @@ graph PlayerLevel {
         _exp += amount
 
         if(_exp > globalEntity<GlobalLevel>.EXP_MAX){
-            ShowTips(thisEntity<Player>, MyResources:Localizations["LEVEL_MAX_EXP"], ColorRGB(255, 255, 255), 3000)
+            ShowTips(thisEntity<Player>, MyResources.Localizations["LEVEL_MAX_EXP"], ColorRGB(255, 255, 255), 3000)
             _exp = globalEntity<GlobalLevel>.EXP_MAX
         }
     }

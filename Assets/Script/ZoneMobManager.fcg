@@ -32,7 +32,7 @@ graph ZoneMobManager {
             _type = thisEntity<MobSpawner>.Type
 
             if(_type == 0){
-                _type = AIType:UGCAI
+                _type = AIType.UGCAI
             }
 
             _mobList = List<entity<Entity>>{}
@@ -58,12 +58,12 @@ graph ZoneMobManager {
 
         while(GetCurrentMobCount() < _totalMobCount){
             var spawnLocation = GetRandomizeSpawnLocation()
-            // LogInfo("[ZoneMobManager] _type: " + _type + " " + thisEntity<MobSpawner>.Type + " " + AIType:UGCAI)
-            // LogInfo("[ZoneMobManager] _prefabID: " + Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE])
+            // LogInfo("[ZoneMobManager] _type: " + _type + " " + thisEntity<MobSpawner>.Type + " " + AIType.UGCAI)
+            // LogInfo("[ZoneMobManager] _prefabID: " + Resources.Prefab[EResource_Prefab.REGULAR_ZOMBIE])
             // LogInfo("[ZoneMobManager] _totalMobCount: " + _totalMobCount)
             CreateFromPrefab(out var createdEntity, globalEntity<GlobalZoneMobManager>.GetTypePrefab(_type))
             InsertMobToList(createdEntity)
-            // CreateFromPrefab(out var createdEntity, Resources:Prefab[EResource_Prefab:REGULAR_ZOMBIE])
+            // CreateFromPrefab(out var createdEntity, Resources.Prefab[EResource_Prefab.REGULAR_ZOMBIE])
             createdEntity<Transform>.Position = spawnLocation
             // AddScript(createdEntity, Mob)
             createdEntity<Mob>.SetSpawner(thisEntity<MobSpawner>)

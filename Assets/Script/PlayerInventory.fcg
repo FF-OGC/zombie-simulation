@@ -1,3 +1,5 @@
+import "Map.fcc" as Map
+import "Items.fcc" as items
 import "List.fcc" as list
 import "Convert.fcc" as convert
 import "StdLibrary.fcc" as stdLibrary
@@ -5,6 +7,12 @@ import "EditorGenLib.fcc" as editorGenLib
 import "./GlobalMaterial.fcg" as GlobalMaterial
 import "Strings.fcc" as strings
 import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
+import "./GlobalGun.fcg" as GlobalGun 
+import "./GlobalAttachment.fcg" as GlobalAttachment
+import "./PlayerData.fcg" as PlayerData
+import "./Enum.fcg" as Enum
+import "./GlobalCrafting.fcg" as GlobalCrafting
+
 
 import MyResources from "EditorGenLib.fcc"
 import MyResourcesLoc from "EditorGenLib.fcc"
@@ -12,10 +20,25 @@ import MyResourcesLoc from "EditorGenLib.fcc"
 graph PlayerInventory {
     _inventoryMap Map<string, int>
     _hasInit bool
+    _gunInventoryMap Map<string, int>
+    _attachmentInventoryMap Map<string, int>
+    _gunOrder List<string>
+    _attachmentOrder List<string>
+    _craftedOrder = List<string>{}
+    // Best in slot attachment
+    _bisScope string = "None"
+    _bisMuzzle string = "None"
+    _bisMagazine string = "None"
+    _bisForegrip string = "None"
+    _bisStock string = "None"
+
 
     func InitPlayerInventory(){
         if(!_hasInit){
             SetPlayerInventoryMap()
+            SetGunInventoryMap()
+            SetAttachmentInventoryMap()
+            // SetBestInSlotAttachments()
             _hasInit = true
         }
     }
@@ -30,11 +53,78 @@ graph PlayerInventory {
 
         _inventoryMap = Map<string, int>{}
         var materialList = globalEntity<GlobalMaterial>.GetMaterialList()
-        LogInfo("[PlayerInventory] materialList: " + materialList + " " + list:Length(materialList))
+        LogInfo("[PlayerInventory] materialList: " + materialList + " " + list.Length(materialList))
 
-        for i = 0, list:Length(materialList), 1{
+        for i = 0, list.Length(materialList), 1{
             var material = materialList[i]
             _inventoryMap[material] = 0
+        }
+    }
+
+    func SetGunInventoryMap() {
+        if (_gunInventoryMap != nil) {
+            return
+        }
+
+        _gunInventoryMap = Map<string, int>{}
+        _gunOrder = globalEntity<GlobalGun>.GetGunListTemp()
+        for key, value in _gunOrder {
+            _gunInventoryMap[value] = 0
+        }
+        
+    }
+
+    func AddGun(gun string) {
+        _gunInventoryMap[gun] = 1
+    }
+
+    func GetGunList() List<int> {
+        var gunList = List<int>{}
+        for key, gun in _gunOrder {
+            Append(gunList,_gunInventoryMap[gun])
+        }
+        return gunList
+    }
+
+    func CheckHasGun(gun string) bool{
+        return _gunInventoryMap[gun] == 1
+    }
+
+
+    func SetAttachmentInventoryMap() {
+        if (_attachmentInventoryMap != nil) {
+            return
+        }
+
+        _attachmentInventoryMap = Map<string, int>{}
+        _attachmentOrder = globalEntity<GlobalAttachment>.GetAttachmentListTemp()
+        for key, value in _attachmentOrder{
+            _attachmentInventoryMap[value] = 0
+        }
+    }
+
+    func AddAttachment(attachment string) {
+        _attachmentInventoryMap[attachment] = 1
+    }
+
+
+    func CheckHasAttachment(attachment string) bool{
+        return _attachmentInventoryMap[attachment] == 1
+    }
+
+    func GetAttachmentList() List<int> {
+        var attachmentList = List<int>{}
+        for key, attachment in _attachmentOrder {
+            Append(attachmentList,_attachmentInventoryMap[attachment])
+        }
+        return attachmentList
+    }
+
+    func CheckHasItem(recipeEnum string) bool{
+        if globalEntity<GlobalCrafting>.CheckIsGun(recipeEnum) {
+            return CheckHasGun(recipeEnum)
+        } else {
+            return CheckHasAttachment(recipeEnum)
         }
     }
 
@@ -53,7 +143,7 @@ graph PlayerInventory {
 
         // Set Obtain noti
         var materialAmountStr =  "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
         LogInfo("[PlayerInventory] material after +: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 
@@ -71,9 +161,100 @@ graph PlayerInventory {
 
         // Set Consumption noti
         var materialAmountStr = "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources:GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
         LogInfo("[PlayerInventory] material after -: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 
-    
+
+
+    func SetBestInSlotForOneAttachment(attachmentList List<string>, bestInSlot string) string{
+        for key, attachment in attachmentList {
+            if _attachmentInventoryMap[attachment] == 1 {
+                bestInSlot = attachment
+                return bestInSlot
+            }
+        }
+        return "None"
+    }
+
+    func GetBestInSlotScope() string {
+        var scopeList = globalEntity<GlobalAttachment>._scopeList
+        return SetBestInSlotForOneAttachment(scopeList, _bisScope)
+        
+    }
+
+    func GetBestInSlotMuzzle() string {
+        var muzzleList = globalEntity<GlobalAttachment>._muzzleList
+        return SetBestInSlotForOneAttachment(muzzleList, _bisMuzzle)
+    }
+
+    func GetBestInSlotMagazine() string {
+        var magazineList = globalEntity<GlobalAttachment>._magazineList
+        return SetBestInSlotForOneAttachment(magazineList, _bisMagazine)
+    }
+
+    func GetBestInSlotForegrip() string {
+        var foregripList = globalEntity<GlobalAttachment>._foregripList
+        return SetBestInSlotForOneAttachment(foregripList, _bisForegrip)
+    }
+
+    func GetBestInSlotStock() string {
+        var stockList = globalEntity<GlobalAttachment>._stockList
+        return SetBestInSlotForOneAttachment(stockList, _bisStock)
+    }
+
+    func ChangeGunListToGunMap(gunList List<int>) {
+        for key, unlocked in gunList {
+            _gunInventoryMap[_gunOrder[key]] = unlocked
+        }
+    }
+
+    func ChangeAttachmentListToAttachmentMap(attachmentList List<int>) {
+        for key, unlocked in attachmentList {
+            _attachmentInventoryMap[_attachmentOrder[key]] = unlocked
+        }
+    }
+
+    func RemoveAllItems() {
+        for key, gun in GetAllKeys(_gunInventoryMap) {
+            _gunInventoryMap[gun] = 0
+        }
+
+        for key, attachment in GetAllKeys(_attachmentInventoryMap) {
+            _attachmentInventoryMap[attachment] = 0
+        }
+    }
+
+
+    func SetCraftedOrder(gun string) {
+        Append(_craftedOrder, gun)
+    }
+
+    func GetCraftedOrder() List<string> {
+        return _craftedOrder
+    }
+
+    func AddAttachmentForPlayerWhenLoad() {
+        var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+
+        for attachment, obtained in _attachmentInventoryMap {
+            if obtained == 1 {
+                AddItemToPlayer(thisEntity<Player> as entity<Player>,recipeMap[attachment][4] as ItemIDType, 2, out var addedItems)
+            }
+        }
+    }
+
+    event Player_FinishAction(action string, data object) {        
+        if (ToString(action) == ToString(Enum.ACTION_LOAD_DATA_SUCCESS)) {
+            LogInfo("[PlayerInventory]")
+            
+            var gunlist = thisEntity<PlayerData>.GunUnlockList
+            var attachmentList = thisEntity<PlayerData>.AttachmentUnlockList
+
+            ChangeGunListToGunMap(gunlist)
+            ChangeAttachmentListToAttachmentMap(attachmentList)
+
+            AddAttachmentForPlayerWhenLoad()
+        }
+    }
 }

@@ -1,0 +1,64 @@
+import "List.fcc" as list
+import "Database.fcc" as database
+import "Map.fcc" as map
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+import Resources from "EditorGenLib.fcc"
+
+graph GlobalAttachment {
+    _attachmentNameMap Map<string, object>
+    _hasInit bool
+    _scopeList List<string>
+    _muzzleList List<string>
+    _magazineList List<string>
+    _foregripList List<string>
+    _stockList List<string>
+
+    func InitGlobalAttachment(){
+        if(!_hasInit){
+            SetAttachmentNameMap()
+
+            _scopeList = List<string>{RecipeEnum.SCOPE_3,RecipeEnum.SCOPE_2,RecipeEnum.SCOPE_1}
+            _muzzleList = List<string>{RecipeEnum.MUZZLE_3,RecipeEnum.MUZZLE_2,RecipeEnum.MUZZLE_1}
+            _magazineList = List<string>{RecipeEnum.MAGAZINE_3,RecipeEnum.MAGAZINE_2,RecipeEnum.MAGAZINE_1}
+            _foregripList = List<string>{RecipeEnum.FOREGRIP_3,RecipeEnum.FOREGRIP_2,RecipeEnum.FOREGRIP_1}
+            _stockList = List<string>{RecipeEnum.STOCK_3,RecipeEnum.STOCK_2,RecipeEnum.STOCK_1}
+            _hasInit = true
+
+        }
+    }
+
+    func SetAttachmentNameMap(){
+        _attachmentNameMap = Map<string, object>{}
+        // _attachmentNameMap[attachmentEnum.WOOD_LOG] = MyResources.attachmentLocalizations[attachmentEnum.WOOD_LOG]
+    }
+
+    func GetAttachmentName(attachmentEnum string) LocString{
+        InitGlobalAttachment()
+        return _attachmentNameMap[attachmentEnum] as LocString
+    }
+
+    func GetAttachmentList() List<string>{
+        InitGlobalAttachment()
+        return GetAllKeys(_attachmentNameMap) as List<string>
+    }
+
+    func GetAttachmentListTemp() List<string>{
+        InitGlobalAttachment()
+        var attachmentList = List<string>{}
+        var csv = ReadCSV(Resources.CSV[EResource_CSV.CRAFTING])
+        var inUseIndex = 1
+        var typeIndex = 2
+        var recIndex = 3
+
+        for key, row in csv {
+            if row[inUseIndex] as string == "TRUE" {
+                if row[typeIndex] as string == "Accessory" {
+                    Append(attachmentList,row[recIndex] as string)
+                }
+            }       
+        }
+        return attachmentList
+    }
+}

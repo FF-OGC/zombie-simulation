@@ -4,12 +4,12 @@ import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 import "./PlayerDebug.fcg" as PlayerDebug
 import "./GlobalZoneMobManager.fcg" as GLobalZoneMobManager
 
+
 graph HUDDebug {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
-        if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG:BTN_PLUS_100)) {
-            globalEntity<GLobalZoneMobManager>.EliminateAllZombie()
+        if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_PLUS_100)) {
             LogInfo("[HUDDebug] btnPlus100: " + button) 
-        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG:BTN_MINUS_100)) {
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_MINUS_100)) {
             LogInfo("[HUDDebug] btnMinus100: " + button) 
         }
     }

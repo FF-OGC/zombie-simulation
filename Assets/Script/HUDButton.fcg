@@ -7,7 +7,7 @@ graph HUDButton {
     event OnClick(trigger entity<Player>) {
         LogInfo("[HUDButton] OnClick player = " + trigger +
                 ", thisEntity = " + thisEntity)  
-        trigger<PlayerSFX>.PlaySFXOnce(SoundEffects:Click)
+        trigger<PlayerSFX>.PlaySFXOnce(SoundEffects.Click)
         DispatchEvent(HUD_ButtonClicked, thisEntity<HudWidget>.HostHudEntity, List<object>{thisEntity, trigger})                                
     }
 }

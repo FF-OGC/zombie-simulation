@@ -32,7 +32,7 @@ graph Mob {
       beDamagedPart HitBodyPart) {
         _spawner<ZoneMobManager>.RemoveMobFromList(thisEntity<Entity>)
         attacker<PlayerLevel>.IncreaseExpByAmount(_expAmount)
-        attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum:WOOD_LOG, 1)
+        attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.WOOD_LOG, 1)
     }
 
     func StuckCheckLoopContent(){

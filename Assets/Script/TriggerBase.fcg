@@ -1,0 +1,19 @@
+import "LevelObject.fcc" as levelobject
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Playable.fcc" as playable 
+import Resources from "EditorGenLib.fcc"
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
+import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
+import "Physics.fcc" as physics
+
+graph TriggerBase {
+    event OnPlayerEnterTrigger(player entity<Player>) {
+        LogInfo(thisEntity<BaseTrigger>.Name == "Craft")
+        if thisEntity<BaseTrigger>.Name == "Craft" {
+            player<PlayerCraftHUD>.DisplayCraftHUD()
+        } else if thisEntity<BaseTrigger>.Name == "Armory" {
+            player<PlayerArmoryHUD>.DisplayArmoryHUD()
+        }
+    }
+}

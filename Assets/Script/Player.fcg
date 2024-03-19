@@ -20,8 +20,10 @@ import "./PlayerInventory.fcg" as PlayerInventory
 import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
 import "./PlayerDebug.fcg" as PlayerDebug
 import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
+import "./PlayerData.fcg" as PlayerData
 import "LevelObject.fcc" as levelobject
 import "Items.fcc" as items
+import "List.fcc" as List
 
 graph Player {
     event Player_PlayerJoinGame() {
@@ -29,8 +31,10 @@ graph Player {
         thisEntity<PlayerMenu>.DisplayMenuHUD()
         thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
         thisEntity<PlayerInventory>.BeginPlayerInventorySystem()
+        SetPlayerConfig()
         Preload()
-        // MyResources:SetHookGun()
+        // MyResources.SetHookGun()
+        thisEntity<PlayerData>.LoadData()
     }
 
     event Player_PlayerQuitGame() {
@@ -46,6 +50,12 @@ graph Player {
       beDamagedPart HitBodyPart) {
         start RunOnKilled()
     }
+
+
+    // event OnDropWeapon(weapon entity<Weapon>) {
+    //     LogInfo("drop weapon")
+    //     DeleteResidualLevelObjects()
+    // }
 
     async func InitAllHUD(){
         thisEntity<PlayerZoneSelectionHUD>.InitZoneSelectionHUD()
@@ -66,13 +76,24 @@ graph Player {
     }
 
     func Preload(){
-        AddItemToPlayer(thisEntity<Player>, ItemIDType:UZI, 1, out var addedItemList)
+        AddItemToPlayer(thisEntity<Player> as entity<Player>, ItemIDType.Bag3, 1, out var addedItemList)
+        // AddItemToPlayer(thisEntity<Player> as entity<Player>, Resources.Item[EResource_Item.FlameGun] as ItemIDType, 1, out var addedItemList2)
+
+    }
+
+    func SetPlayerConfig() {
+        // var thisPlayer = thisEntity<Player> as entity<Player>
+        // thisPlayer<Player>.DropItemDisabled = true
+        // thisEntity<Player>.PickupItemDisabled = true
     }
 
     async func RunOnKilled(){
+        thisEntity<PlayerData>.WriteData()
+        WaitForNextFrame()
         thisEntity<PlayerZoneSelection>.StopPlayerFromTeleporting()
         WaitForNextFrame()
-        Revive(thisEntity<Player>)
+        Revive(thisEntity<Player> as entity<Player>)
+        
     }
 
 }

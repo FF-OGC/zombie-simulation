@@ -9,7 +9,7 @@ graph PlayerInventoryHUD {
 
     func InitInventoryHUD(){
         if(_inventoryHUD == nil){
-            _inventoryHUD = HUDUtil:CreateCustomHUD(thisEntity<Player>, EResource_UI:INVENTORY, 4)
+            _inventoryHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.INVENTORY, 4)
             _inventoryHUD<CustomHud>.Visibility = false
         }
     }
@@ -37,7 +37,7 @@ graph PlayerInventoryHUD {
     }
 
     func ToggleInventory(){
-        var pivotInventory = GetInventoryHUDWidget(EResource_UI_INVENTORY:PIVOT_INVENTORY)
+        var pivotInventory = GetInventoryHUDWidget(EResource_UI_INVENTORY.PIVOT_INVENTORY)
         if(pivotInventory<HudWidget>.Active){
             pivotInventory<HudWidget>.Active = false
         } else {
@@ -46,7 +46,7 @@ graph PlayerInventoryHUD {
     }
 
     func GetInventoryHUDWidget(eResourceUIInventory string) entity<HudWidget>{
-        return GetWidgetFromCustomHud(thisEntity<Player>, _inventoryHUD, Resources:UI_INVENTORY[eResourceUIInventory])
+        return GetWidgetFromCustomHud(thisEntity<Player>, _inventoryHUD, Resources.UI_INVENTORY[eResourceUIInventory])
     }
 
 }
