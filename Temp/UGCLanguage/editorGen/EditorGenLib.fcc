@@ -40,11 +40,16 @@ partial component Component {
 
 }
 
+<<<<<<< HEAD
 // BaseTrigger
 component BaseTrigger {
     // Name
     Name string
 
+=======
+// Cluster
+component Cluster {
+>>>>>>> origin/feature
 }
 
 

@@ -1,0 +1,115 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
+import "Math.fcc" as math
+import "List.fcc" as list
+import "./ZoneMobManager.fcg" as ZoneMobManager
+
+graph Cluster {
+    _playerInClusterList List<entity<Player>>
+    _zoneList List<entity<Entity>>
+    _spawnZoneList List<entity<MobSpawner>>
+    _hasInit bool
+
+    event OnAwake(){
+        BeginCluster()
+    }
+
+    func InitCluster(){
+        if(!_hasInit){
+            _zoneList = List<entity<Entity>>{}
+            _playerInClusterList = List<entity<Player>>{}
+            _spawnZoneList = List<entity<MobSpawner>>{}
+            _hasInit = true
+        }
+    }
+
+    func BeginCluster(){
+        InitCluster()
+        globalEntity<GlobalZoneMobManager>.InsertClusterList(thisEntity<Cluster>)
+        SetZoneSpawnList()
+    }
+
+    func CheckPlayerDistance(player entity<Player>){
+        var playerLocation = player<Player>.Position
+        var tpTrigger = GetTPTrigger()
+        var tpTriggerLocation = tpTrigger<Transform>.Position
+        var distance = Distance(playerLocation, tpTriggerLocation)
+        // LogInfo("[Cluster] distance: " + distance + " " + playerLocation + " " + tpTriggerLocation)
+        if(distance <= 30){
+            if(!Contains(_playerInClusterList, player)){
+                Append(_playerInClusterList, player)
+            }
+        } else {
+            Delete(_playerInClusterList, player)
+        }
+
+        // LogInfo("[Cluster] _playerInClusterList: " + _playerInClusterList)
+
+        if(Length(_playerInClusterList) > 0){
+            // LogInfo("[Cluster] ActivateAllZoneMobSpawner")
+            ActivateAllZoneMobSpawner()
+        } else {
+            // LogInfo("[Cluster] DeactivateAllZoneMobSpawner")
+            DeactivateAllZoneMobSpawner()
+        }
+    }
+
+    func ActivateAllZoneMobSpawner(){
+        // LogInfo("[Cluster] _spawnZoneList: " + _spawnZoneList)
+        if(_spawnZoneList == nil){
+            SetZoneSpawnList()
+        }
+        for i = 0, Length(_spawnZoneList), 1{
+            var spawnZone = _spawnZoneList[i]
+            spawnZone<ZoneMobManager>.StartMobSpawningLoopContent()
+        }
+    }
+
+    func DeactivateAllZoneMobSpawner(){
+        // LogInfo("[Cluster] _spawnZoneList: " + _spawnZoneList)
+        if(_spawnZoneList == nil){
+            SetZoneSpawnList()
+        }
+        for i = 0, Length(_spawnZoneList), 1{
+            var spawnZone = _spawnZoneList[i]
+            spawnZone<ZoneMobManager>.EndMobSpawningLoopContent()
+        }
+    }
+
+    func SetZoneSpawnList(){
+        _spawnZoneList = GetSpawnerMobList()
+        // LogInfo("[Cluster] _spawnZoneList: " + _spawnZoneList)
+    }
+    
+    func InsertZoneSpawnList(mobSpawner entity<MobSpawner>){
+        // LogInfo("[GlobalZoneMobManager] InsertZoneSpawnList: " + mobSpawner)
+        // InitGlobalZoneMobManager()
+        if(_spawnZoneList == nil){
+            _spawnZoneList = List<entity<MobSpawner>>{}
+        }
+        
+        // LogInfo("[Cluster] contain spawnZone: " + Contains(_spawnZoneList, mobSpawner))
+
+        if(Contains(_spawnZoneList, mobSpawner)){
+            // LogInfo("[Cluster] duplicate mobSpawner")
+            return
+        }
+
+        Append(_spawnZoneList, mobSpawner)
+    }
+
+    func GetTPTrigger() entity<Entity>{
+        var tpTrigger = GetChildByIndex(thisEntity<Entity>, 0)
+        // LogInfo("[Cluster] tpTrigger: " + tpTrigger)
+        return tpTrigger
+    }
+
+    func GetSpawnerMobList() List<entity<MobSpawner>>{
+        var spawnZonePivot = GetChildByIndex(thisEntity<Entity>, 1)
+        // LogInfo("[Cluster] spawnZonePivot: " + spawnZonePivot + " " + GetChildren(spawnZonePivot))
+        var spawnZoneList = GetChildren(spawnZonePivot)
+        // LogInfo("[Cluster] spawnZoneList: " + spawnZoneList)
+        return spawnZoneList as List<entity<MobSpawner>>
+    }
+}

@@ -1,3 +1,4 @@
+import "Combat.fcc" as combat
 import "List.fcc" as list
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
@@ -7,6 +8,7 @@ import "Math.fcc" as math
 import "./Mob.fcg" as Mob
 import "Workflow.fcc" as workflow
 import "AI.fcc" as ai
+import MyResources from "EditorGenLib.fcc"
 
 import Resources from "EditorGenLib.fcc"
 
@@ -28,13 +30,15 @@ graph ZoneMobManager {
         if(!_hasInit){
             //The check exist due to not being able to set default enum value.
             _type = thisEntity<MobSpawner>.Type
+
             if(_type == 0){
                 _type = AIType.UGCAI
             }
+
             _mobList = List<entity<Entity>>{}
 
             _totalMobCount = thisEntity<MobSpawner>.TotalCount
-            _isSpawning = true
+            _isSpawning = false
             _hasInit = true
         }
     }
@@ -45,7 +49,9 @@ graph ZoneMobManager {
     }
 
     async func SpawningLoopContent(){
-        // LogInfo("[ZoneMobManager] SpawningLoopContent")
+        InitZoneMobManager()
+        // LogInfo("[ZoneMobManager] SpawningLoopContent" + _mobList)
+        // LogInfo("[ZoneMobManager] _isSpawning: " + _isSpawning)
         if(!_isSpawning){
             return
         }
@@ -75,10 +81,29 @@ graph ZoneMobManager {
         // LogInfo("[ZoneMobManager] mobList: " + _mobList)
     }
 
+    func EliminateAllZombieInCurrentZone(){
+        var empty = MyResources:SceneObjects["EMPTY"] as entity<Transform>
+        // LogInfo("[ZoneMobManager] empty: " + MyResources:SceneObjects["EMPTY"])
+        for i = 0, Length(_mobList), 1{
+            var mob = _mobList[i]
+            SetParent(empty, mob as entity<Transform>, true)
+        }
+        // LogInfo("[ZoneMobManager] childrenList: " + GetChildren(empty))
+        DeleteAllChildren(empty)
+        // LogInfo("[ZoneMobManager] _mobList: " + _mobList)
+    }
 
+    func StartMobSpawningLoopContent(){
+        _isSpawning = true
+        // LogInfo("[ZoneMobManager] _isSpawning: " + _isSpawning)
+    }
+    
     func EndMobSpawningLoopContent(){
         _isSpawning = false
+        // LogInfo("[ZoneMobManager] _isSpawning: " + _isSpawning)
+        EliminateAllZombieInCurrentZone()
     }
+
 
     func GetZombieType() int{
         return _type
@@ -116,5 +141,4 @@ graph ZoneMobManager {
         Delete(_mobList, mob)
         // LogInfo("[ZoneMobManager] _mobList: " + _mobList)
     }
-
 }
