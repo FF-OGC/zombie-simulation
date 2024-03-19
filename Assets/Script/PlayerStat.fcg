@@ -9,6 +9,8 @@ import "./PlayerStatHUD.fcg" as PlayerStatHUD
 import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "./Enum.fcg" as Enum
+import "Items.fcc" as Items
+import "Animation.fcc" as Animation
 
 graph PlayerStat {
     ORIGINAL_MAX_HP int = 200
@@ -275,6 +277,7 @@ graph PlayerStat {
             LogInfo("[PlayerStat] LoadDataSuccess _statPoint = " + thisEntity<PlayerData>._statPointList)
 
             _statPointMap = GetStatMapFromStatList(thisEntity<PlayerData>._statPointList)
+            
             LogInfo("[PlayerStat] _statPointMap: " + _statPointMap)
         }
     }

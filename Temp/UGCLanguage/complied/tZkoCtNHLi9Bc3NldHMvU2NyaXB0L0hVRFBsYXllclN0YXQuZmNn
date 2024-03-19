@@ -18,7 +18,7 @@
 './Assets/Script/HUDPlayerStat.fcg:13:17	CodeBlockó"*h
 './Assets/Script/HUDPlayerStat.fcg:14:10Invoke LogInfo" :[HUDPlayerStat] btnDecreaseATKHÿÿÿÿÿÿÿÿÿ*™
 './Assets/Script/HUDPlayerStat.fcg:15:10Invoke EndPlayerStatô"ki
-'./Assets/Script/HUDPlayerStat.fcg:15:10Invoke GetLocalVarÖ"':%./Assets/Script/HUDPlayerStat.fcg:9:6"2:0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXQuZmNn"%:#./Assets/Script/PlayerStat.fcg:49:4"Hÿÿÿÿÿÿÿÿÿ*Ë
+'./Assets/Script/HUDPlayerStat.fcg:15:10Invoke GetLocalVarÖ"':%./Assets/Script/HUDPlayerStat.fcg:9:6"2:0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXQuZmNn"%:#./Assets/Script/PlayerStat.fcg:51:4"Hÿÿÿÿÿÿÿÿÿ*Ë
 './Assets/Script/HUDPlayerStat.fcg:16:10	CodeBlockó"*
 './Assets/Script/HUDPlayerStat.fcg:17:10Invoke ClickButtonô"ki
 './Assets/Script/HUDPlayerStat.fcg:17:10Invoke GetLocalVarÖ"':%./Assets/Script/HUDPlayerStat.fcg:9:6"6:4tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXRIVUQuZmNn"):'./Assets/Script/PlayerStatHUD.fcg:155:4"plj

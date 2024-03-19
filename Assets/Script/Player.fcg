@@ -24,6 +24,8 @@ import "./PlayerDebug.fcg" as PlayerDebug
 import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 import "./PlayerStatHUD.fcg" as PlayerStatHUD
 import "./PlayerData.fcg" as PlayerData
+import "List.fcc" as List
+import "./Global.fcg" as Global
 
 
 graph Player {
@@ -37,6 +39,7 @@ graph Player {
         thisEntity<PlayerData>.LoadData()
         WaitForSeconds(500)
         thisEntity<PlayerDefaultHUD>.SetPlayerHeadHUD()
+        globalEntity<Global>.UpdateAllPlayer()
     }
 
     event Player_PlayerQuitGame() {
@@ -80,6 +83,7 @@ graph Player {
         thisEntity<PlayerZoneSelection>.StopPlayerFromTeleporting()
         WaitForNextFrame()
         Revive(thisEntity<Player> as entity<Player>)
+        globalEntity<Global>.UpdateAllPlayer()
     }
 
 }

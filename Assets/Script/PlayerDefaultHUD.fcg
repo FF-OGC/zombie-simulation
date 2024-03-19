@@ -4,6 +4,7 @@ import "Hud.fcc" as hud
 import "Workflow.fcc" as workflow 
 import "GameResult.fcc" as gameResult 
 import "./PlayerLevel.fcg" as PlayerLevel
+import "List.fcc" as List
 
 graph PlayerDefaultHUD {
     _countdownHUD entity<PhaseCountDownHud>
@@ -83,12 +84,7 @@ graph PlayerDefaultHUD {
         _playerHeadHUD<PlayerHeadHud>.FollowTarget = thisEntity<Player>
         _playerHeadHUD<PlayerHeadHud>.TotalHp = thisEntity<Player>.HPMAX
         _playerHeadHUD<PlayerHeadHud>.Offset = Vector3{0, 1.5, 0}
-        // _playerHeadHUD<PlayerHeadHud>.
-    }
-
-    func GetAllRemainingPlayer(){
-        var key = GetAllPlayers()
-        
+        _playerHeadHUD<PlayerHeadHud>.VisiblePlayersList = GetAllPlayersExceptCurrent()
     }
 
     func UpdatePlayerHeadHUD(){
@@ -96,5 +92,12 @@ graph PlayerDefaultHUD {
         _playerHeadHUD<PlayerHeadHud>.Level = thisEntity<PlayerLevel>.GetLvl()
         _playerHeadHUD<PlayerHeadHud>.TotalHp = thisEntity<Player>.HPMAX
         _playerHeadHUD<PlayerHeadHud>.CurrentHp = thisEntity<Player>.HP
+        _playerHeadHUD<PlayerHeadHud>.VisiblePlayersList = GetAllPlayersExceptCurrent()
+    }
+
+    func GetAllPlayersExceptCurrent() List<entity<Player>>{
+        var allPlayerList = Clone(GetAllPlayers())
+        Delete(allPlayerList, thisEntity)
+        return allPlayerList
     }
 }

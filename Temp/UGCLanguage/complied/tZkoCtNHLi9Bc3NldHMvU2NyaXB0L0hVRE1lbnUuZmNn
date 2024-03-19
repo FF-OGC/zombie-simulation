@@ -32,4 +32,4 @@
 !./Assets/Script/HUDMenu.fcg:19:42Invoke Connect­":[HUDMenu] btnStat: "a_
 !./Assets/Script/HUDMenu.fcg:19:44Invoke GetLocalVarÖ"#:!./Assets/Script/HUDMenu.fcg:11:28HHÿÿÿÿÿÿÿÿÿ*‹
 !./Assets/Script/HUDMenu.fcg:20:12Invoke BeginPlayerStatô"a_
-!./Assets/Script/HUDMenu.fcg:20:12Invoke GetLocalVarÖ"#:!./Assets/Script/HUDMenu.fcg:11:60"2:0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXQuZmNn"%:#./Assets/Script/PlayerStat.fcg:36:4"HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿB))B*HUDMenu0
+!./Assets/Script/HUDMenu.fcg:20:12Invoke GetLocalVarÖ"#:!./Assets/Script/HUDMenu.fcg:11:60"2:0tZkoCtNHLi9Bc3NldHMvU2NyaXB0L1BsYXllclN0YXQuZmNn"%:#./Assets/Script/PlayerStat.fcg:38:4"HÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿB))B*HUDMenu0
