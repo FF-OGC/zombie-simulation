@@ -1,1 +1,7 @@
-{"_tag":{"type":"EntityTagSetting"},"_entityId":"BckUIzMj","TagSetting":[]}//"{FE:{"v":"1.7.4","c":{"FF":43},"s":100}
+{
+    "_tag": {
+        "type": "EntityTagSetting"
+    },
+    "_entityId": "BckUIzMj",
+    "TagSetting": []
+} //"{FE:{"v":"1.7.4","c":{"FF":43},"s":100}
