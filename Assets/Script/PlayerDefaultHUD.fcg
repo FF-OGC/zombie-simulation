@@ -97,7 +97,7 @@ graph PlayerDefaultHUD {
 
     func GetAllPlayersExceptCurrent() List<entity<Player>>{
         var allPlayerList = Clone(GetAllPlayers())
-        Delete(allPlayerList, thisEntity)
+        Delete(allPlayerList, thisEntity<Player>)
         return allPlayerList
     }
 }

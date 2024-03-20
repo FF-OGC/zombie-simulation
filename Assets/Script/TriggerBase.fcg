@@ -9,7 +9,8 @@ import "Physics.fcc" as physics
 
 graph TriggerBase {
     event OnPlayerEnterTrigger(player entity<Player>) {
-        LogInfo(thisEntity<BaseTrigger> == "Craft")
+        LogInfo(thisEntity<BaseTrigger>.Name)
+        LogInfo(thisEntity<BaseTrigger>.Name == "Craft")
         if thisEntity<BaseTrigger>.Name == "Craft" {
             player<PlayerCraftHUD>.DisplayCraftHUD()
         } else if thisEntity<BaseTrigger>.Name == "Armory" {

@@ -23,7 +23,7 @@ graph HUDMenu {
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_STAT)){
             LogInfo("[HUDMenu] btnStat: " + button)
             player<PlayerStat>.BeginPlayerStat()
-            player<PlayerData>.Debug_ResetData()
+            // player<PlayerData>.Debug_ResetData()
         } 
     }
 }
