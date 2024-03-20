@@ -345,32 +345,32 @@ enum TierEnum {
 // Boss State, type: Int
 enum CustomEnum30737081 {
     // Idle
-    enumMemberE44088464 = 0
+    Idle = 0
 
     // Walk
-    enumMemberE26093291 = 1
+    Walk = 1
 
     // Skill0
-    enumMemberE98081745 = 2
+    Skill0 = 2
 
     // Skill1
-    enumMemberE78420768 = 3
+    Skill1 = 3
 
     // Skill2
-    enumMemberE96589545 = 4
+    Skill2 = 4
 
     // Dead
-    enumMemberE49487108 = 5
+    Dead = 5
 
 }
 
 // Boss Phase, type: Int
 enum CustomEnum72048329 {
     // Phase1
-    enumMemberE57796212 = 1
+    Phase1 = 1
 
     // Phase2
-    enumMemberE28969225 = 2
+    Phase2 = 2
 
 }
 
@@ -496,6 +496,7 @@ enum EResource_UI_CRAFTING {
     BTN_CLOSE = "BTN_CLOSE"
     BTN_GUNCHOICE = "BTN_GUNCHOICE"
     PIVOT_GUN_INFO = "PIVOT_GUN_INFO"
+    LAYOUT_GUN = "LAYOUT_GUN"
 }
 enum EResource_UI_ARMORY {
     BTN_CLOSE = "BTN_CLOSE"
@@ -521,7 +522,7 @@ event Player_FinishAction(param1 string, param2 object)
 
 // switchPhase(BossPhase Int)
 [platform_server]
-event signal_55019324(param1 int)
+event switchPhase(param1 int)
 
 
 // Assets\ECA\MyResources.eca
@@ -593,320 +594,320 @@ declare static graph MyResourcesLoc {
 
 // Assets\ECA\Boss\Boss.eca
 [platform_server]
-declare graph rqvzy85v6o_lt3w1fuq_zqtht6jslca {
+declare graph Boss {
     // BossState
-    vocmZpKeB CustomEnum30737081
+    BossState CustomEnum30737081
 
     // maxHP
-    vhoHcyFzZ int
+    maxHP int
 
     // HP
-    vyKiLfWnI int
+    HP int
 
     // HPbar
-    vmKg7i3bE entity<PlayerHeadHud>
+    HPbar entity<PlayerHeadHud>
 
     // unbreakableState
-    vVxQCZHc4 List<object>
+    unbreakableState List<object>
 
     // BossPhase
-    vuv54lBPy CustomEnum72048329
+    BossPhase CustomEnum72048329
 
     // switchState(state CustomEnum30737081)
-    func U_O_5Fi3E_B1_Q__xnea (param0 CustomEnum30737081) 
+    func switchState (param0 CustomEnum30737081) 
 
     // playAnimation(state CustomEnum30737081)
-    func _5c_4q99CN_s43__TaFt8 (param0 CustomEnum30737081) 
+    func playAnimation (param0 CustomEnum30737081) 
 
     // initBossConfig()
-    func v_q__w_Vk_gQUqx_q7D_ () 
+    func initBossConfig () 
 
     // initHPBar()
-    func dH_YwmX_I_x1K_tL_P_Y () 
+    func initHPBar () 
 
     // recievedDamage(damage Int)
-    func YwRw__dfiJ1qW4vrVd_G (param0 int) 
+    func recievedDamage (param0 int) 
 
     // recievedDamageUI(damage Int)
-    func ww_2pf_eVPD_ShTF9p_P (param0 int) 
+    func recievedDamageUI (param0 int) 
 
     // turnOnMetalZone()
-    func _7_M__j_C_x_N_JuFtb_n () 
+    func turnOnMetalZone () 
 
 }
 
 // Assets\ECA\Boss\BossIdle.eca
 [platform_server]
-declare graph _6jgno0c7s5r_lt6oa192_kprjcm2u2wg {
+declare graph BossIdle {
 }
 
 // Assets\ECA\Boss\BossMovement.eca
 [platform_server]
-declare graph _4moc860elv6_lt3uf93b_xf0b0a972k {
+declare graph BossMovement {
     // target
-    vAN7XesXo entity<Player>
+    target entity<Player>
 
     // motion
-    vGUO0sy55 entity<RelativeFrame>
+    motion entity<RelativeFrame>
 
     // hasTarget()
-    func _ni_EGPyqU_j8vP_l_33 () bool
+    func hasTarget () bool
 
     // findPath(speed Float)
-    func wFGwDwOL_3b_dyz_Nzvd (param0 float) 
+    func findPath (param0 float) 
 
     // pauseMovement()
-    func WJYn_d___pljWkdhG0jS () 
+    func pauseMovement () 
 
 }
 
 // Assets\ECA\Boss\BossSkill0.eca
 [platform_server]
-declare graph az1dhtt0mk_lt44c2xt_6p2n7qamuo {
+declare graph BossSkill0 {
     // coolDown
-    vD1zJDxFs object
+    coolDown object
 
     // currentCoolDown
-    vWyN7R5Tv object
+    currentCoolDown object
 
     // coolDown0
-    vEb40kw05 int
+    coolDown0 int
 
     // objectList
-    vjDE4cG4E object
+    objectList object
 
     // skill0(coolDown Int, fireballNum Int)
-    func uk_JWQMiYDMZ_i_O_oG_ (param0 int, param1 int) 
+    func skill0 (param0 int, param1 int) 
 
     // initSkillCoolDown()
-    func M_ESiltvSSkPZ__k_r_R () 
+    func initSkillCoolDown () 
 
     // resetCoolDown0()
-    func Vfgv7Y_IzHOhWapro_Q_ () 
+    func resetCoolDown0 () 
 
     // createFireBall(start any, end any)
-    func _3__suzmw__jn__5DO0_3 (param0 object, param1 object) 
+    func createFireBall (param0 object, param1 object) 
 
     // dealDamage(entity EffectEntity)
-    func _G___iVAIp3__yf__H_T (param0 entity<EffectEntity>) 
+    func dealDamage (param0 entity<EffectEntity>) 
 
     // createDamageZone(location any)
-    func eMw__nk3J_0r___DkmG3 (param0 object) object
+    func createDamageZone (param0 object) object
 
     // createFireBall2(start any, end any)
-    func _NcSw_b9____sFvbhs9_ (param0 object, param1 object) 
+    func createFireBall2 (param0 object, param1 object) 
 
     // createExplostion(location Vector3)
-    func _0nAO_D__5ss__CjSq_B (param0 Vector3) 
+    func createExplostion (param0 Vector3) 
 
 }
 
 // Assets\ECA\Boss\BossSkill1.eca
 [platform_server]
-declare graph h1ohs1m71m4_lt6wuucx_qp6g6zwtp8q {
+declare graph BossSkill1 {
     // motion
-    vv7zz6VEg entity<RelativeFrame>
+    motion entity<RelativeFrame>
 
     // coolDown1
-    vY3UvWRWz int
+    coolDown1 int
 
     // skill1(coolDown Int)
-    func wFGwDwOL_3b_dyz_Nzvd_ (param0 int) 
+    func skill1 (param0 int) 
 
     // resetCoolDown1()
-    func Vfgv7Y_IzHOhWapro_Q__ () 
+    func resetCoolDown1 () 
 
     // initSkillCoolDown()
-    func M_ESiltvSSkPZ__k_r_R_ () 
+    func initSkillCoolDown () 
 
     // createDamageZone(location any, delta any)
-    func eMw__nk3J_0r___DkmG3_ (param0 object, param1 object) object
+    func createDamageZone (param0 object, param1 object) object
 
     // prepareSkill1(targetPosition Vector3)
-    func _Ivh_ego_w_vYK_rHL0_ (param0 Vector3) 
+    func prepareSkill1 (param0 Vector3) 
 
     // createDamageZone2(location any, delta any)
-    func b_L_df_c__j_t2___gPw (param0 object, param1 object) object
+    func createDamageZone2 (param0 object, param1 object) object
 
 }
 
 // Assets\ECA\Boss\BossSkill2.eca
 [platform_server]
-declare graph _0yjz5oj2u97a_lto1xl3n_2rauopimfhp {
+declare graph BossSkill2 {
     // motion
-    vv7zz6VEg_ entity<RelativeFrame>
+    motion entity<RelativeFrame>
 
     // coolDown1
-    vY3UvWRWz_ int
+    coolDown1 int
 
     // CoolDown2
-    vLZxXEiTS int
+    CoolDown2 int
 
     // skill2(coolDown Int)
-    func wFGwDwOL_3b_dyz_Nzvd_ (param0 int) 
+    func skill2 (param0 int) 
 
     // resetCoolDown2()
-    func Vfgv7Y_IzHOhWapro_Q__ () 
+    func resetCoolDown2 () 
 
     // initSkillCoolDown()
-    func M_ESiltvSSkPZ__k_r_R_ () 
+    func initSkillCoolDown () 
 
     // createMinion()
-    func _c1jhx_z_7Z2__Mu__mt () 
+    func createMinion () 
 
 }
 
 // Assets\ECA\Boss\BossSkill3.eca
 [platform_server]
-declare graph p5deu27l7ab_ltp8w6ng_mh95zhv93wm {
+declare graph BossSkill3 {
     // coolDown3
-    vLB4IYzJx int
+    coolDown3 int
 
     // resetCoolDown()
-    func Vfgv7Y_IzHOhWapro_Q__ () 
+    func resetCoolDown () 
 
     // initCoolDown()
-    func M_ESiltvSSkPZ__k_r_R_ () 
+    func initCoolDown () 
 
     // skill3(coolDown Int)
-    func A_suQ1_O__71_acru_nV (param0 int) 
+    func skill3 (param0 int) 
 
     // slowPlayer()
-    func _780FdnU1Pt__x15k___G () 
+    func slowPlayer () 
 
     // resetSpeed()
-    func VuOsHd_RSJg8F__dLMy2 () 
+    func resetSpeed () 
 
 }
 
 // Assets\ECA\Boss\Trigger\Skill1Trigger.eca
 [platform_server]
-declare graph hd7857e07ef_lt70pm9x_h7uu92ey7kg {
+declare graph Skill1Trigger {
 }
 
 // Assets\ECA\Boss\Trigger\TriggerMetalZone.eca
 [platform_server]
-declare graph cxgdu4e4lsr_ltqz1pvf_563jlz6ejmf {
+declare graph TriggerMetalZone {
     // inTrigger
-    v0lh1LD6a bool
+    inTrigger bool
 
 }
 
 // Assets\ECA\Minion\Minion.eca
 [platform_server]
-declare graph zwyxrywmajh_ltnrwc0o_1g15lvkcced {
+declare graph Minion {
     // MinionState
-    vqzhkNLY2 CustomEnum30737081
+    MinionState CustomEnum30737081
 
     // HPBar
-    vjHRfpDRJ entity<PlayerHeadHud>
+    HPBar entity<PlayerHeadHud>
 
     // maxHP
-    vzcvlHtKh int
+    maxHP int
 
     // HP
-    v5DTzJTqz int
+    HP int
 
     // unbreakableState
-    vClNvbyZI List<object>
+    unbreakableState List<object>
 
     // switchState(state CustomEnum30737081)
-    func U_O_5Fi3E_B1_Q__xnea_ (param0 CustomEnum30737081) 
+    func switchState (param0 CustomEnum30737081) 
 
     // playAnimation(state CustomEnum30737081)
-    func _5c_4q99CN_s43__TaFt8_ (param0 CustomEnum30737081) 
+    func playAnimation (param0 CustomEnum30737081) 
 
     // recievedDamage(damage Int)
-    func YwRw__dfiJ1qW4vrVd_G_ (param0 int) 
+    func recievedDamage (param0 int) 
 
     // initHPBar()
-    func dH_YwmX_I_x1K_tL_P_Y_ () 
+    func initHPBar () 
 
     // initMinionConfig()
-    func v_q__w_Vk_gQUqx_q7D__ () 
+    func initMinionConfig () 
 
     // recievedDamageUI(damage Int)
-    func ww_2pf_eVPD_ShTF9p_P_ (param0 int) 
+    func recievedDamageUI (param0 int) 
 
 }
 
 // Assets\ECA\Minion\MinionAttack.eca
 [platform_server]
-declare graph dzoo1bqhrq_ltnt9hjf_kkgcgqtz4hl {
+declare graph MinionAttack {
     // checkInRange()
-    func Pc_8_lXo_k__S8ekYoJI () bool
+    func checkInRange () bool
 
     // Detonate()
-    func _Vx64N_g_3__V_6MbqPO () 
+    func Detonate () 
 
     // dealDamage(entity CustomLevelObject)
-    func _G___iVAIp3__yf__H_T_ (param0 entity<CustomLevelObject>) 
+    func dealDamage (param0 entity<CustomLevelObject>) 
 
 }
 
 // Assets\ECA\Minion\MinionMovement.eca
 [platform_server]
-declare graph _9u091un9mpt_ltms5t4k_847t94icxjh {
+declare graph MinionMovement {
     // target
-    vAN7XesXo_ entity<Player>
+    target entity<Player>
 
     // motion
-    vGUO0sy55_ entity<RelativeFrame>
+    motion entity<RelativeFrame>
 
     // hasTarget()
-    func _ni_EGPyqU_j8vP_l_33_ () bool
+    func hasTarget () bool
 
     // findPath()
-    func wFGwDwOL_3b_dyz_Nzvd_ () 
+    func findPath () 
 
     // pauseMovement()
-    func WJYn_d___pljWkdhG0jS_ () 
+    func pauseMovement () 
 
 }
 
 // Assets\ECA\Behavior ECA\Attack.eca
 [platform_server]
-declare graph s47wmlifjvj_lt44yuwa_zwnytdtqerr {
+declare graph Attack {
     // skillInProgress
-    vKZB1uuVT bool
+    skillInProgress bool
 
     // finishSkill(owner BehaviourTreeAttachable)
-    func W_gTHB6____5h5_AZgr_ (param0 entity<BTreeAttachable>) 
+    func finishSkill (param0 entity<BTreeAttachable>) 
 
 }
 
 // Assets\ECA\Behavior ECA\Attack2.eca
 [platform_server]
-declare graph fe750i123t_ltqw9yh7_zvhnt7ul5s {
+declare graph Attack2 {
     // skillInProgress
-    vK93fHBLJ bool
+    skillInProgress bool
 
     // finishSkill(owner BehaviourTreeAttachable)
-    func W_gTHB6____5h5_AZgr__ (param0 entity<BTreeAttachable>) 
+    func finishSkill (param0 entity<BTreeAttachable>) 
 
 }
 
 // Assets\ECA\Behavior ECA\HasTarget.eca
 [platform_server]
-declare graph _8ftkl1saim_lt41ckmn_bc92kh88ydm {
+declare graph HasTarget {
     // HasTarget(owner BehaviourTreeAttachable)
-    func g_9Tr7ir__A___u0K5__ (param0 entity<BTreeAttachable>) bool
+    func HasTarget (param0 entity<BTreeAttachable>) bool
 
 }
 
 // Assets\ECA\Behavior ECA\IsPhase1.eca
 [platform_server]
-declare graph b6dkq52elku_ltqorg3y_7puczn8jxmu {
+declare graph IsPhase1 {
     // IsPhase1(owner BehaviourTreeAttachable)
-    func g_9Tr7ir__A___u0K5___ (param0 entity<BTreeAttachable>) bool
+    func IsPhase1 (param0 entity<BTreeAttachable>) bool
 
 }
 
 // Assets\ECA\Behavior ECA\IsPhase2.eca
 [platform_server]
-declare graph _0qtw0c9tts_ltqqzsgg_jh447jzjv1 {
+declare graph IsPhase2 {
     // IsPhase2(owner BehaviourTreeAttachable)
-    func g_9Tr7ir__A___u0K5___ (param0 entity<BTreeAttachable>) bool
+    func IsPhase2 (param0 entity<BTreeAttachable>) bool
 
 }
 
@@ -917,25 +918,25 @@ declare graph n17lu0rmzme_ltnue35u_nzapdspto5r {
 
 // Assets\ECA\Behavior ECA\MinionHasTarget.eca
 [platform_server]
-declare graph _8ww0zxdf59w_ltmslq4s_t7cbsp4taog {
+declare graph MinionHasTarget {
     // HasTarget(owner BehaviourTreeAttachable)
-    func g_9Tr7ir__A___u0K5___ (param0 entity<BTreeAttachable>) bool
+    func HasTarget (param0 entity<BTreeAttachable>) bool
 
 }
 
 // Assets\ECA\Behavior ECA\MinionMove.eca
 [platform_server]
-declare graph cj13u49ra1p_ltmsmrze_kyhsma13h5f {
+declare graph MinionMove {
 }
 
 // Assets\ECA\Behavior ECA\Move.eca
 [platform_server]
-declare graph pzmjz413dp_lt41cqjs_yyf0hlbtcor {
+declare graph Move {
 }
 
 // Assets\ECA\Behavior ECA\Move2.eca
 [platform_server]
-declare graph _8mes2fwpaba_ltqwmema_nk0yh4gt8h {
+declare graph Move2 {
 }
 
 declare static graph Resources {

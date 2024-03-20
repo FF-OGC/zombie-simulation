@@ -7,6 +7,7 @@ import "./GlobalCrafting.fcg" as GlobalCrafting
 import "Items.fcc" as items
 import "Math.fcc" as math
 import "List.fcc" as List
+import "./PlayerInventory.fcg" as PlayerInventory
 
 graph PlayerCraftingHUD {
     _craftHUD entity<CustomHud>
@@ -56,6 +57,7 @@ graph PlayerCraftingHUD {
         var ShotgunList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Shotgun)
         var SniperList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Sniper)
         var PistolList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Pistol)
+        var MeleeList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Melee)
         var AttachmentList = globalEntity<GlobalCrafting>.GetAttachmentRecipeList()
         var allList = List<string>{}
 
@@ -64,6 +66,7 @@ graph PlayerCraftingHUD {
         AppendRange(allList,ShotgunList)
         AppendRange(allList,SniperList)
         AppendRange(allList,PistolList)
+        AppendRange(allList,MeleeList)
         AppendRange(allList,AttachmentList)
 
         var editingGunChoice = gunChoiceControl
@@ -86,13 +89,23 @@ graph PlayerCraftingHUD {
             var children = GetChildren(editingGunChoice)
             var image = children[0]
             var text = children[1]
+            var checked = children[2]
             image<HudImageWidget>.SpriteName = recipeMap[weapon][imageIndex] as IconType
             text<HudLabelWidget>.Text = recipeMap[weapon][nameIndex] as text
             AddTag(editingGunChoice,weapon as text)
-            prevWeapon = weapon
 
+            // Check if crafted
+            if thisEntity<PlayerInventory>.CheckHasItem(weapon) {
+                checked<HudWidget>.Active = true
+            } else {
+                checked<HudWidget>.Active = false
+            }
+
+            // Set previous weapon to delete tag next iteration
+            prevWeapon = weapon
         }
     }
+
 
     func SetWeaponInfo(recipe string) {
         var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
@@ -103,6 +116,10 @@ graph PlayerCraftingHUD {
         var matLayout = GetChildren(gunInfoHolder[1])
         var matTemplate = matLayout[0]
         var editingMat = matTemplate
+
+        // Turn on Weapon info and craft btn
+        GetCraftHUDWidget(EResource_UI_CRAFTING.PIVOT_GUN_INFO)<HudWidget>.Active = true
+        GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)<HudWidget>.Active = true
 
         var gunImage = gunInfo[0]
         var gunText = gunInfo[1]
@@ -131,8 +148,34 @@ graph PlayerCraftingHUD {
             matAmount<HudLabelWidget>.Text = amount   
             index++ 
         }
+
+        // Set color of crating btn
+        var craftingBtn = GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)
+        if thisEntity<PlayerInventory>.CheckHasItem(recipe) {
+            craftingBtn<HudButtonWidget>.Color = #4B4B4BFF
+        } else {
+            craftingBtn<HudButtonWidget>.Color = #FAB41BFF
+        }
+
+        // Set chosen weapon
         _chosenWeapon = recipe
 
+    }
+
+    func UpdateCraftHUD(item string) {
+        var gunLayout = GetCraftHUDWidget(EResource_UI_CRAFTING.LAYOUT_GUN)
+        var craftbtn = GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)
+
+        craftbtn<HudButtonWidget>.Color = #4B4B4BFF
+
+        for key, gun in GetChildren(gunLayout) {
+            if gun<Entity>.TagsList[0] == item {
+                var children = GetChildren(gun)
+                var checked = children[2]
+                checked<HudWidget>.Active = true
+                return
+            }
+        }
     }
 
     func GetChosenWeapon() string {

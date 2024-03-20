@@ -119,137 +119,137 @@
           },
           {
             "Name": "EResource_UI",
-            "ID": 739249,
+            "ID": 160149,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 831273,
+            "ID": 364862,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 785911,
+            "ID": 757718,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 368560,
+            "ID": 529195,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 572419,
+            "ID": 185718,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 721419,
+            "ID": 959324,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 145652,
+            "ID": 977232,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 235913,
+            "ID": 11014,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 417405,
+            "ID": 513011,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 418912,
+            "ID": 223026,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 33510,
+            "ID": 17708,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 655734,
+            "ID": 527565,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 311692,
+            "ID": 483734,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 728031,
+            "ID": 687425,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 490200,
+            "ID": 474799,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 18244,
+            "ID": 3393,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 569157,
+            "ID": 282632,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 445359,
+            "ID": 133457,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 632236,
+            "ID": 536596,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 45217,
+            "ID": 228962,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 282847,
+            "ID": 8452,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 762595,
+            "ID": 473066,
             "Props": []
           },
           {
             "Name": "EResource_UI_LEVEL",
-            "ID": 665321,
+            "ID": 571429,
             "Props": []
           },
           {
             "Name": "EResource_UI_INVENTORY",
-            "ID": 437511,
+            "ID": 575407,
             "Props": []
           },
           {
             "Name": "EResource_UI_DEBUG",
-            "ID": 205468,
+            "ID": 56202,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTING",
-            "ID": 308327,
+            "ID": 598884,
             "Props": []
           },
           {
             "Name": "EResource_UI_ARMORY",
-            "ID": 568519,
+            "ID": 514194,
             "Props": []
           }
         ],
@@ -272,7 +272,7 @@
           },
           {
             "ID": 100003,
-            "Name": "signal_55019324"
+            "Name": "switchPhase"
           }
         ],
         "Graphs": [
@@ -369,440 +369,440 @@
           },
           {
             "ID": "tZkoCtNH.rqvzy85v6o-lt3w1fuq-zqtht6jslca",
-            "Name": "rqvzy85v6o_lt3w1fuq_zqtht6jslca",
+            "Name": "Boss",
             "Props": [
               {
                 "ID": "vocmZpKeB",
-                "Name": "vocmZpKeB"
+                "Name": "BossState"
               },
               {
                 "ID": "vhoHcyFzZ",
-                "Name": "vhoHcyFzZ"
+                "Name": "maxHP"
               },
               {
                 "ID": "vyKiLfWnI",
-                "Name": "vyKiLfWnI"
+                "Name": "HP"
               },
               {
                 "ID": "vmKg7i3bE",
-                "Name": "vmKg7i3bE"
+                "Name": "HPbar"
               },
               {
                 "ID": "vVxQCZHc4",
-                "Name": "vVxQCZHc4"
+                "Name": "unbreakableState"
               },
               {
                 "ID": "vuv54lBPy",
-                "Name": "vuv54lBPy"
+                "Name": "BossPhase"
               }
             ],
             "Funcs": [
               {
                 "ID": "switchState",
-                "Name": "U_O_5Fi3E_B1_Q__xnea"
+                "Name": "switchState"
               },
               {
                 "ID": "playAnimation",
-                "Name": "_5c_4q99CN_s43__TaFt8"
+                "Name": "playAnimation"
               },
               {
                 "ID": "initBossConfig",
-                "Name": "v_q__w_Vk_gQUqx_q7D_"
+                "Name": "initBossConfig"
               },
               {
                 "ID": "initHPBar",
-                "Name": "dH_YwmX_I_x1K_tL_P_Y"
+                "Name": "initHPBar"
               },
               {
                 "ID": "recievedDamage",
-                "Name": "YwRw__dfiJ1qW4vrVd_G"
+                "Name": "recievedDamage"
               },
               {
                 "ID": "recievedDamageUI",
-                "Name": "ww_2pf_eVPD_ShTF9p_P"
+                "Name": "recievedDamageUI"
               },
               {
                 "ID": "turnOnMetalZone",
-                "Name": "_7_M__j_C_x_N_JuFtb_n"
+                "Name": "turnOnMetalZone"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.6jgno0c7s5r-lt6oa192-kprjcm2u2wg",
-            "Name": "_6jgno0c7s5r_lt6oa192_kprjcm2u2wg",
+            "Name": "BossIdle",
             "Props": [],
             "Funcs": []
           },
           {
             "ID": "tZkoCtNH.4moc860elv6-lt3uf93b-xf0b0a972k",
-            "Name": "_4moc860elv6_lt3uf93b_xf0b0a972k",
+            "Name": "BossMovement",
             "Props": [
               {
                 "ID": "vAN7XesXo",
-                "Name": "vAN7XesXo"
+                "Name": "target"
               },
               {
                 "ID": "vGUO0sy55",
-                "Name": "vGUO0sy55"
+                "Name": "motion"
               }
             ],
             "Funcs": [
               {
                 "ID": "hasTarget",
-                "Name": "_ni_EGPyqU_j8vP_l_33"
+                "Name": "hasTarget"
               },
               {
                 "ID": "findPath",
-                "Name": "wFGwDwOL_3b_dyz_Nzvd"
+                "Name": "findPath"
               },
               {
                 "ID": "pauseMovement",
-                "Name": "WJYn_d___pljWkdhG0jS"
+                "Name": "pauseMovement"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.az1dhtt0mk-lt44c2xt-6p2n7qamuo",
-            "Name": "az1dhtt0mk_lt44c2xt_6p2n7qamuo",
+            "Name": "BossSkill0",
             "Props": [
               {
                 "ID": "vD1zJDxFs",
-                "Name": "vD1zJDxFs"
+                "Name": "coolDown"
               },
               {
                 "ID": "vWyN7R5Tv",
-                "Name": "vWyN7R5Tv"
+                "Name": "currentCoolDown"
               },
               {
                 "ID": "vEb40kw05",
-                "Name": "vEb40kw05"
+                "Name": "coolDown0"
               },
               {
                 "ID": "vjDE4cG4E",
-                "Name": "vjDE4cG4E"
+                "Name": "objectList"
               }
             ],
             "Funcs": [
               {
                 "ID": "skill0",
-                "Name": "uk_JWQMiYDMZ_i_O_oG_"
+                "Name": "skill0"
               },
               {
                 "ID": "initSkillCoolDown",
-                "Name": "M_ESiltvSSkPZ__k_r_R"
+                "Name": "initSkillCoolDown"
               },
               {
                 "ID": "resetCoolDown0",
-                "Name": "Vfgv7Y_IzHOhWapro_Q_"
+                "Name": "resetCoolDown0"
               },
               {
                 "ID": "createFireBall",
-                "Name": "_3__suzmw__jn__5DO0_3"
+                "Name": "createFireBall"
               },
               {
                 "ID": "dealDamage",
-                "Name": "_G___iVAIp3__yf__H_T"
+                "Name": "dealDamage"
               },
               {
                 "ID": "createDamageZone",
-                "Name": "eMw__nk3J_0r___DkmG3"
+                "Name": "createDamageZone"
               },
               {
                 "ID": "createFireBall2",
-                "Name": "_NcSw_b9____sFvbhs9_"
+                "Name": "createFireBall2"
               },
               {
                 "ID": "createExplostion",
-                "Name": "_0nAO_D__5ss__CjSq_B"
+                "Name": "createExplostion"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.h1ohs1m71m4-lt6wuucx-qp6g6zwtp8q",
-            "Name": "h1ohs1m71m4_lt6wuucx_qp6g6zwtp8q",
+            "Name": "BossSkill1",
             "Props": [
               {
                 "ID": "vv7zz6VEg",
-                "Name": "vv7zz6VEg"
+                "Name": "motion"
               },
               {
                 "ID": "vY3UvWRWz",
-                "Name": "vY3UvWRWz"
+                "Name": "coolDown1"
               }
             ],
             "Funcs": [
               {
                 "ID": "skill1",
-                "Name": "wFGwDwOL_3b_dyz_Nzvd_"
+                "Name": "skill1"
               },
               {
                 "ID": "resetCoolDown1",
-                "Name": "Vfgv7Y_IzHOhWapro_Q__"
+                "Name": "resetCoolDown1"
               },
               {
                 "ID": "initSkillCoolDown",
-                "Name": "M_ESiltvSSkPZ__k_r_R_"
+                "Name": "initSkillCoolDown"
               },
               {
                 "ID": "createDamageZone",
-                "Name": "eMw__nk3J_0r___DkmG3_"
+                "Name": "createDamageZone"
               },
               {
                 "ID": "prepareSkill1",
-                "Name": "_Ivh_ego_w_vYK_rHL0_"
+                "Name": "prepareSkill1"
               },
               {
                 "ID": "createDamageZone2",
-                "Name": "b_L_df_c__j_t2___gPw"
+                "Name": "createDamageZone2"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.0yjz5oj2u97a-lto1xl3n-2rauopimfhp",
-            "Name": "_0yjz5oj2u97a_lto1xl3n_2rauopimfhp",
+            "Name": "BossSkill2",
             "Props": [
               {
                 "ID": "vv7zz6VEg",
-                "Name": "vv7zz6VEg_"
+                "Name": "motion"
               },
               {
                 "ID": "vY3UvWRWz",
-                "Name": "vY3UvWRWz_"
+                "Name": "coolDown1"
               },
               {
                 "ID": "vLZxXEiTS",
-                "Name": "vLZxXEiTS"
+                "Name": "CoolDown2"
               }
             ],
             "Funcs": [
               {
                 "ID": "skill2",
-                "Name": "wFGwDwOL_3b_dyz_Nzvd_"
+                "Name": "skill2"
               },
               {
                 "ID": "resetCoolDown2",
-                "Name": "Vfgv7Y_IzHOhWapro_Q__"
+                "Name": "resetCoolDown2"
               },
               {
                 "ID": "initSkillCoolDown",
-                "Name": "M_ESiltvSSkPZ__k_r_R_"
+                "Name": "initSkillCoolDown"
               },
               {
                 "ID": "createMinion",
-                "Name": "_c1jhx_z_7Z2__Mu__mt"
+                "Name": "createMinion"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.p5deu27l7ab-ltp8w6ng-mh95zhv93wm",
-            "Name": "p5deu27l7ab_ltp8w6ng_mh95zhv93wm",
+            "Name": "BossSkill3",
             "Props": [
               {
                 "ID": "vLB4IYzJx",
-                "Name": "vLB4IYzJx"
+                "Name": "coolDown3"
               }
             ],
             "Funcs": [
               {
                 "ID": "resetCoolDown",
-                "Name": "Vfgv7Y_IzHOhWapro_Q__"
+                "Name": "resetCoolDown"
               },
               {
                 "ID": "initCoolDown",
-                "Name": "M_ESiltvSSkPZ__k_r_R_"
+                "Name": "initCoolDown"
               },
               {
                 "ID": "skill3",
-                "Name": "A_suQ1_O__71_acru_nV"
+                "Name": "skill3"
               },
               {
                 "ID": "slowPlayer",
-                "Name": "_780FdnU1Pt__x15k___G"
+                "Name": "slowPlayer"
               },
               {
                 "ID": "resetSpeed",
-                "Name": "VuOsHd_RSJg8F__dLMy2"
+                "Name": "resetSpeed"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.hd7857e07ef-lt70pm9x-h7uu92ey7kg",
-            "Name": "hd7857e07ef_lt70pm9x_h7uu92ey7kg",
+            "Name": "Skill1Trigger",
             "Props": [],
             "Funcs": []
           },
           {
             "ID": "tZkoCtNH.cxgdu4e4lsr-ltqz1pvf-563jlz6ejmf",
-            "Name": "cxgdu4e4lsr_ltqz1pvf_563jlz6ejmf",
+            "Name": "TriggerMetalZone",
             "Props": [
               {
                 "ID": "v0lh1LD6a",
-                "Name": "v0lh1LD6a"
+                "Name": "inTrigger"
               }
             ],
             "Funcs": []
           },
           {
             "ID": "tZkoCtNH.zwyxrywmajh-ltnrwc0o-1g15lvkcced",
-            "Name": "zwyxrywmajh_ltnrwc0o_1g15lvkcced",
+            "Name": "Minion",
             "Props": [
               {
                 "ID": "vqzhkNLY2",
-                "Name": "vqzhkNLY2"
+                "Name": "MinionState"
               },
               {
                 "ID": "vjHRfpDRJ",
-                "Name": "vjHRfpDRJ"
+                "Name": "HPBar"
               },
               {
                 "ID": "vzcvlHtKh",
-                "Name": "vzcvlHtKh"
+                "Name": "maxHP"
               },
               {
                 "ID": "v5DTzJTqz",
-                "Name": "v5DTzJTqz"
+                "Name": "HP"
               },
               {
                 "ID": "vClNvbyZI",
-                "Name": "vClNvbyZI"
+                "Name": "unbreakableState"
               }
             ],
             "Funcs": [
               {
                 "ID": "switchState",
-                "Name": "U_O_5Fi3E_B1_Q__xnea_"
+                "Name": "switchState"
               },
               {
                 "ID": "playAnimation",
-                "Name": "_5c_4q99CN_s43__TaFt8_"
+                "Name": "playAnimation"
               },
               {
                 "ID": "recievedDamage",
-                "Name": "YwRw__dfiJ1qW4vrVd_G_"
+                "Name": "recievedDamage"
               },
               {
                 "ID": "initHPBar",
-                "Name": "dH_YwmX_I_x1K_tL_P_Y_"
+                "Name": "initHPBar"
               },
               {
                 "ID": "initMinionConfig",
-                "Name": "v_q__w_Vk_gQUqx_q7D__"
+                "Name": "initMinionConfig"
               },
               {
                 "ID": "recievedDamageUI",
-                "Name": "ww_2pf_eVPD_ShTF9p_P_"
+                "Name": "recievedDamageUI"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.dzoo1bqhrq-ltnt9hjf-kkgcgqtz4hl",
-            "Name": "dzoo1bqhrq_ltnt9hjf_kkgcgqtz4hl",
+            "Name": "MinionAttack",
             "Props": [],
             "Funcs": [
               {
                 "ID": "checkInRange",
-                "Name": "Pc_8_lXo_k__S8ekYoJI"
+                "Name": "checkInRange"
               },
               {
                 "ID": "Detonate",
-                "Name": "_Vx64N_g_3__V_6MbqPO"
+                "Name": "Detonate"
               },
               {
                 "ID": "dealDamage",
-                "Name": "_G___iVAIp3__yf__H_T_"
+                "Name": "dealDamage"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.9u091un9mpt-ltms5t4k-847t94icxjh",
-            "Name": "_9u091un9mpt_ltms5t4k_847t94icxjh",
+            "Name": "MinionMovement",
             "Props": [
               {
                 "ID": "vAN7XesXo",
-                "Name": "vAN7XesXo_"
+                "Name": "target"
               },
               {
                 "ID": "vGUO0sy55",
-                "Name": "vGUO0sy55_"
+                "Name": "motion"
               }
             ],
             "Funcs": [
               {
                 "ID": "hasTarget",
-                "Name": "_ni_EGPyqU_j8vP_l_33_"
+                "Name": "hasTarget"
               },
               {
                 "ID": "findPath",
-                "Name": "wFGwDwOL_3b_dyz_Nzvd_"
+                "Name": "findPath"
               },
               {
                 "ID": "pauseMovement",
-                "Name": "WJYn_d___pljWkdhG0jS_"
+                "Name": "pauseMovement"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.s47wmlifjvj-lt44yuwa-zwnytdtqerr",
-            "Name": "s47wmlifjvj_lt44yuwa_zwnytdtqerr",
+            "Name": "Attack",
             "Props": [
               {
                 "ID": "vKZB1uuVT",
-                "Name": "vKZB1uuVT"
+                "Name": "skillInProgress"
               }
             ],
             "Funcs": [
               {
                 "ID": "finishSkill",
-                "Name": "W_gTHB6____5h5_AZgr_"
+                "Name": "finishSkill"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.fe750i123t-ltqw9yh7-zvhnt7ul5s",
-            "Name": "fe750i123t_ltqw9yh7_zvhnt7ul5s",
+            "Name": "Attack2",
             "Props": [
               {
                 "ID": "vK93fHBLJ",
-                "Name": "vK93fHBLJ"
+                "Name": "skillInProgress"
               }
             ],
             "Funcs": [
               {
                 "ID": "finishSkill",
-                "Name": "W_gTHB6____5h5_AZgr__"
+                "Name": "finishSkill"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.8ftkl1saim-lt41ckmn-bc92kh88ydm",
-            "Name": "_8ftkl1saim_lt41ckmn_bc92kh88ydm",
+            "Name": "HasTarget",
             "Props": [],
             "Funcs": [
               {
                 "ID": "HasTarget",
-                "Name": "g_9Tr7ir__A___u0K5__"
+                "Name": "HasTarget"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.b6dkq52elku-ltqorg3y-7puczn8jxmu",
-            "Name": "b6dkq52elku_ltqorg3y_7puczn8jxmu",
+            "Name": "IsPhase1",
             "Props": [],
             "Funcs": [
               {
                 "ID": "IsPhase1",
-                "Name": "g_9Tr7ir__A___u0K5___"
+                "Name": "IsPhase1"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.0qtw0c9tts-ltqqzsgg-jh447jzjv1",
-            "Name": "_0qtw0c9tts_ltqqzsgg_jh447jzjv1",
+            "Name": "IsPhase2",
             "Props": [],
             "Funcs": [
               {
                 "ID": "IsPhase2",
-                "Name": "g_9Tr7ir__A___u0K5___"
+                "Name": "IsPhase2"
               }
             ]
           },
@@ -814,35 +814,35 @@
           },
           {
             "ID": "tZkoCtNH.8ww0zxdf59w-ltmslq4s-t7cbsp4taog",
-            "Name": "_8ww0zxdf59w_ltmslq4s_t7cbsp4taog",
+            "Name": "MinionHasTarget",
             "Props": [],
             "Funcs": [
               {
                 "ID": "HasTarget",
-                "Name": "g_9Tr7ir__A___u0K5___"
+                "Name": "HasTarget"
               }
             ]
           },
           {
             "ID": "tZkoCtNH.cj13u49ra1p-ltmsmrze-kyhsma13h5f",
-            "Name": "cj13u49ra1p_ltmsmrze_kyhsma13h5f",
+            "Name": "MinionMove",
             "Props": [],
             "Funcs": []
           },
           {
             "ID": "tZkoCtNH.pzmjz413dp-lt41cqjs-yyf0hlbtcor",
-            "Name": "pzmjz413dp_lt41cqjs_yyf0hlbtcor",
+            "Name": "Move",
             "Props": [],
             "Funcs": []
           },
           {
             "ID": "tZkoCtNH.8mes2fwpaba-ltqwmema-nk0yh4gt8h",
-            "Name": "_8mes2fwpaba_ltqwmema_nk0yh4gt8h",
+            "Name": "Move2",
             "Props": [],
             "Funcs": []
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_IDc70pdb7vk",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_ID6sczdu603",
             "Name": "Resources",
             "Props": [
               {

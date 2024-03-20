@@ -5,6 +5,7 @@ import "./PlayerInventory.fcg" as PlayerInventory
 import "Convert.fcc" as convert
 import "./PlayerData.fcg" as PlayerData
 import "Items.fcc" as Items
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 
 
 graph PlayerCrafting {
@@ -47,17 +48,17 @@ graph PlayerCrafting {
                 } else {
                     // Craft Attachment
                     thisEntity<PlayerInventory>.AddAttachment(recipeEnum)
-                    AddItemToPlayer(thisEntity<Player> as entity<Player>, recipeMap[recipeEnum][4] as ItemIDType,2,out var addedItems)
+                    AddItemToPlayer(thisEntity<Player> as entity<Player>, recipeMap[recipeEnum][4] as ItemIDType,3,out var addedItems)
                 }
 
+                thisEntity<PlayerCraftHUD>.UpdateCraftHUD(recipeEnum)
                 thisEntity<PlayerData>.WriteData()
-
-
             } else { // Not craftable
                 //display insufficient materials
                 LogInfo("Craft fail")
             }
         } else {
+            ShowTips(thisEntity<Player> as entity<Player>,"Already crafted",#FFFFFFFF,3000)
             LogInfo("Already crafted")
         }
     }

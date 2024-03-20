@@ -144,7 +144,7 @@ graph GlobalCrafting {
 
     func CheckIsGun(RecipeEnum string) bool{
         InitRecipeMap()
-        return _recipeMap[RecipeEnum][3]==WeaponType.Shotgun || _recipeMap[RecipeEnum][3]==WeaponType.Rifle || _recipeMap[RecipeEnum][3]==WeaponType.SubMachineGun || _recipeMap[RecipeEnum][3]==WeaponType.Sniper || _recipeMap[RecipeEnum][3]==WeaponType.Pistol
+        return _recipeMap[RecipeEnum][3]==WeaponType.Shotgun || _recipeMap[RecipeEnum][3]==WeaponType.Rifle || _recipeMap[RecipeEnum][3]==WeaponType.SubMachineGun || _recipeMap[RecipeEnum][3]==WeaponType.Sniper || _recipeMap[RecipeEnum][3]==WeaponType.Pistol || _recipeMap[RecipeEnum][3]==WeaponType.Melee
     }
 
     func GetRecipeMap() Map<string, List<object>>{
