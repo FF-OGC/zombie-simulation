@@ -6,6 +6,11 @@ import "LevelObject.fcc" as levelobject
 import MyResources from "EditorGenLib.fcc"
 import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 import "./PlayerStat.fcg" as PlayerStat
+import "./GlobalCrafting.fcg" as GlobalCrafting
+import "./PlayerInventory.fcg" as PlayerInventory
+import "./PlayerData.fcg" as PlayerData
+import "Items.fcc" as Items
+import Resources from "EditorGenLib.fcc"
 
 graph HUDMenu {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
@@ -18,6 +23,7 @@ graph HUDMenu {
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_STAT)){
             LogInfo("[HUDMenu] btnStat: " + button)
             player<PlayerStat>.BeginPlayerStat()
-        }
+            player<PlayerData>.Debug_ResetData()
+        } 
     }
 }

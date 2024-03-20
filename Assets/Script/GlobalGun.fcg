@@ -1,0 +1,52 @@
+import "List.fcc" as list
+import "Database.fcc" as database
+import "Map.fcc" as map
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+import Resources from "EditorGenLib.fcc"
+
+graph GlobalGun {
+    _gunNameMap Map<string, object>
+    _hasInit bool
+
+    func InitGlobalGun(){
+        if(!_hasInit){
+            SetGunNameMap()
+            _hasInit = true
+        }
+    }
+
+    func SetGunNameMap(){
+        _gunNameMap = Map<string, object>{}
+        // _gunNameMap[gunEnum.WOOD_LOG] = MyResources.gunLocalizations[gunEnum.WOOD_LOG]
+    }
+
+    func GetGunName(gunEnum string) LocString{
+        InitGlobalGun()
+        return _gunNameMap[gunEnum] as LocString
+    }
+
+    func GetGunList() List<string>{
+        InitGlobalGun()
+        return GetAllKeys(_gunNameMap) as List<string>
+    }
+
+    func GetGunListTemp() List<string>{
+        InitGlobalGun()
+        var gunList = List<string>{}
+        var csv = ReadCSV(Resources.CSV[EResource_CSV.CRAFTING])
+        var inUseIndex = 1
+        var typeIndex = 2
+        var recIndex = 3
+
+        for key, row in csv {
+            if row[inUseIndex] as string == "TRUE" {
+                if row[typeIndex] as string == "Weapon" {
+                    Append(gunList, row[recIndex] as string)
+                }
+            }       
+        }
+        return gunList
+    }
+}

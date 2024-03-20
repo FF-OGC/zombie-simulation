@@ -8,6 +8,10 @@ import "Economy.fcc" as economy
 import "Math.fcc" as math 
 import "./PlayerStat.fcg" as PlayerStat
 import "./PlayerLevel.fcg" as PlayerLevel
+import "./GlobalGun.fcg" as GlobalGun
+import "./GlobalAttachment.fcg" as GlobalAttachment 
+import "Items.fcc" as items
+import"./PlayerInventory.fcg" as PlayerInventory
 
 graph PlayerData {
     _lastLoginTime int
@@ -16,6 +20,9 @@ graph PlayerData {
 
     _exp int
     _statPointList List<int>
+
+    GunUnlockList List<int>
+    AttachmentUnlockList List<int>
 
     func ReadDataInteger(data List<object>, defaultValue int) int {
         var returnValue = defaultValue
@@ -77,11 +84,21 @@ graph PlayerData {
         wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, out var statData, "")
         ReadStatData(statData as List<object>)
         
+        
+        //Gun unlock data
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA, out var gunUnlockData, "")
+        GunUnlockList = gunUnlockData as List<int>
+
+        //Attachment unlock data
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.ATTACHMENT_UNLOCK_DATA, out var attachmentUnlockData, "")
+        AttachmentUnlockList = attachmentUnlockData as List<int>
+
         //Daily data reset
         CheckResetDaily()
         //dispatch load data success event
         DispatchEvent(Player_FinishAction, thisEntity<Player>, List<object>{DataEnum.ACTION_LOAD_DATA_SUCCESS, nil})
     }
+
 
     func GetDataFromUsers() {
         //Get data from other component
@@ -112,6 +129,9 @@ graph PlayerData {
         LogInfo("[PlayerData] WriteData playerData = " + playerData)
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, playerData, "") 
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, statData, "") 
+        // LogInfo("[PlayerData] WriteData playerData = " + playerData)
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA , GunUnlockList, "") 
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.ATTACHMENT_UNLOCK_DATA, AttachmentUnlockList, "") 
     }
 
     func AreDatesDifferent(timeStamp1 int, timeStamp2 int) bool{
@@ -142,6 +162,8 @@ graph PlayerData {
         _exp = 0
         thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType.COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN))
         thisEntity<PlayerLevel>.DecreaseExpByAmount(thisEntity<PlayerLevel>.GetExp())
+        thisEntity<PlayerInventory>.RemoveAllItems()
+        LogInfo("inventory: " + thisEntity<PlayerInventory>._gunInventoryMap)
         WriteData()
     }
 

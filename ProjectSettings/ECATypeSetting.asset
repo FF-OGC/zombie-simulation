@@ -157,6 +157,24 @@
             ],
             "typeID": 100003,
             "PropDefines": []
+        },
+        "CustomComponent50158800": {
+            "label": "BaseTrigger",
+            "name": "CustomComponent50158800",
+            "bases": [
+                "Component"
+            ],
+            "ecaScripts": [],
+            "typeID": 100003,
+            "PropDefines": [
+                {
+                    "propID": 100008,
+                    "name": "CustomComponent50158800_11098406_custom",
+                    "label": "Name",
+                    "type": "String",
+                    "value": ""
+                }
+            ]
         }
     }
 } //"{FE:{"v":"1.7.4","c":{"FF":43},"s":100}
