@@ -3,3 +3,4 @@ Temp/
 Cache/
 main.gproj
 main.gproj.lock
+*.meta

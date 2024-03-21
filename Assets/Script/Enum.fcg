@@ -7,6 +7,8 @@ static graph Enum {
     //Data key
     PLAYER_DATA_TABLE = "PLAYER_DATA"
     GENERIC_DATA = "GenericData"
+    GUN_UNLOCK_DATA = "GunUnlockData"
+    ATTACHMENT_UNLOCK_DATA = "AttachmentUnlockData" 
     SKILL_DATA = "SkillData"
     QUEST_DATA = "QuestData"
 }

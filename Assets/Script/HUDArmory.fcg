@@ -1,0 +1,21 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
+import "./PlayerArmory.fcg" as PlayerArmory
+import "Hud.fcc" as hud
+graph HUDArmory{
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {     
+        LogInfo("gunbtn" + button<Entity>.TagsList[0])
+        if (button == player<PlayerArmoryHUD>.GetArmoryHUDWidget(EResource_UI_ARMORY.BTN_CLOSE)) {
+            LogInfo("[HUDArmory] btnMap: " + button) 
+            player<PlayerArmoryHUD>.CloseArmoryHUD()
+
+        } else if (button == player<PlayerArmoryHUD>.GetArmoryHUDWidget(EResource_UI_ARMORY.BTN_EQUIP)){
+            player<PlayerArmory>.Equip(player<PlayerArmoryHUD>.GetChosenWeapon())
+        } else if (button<Entity>.TagsList[1] == "gun"){
+            player<PlayerArmoryHUD>.SetWeaponInfo(button<Entity>.TagsList[0])
+        } else {
+            
+        }
+    }
+}

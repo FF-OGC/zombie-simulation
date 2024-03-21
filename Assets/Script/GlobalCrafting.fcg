@@ -1,15 +1,34 @@
+import "LevelObject.fcc" as LevelObject
+import "Items.fcc" as items
+import "Math.fcc" as math
+import "Database.fcc" as database
 import "Map.fcc" as map
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import MyResources from "EditorGenLib.fcc"
+import Resources from "EditorGenLib.fcc"
 
 graph GlobalCrafting {
     _recipeNameMap Map<string, object>
+    _recipeMap Map<string, List<object>>
+    _recipeMaterialMap Map<string,Map<string,int>>
+    _recipeMaterialMapNotUse Map<string,Map<string,int>>
+    _SMGRecipeList List<string>
+    _ARRecipeList List<string>
+    _SniperRecipeList List<string>
+    _SGRecipeList List<string>
+    _MeleeRecipeList List<string>
+    _HGRecipeList List<string>
+    _AttachmentList List<string>
+
     _hasInit bool
+    _hasInitRecipeMap bool
+    _hasInitRecipeList bool
 
     func InitGlobalCrafting(){
         if(!_hasInit){
             SetRecipeNameMap()
+            SetRecipeMaterialMap()
             _hasInit = true
         }
     }
@@ -17,7 +36,7 @@ graph GlobalCrafting {
     func SetRecipeNameMap(){
         _recipeNameMap = Map<string, object>{}
         _recipeNameMap[RecipeEnum.MATERIAL_PROCESSOR] = MyResources.RecipeLocalizations[RecipeEnum.MATERIAL_PROCESSOR]
-        _recipeNameMap[RecipeEnum.MP5] = MyResources.RecipeLocalizations[RecipeEnum.MATERIAL_PROCESSOR]
+        _recipeNameMap[RecipeEnum.MP5] = MyResources.RecipeLocalizations[RecipeEnum.MP5]
     }
 
     func GetRecipeName(recipeEnum string) LocString{
@@ -29,4 +48,163 @@ graph GlobalCrafting {
         InitGlobalCrafting()
         return GetAllKeys(_recipeNameMap)
     }
+
+
+    func SetRecipeMaterialMap(){
+        _recipeMaterialMap = Map<string,Map<string,int>>{}
+        _recipeMaterialMapNotUse = Map<string,Map<string,int>>{}
+
+        var csv = ReadCSV(Resources.CSV[EResource_CSV.CRAFTING])
+        var inUseIndex = 1
+        var recIDIndex = 3
+        var woodIndex = 6
+        var cooperIndex = 7
+        var ironIndex = 8
+        var wood_ID = "WOOD_LOG"
+        var cooper_ID = "COOPER_ORE"
+        var iron_ID = "IRON_ORE"
+
+        for key, row in csv {
+            if row[inUseIndex] as string == "TRUE" {
+                _recipeMaterialMap[row[recIDIndex]] = Map<string,int>{wood_ID:row[woodIndex] as int, cooper_ID:row[cooperIndex] as int, iron_ID:row[ironIndex] as int}
+            } else {
+                _recipeMaterialMapNotUse[row[recIDIndex]] = Map<string,int>{wood_ID:row[woodIndex] as int, cooper_ID:row[cooperIndex] as int, iron_ID:row[ironIndex] as int}
+            }       
+        }
+    }
+
+    func GetRecipeMaterial(recipeEnum string) Map<string,int>{
+        InitGlobalCrafting()
+        return _recipeMaterialMap[recipeEnum]
+    }
+
+    func InitRecipeMap() {
+        if !_hasInitRecipeMap {
+        _recipeMap = Map<string, List<object>>{}
+        _recipeMap[RecipeEnum.M1887] = List<object>{TierEnum.Tier5,Resources.Texture[EResource_Texture.ICON_M1887],"M1887",WeaponType.Shotgun,ItemIDType.M1887}
+        _recipeMap[RecipeEnum.M1014] = List<object>{TierEnum.Tier4,Resources.Texture[EResource_Texture.ICON_M1014],"M1014",WeaponType.Shotgun,ItemIDType.M1014}
+        _recipeMap[RecipeEnum.MAG7] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_MAG7],"MAG7",WeaponType.Shotgun,ItemIDType.MAG7}
+        _recipeMap[RecipeEnum.TROGON] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_TROGON],"TROGON",WeaponType.Shotgun,Resources.Item[EResource_Item.TROGON]}
+        _recipeMap[RecipeEnum.CHARGE] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_CHARGE],"Charge Buster",WeaponType.Shotgun,ItemIDType.ChargeBuster}
+
+        _recipeMap[RecipeEnum.AN94] = List<object>{TierEnum.Tier5,Resources.Texture[EResource_Texture.ICON_AN94],"AN94",WeaponType.Rifle,ItemIDType.AN94}
+        _recipeMap[RecipeEnum.M4A1] = List<object>{TierEnum.Tier4,Resources.Texture[EResource_Texture.ICON_M4A1],"M4A1",WeaponType.Rifle,ItemIDType.M4A1}
+        _recipeMap[RecipeEnum.AK47] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_AK],"AK47",WeaponType.Rifle,ItemIDType.AK}
+        _recipeMap[RecipeEnum.SCAR] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_SCAR],"SCAR",WeaponType.Rifle,ItemIDType.SCAR}
+        _recipeMap[RecipeEnum.GROZA] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_GROZA],"GROZA",WeaponType.Rifle,ItemIDType.GROZA}
+
+        _recipeMap[RecipeEnum.MP5] = List<object>{TierEnum.Tier5,Resources.Texture[EResource_Texture.ICON_MP5],"MP5",WeaponType.SubMachineGun,ItemIDType.MP5}
+        _recipeMap[RecipeEnum.UMP] = List<object>{TierEnum.Tier4,Resources.Texture[EResource_Texture.ICON_UMP],"UMP",WeaponType.SubMachineGun,ItemIDType.UMP}
+        _recipeMap[RecipeEnum.BIZON] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_BIZON],"BIZON",WeaponType.SubMachineGun,ItemIDType.Bizon}
+        _recipeMap[RecipeEnum.P90] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_P90],"P90",WeaponType.SubMachineGun,ItemIDType.P90}
+        _recipeMap[RecipeEnum.MP40] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_MP40],"MP40",WeaponType.SubMachineGun,ItemIDType.MP40}
+
+        _recipeMap[RecipeEnum.KAR98] = List<object>{TierEnum.Tier5,Resources.Texture[EResource_Texture.ICON_KAR98K],"KAR98",WeaponType.Sniper,ItemIDType.Kar98K}
+        _recipeMap[RecipeEnum.SKS] = List<object>{TierEnum.Tier4,Resources.Texture[EResource_Texture.ICON_SKS],"SKS",WeaponType.Sniper,ItemIDType.SKS}
+        _recipeMap[RecipeEnum.M24] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_M24],"M24",WeaponType.Sniper,ItemIDType.M24}
+        _recipeMap[RecipeEnum.M82B] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_M82B],"M82B",WeaponType.Sniper,ItemIDType.BLT}
+        _recipeMap[RecipeEnum.AWM] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_AWM],"AWM",WeaponType.Sniper,ItemIDType.AWM}
+
+        _recipeMap[RecipeEnum.PAN] = List<object>{TierEnum.Tier5,Resources.Texture[EResource_Texture.ICON_PAN],"PAN",WeaponType.Melee,Resources.Item[EResource_Item.PAN]}
+        _recipeMap[RecipeEnum.PARANG] = List<object>{TierEnum.Tier4,Resources.Texture[EResource_Texture.ICON_PARANG],"PARANG",WeaponType.Melee,ItemIDType.Machete}
+        _recipeMap[RecipeEnum.BAT] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_BAT],"BAT",WeaponType.Melee,ItemIDType.BaseballPole}
+        _recipeMap[RecipeEnum.SCYTHE] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_SCYTHE],"SCYTHE",WeaponType.Melee,ItemIDType.Sickle}
+        _recipeMap[RecipeEnum.KATANA] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_KATANA],"KATANA",WeaponType.Melee,ItemIDType.Katana}
+        
+        _recipeMap[RecipeEnum.UZI] = List<object>{TierEnum.Tier5,Resources.Texture[EResource_Texture.ICON_UZI],"UZI",WeaponType.Pistol,ItemIDType.UZI}
+        _recipeMap[RecipeEnum.DE] = List<object>{TierEnum.Tier4,Resources.Texture[EResource_Texture.ICON_DE],"DESERT EAGLE",WeaponType.Pistol,ItemIDType.EAGLE}
+        _recipeMap[RecipeEnum.RGS] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_RGS],"RGS-50",WeaponType.Pistol,ItemIDType.RG550}
+        _recipeMap[RecipeEnum.FLAMETHROWER] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_FLAMETHROWER],"FLAMETHROWER",WeaponType.Pistol, Resources.Item[EResource_Item.FlameGun] as ItemIDType}
+        _recipeMap[RecipeEnum.HOOKGUN] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_HOOKGUN],"HOOKGUN",WeaponType.Pistol,ItemIDType.HookGun}
+        
+        // ATTACHMENTS
+        _recipeMap[RecipeEnum.SCOPE_1] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_SCOPE],"SCOPE LV.1","Scope",Resources.Item[EResource_Item.Scope2]}
+        _recipeMap[RecipeEnum.SCOPE_2] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_SCOPE],"SCOPE LV.2","Scope",Resources.Item[EResource_Item.Scope2]}
+        _recipeMap[RecipeEnum.SCOPE_3] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_SCOPE],"SCOPE LV.3","Scope",Resources.Item[EResource_Item.Scope2]}
+
+        _recipeMap[RecipeEnum.MUZZLE_1] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_MUZZLE_1],"MUZZLE LV.1","Muzzle",ItemIDType.Muzzle1}
+        _recipeMap[RecipeEnum.MUZZLE_2] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_MUZZLE_2],"MUZZLE LV.2","Muzzle",ItemIDType.Muzzle2}
+        _recipeMap[RecipeEnum.MUZZLE_3] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_MUZZLE_3],"MUZZLE LV.3","Muzzle",ItemIDType.Muzzle3}
+
+        _recipeMap[RecipeEnum.FOREGRIP_1] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_FOREGRIP_1],"FOREGRIP LV.1","Foregrip",ItemIDType.Foregrip1}
+        _recipeMap[RecipeEnum.FOREGRIP_2] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_FOREGRIP_2],"FOREGRIP LV.2","Foregrip",ItemIDType.Foregrip2}
+        _recipeMap[RecipeEnum.FOREGRIP_3] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_FOREGRIP_3],"FOREGRIP LV.3","Foregrip",ItemIDType.Foregrip3}
+        
+        _recipeMap[RecipeEnum.STOCK_1] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_STOCK_1],"STOCK LV.1","Stock",ItemIDType.Stock1}
+        _recipeMap[RecipeEnum.STOCK_2] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_STOCK_2],"STOCK LV.2","Stock",ItemIDType.Stock2}
+        _recipeMap[RecipeEnum.STOCK_3] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_STOCK_3],"STOCK LV.3","Stock",ItemIDType.Stock3}
+
+        _recipeMap[RecipeEnum.MAGAZINE_1] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_MAGAZINE_1],"MAGAZINE LV.1","Magazine",ItemIDType.Magezine1}
+        _recipeMap[RecipeEnum.MAGAZINE_2] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_MAGAZINE_2],"MAGAZINE LV.2","Magazine",ItemIDType.Magezine2}
+        _recipeMap[RecipeEnum.MAGAZINE_3] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_MAGAZINE_3],"MAGAZINE LV.3","Magazine",ItemIDType.Magezine3}
+
+        _hasInitRecipeMap = true
+        }
+    }
+
+    func CheckIsGun(RecipeEnum string) bool{
+        InitRecipeMap()
+        return _recipeMap[RecipeEnum][3]==WeaponType.Shotgun || _recipeMap[RecipeEnum][3]==WeaponType.Rifle || _recipeMap[RecipeEnum][3]==WeaponType.SubMachineGun || _recipeMap[RecipeEnum][3]==WeaponType.Sniper || _recipeMap[RecipeEnum][3]==WeaponType.Pistol
+    }
+
+    func GetRecipeMap() Map<string, List<object>>{
+        InitRecipeMap()
+        return _recipeMap
+    }
+
+    func InitRecipeList() {
+        if !_hasInitRecipeList {
+        _SMGRecipeList = List<string>{RecipeEnum.MP5,RecipeEnum.UMP,RecipeEnum.BIZON,RecipeEnum.P90,RecipeEnum.MP40}
+        _ARRecipeList = List<string>{RecipeEnum.AN94,RecipeEnum.M4A1,RecipeEnum.AK47,RecipeEnum.SCAR,RecipeEnum.GROZA}
+        _SniperRecipeList = List<string>{RecipeEnum.KAR98,RecipeEnum.SKS,RecipeEnum.M24,RecipeEnum.M82B,RecipeEnum.AWM}
+        _SGRecipeList = List<string>{RecipeEnum.M1887,RecipeEnum.M1014,RecipeEnum.MAG7,RecipeEnum.TROGON,RecipeEnum.CHARGE}
+        _MeleeRecipeList = List<string>{RecipeEnum.PAN,RecipeEnum.PARANG,RecipeEnum.BAT,RecipeEnum.SCYTHE,RecipeEnum.KATANA}
+        _HGRecipeList = List<string>{RecipeEnum.UZI,RecipeEnum.DE,RecipeEnum.RGS,RecipeEnum.FLAMETHROWER,RecipeEnum.HOOKGUN}
+        _AttachmentList = List<string>{RecipeEnum.SCOPE_1,RecipeEnum.SCOPE_2,RecipeEnum.SCOPE_3,RecipeEnum.MUZZLE_1,RecipeEnum.MUZZLE_2,RecipeEnum.MUZZLE_3,RecipeEnum.FOREGRIP_1,RecipeEnum.FOREGRIP_2,RecipeEnum.FOREGRIP_3,RecipeEnum.STOCK_1,RecipeEnum.STOCK_2,RecipeEnum.STOCK_3,RecipeEnum.MAGAZINE_1,RecipeEnum.MAGAZINE_2,RecipeEnum.MAGAZINE_3}
+
+        _hasInitRecipeList = true
+        }
+    }
+
+    func GetRecipeListByType(type WeaponType) List<string>{
+        InitRecipeList()
+        if type == WeaponType.SubMachineGun {
+            return _SMGRecipeList
+        } else if type == WeaponType.Rifle {
+            return _ARRecipeList
+        } else if type == WeaponType.Sniper {
+            return _SniperRecipeList
+        } else if type == WeaponType.Shotgun {
+            return _SGRecipeList
+        } else if type == WeaponType.Melee {
+            return _MeleeRecipeList
+        } else if type == WeaponType.Pistol {
+            return _HGRecipeList
+        }
+        return List<string>{}
+    }
+
+    func GetAttachmentRecipeList() List<string>{
+        InitRecipeList()
+        return _AttachmentList
+    }
+
+    func GetTierColor(tier int) Color{
+        var color Color
+        if tier == TierEnum.Tier0 {
+            color = #EC0000FF
+        } else if tier == TierEnum.Tier1 {
+            color = #FFF000FF
+        } else if tier == TierEnum.Tier2 {
+            color = #D300B9FF
+        } else if tier == TierEnum.Tier3 {
+            color = #00399FFF
+        } else if tier == TierEnum.Tier4 {
+            color = #29C102FF
+        } else if tier == TierEnum.Tier5 {
+            color = #9A9A9AFF
+        }
+        return color
+    }
+
 }

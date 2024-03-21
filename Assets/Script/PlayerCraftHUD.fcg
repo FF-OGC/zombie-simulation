@@ -1,0 +1,146 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "./GlobalCrafting.fcg" as GlobalCrafting
+import "Items.fcc" as items
+import "Math.fcc" as math
+import "List.fcc" as List
+
+graph PlayerCraftingHUD {
+    _craftHUD entity<CustomHud>
+    _chosenWeapon string
+
+
+    func InitCraftHUD(){
+        if(_craftHUD == nil){
+            _craftHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.CRAFTING, 5)
+            _craftHUD<CustomHud>.Visibility = false
+            SetWeaponCraftHUD()
+        }
+    }
+
+    func DisplayCraftHUD(){
+        InitCraftHUD()
+        ReSetCraftHUD()
+        if(!_craftHUD<CustomHud>.Visibility){
+            _craftHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ReSetCraftHUD(){
+
+    }
+
+    func CloseCraftHUD(){
+        if(_craftHUD != nil){
+            _craftHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteCraftHUD(){
+        DeleteEntity(_craftHUD)
+    }
+
+    func GetCraftHUDWidget(eResourceUILevel string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _craftHUD, Resources.UI_CRAFTING[eResourceUILevel])
+    }
+
+    func SetWeaponCraftHUD() {
+        var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+        var gunChoiceControl = GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_GUNCHOICE)
+
+        var SMGList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.SubMachineGun)
+        var ARList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Rifle)
+        var ShotgunList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Shotgun)
+        var SniperList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Sniper)
+        var PistolList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Pistol)
+        var AttachmentList = globalEntity<GlobalCrafting>.GetAttachmentRecipeList()
+        var allList = List<string>{}
+
+        AppendRange(allList,SMGList)
+        AppendRange(allList,ARList)
+        AppendRange(allList,ShotgunList)
+        AppendRange(allList,SniperList)
+        AppendRange(allList,PistolList)
+        AppendRange(allList,AttachmentList)
+
+        var editingGunChoice = gunChoiceControl
+
+        var tierIndex = 0
+        var imageIndex = 1
+        var nameIndex = 2
+        var typeIndex = 3
+
+        var prevWeapon string
+        
+        for key, weapon in allList {
+            if key != 0 {  
+                CloneEntity(out var clonedentity,editingGunChoice)
+                editingGunChoice = clonedentity as entity<HudWidget>
+                DeleteTag(editingGunChoice,prevWeapon)
+            }
+            var color = globalEntity<GlobalCrafting>.GetTierColor(recipeMap[weapon][tierIndex] as int) as Color
+            editingGunChoice<HudButtonWidget>.Color = color
+            var children = GetChildren(editingGunChoice)
+            var image = children[0]
+            var text = children[1]
+            image<HudImageWidget>.SpriteName = recipeMap[weapon][imageIndex] as IconType
+            text<HudLabelWidget>.Text = recipeMap[weapon][nameIndex] as text
+            AddTag(editingGunChoice,weapon as text)
+            prevWeapon = weapon
+
+        }
+    }
+
+    func SetWeaponInfo(recipe string) {
+        var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+        var recipeMatMap = globalEntity<GlobalCrafting>.GetRecipeMaterial(recipe)
+
+        var gunInfoHolder = GetChildren(GetCraftHUDWidget(EResource_UI_CRAFTING.PIVOT_GUN_INFO))
+        var gunInfo = GetChildren(gunInfoHolder[0])
+        var matLayout = GetChildren(gunInfoHolder[1])
+        var matTemplate = matLayout[0]
+        var editingMat = matTemplate
+
+        var gunImage = gunInfo[0]
+        var gunText = gunInfo[1]
+        gunImage<HudImageWidget>.SpriteName = recipeMap[recipe][1] as IconType
+        gunText<HudLabelWidget>.Text = "Damge: 200"
+
+        for key,mat in matLayout {
+            if key != 0 {
+                DeleteEntity(mat)
+            }
+        }
+
+        var index = 0
+        for mat, amount in recipeMatMap {
+            if index != 0 {
+                CloneEntity(out var clonedentity,editingMat)
+                editingMat = clonedentity as entity<HudWidget>
+            }
+
+            var children = GetChildren(editingMat)
+            var matImage = children[0]
+            var matName = children[1]
+            var matAmount = children[2]
+
+            matName<HudLabelWidget>.Text = mat
+            matAmount<HudLabelWidget>.Text = amount   
+            index++ 
+        }
+        _chosenWeapon = recipe
+
+    }
+
+    func GetChosenWeapon() string {
+        return _chosenWeapon
+    }
+
+    func SetCrafted(button entity<HudButtonWidget>) {
+        var craftedStatus = GetChildren(button)[2]
+        craftedStatus<HudWidget>.Active = true
+    }
+}
