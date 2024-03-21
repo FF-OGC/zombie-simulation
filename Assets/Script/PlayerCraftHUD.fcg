@@ -23,6 +23,9 @@ graph PlayerCraftingHUD {
     }
 
     func DisplayCraftHUD(){
+        LogInfo("craftHUD" + _craftHUD)
+        LogInfo("eresource" + EResource_UI.CRAFTING)
+        LogInfo(Resources.UI_CRAFTING[EResource_UI.CRAFTING])
         InitCraftHUD()
         ReSetCraftHUD()
         if(!_craftHUD<CustomHud>.Visibility){
