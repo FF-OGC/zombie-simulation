@@ -6,14 +6,15 @@ import Resources from "EditorGenLib.fcc"
 import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
 import "Physics.fcc" as physics
+import "Hud.fcc" as Hud
 
 graph TriggerBase {
     event OnPlayerEnterTrigger(player entity<Player>) {
-        LogInfo(thisEntity<BaseTrigger>.Name)
-        LogInfo(thisEntity<BaseTrigger>.Name == "Craft")
-        if thisEntity<BaseTrigger>.Name == "Craft" {
+        LogInfo(thisEntity<BaseTrigger>.Type)
+        LogInfo(thisEntity<BaseTrigger>.Type == 0)
+        if thisEntity<BaseTrigger>.Type == 0 {
             player<PlayerCraftHUD>.DisplayCraftHUD()
-        } else if thisEntity<BaseTrigger>.Name == "Armory" {
+        } else if thisEntity<BaseTrigger>.Type == 1 {
             player<PlayerArmoryHUD>.DisplayArmoryHUD()
         }
     }
