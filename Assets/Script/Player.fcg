@@ -26,6 +26,7 @@ import "./PlayerDebug.fcg" as PlayerDebug
 import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 import "./PlayerStatHUD.fcg" as PlayerStatHUD
 import "./PlayerData.fcg" as PlayerData
+import "./PlayerLevel.fcg" as PlayerLevel
 
 
 graph Player {
@@ -38,6 +39,7 @@ graph Player {
         // MyResources.SetHookGun()
         thisEntity<PlayerData>.LoadData()
         WaitForSeconds(500)
+        thisEntity<PlayerLevel>.BeginPlayerLevel()
         thisEntity<PlayerDefaultHUD>.SetPlayerHeadHUD()
         globalEntity<Global>.UpdateAllPlayer()
         SetPlayerConfig()

@@ -3,9 +3,14 @@ import "EditorGenLib.fcc" as editorGenLib
 import "Hud.fcc" as hud
 import Resources from "EditorGenLib.fcc"
 import "./HUDUtil.fcg" as HUDUtil
+import "./PlayerLevel.fcg" as PlayerLevel
+import "Convert.fcc" as Convert
+import "./GlobalLevel.fcg" as GlobalLevel
+import "Math.fcc" as Math
 
 graph PlayerLevelHUD {
     _levelHUD entity<CustomHud>
+    EXP_BAR_MAX_WIDTH float = 280
 
     func InitLevelHUD(){
         if(_levelHUD == nil){
@@ -23,7 +28,36 @@ graph PlayerLevelHUD {
     }
 
     func ResetLevelHUD(){
+        if(!_levelHUD<CustomHud>.Visibility){
+            return
+        }
 
+        var imgExpBar = GetLevelHUDWidget(EResource_UI_LEVEL.IMG_EXP_BAR)
+        var txtLvl = GetLevelHUDWidget(EResource_UI_LEVEL.TXT_LVL)
+
+        var currentLvl = thisEntity<PlayerLevel>.GetLvl()
+        var txtLvlContent = "Lvl. " + ToString(currentLvl)
+
+        var expRequireNextLvl = 0.0
+        var expCurrentLvl = thisEntity<PlayerLevel>.GetExpFromCurrentLvl() as float
+        var percent = 0.0
+        var currentWidthExpBar = 0.0 
+        if (currentLvl + 1 > globalEntity<GlobalLevel>.GetMaxLevel()){
+            currentWidthExpBar = 0.0
+        } else {
+            expRequireNextLvl = globalEntity<GlobalLevel>.GetLevelExpRequirement(currentLvl + 1) as float
+            percent = expCurrentLvl / expRequireNextLvl    
+            currentWidthExpBar = EXP_BAR_MAX_WIDTH * percent
+        }
+
+        
+        LogInfo("[PlayerLevelHUD] percent: " + expCurrentLvl + "/" + expRequireNextLvl + "=" + percent + ", width: " + Round(currentWidthExpBar))
+        txtLvl<HudLabelWidget>.Text = txtLvlContent        
+        imgExpBar<HudWidget>.AnchorMin = Vector2{0, 0.5}
+        imgExpBar<HudWidget>.AnchorMax = Vector2{0, 0}
+        imgExpBar<HudWidget>.Width = Round(currentWidthExpBar)
+        
+        
     }
 
     func CloseLevelHUD(){
@@ -37,6 +71,7 @@ graph PlayerLevelHUD {
     }
 
     func GetLevelHUDWidget(eResourceUILevel string) entity<HudWidget>{
-        return GetWidgetFromCustomHud(thisEntity<Player>, _levelHUD, Resources.UI_ZONE_SELECTION[eResourceUILevel])
+        return GetWidgetFromCustomHud(thisEntity<Player>, _levelHUD, Resources.UI_LEVEL[eResourceUILevel])
     }
+
 }

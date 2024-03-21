@@ -1,0 +1,14 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as Hud
+import "./HUDUtil.fcg" as HUDUtil
+
+graph PlayerSkillHUD {
+    _skillHUD entity<CustomHud>
+
+    func InitSkillHUD(){
+        if(_skillHUD == nil){
+            // _skillHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, )
+        }
+    }
+}

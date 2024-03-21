@@ -1,0 +1,19 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+
+graph PlayerSkill {
+
+    func InitPlayerSkill(){
+
+    }
+
+    func BeginPlayerSkill(){
+
+    }
+
+    func EndPlayerSkill(){
+
+    }
+
+
+}

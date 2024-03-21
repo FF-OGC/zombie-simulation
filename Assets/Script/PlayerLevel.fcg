@@ -9,6 +9,7 @@ import "./Enum.fcg" as Enum
 import "./PlayerStat.fcg" as PlayerStat
 import "List.fcc" as List
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+import "./PlayerLevelHUD.fcg" as PlayerLevelHUD
 
 graph PlayerLevel {
     _exp int
@@ -19,6 +20,12 @@ graph PlayerLevel {
         if(!_hasInit){
             _hasInit = true
         }
+    }
+
+    func BeginPlayerLevel(){
+        InitPlayerLevel()
+        thisEntity<PlayerLevelHUD>.DisplayLevelHUD()
+
     }
 
     func IncreaseExpByAmount(amount int){
@@ -37,6 +44,7 @@ graph PlayerLevel {
 
         thisEntity<PlayerStat>.ResetPlayerStat()
         thisEntity<PlayerDefaultHUD>.UpdatePlayerHeadHUD()
+        thisEntity<PlayerLevelHUD>.ResetLevelHUD()
         start thisEntity<PlayerData>.WriteData()    
     }
 
@@ -48,6 +56,7 @@ graph PlayerLevel {
         }
         thisEntity<PlayerStat>.UpdateRemainingStatPoint()
         thisEntity<PlayerDefaultHUD>.UpdatePlayerHeadHUD()
+        thisEntity<PlayerLevelHUD>.ResetLevelHUD()
     }
     
     func GetExp() int{
@@ -98,6 +107,7 @@ graph PlayerLevel {
         if (ToString(action) == ToString(Enum.ACTION_LOAD_DATA_SUCCESS)) {
             LogInfo("[PlayerLevel] LoadDataSuccess _exp = " + thisEntity<PlayerData>._exp)
             _exp = thisEntity<PlayerData>._exp
+            thisEntity<PlayerLevelHUD>.DisplayLevelHUD()
         }
     }
 }
