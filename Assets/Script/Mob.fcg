@@ -6,17 +6,26 @@ import "AI.fcc" as ai
 import "./GlobalLoop.fcg" as GlobalLoop
 import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerInventory.fcg" as PlayerInventory
+import "Playable.fcc" as playable
+import "Math.fcc" as math
+import "./GlobalMob.fcg" as GlobalMob
 
 graph Mob {
     LOOP_ELIM_DELTA int = 300
+
+    _lvl int
+    _atk int 
+    _maxHp int 
+    _chaseVicinity float
+    _speed float
+    _type int
+
     _spawner entity<MobSpawner>
     _loopSinceHit int
     _expAmount int
 
     event OnAwake() {
-        thisEntity<AI>.IsDeadDrop = false
-        _loopSinceHit = 0
-        _expAmount = 1
+        BeginMob()   
     }
 
     event OnTakeDamage(attacker entity<Entity>,
@@ -34,6 +43,13 @@ graph Mob {
         attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.WOOD_LOG, 1)
     }
 
+    func BeginMob(){
+        thisEntity<AI>.IsDeadDrop = false
+        LogInfo("[Mob] Chase Vicinity: " + thisEntity<AI>.AIType + " " + thisEntity<AI>.DetectRange + " " + thisEntity<AI>.RunSpeed)
+        _loopSinceHit = 0
+        _expAmount = 1
+    }
+
     func StuckCheckLoopContent(){
         var currentLoop = globalEntity<GlobalLoop>.GetLoopCount()
         if(currentLoop - _loopSinceHit > LOOP_ELIM_DELTA){
@@ -43,6 +59,55 @@ graph Mob {
 
     func SetSpawner(spawner entity<MobSpawner>){
         _spawner = spawner
+    }
+
+    func SetType(type int){
+        _type = type
+    }
+
+    func SetLvl(level int){
+        _lvl = level + GetLvlDelta()
+        //TODO: Test if it is added correctly
+        SetAtk(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.ATK) as int) 
+        SetHP(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.MAX_HP) as int)
+        SetChaseVicinity(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.CHASE_VICINITY))
+        SetSpeed(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.SPEED))
+        SetExpAmount(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.EXP) as int)
+
+        LogInfo("[Mob] stat: " + " atk: " + _atk + ", hp: " + _maxHp + ", chase vicinity: " + _chaseVicinity + ", speed: " + _speed + ", exp: " + _expAmount) 
+    }
+
+    func GetLvlDelta() int{
+        return RandomInt(-5 , 5)
+    }
+
+    func SetAtk(atk int){
+        _atk = atk
+        thisEntity<AI>.AttackDamage = _atk
+    }
+
+    func SetHP(maxHP int){
+        _maxHp = maxHP
+        thisEntity<AI>.HPMax = _maxHp
+        thisEntity<AI>.HP = _maxHp
+    }
+
+    func SetChaseVicinity(chaseVicinity float){
+        _chaseVicinity = chaseVicinity        
+        thisEntity<AI>.DetectRange = _chaseVicinity
+    }
+
+    func SetSpeed(speed float){
+        _speed = speed
+        thisEntity<AI>.RunSpeed = _speed
+    }
+
+    func SetExpAmount(exp int){
+        _expAmount = exp
+    }
+
+    func EliminateSelf(){
+        MakeDamage(thisEntity<CombatEntity>, nil, DamageType.KillZone, 9999)
     }
 
 }

@@ -1,1 +1,18 @@
-{"_tag":{"type":"ff.PickupToken","resourceId":"PickupToken"},"_entityId":"YTWtYW0c","children":[],"prefabVariant":null,"activeValue":null,"unlockedValue":null,"editorLockValue":false,"editorVisibleValue":true,"modId":14,"enablePickupToken":true,"enableBringOutside":true,"_entityName":"T_43_YU_WS_MODULE_FF_PLATFORM","showSwitch":true}//"{FE:{"v":"1.7.4","c":{"FF":43},"s":100}
+{
+    "_tag": {
+        "type": "ff.PickupToken",
+        "resourceId": "PickupToken"
+    },
+    "_entityId": "YTWtYW0c",
+    "children": [],
+    "prefabVariant": null,
+    "activeValue": null,
+    "unlockedValue": null,
+    "editorLockValue": false,
+    "editorVisibleValue": true,
+    "modId": 14,
+    "enablePickupToken": true,
+    "enableBringOutside": true,
+    "_entityName": "T_43_YU_WS_MODULE_FF_PLATFORM",
+    "showSwitch": true
+} //"{FE:{"v":"1.7.4","c":{"FF":43},"s":100}

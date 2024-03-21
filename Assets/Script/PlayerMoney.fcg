@@ -86,9 +86,9 @@ graph PlayerMoney {
 
     event Player_FinishAction(action string, data object) {        
         if (ToString(action) == ToString(Enum.ACTION_LOAD_DATA_SUCCESS)) {
-            LogInfo("[PlayerMoney] LoadDataSuccess CurrentCoin = " + thisEntity<PlayerData>.CurrentCoin)
+            LogInfo("[PlayerMoney] LoadDataSuccess CurrentCoin = " + thisEntity<PlayerData>._currentCoin)
             CreateUserWallet()
-            AddMoneyToWallet(_userWallet, MoneyType.Basic, thisEntity<PlayerData>.CurrentCoin)        
+            AddMoneyToWallet(_userWallet, MoneyType.Basic, thisEntity<PlayerData>._currentCoin)        
             DisplayWalletHUD()
         }
     }

@@ -1,0 +1,77 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "LevelObject.fcc" as levelobject
+import "List.fcc" as list
+import "./ZoneMobManager.fcg" as ZoneMobManager
+import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
+
+graph ZoneTrigger {
+    _mobSpawnerList List<entity<Entity>>
+    _playerList List<entity<Player>>
+
+    event OnPlayerEnterTrigger(player entity<Player>) {
+        LogInfo("[ZoneTrigger] player enter: " + player)
+        // if(_playerList == nil){
+        //     _playerList = List<entity<Player>>{}
+        // }
+        // Append(_playerList, player)
+        // CheckTurnOnSpawning()
+        globalEntity<GlobalZoneMobManager>.NotifyDistanceChecking(player)
+    }
+
+    event OnPlayerLeaveTrigger(player entity<Player>) {
+        LogInfo("[ZoneTrigger] player leave: " + player)
+        // if(_playerList == nil){
+        //     _playerList = List<entity<Player>>{}
+        // }
+        // Delete(_playerList, player)
+        // CheckTurnOnSpawning()
+        globalEntity<GlobalZoneMobManager>.NotifyDistanceChecking(player)
+    }
+
+    func CheckTurnOnSpawning(){
+        _mobSpawnerList = GetCurrentZoneSpawnerList()
+        
+        if(Length(_playerList) <= 0){
+            TurnOffAllMobSpawner()
+            return
+        }
+
+        if(Length(_playerList) > 0){
+            TurnOnAllMobSpawner()
+            return
+        }
+    }
+
+    func TurnOnAllMobSpawner(){
+        _mobSpawnerList = GetCurrentZoneSpawnerList()
+
+        for i = 0, Length(_mobSpawnerList), 1{
+            var mobSpawner = _mobSpawnerList[i]
+            mobSpawner<ZoneMobManager>.StartMobSpawningLoopContent()
+        }
+    }
+
+    func TurnOffAllMobSpawner(){
+        _mobSpawnerList = GetCurrentZoneSpawnerList()
+
+        for i = 0, Length(_mobSpawnerList), 1{
+            var mobSpawner = _mobSpawnerList[i]
+            mobSpawner<ZoneMobManager>.EndMobSpawningLoopContent()
+            mobSpawner<ZoneMobManager>.EliminateAllZombieInCurrentZone()
+        }
+    }
+
+    func GetCurrentZoneSpawnerList() List<entity<Entity>>{
+        if(_mobSpawnerList != nil){
+            return _mobSpawnerList
+        }
+
+        var tpTrigger = GetParent(thisEntity<Entity>)
+        var zonePivot = GetParent(tpTrigger)
+        var spawnZonePivot = GetChildByIndex(zonePivot, 1)
+        var mobSpawnList = GetChildren(spawnZonePivot)
+        return mobSpawnList
+    }
+
+}

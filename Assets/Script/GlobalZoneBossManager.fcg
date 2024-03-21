@@ -7,6 +7,7 @@ import "./ZoneBossManager.fcg" as ZoneBossManager
 
 graph GlobalZoneBossManager {
     GLOBAL_SPAWN_INTERVAL int = 10 // 10 seconds
+
     _hasInit bool
     _typePrefabMap Map<int, PrefabID>
     _bossSpawnList List<entity<Entity>>
@@ -23,18 +24,18 @@ graph GlobalZoneBossManager {
     }
 
     func GlobalZoneSpawnLoopContent(loopCount int){
-        // LogInfo("[GlobalZoneMobManager] LoopContent: " + _spawnZoneList)
 
         // Check if this is the loop to spawn 
         if(loopCount % GLOBAL_SPAWN_INTERVAL != 0){
             return
         }
 
+        LogInfo("[GlobalZoneBossManager] LoopContent: " + _bossSpawnList)
         // Loop through each spawn zone to call the its loop content
         for i = 0, Length(_bossSpawnList), 1{
             var bossSpawn = _bossSpawnList[i]
             // bossSpawn<ZoneBossManager>.MobStuckCheckLoopContent()
-            bossSpawn<ZoneBossManager>.SpawningLoopContent()
+            start bossSpawn<ZoneBossManager>.SpawningLoopContent()
         }
     }
 
@@ -62,6 +63,7 @@ graph GlobalZoneBossManager {
         if(_bossSpawnList == nil){
             _bossSpawnList = List<entity<Entity>>{}
         }
+
         if(Contains(_bossSpawnList, bossSpawner)){
             return
         }

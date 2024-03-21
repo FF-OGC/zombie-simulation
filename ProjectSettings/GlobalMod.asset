@@ -1,1 +1,155 @@
-{"_tag":{"type":"ff.global","resourceId":"Global"},"_entityId":"13z5xNTV","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"modId":39,"DisableReconnect":false,"RecommendStartGameNumber":1,"EnableHalfwayJoin":false,"EnableHalfwayJoinEffectTime":true,"HalfwayJoinEffectTime":120,"HalfwayJoinNumber":5,"HalfwayJoinNumberLimit":true,"EnableFreeQuit":false,"AllowHangUpTime":20,"EnableRuntimeDynamicNavMesh":false,"EnableHackCheck":false,"modOpen":true,"ecaProps":{"Global":{"PlayerRoundRankingRuleScoreType":[],"PlayerRoundRankingRuleSortType":[],"TeamRoundRankingRuleScoreType":[],"TeamRoundRankingRuleSortType":[],"MVPRuleScoreType":[],"MVPRuleScoreWeight":[],"RoundRankToScoreMap":[],"ScoreTypeToShowResult":[],"TeamRankAccumulateScoreType":0,"TeamRankAccumulateScoreOrder":0,"PlayerRankAccumulateScoreType":0,"PlayerRankAccumulateScoreOrder":0,"EcoRoundMoney":0,"EcoKillMoney":0,"EcoWinMoney":0,"CoinHudShow":false,"SkyboxEnv":null},"Entity":{},"Component":{}},"globalGraphs":[{"fileId":"0ixlo0rg2cz-lsv80xff-6iwho36k4z6","filePath":"Assets\\Script\\Global.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"mb1ahtape7-lsvgbfsh-6ch1xzjvjdu","filePath":"Assets\\Script\\GlobalSpawn.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"q7inpv7z2f-lsvjzs3b-ecpyhjow42","filePath":"Assets\\Script\\GlobalDebug.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"fhdufa398pe-loxtcu07-7d57pdlo6en","filePath":"Assets\\Script\\HUDUtil.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"d28n3q1f7wh-lswm2wer-3kew2ugfx66","filePath":"Assets\\Script\\GlobalMaterial.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"x04d8as1ukn-lswogcg1-hsedbhvxie6","filePath":"Assets\\Script\\GlobalPet.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"k3ri4tl3dks-lswog5vv-6mrq4zgs006","filePath":"Assets\\Script\\GlobalCrafting.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"iivv5881bc-lsvllvw2-s69588xazkk","filePath":"Assets\\Script\\GlobalZoneSelection.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"3ad8610hwgx-lsy2u1af-8veuumhyayi","filePath":"Assets\\Script\\GlobalLevel.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"4akdi3h9wwp-lt2cxbu2-wopfmpqqo3","filePath":"Assets\\Script\\GlobalZoneMobManager.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"erubozfox08-lt2cxndb-8zi2hymwdh7","filePath":"Assets\\Script\\GlobalZoneBossManager.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"5trk1l40a46-lt2febre-dhfjk1re3vq","filePath":"Assets\\Script\\GlobalLoop.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"hxn7dfa0e2s-ltgmazdz-sbil1otmy3","filePath":"Assets\\Script\\GlobalAttachment.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"v9r698tzee-ltf9ur8f-aff7mhwd6dq","filePath":"Assets\\Script\\GlobalGun.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"},{"fileId":"08rt7ssyogbf-ltmo9cts-6rtejp3hiy","filePath":"Assets\\Script\\GlobalArmory.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"}],"_entityName":"T_43_YU_WS_MODULE_GLOBAL","showSwitch":false}//"{FE:{"v":"1.7.5","c":{"FF":43},"s":100}
+{
+    "_tag": {
+        "type": "ff.global",
+        "resourceId": "Global"
+    },
+    "_entityId": "13z5xNTV",
+    "children": [],
+    "prefabVariant": null,
+    "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+    },
+    "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+    },
+    "editorLockValue": false,
+    "editorVisibleValue": true,
+    "modId": 39,
+    "DisableReconnect": false,
+    "RecommendStartGameNumber": 1,
+    "EnableHalfwayJoin": true,
+    "EnableHalfwayJoinEffectTime": true,
+    "HalfwayJoinEffectTime": 120,
+    "HalfwayJoinNumber": 5,
+    "HalfwayJoinNumberLimit": true,
+    "EnableFreeQuit": false,
+    "AllowHangUpTime": 20,
+    "EnableRuntimeDynamicNavMesh": false,
+    "EnableHackCheck": false,
+    "modOpen": true,
+    "ecaProps": {
+        "Global": {
+            "PlayerRoundRankingRuleScoreType": [],
+            "PlayerRoundRankingRuleSortType": [],
+            "TeamRoundRankingRuleScoreType": [],
+            "TeamRoundRankingRuleSortType": [],
+            "MVPRuleScoreType": [],
+            "MVPRuleScoreWeight": [],
+            "RoundRankToScoreMap": [],
+            "ScoreTypeToShowResult": [],
+            "TeamRankAccumulateScoreType": 0,
+            "TeamRankAccumulateScoreOrder": 0,
+            "PlayerRankAccumulateScoreType": 0,
+            "PlayerRankAccumulateScoreOrder": 0,
+            "EcoRoundMoney": 0,
+            "EcoKillMoney": 0,
+            "EcoWinMoney": 0,
+            "CoinHudShow": false,
+            "SkyboxEnv": null
+        },
+        "Entity": {},
+        "Component": {}
+    },
+    "globalGraphs": [
+        {
+            "fileId": "0ixlo0rg2cz-lsv80xff-6iwho36k4z6",
+            "filePath": "Assets\\Script\\Global.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "mb1ahtape7-lsvgbfsh-6ch1xzjvjdu",
+            "filePath": "Assets\\Script\\GlobalSpawn.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "q7inpv7z2f-lsvjzs3b-ecpyhjow42",
+            "filePath": "Assets\\Script\\GlobalDebug.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "fhdufa398pe-loxtcu07-7d57pdlo6en",
+            "filePath": "Assets\\Script\\HUDUtil.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "d28n3q1f7wh-lswm2wer-3kew2ugfx66",
+            "filePath": "Assets\\Script\\GlobalMaterial.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "x04d8as1ukn-lswogcg1-hsedbhvxie6",
+            "filePath": "Assets\\Script\\GlobalPet.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "k3ri4tl3dks-lswog5vv-6mrq4zgs006",
+            "filePath": "Assets\\Script\\GlobalCrafting.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "iivv5881bc-lsvllvw2-s69588xazkk",
+            "filePath": "Assets\\Script\\GlobalZoneSelection.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "3ad8610hwgx-lsy2u1af-8veuumhyayi",
+            "filePath": "Assets\\Script\\GlobalLevel.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "4akdi3h9wwp-lt2cxbu2-wopfmpqqo3",
+            "filePath": "Assets\\Script\\GlobalZoneMobManager.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "erubozfox08-lt2cxndb-8zi2hymwdh7",
+            "filePath": "Assets\\Script\\GlobalZoneBossManager.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        },
+        {
+            "fileId": "5trk1l40a46-lt2febre-dhfjk1re3vq",
+            "filePath": "Assets\\Script\\GlobalLoop.fcg",
+            "_tag": {
+                "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+        }
+    ],
+    "_entityName": "T_43_YU_WS_MODULE_GLOBAL",
+    "showSwitch": false
+} //"{FE:{"v":"1.7.6","c":{"FF":43},"s":100}

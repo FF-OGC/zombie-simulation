@@ -1,2 +1,5 @@
 Temp/PackageHistory/
 Cache/
+main.gproj
+main.gproj.lock
+*.meta

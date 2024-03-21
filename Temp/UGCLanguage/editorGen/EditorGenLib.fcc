@@ -40,6 +40,10 @@ partial component Component {
 
 }
 
+// Cluster
+component Cluster {
+}
+
 // BaseTrigger
 component BaseTrigger {
     // Name
@@ -70,6 +74,9 @@ enum DataEnum {
 
     // ATTACHMENT_UNLOCK_DATA
     ATTACHMENT_UNLOCK_DATA = "AttachmentUnlockData"
+
+    // STAT_DATA
+    STAT_DATA = "StatData"
 
 }
 
@@ -374,6 +381,56 @@ enum CustomEnum72048329 {
 
 }
 
+// StatType, type: Int
+enum StatType {
+    // ATK
+    ATK = 0
+
+    // MAX_HP
+    MAX_HP = 1
+
+    // SPEED
+    SPEED = 2
+
+    // CHASE_VICINITY
+    CHASE_VICINITY = 3
+
+    // EXP
+    EXP = 4
+
+    // KILL_COUNT
+    KILL_COUNT = 5
+
+    // CURRENT_HP
+    CURRENT_HP = 6
+
+    // MAX_EP
+    MAX_EP = 7
+
+    // CURRENT_EP
+    CURRENT_EP = 8
+
+}
+
+// DifficultyEnum, type: Int
+enum DifficultyEnum {
+    // DIF_LVL_1
+    DIF_LVL_1 = 1
+
+    // DIF_LVL_2
+    DIF_LVL_2 = 2
+
+    // DIF_LVL_3
+    DIF_LVL_3 = 3
+
+    // DIF_LVL_4
+    DIF_LVL_4 = 4
+
+    // DIF_LVL_5
+    DIF_LVL_5 = 5
+
+}
+
 enum EResource_UI {
     CRAFTLAND_TOKEN_WALLET = "CRAFTLAND_TOKEN_WALLET"
     ZONE_SELECTION = "ZONE_SELECTION"
@@ -381,6 +438,7 @@ enum EResource_UI {
     LEVEL = "LEVEL"
     INVENTORY = "INVENTORY"
     DEBUG = "DEBUG"
+    PLAYER_STAT = "PLAYER_STAT"
     CRAFTING = "CRAFTING"
     ARMORY = "ARMORY"
 }
@@ -396,6 +454,8 @@ enum EResource_Prefab {
     MECHANICAL_SPIDER_BOSS = "MECHANICAL_SPIDER_BOSS"
 }
 enum EResource_Texture {
+    BTN_MID_PRESS = "BTN_MID_PRESS"
+    BTN_DISABLE = "BTN_DISABLE"
     ICON_MP5 = "ICON_MP5"
     ICON_M1887 = "ICON_M1887"
     ICON_MAG7 = "ICON_MAG7"
@@ -449,6 +509,9 @@ enum EResource_Item {
 enum EResource_CSV {
     CRAFTING = "CRAFTING"
     GUN_ATTACHMENT = "GUN_ATTACHMENT"
+    ZOMBIE_FACT = "ZOMBIE_FACT"
+    ZOMBIE_LOOT = "ZOMBIE_LOOT"
+    PLAYER_EXP_REQUIREMENT = "PLAYER_EXP_REQUIREMENT"
 }
 enum EResource_UI_CRAFTLAND_TOKEN_WALLET {
     TXT_CRAFTLAND_TOKEN = "TXT_CRAFTLAND_TOKEN"
@@ -476,6 +539,7 @@ enum EResource_UI_ZONE_SELECTION {
 enum EResource_UI_MENU {
     BTN_MAP = "BTN_MAP"
     BTN_DEBUG = "BTN_DEBUG"
+    BTN_STAT = "BTN_STAT"
 }
 enum EResource_UI_LEVEL {
     PIVOT_LEVEL = "PIVOT_LEVEL"
@@ -490,6 +554,17 @@ enum EResource_UI_DEBUG {
     TXT_ZOMBIE_MAX = "TXT_ZOMBIE_MAX"
     BTN_PLUS_100 = "BTN_PLUS_100"
     BTN_MINUS_100 = "BTN_MINUS_100"
+}
+enum EResource_UI_PLAYER_STAT {
+    BTN_INCREASE_HP = "BTN_INCREASE_HP"
+    BTN_DECREASE_HP = "BTN_DECREASE_HP"
+    BTN_INCREASE_ATK = "BTN_INCREASE_ATK"
+    BTN_DECREASE_ATK = "BTN_DECREASE_ATK"
+    BTN_CONFIRM = "BTN_CONFIRM"
+    BTN_EXIT = "BTN_EXIT"
+    TXT_REMAIN = "TXT_REMAIN"
+    TXT_HP = "TXT_HP"
+    TXT_ATK = "TXT_ATK"
 }
 enum EResource_UI_CRAFTING {
     BTN_CRAFT = "BTN_CRAFT"
@@ -520,10 +595,6 @@ event Player_PlayerQuitGame()
 [platform_server]
 event Player_FinishAction(param1 string, param2 object)
 
-// switchPhase(BossPhase Int)
-[platform_server]
-event switchPhase(param1 int)
-
 
 // Assets\ECA\MyResources.eca
 [platform_server]
@@ -549,9 +620,6 @@ declare static graph MyResources {
     // RecipeLocalizations
     RecipeLocalizations Map<object, object>
 
-    // CraftingMap
-    CraftingMap Map<object, object>
-
     // InitPhases()
     func InitPhases () 
 
@@ -566,9 +634,6 @@ declare static graph MyResources {
 
     // SetHookGun()
     func SetHookGun () 
-
-    // InitCraftingMap()
-    func InitCraftingMap () 
 
 }
 
@@ -953,6 +1018,7 @@ declare static graph Resources {
     UI_LEVEL Map<EResource_UI_LEVEL, CustomHudWidgetID>
     UI_INVENTORY Map<EResource_UI_INVENTORY, CustomHudWidgetID>
     UI_DEBUG Map<EResource_UI_DEBUG, CustomHudWidgetID>
+    UI_PLAYER_STAT Map<EResource_UI_PLAYER_STAT, CustomHudWidgetID>
     UI_CRAFTING Map<EResource_UI_CRAFTING, CustomHudWidgetID>
     UI_ARMORY Map<EResource_UI_ARMORY, CustomHudWidgetID>
 }

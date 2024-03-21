@@ -7,6 +7,8 @@ import MyResources from "EditorGenLib.fcc"
 import "./GlobalSpawn.fcg" as GlobalSpawn
 import "Strings.fcc" as strings
 import "./Player.fcg" as Player
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+import "List.fcc" as List
 
 graph Global {
     event OnAwake() {
@@ -33,9 +35,16 @@ graph Global {
     }
 
     event OnRoundEnd(roundIndex int) {
-        for i = 0, Length(GetAllPlayers()), 1{
+        for i = 0, List.Length(GetAllPlayers()), 1{
             var player = GetAllPlayers()[i]
             player<Player>.DeleteAllHUD()
+        }
+    }
+
+    func UpdateAllPlayer(){
+        for i = 0, List.Length(GetAllPlayers()), 1{
+            var player = GetAllPlayers()[i]
+            player<PlayerDefaultHUD>.UpdatePlayerHeadHUD()
         }
     }
 }

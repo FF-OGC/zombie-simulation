@@ -1,0 +1,59 @@
+import "List.fcc" as List
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "AI.fcc" as ai
+import "Database.fcc" as database
+import Resources from "EditorGenLib.fcc"
+
+graph GlobalMob {
+    _typeStatList List<List<object>>
+    _typeDifficultyLvlStatMap Map<int, Map<string, Map<int, Map<int, float>>>>
+    _hasInit bool
+
+    func InitGlobalMob(){
+        if(!_hasInit){
+            SetTypeStatMultMap()
+            _hasInit = true
+        }
+    }
+
+    func SetTypeStatMultMap(){
+        _typeDifficultyLvlStatMap = Map<int, Map<string, Map<int, Map<int, float>>>>{}
+        _typeStatList = ReadCSV(Resources.CSV[EResource_CSV.ZOMBIE_FACT])
+        LogInfo("[GlobalMob] _typeStatList: " + _typeStatList)
+        for i = 0, List.Length(_typeStatList), 1{
+            var typeStat = _typeStatList[i]
+            var zombieType = typeStat[1] as int
+            var difficultyType = typeStat[3] as int
+            var lvl = typeStat[4] as int
+            var atk = typeStat[5] as float
+            var hp = typeStat[6] as float
+            var speed = typeStat[7] as float
+            var chaseVicinity = typeStat[8] as float
+            var exp = typeStat[9] as float
+
+            var statMap = Map<int, float>{}
+            statMap[StatType.ATK] = atk
+            statMap[StatType.MAX_HP] = hp
+            statMap[StatType.SPEED] = speed
+            statMap[StatType.CHASE_VICINITY] = chaseVicinity
+            statMap[StatType.EXP] = exp
+            
+            var difficultyLvlStatMap = _typeDifficultyLvlStatMap[zombieType]
+            var lvlStatMap = difficultyLvlStatMap[difficultyType]
+            lvlStatMap[lvl] = statMap
+            difficultyLvlStatMap[difficultyType] = lvlStatMap
+            _typeDifficultyLvlStatMap[zombieType] = difficultyLvlStatMap
+        }
+    }
+
+    func GetMobStat(zombieType int, difficultyEnum string, lvl int, statEnum int) float{
+        InitGlobalMob()
+
+        var difficultyLvlStatMap = _typeDifficultyLvlStatMap[zombieType]
+        var lvlStatMap = difficultyLvlStatMap[difficultyEnum]
+        var statMap = lvlStatMap[lvl]
+        return statMap[statEnum]
+    }
+    
+}

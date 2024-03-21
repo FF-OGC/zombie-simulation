@@ -2,7 +2,7 @@
   "NameSpace": {
     "Name": "tZkoCtNH",
     "ID": 0,
-    "UIDSeed": 100009
+    "UIDSeed": 100010
   },
   "FileSpaces": [
     {
@@ -53,8 +53,13 @@
             ]
           },
           {
-            "Name": "BaseTrigger",
+            "Name": "Cluster",
             "ID": 100003,
+            "Props": []
+          },
+          {
+            "Name": "BaseTrigger",
+            "ID": 100009,
             "Props": [
               {
                 "ID": 100008,
@@ -118,138 +123,153 @@
             "ID": 72048329
           },
           {
+            "Name": "StatType",
+            "Props": [],
+            "ID": 90244914
+          },
+          {
+            "Name": "DifficultyEnum",
+            "Props": [],
+            "ID": 94706735
+          },
+          {
             "Name": "EResource_UI",
-            "ID": 160149,
+            "ID": 861351,
             "Props": []
           },
           {
             "Name": "EResource_Scene",
-            "ID": 364862,
+            "ID": 12119,
             "Props": []
           },
           {
             "Name": "EResource_Prefab",
-            "ID": 757718,
+            "ID": 744139,
             "Props": []
           },
           {
             "Name": "EResource_FCG",
-            "ID": 529195,
+            "ID": 347623,
             "Props": []
           },
           {
             "Name": "EResource_FCGC",
-            "ID": 185718,
+            "ID": 946042,
             "Props": []
           },
           {
             "Name": "EResource_ECA",
-            "ID": 959324,
+            "ID": 913390,
             "Props": []
           },
           {
             "Name": "EResource_ECAC",
-            "ID": 977232,
+            "ID": 511225,
             "Props": []
           },
           {
             "Name": "EResource_Texture",
-            "ID": 11014,
+            "ID": 990798,
             "Props": []
           },
           {
             "Name": "EResource_Effect",
-            "ID": 513011,
+            "ID": 538647,
             "Props": []
           },
           {
             "Name": "EResource_Sound",
-            "ID": 223026,
+            "ID": 679895,
             "Props": []
           },
           {
             "Name": "EResource_Item",
-            "ID": 17708,
+            "ID": 423907,
             "Props": []
           },
           {
             "Name": "EResource_LevelObject",
-            "ID": 527565,
+            "ID": 529222,
             "Props": []
           },
           {
             "Name": "EResource_Cloth",
-            "ID": 483734,
+            "ID": 287906,
             "Props": []
           },
           {
             "Name": "EResource_WeaponSkin",
-            "ID": 687425,
+            "ID": 33242,
             "Props": []
           },
           {
             "Name": "EResource_VehicleSkin",
-            "ID": 474799,
+            "ID": 141744,
             "Props": []
           },
           {
             "Name": "EResource_Emote",
-            "ID": 3393,
+            "ID": 451811,
             "Props": []
           },
           {
             "Name": "EResource_CSV",
-            "ID": 282632,
+            "ID": 25052,
             "Props": []
           },
           {
             "Name": "EResource_InternalHud",
-            "ID": 133457,
+            "ID": 245611,
             "Props": []
           },
           {
             "Name": "EResource_Scene_ZS",
-            "ID": 536596,
+            "ID": 882273,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTLAND_TOKEN_WALLET",
-            "ID": 228962,
+            "ID": 311159,
             "Props": []
           },
           {
             "Name": "EResource_UI_ZONE_SELECTION",
-            "ID": 8452,
+            "ID": 338012,
             "Props": []
           },
           {
             "Name": "EResource_UI_MENU",
-            "ID": 473066,
+            "ID": 794472,
             "Props": []
           },
           {
             "Name": "EResource_UI_LEVEL",
-            "ID": 571429,
+            "ID": 585166,
             "Props": []
           },
           {
             "Name": "EResource_UI_INVENTORY",
-            "ID": 575407,
+            "ID": 433502,
             "Props": []
           },
           {
             "Name": "EResource_UI_DEBUG",
-            "ID": 56202,
+            "ID": 299257,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_PLAYER_STAT",
+            "ID": 655168,
             "Props": []
           },
           {
             "Name": "EResource_UI_CRAFTING",
-            "ID": 598884,
+            "ID": 616918,
             "Props": []
           },
           {
             "Name": "EResource_UI_ARMORY",
-            "ID": 514194,
+            "ID": 583108,
             "Props": []
           }
         ],
@@ -269,10 +289,6 @@
           {
             "ID": 100005,
             "Name": "Player_FinishAction"
-          },
-          {
-            "ID": 100003,
-            "Name": "switchPhase"
           }
         ],
         "Graphs": [
@@ -307,10 +323,6 @@
               {
                 "ID": "vkKo5H55F",
                 "Name": "RecipeLocalizations"
-              },
-              {
-                "ID": "v4VcHeG09",
-                "Name": "CraftingMap"
               }
             ],
             "Funcs": [
@@ -333,10 +345,6 @@
               {
                 "ID": "SetHookGun",
                 "Name": "SetHookGun"
-              },
-              {
-                "ID": "InitCraftingMap",
-                "Name": "InitCraftingMap"
               }
             ]
           },
@@ -842,7 +850,7 @@
             "Funcs": []
           },
           {
-            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_ID6sczdu603",
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_ID638739l7p",
             "Name": "Resources",
             "Props": [
               {
@@ -944,6 +952,10 @@
               {
                 "ID": "Editor_Gen_Resource_UI_DEBUG",
                 "Name": "UI_DEBUG"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_PLAYER_STAT",
+                "Name": "UI_PLAYER_STAT"
               },
               {
                 "ID": "Editor_Gen_Resource_UI_CRAFTING",
