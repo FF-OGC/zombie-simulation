@@ -118,7 +118,7 @@ graph ZoneMobManager {
 
         var randomizedXPosition = position.X + RandomFloat(-X_DELTA, X_DELTA)
         var randomizedZPosition = position.Z + RandomFloat(-Z_DELTA, Z_DELTA)
-        var updatedYPosition = hitPosition.Y
+        var updatedYPosition = hitPosition.Y + 1
 
         var updatedPosition = Vector3{randomizedXPosition, updatedYPosition, randomizedZPosition}
         // LogInfo("[ZoneMobManager] updatedPosition: " + updatedPosition)
