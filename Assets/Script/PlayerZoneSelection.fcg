@@ -126,7 +126,12 @@ graph PlayerZoneSelection {
     }
 
     func SetSelectedZone(button entity<HudButtonWidget>){
+        LogInfo("[PlayerZoneSelection] _selectedZone. " + _selectedZone)
+        if(_selectedZone != ZoneEnum.NONE){
+            thisEntity<PlayerZoneSelectionHUD>.SetActiveZone(_selectedZone, false) 
+        }
         _selectedZone = _buttonZoneMap[button]
+        thisEntity<PlayerZoneSelectionHUD>.SetActiveZone(_selectedZone, true) 
         LogInfo("[PlayerZoneSelection] _selectedZone. " + _selectedZone)
     }
 
