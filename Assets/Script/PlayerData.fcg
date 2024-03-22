@@ -12,6 +12,7 @@ import "./GlobalGun.fcg" as GlobalGun
 import "./GlobalAttachment.fcg" as GlobalAttachment 
 import "Items.fcc" as items
 import"./PlayerInventory.fcg" as PlayerInventory
+import "./PlayerStatHUD.fcg" as PlayerStatHUD
 
 graph PlayerData {
     _lastLoginTime int
@@ -129,7 +130,7 @@ graph PlayerData {
         LogInfo("[PlayerData] WriteData playerData = " + playerData)
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, playerData, "") 
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, statData, "") 
-        // LogInfo("[PlayerData] WriteData playerData = " + playerData)
+        LogInfo("[PlayerData] WriteData playerData = " + statData)
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA , GunUnlockList, "") 
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.ATTACHMENT_UNLOCK_DATA, AttachmentUnlockList, "") 
     }
@@ -162,6 +163,8 @@ graph PlayerData {
         _exp = 0
         thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType.COIN, thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN))
         thisEntity<PlayerLevel>.DecreaseExpByAmount(thisEntity<PlayerLevel>.GetExp())
+        thisEntity<PlayerStat>.ResetStatPointMap()
+        thisEntity<PlayerStatHUD>.ResetStatHUD()
         thisEntity<PlayerInventory>.RemoveAllItems()
         LogInfo("inventory: " + thisEntity<PlayerInventory>._gunInventoryMap)
         WriteData()
