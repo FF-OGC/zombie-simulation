@@ -7,14 +7,17 @@ import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
 import "Physics.fcc" as physics
 import "Hud.fcc" as Hud
+import "Items.fcc" as Items
 
 graph TriggerBase {
     event OnPlayerEnterTrigger(player entity<Player>) {
         LogInfo(thisEntity<BaseTrigger>.Type == 0)
         if thisEntity<BaseTrigger>.Type == 0 {
-            player<PlayerCraftHUD>.DisplayCraftHUD()
+            player<PlayerCraftHUD>.DisplayCraftHUD(WeaponType.SubMachineGun)
         } else if thisEntity<BaseTrigger>.Type == 1 {
             player<PlayerArmoryHUD>.DisplayArmoryHUD()
+        } else if thisEntity<BaseTrigger>.Type == 2 {
+            player<PlayerCraftHUD>.DisplayCraftHUD(WeaponType.Shotgun)
         }
     }
 

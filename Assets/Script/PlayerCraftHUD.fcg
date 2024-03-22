@@ -18,15 +18,16 @@ graph PlayerCraftingHUD {
         if(_craftHUD == nil){
             _craftHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.CRAFTING, 5)
             _craftHUD<CustomHud>.Visibility = false
-            SetWeaponCraftHUD()
+            SetWeaponCraftHUD(WeaponType.SubMachineGun)
         }
     }
 
-    func DisplayCraftHUD(){
+    func DisplayCraftHUD(weaponType WeaponType){
         LogInfo("craftHUD" + _craftHUD)
         LogInfo("eresource" + EResource_UI.CRAFTING)
         LogInfo(Resources.UI_CRAFTING[EResource_UI.CRAFTING])
         InitCraftHUD()
+        SetWeaponCraftHUD(weaponType)
         ReSetCraftHUD()
         if(!_craftHUD<CustomHud>.Visibility){
             _craftHUD<CustomHud>.Visibility = true
@@ -56,22 +57,25 @@ graph PlayerCraftingHUD {
         var gunChoiceControl = GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_GUNCHOICE)
         var gunLayout = GetCraftHUDWidget(EResource_UI_CRAFTING.LAYOUT_GUN)
 
-        var SMGList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.SubMachineGun)
-        var ARList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Rifle)
-        var ShotgunList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Shotgun)
-        var SniperList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Sniper)
-        var PistolList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Pistol)
-        var MeleeList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Melee)
-        var AttachmentList = globalEntity<GlobalCrafting>.GetAttachmentRecipeList()
-        var allList = List<string>{}
+        // var SMGList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.SubMachineGun)
+        // var ARList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Rifle)
+        // var ShotgunList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Shotgun)
+        // var SniperList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Sniper)
+        // var PistolList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Pistol)
+        // var MeleeList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Melee)
+        // var AttachmentList = globalEntity<GlobalCrafting>.GetAttachmentRecipeList()
+        // var allList = List<string>{}
+        var itemList = globalEntity<GlobalCrafting>.GetRecipeListByType(weaponType)
 
-        AppendRange(allList,SMGList)
-        AppendRange(allList,ARList)
-        AppendRange(allList,ShotgunList)
-        AppendRange(allList,SniperList)
-        AppendRange(allList,PistolList)
-        AppendRange(allList,MeleeList)
-        AppendRange(allList,AttachmentList)
+        // AppendRange(allList,SMGList)
+        // AppendRange(allList,ARList)
+        // AppendRange(allList,ShotgunList)
+        // AppendRange(allList,SniperList)
+        // AppendRange(allList,PistolList)
+        // AppendRange(allList,MeleeList)
+        // AppendRange(allList,AttachmentList)
+
+
 
         for key, gunChoice in GetChildren(gunLayout) {
             if key!=0 {
@@ -88,7 +92,7 @@ graph PlayerCraftingHUD {
 
         var prevWeapon string
         
-        for key, weapon in allList {
+        for key, weapon in itemList {
             if key != 0 {  
                 CloneEntity(out var clonedentity,editingGunChoice)
                 editingGunChoice = clonedentity as entity<HudWidget>

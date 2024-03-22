@@ -11,6 +11,7 @@ graph HUDCrafting {
         } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)){
             player<PlayerCrafting>.Craft(player<PlayerCraftHUD>.GetChosenWeapon())
         } else {
+            LogInfo("Tag:" + button<Entity>.TagsList[0])
             player<PlayerCraftHUD>.SetWeaponInfo(button<Entity>.TagsList[0])
         }
     }
