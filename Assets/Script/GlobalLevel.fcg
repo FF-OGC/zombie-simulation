@@ -24,6 +24,7 @@ graph GlobalLevel {
         _levelExpMap = Map<int, int>{}
         _levelList = List<int>{}
         _levelExpList = ReadCSV(Resources.CSV[EResource_CSV.PLAYER_EXP_REQUIREMENT])
+        LogInfo("[GlobalLevel] _levelExpList: " + _levelExpList)
         for i = 2, List.Length(_levelExpList), 1{
             var list = _levelExpList[i]
             Append(_levelList, list[0] as int)

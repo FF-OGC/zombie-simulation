@@ -18,6 +18,7 @@ graph PlayerStat {
     ORIGINAL_ATK int = 10
 
     _hasInit bool
+    _statList List<int> = List<int>{StatType.ATK, StatType.MAX_HP}
     _statMap Map<int, int>
     _remainingStatPoint int
     _adjustingRemainingStatPoint int
@@ -60,7 +61,7 @@ graph PlayerStat {
             _statMap[StatType.MAX_HP] = ORIGINAL_MAX_HP
         }
     }
-    
+
     func SetStatPointAdjustmentMap(){
         if(_statPointAdjustmentMap == nil){
             _statPointAdjustmentMap = Map<int, int>{}
@@ -86,10 +87,15 @@ graph PlayerStat {
 
     func SetStatPointMap(){
         if(_statPointMap == nil){
-            _statPointMap = Map<int, int>{}
-            _statPointMap[StatType.ATK] = 0
-            _statPointMap[StatType.MAX_HP] = 0
+            ResetStatPointMap()
         }
+    }
+
+    func ResetStatPointMap(){
+        _statPointMap = Map<int, int>{}
+        _statPointMap[StatType.ATK] = 0
+        _statPointMap[StatType.MAX_HP] = 0
+
     }
 
     func GetRemainingStatPoint() int{
@@ -247,7 +253,7 @@ graph PlayerStat {
 
     func GetStatListFromStatMap() List<int>{
         var statList = List<int>{}
-        var statKeyList = GetAllKeys(_statPointMap)
+        var statKeyList = _statList
         for i = 0, List.Length(statKeyList), 1{
             var statKey = statKeyList[i] as int
             var stat = _statPointMap[statKey] as int
@@ -261,7 +267,7 @@ graph PlayerStat {
     func GetStatMapFromStatList(statPointList List<int>) Map<int, int>{
         SetStatPointMap()
         var newStatMap = Map<int, int>{}
-        var keyList = GetAllKeys(_statPointMap)
+        var keyList = _statList
         for i = 0, List.Length(keyList), 1{
             var key = keyList[i] as int
             var stat = statPointList[i] as int
