@@ -6,12 +6,18 @@ import "Convert.fcc" as convert
 import "./GlobalGun.fcg" as GlobalGun
 import "./GlobalAttachment.fcg" as GlobalAttachment
 import "Items.fcc" as Items
+import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
 
 graph PlayerArmory {
     _hasInit bool
     _gunOrder List<string>
     _attachmentOrder List<string>
     _recipeMap Map<string, List<object>>
+
+    _equipedGun1 string = nil
+    _equipedGun2 string = nil
+    _equipedHandGun string = nil
+    _equipedMelee string = nil
 
     func InitPlayerArmory(){
         if(!_hasInit){
@@ -30,20 +36,42 @@ graph PlayerArmory {
         _recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
     }
 
+    func CheckEquipedItem(gun string) bool {
+        if (_equipedGun1 == gun || _equipedGun2 == gun || _equipedHandGun == gun || _equipedMelee == gun) {
+            return true
+        }
+        return false
+    }
+
+    func UpdateEquipedGun() {
+        var itemIDRecipeMap = globalEntity<GlobalCrafting>.GetItemIDRecipeMap()
+
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.PrimaryWeapon1,out var main1, out var attachmentList1)
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.PrimaryWeapon2,out var main2, out var attachmentList2)
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.SecondaryWeapon,out var secondary, out var attachmentList3)
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.MeleeWeapon,out var melee, out var attachmentList4)
+
+        _equipedGun1 = itemIDRecipeMap[main1<Weapon>.ItemID]
+        _equipedGun2 = itemIDRecipeMap[main2<Weapon>.ItemID]
+        _equipedHandGun = itemIDRecipeMap[secondary<Weapon>.ItemID]
+        _equipedMelee = itemIDRecipeMap[melee<Weapon>.ItemID]
+        var equipedItems = List<string>{_equipedGun1, _equipedGun2, _equipedHandGun, _equipedMelee}
+
+        thisEntity<PlayerArmoryHUD>.UpdateArmoryHUD(equipedItems)
+    }
+
     func Equip(gun List<string>) {
         InitPlayerArmory()
-        LogInfo("gun:" + gun)
 
-        for key, value in gun {
-            if (key == 0) {
-                AddItemToPlayer(thisEntity<Player> as entity<Player>, _recipeMap[gun[key]][4] as ItemIDType, 1,out var addedItems)
-            } else {
-                // if value != "None" {
-                //     AddAttachments(thisEntity<Player> as entity<Player>, SwitchEquipSlot.PrimaryWeapon1,_recipeMap[gun[key]][4] as ItemIDType,out var isSuccessful, out var addedAttachment)
-                // }
-                
-            }
+        var gunIndex = 0
+        if CheckEquipedItem(gun[gunIndex]) {
+            return
+        } else {
+            AddItemToPlayer(thisEntity<Player> as entity<Player>, _recipeMap[gun[gunIndex]][4] as ItemIDType, 1,out var addedItems)
+            UpdateEquipedGun()
         }
+        
+
     }
 
 

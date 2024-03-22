@@ -13,6 +13,7 @@ graph GlobalCrafting {
     _recipeMap Map<string, List<object>>
     _recipeMaterialMap Map<string,Map<string,int>>
     _recipeMaterialMapNotUse Map<string,Map<string,int>>
+    _itemIDRecipeMap Map<int,string>
     _SMGRecipeList List<string>
     _ARRecipeList List<string>
     _SniperRecipeList List<string>
@@ -137,9 +138,19 @@ graph GlobalCrafting {
         _recipeMap[RecipeEnum.MAGAZINE_1] = List<object>{TierEnum.Tier3,Resources.Texture[EResource_Texture.ICON_MAGAZINE_1],"MAGAZINE LV.1","Magazine",ItemIDType.Magezine1}
         _recipeMap[RecipeEnum.MAGAZINE_2] = List<object>{TierEnum.Tier2,Resources.Texture[EResource_Texture.ICON_MAGAZINE_2],"MAGAZINE LV.2","Magazine",ItemIDType.Magezine2}
         _recipeMap[RecipeEnum.MAGAZINE_3] = List<object>{TierEnum.Tier1,Resources.Texture[EResource_Texture.ICON_MAGAZINE_3],"MAGAZINE LV.3","Magazine",ItemIDType.Magezine3}
+        
+        _itemIDRecipeMap = Map<int,string>{}
+        for key, value in _recipeMap {
+            _itemIDRecipeMap[value[4] as int] = key
+        }
 
         _hasInitRecipeMap = true
         }
+    }
+
+    func GetItemIDRecipeMap() Map<int,string>{
+        InitRecipeMap()
+        return _itemIDRecipeMap
     }
 
     func CheckIsGun(RecipeEnum string) bool{

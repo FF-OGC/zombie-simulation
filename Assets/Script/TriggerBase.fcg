@@ -10,12 +10,19 @@ import "Hud.fcc" as Hud
 
 graph TriggerBase {
     event OnPlayerEnterTrigger(player entity<Player>) {
-        LogInfo(thisEntity<BaseTrigger>.Type)
         LogInfo(thisEntity<BaseTrigger>.Type == 0)
         if thisEntity<BaseTrigger>.Type == 0 {
             player<PlayerCraftHUD>.DisplayCraftHUD()
         } else if thisEntity<BaseTrigger>.Type == 1 {
             player<PlayerArmoryHUD>.DisplayArmoryHUD()
+        }
+    }
+
+    event OnPlayerLeaveTrigger(player entity<Player>) {
+        if thisEntity<BaseTrigger>.Type == 0 {
+            player<PlayerCraftHUD>.CloseCraftHUD()
+        } else if thisEntity<BaseTrigger>.Type == 1 {
+            player<PlayerArmoryHUD>.CloseArmoryHUD()
         }
     }
 }
