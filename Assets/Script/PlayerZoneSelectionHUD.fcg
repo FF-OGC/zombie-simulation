@@ -1,6 +1,7 @@
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "Hud.fcc" as hud
+import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
 
 import Resources from "EditorGenLib.fcc"
 
@@ -30,6 +31,11 @@ graph PlayerZoneSelectionHUD {
         if(_zoneSelectionHUD != nil){
             _zoneSelectionHUD<CustomHud>.Visibility = false
         }
+    }
+
+    func SetActiveZone(zoneEnum string, isActive bool){
+        var img = thisEntity<PlayerZoneSelection>._zoneImgChosenMap[zoneEnum]
+        img<HudWidget>.Active = isActive
     }
 
     func ResetZoneSelectionHUD(){
