@@ -16,18 +16,17 @@ graph PlayerCraftingHUD {
 
     func InitCraftHUD(){
         if(_craftHUD == nil){
-            _craftHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.CRAFTING, 5)
+            _craftHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.CRAFTING, 7)
             _craftHUD<CustomHud>.Visibility = false
-            SetWeaponCraftHUD(WeaponType.SubMachineGun)
+            SetWeaponCraftHUD(WeaponType.Rifle)
         }
     }
 
-    func DisplayCraftHUD(weaponType WeaponType){
+    func DisplayCraftHUD(){
         LogInfo("craftHUD" + _craftHUD)
         LogInfo("eresource" + EResource_UI.CRAFTING)
         LogInfo(Resources.UI_CRAFTING[EResource_UI.CRAFTING])
         InitCraftHUD()
-        SetWeaponCraftHUD(weaponType)
         ReSetCraftHUD()
         if(!_craftHUD<CustomHud>.Visibility){
             _craftHUD<CustomHud>.Visibility = true
@@ -65,7 +64,13 @@ graph PlayerCraftingHUD {
         // var MeleeList = globalEntity<GlobalCrafting>.GetRecipeListByType(WeaponType.Melee)
         // var AttachmentList = globalEntity<GlobalCrafting>.GetAttachmentRecipeList()
         // var allList = List<string>{}
-        var itemList = globalEntity<GlobalCrafting>.GetRecipeListByType(weaponType)
+        var itemList = List<string>{}
+        if weaponType == WeaponType.CG15 {
+            itemList = globalEntity<GlobalCrafting>.GetAttachmentRecipeList()
+        } else {
+            itemList = globalEntity<GlobalCrafting>.GetRecipeListByType(weaponType)
+        }
+        
 
         // AppendRange(allList,SMGList)
         // AppendRange(allList,ARList)
@@ -80,7 +85,9 @@ graph PlayerCraftingHUD {
         for key, gunChoice in GetChildren(gunLayout) {
             if key!=0 {
                 DeleteEntity(gunChoice)
-            }  
+            } else {
+                gunChoice<Entity>.TagsList = List<string>{}
+            }
         }
 
         var editingGunChoice = gunChoiceControl
@@ -190,6 +197,23 @@ graph PlayerCraftingHUD {
                 return
             }
         }
+    }
+
+    func UpdateTabStatus(button entity<HudWidget>) {
+        var btnList = List<entity<HudWidget>>{GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_AR),GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SMG),GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SG),GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SNIPER),GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_HG),GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_ML),GetCraftHUDWidget(EResource_UI_CRAFTING.TAP_ATTACH)}
+
+        for key, btn in btnList {
+            if btn == button {
+                btn<HudButtonWidget>.Color = #D7D7D7FF
+                var gunImage = GetChildren(btn)[0]
+                gunImage<HudImageWidget>.Color = #1A1A1AFF
+            } else {
+                btn<HudButtonWidget>.Color = #1A1A1AFF
+                var gunImage = GetChildren(btn)[0]
+                gunImage<HudImageWidget>.Color = #FFFFFFFF
+            }
+        }
+        
     }
 
     func GetChosenWeapon() string {
