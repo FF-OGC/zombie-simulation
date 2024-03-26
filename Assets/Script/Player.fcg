@@ -27,7 +27,6 @@ import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 import "./PlayerStatHUD.fcg" as PlayerStatHUD
 import "./PlayerData.fcg" as PlayerData
 import "./PlayerLevel.fcg" as PlayerLevel
-import "Physics.fcc" as Physics
 
 
 graph Player {
@@ -44,8 +43,6 @@ graph Player {
         thisEntity<PlayerDefaultHUD>.SetPlayerHeadHUD()
         globalEntity<Global>.UpdateAllPlayer()
         SetPlayerConfig()
-
-    
     }
 
     event Player_PlayerQuitGame() {
@@ -61,7 +58,6 @@ graph Player {
       beDamagedPart HitBodyPart) {
         start RunOnKilled()
     }
-
 
 
     // event OnDropWeapon(weapon entity<Weapon>) {
