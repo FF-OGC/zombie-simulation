@@ -1,0 +1,17 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+
+graph GlobalExpenditionLocation {
+
+    [readonly]
+    LocationNameMap Map<ZoneEnum,string> = Map<ZoneEnum,string>{ZoneEnum.WBF:"Peak",
+                                                                ZoneEnum.WB080:"Shipyard",
+                                                                ZoneEnum.WB100:"Cape town",
+                                                                ZoneEnum.LVL030:"Graveyard",
+                                                                ZoneEnum.LVL010:"ClockTown",
+                                                                ZoneEnum.LVL050:"Mars Electric",
+                                                                ZoneEnum.LVL040:"Factory"};
+
+    LocationMaterialMap Map<ZoneEnum,MaterialEnum> = Map<ZoneEnum,MaterialEnum>{ZoneEnum.WBF:MaterialEnum.WOOD_LOG,};
+    LocationIconMap Map<ZoneEnum,IconType>;
+}

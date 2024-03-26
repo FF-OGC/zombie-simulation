@@ -5,6 +5,7 @@ import "Playable.fcc" as playable
 import Resources from "EditorGenLib.fcc"
 import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
+import "./PlayerExpenditionHUD.fcg" as PlayerExpenditionHUD
 import "Physics.fcc" as physics
 import "Hud.fcc" as Hud
 import "Items.fcc" as Items
@@ -16,6 +17,8 @@ graph TriggerBase {
             player<PlayerCraftHUD>.DisplayCraftHUD()
         } else if thisEntity<BaseTrigger>.Type == 1 {
             player<PlayerArmoryHUD>.DisplayArmoryHUD()
+        } else if(thisEntity<BaseTrigger>.Type == 2){
+            player<PlayerExpenditionHUD>.DisplayExpenditionHUD();
         }
     }
 
@@ -24,6 +27,8 @@ graph TriggerBase {
             player<PlayerCraftHUD>.CloseCraftHUD()
         } else if thisEntity<BaseTrigger>.Type == 1 {
             player<PlayerArmoryHUD>.CloseArmoryHUD()
+        }else if(thisEntity<BaseTrigger>.Type == 2){
+            player<PlayerExpenditionHUD>.CloseExpenditionHUD();
         }
     }
 }
