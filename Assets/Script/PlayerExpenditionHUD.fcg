@@ -1,0 +1,34 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as Hud
+import "./HUDUtil.fcg" as HUDUtil
+
+graph PlayerExpenditionHUD {
+    _expenditionHUD entity<CustomHud>;
+
+    func InitExpenditionHUD(){
+        
+        if(_expenditionHUD==nil){
+            _expenditionHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.EXPENDITION, 7)
+            _expenditionHUD<CustomHud>.Visibility = false
+        }
+    }
+    func DisplayExpenditionHUD(){
+        LogInfo("Display expendition");
+        InitExpenditionHUD()
+        ResetExpenditionHUD()
+        if(!_expenditionHUD<CustomHud>.Visibility){
+            _expenditionHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ResetExpenditionHUD(){
+
+    }
+
+    func CloseExpenditionHUD(){
+        if(_expenditionHUD != nil){
+            _expenditionHUD<CustomHud>.Visibility = false
+        }
+    }
+}
