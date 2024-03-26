@@ -89,6 +89,21 @@ graph PlayerArmoryHUD {
         }
     }
 
+    func UpdateArmoryHUD(items List<string>) {
+        var gunLayout = GetArmoryHUDWidget(EResource_UI_ARMORY.LAYOUT_GUN)
+        var equipBtn = GetArmoryHUDWidget(EResource_UI_ARMORY.BTN_EQUIP)
+
+        for key, gun in GetChildren(gunLayout) {
+            var children = GetChildren(gun)
+            var checked = children[2]
+            if Contains(items,gun<Entity>.TagsList[0]) {
+                checked<HudWidget>.Active = true
+            } else {
+                checked<HudWidget>.Active = false
+            }
+        }
+    }
+
     func SetWeaponInfo(recipe string) {
 
         var temp = GetArmoryHUDWidget(EResource_UI_ARMORY.PIVOT_GUN_INFO)

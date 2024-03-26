@@ -106,6 +106,8 @@ graph PlayerData {
         _currentCoin = thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN)
         _exp = thisEntity<PlayerLevel>.GetExp()
         _statPointList = thisEntity<PlayerStat>.GetStatListFromStatMap()
+        GunUnlockList = thisEntity<PlayerInventory>.GetGunList()
+        AttachmentUnlockList = thisEntity<PlayerInventory>.GetAttachmentList()
         LogInfo("[PlayerData] GetDataFromUsers: " + _currentCoin)
     }
 
@@ -129,10 +131,13 @@ graph PlayerData {
         var statData = PrepareStatData()
         LogInfo("[PlayerData] WriteData playerData = " + playerData)
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, playerData, "") 
+
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, statData, "") 
         LogInfo("[PlayerData] WriteData playerData = " + statData)
+        
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA , GunUnlockList, "") 
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.ATTACHMENT_UNLOCK_DATA, AttachmentUnlockList, "") 
+        LogInfo("[PlayerData] WriteData Gun Unlock  = " + GunUnlockList)
     }
 
     func AreDatesDifferent(timeStamp1 int, timeStamp2 int) bool{

@@ -10,8 +10,37 @@ graph HUDCrafting {
             player<PlayerCraftHUD>.CloseCraftHUD()
         } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)){
             player<PlayerCrafting>.Craft(player<PlayerCraftHUD>.GetChosenWeapon())
-        } else {
+        } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_AR) || 
+                   button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SMG) || 
+                   button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SG) || 
+                   button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_HG) || 
+                   button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_ML) || 
+                   button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SNIPER) || 
+                   button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAP_ATTACH)){
+            UpdateCraftHUD(player,button)
+        }  else {
             player<PlayerCraftHUD>.SetWeaponInfo(button<Entity>.TagsList[0])
         }
+    }
+
+    func UpdateCraftHUD(player entity<Player>, button entity<HudButtonWidget>) {
+        if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_AR) {
+            player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Rifle)
+        } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SMG) {
+            player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.SubMachineGun)
+        } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SG) {
+            player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Shotgun)
+        } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_HG) {
+            player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Pistol)
+        } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_ML) {
+            player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Melee)
+        } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SNIPER) {
+            player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Sniper)
+        } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAP_ATTACH) {
+            // CG15 = ATTACHMENT
+            player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.CG15)
+        } 
+
+        player<PlayerCraftHUD>.UpdateTabStatus(button)
     }
 }
