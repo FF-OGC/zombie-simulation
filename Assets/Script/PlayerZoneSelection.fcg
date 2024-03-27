@@ -138,4 +138,8 @@ graph PlayerZoneSelection {
     func GetSelectedZone() int{
         return _selectedZone
     }
+
+    func GetZoneImgChosenMap() Map<string, entity<HudWidget>>{
+        return _zoneImgChosenMap
+    }
 }

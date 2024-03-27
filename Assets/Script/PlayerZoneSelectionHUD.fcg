@@ -6,6 +6,7 @@ import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
 import Resources from "EditorGenLib.fcc"
 
 import "./HUDUtil.fcg" as HUDUtil
+import "Map.fcc" as Map
 
 graph PlayerZoneSelectionHUD {
     _zoneSelectionHUD entity<CustomHud>
@@ -33,13 +34,21 @@ graph PlayerZoneSelectionHUD {
         }
     }
 
+    func ResetAllActiveZone(){
+        var zoneList = GetAllKeys(thisEntity<PlayerZoneSelection>.GetZoneImgChosenMap())
+        for i = 0, Length(zoneList), 1{
+            var zone = zoneList[i]
+            SetActive(zone, false)
+        }
+    }
+
     func SetActiveZone(zoneEnum string, isActive bool){
         var img = thisEntity<PlayerZoneSelection>._zoneImgChosenMap[zoneEnum]
         img<HudWidget>.Active = isActive
     }
 
     func ResetZoneSelectionHUD(){
-
+        ResetAllActiveZone()
     }
 
     func DeleteZoneSelectionHUD(){
