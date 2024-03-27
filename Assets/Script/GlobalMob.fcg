@@ -6,6 +6,9 @@ import "Database.fcc" as database
 import Resources from "EditorGenLib.fcc"
 
 graph GlobalMob {
+    LVL_MAX int = 100
+    LVL_MIN int = 0
+
     _typeStatList List<List<object>>
     _typeDifficultyLvlStatMap Map<int, Map<string, Map<int, Map<int, float>>>>
     _hasInit bool
@@ -20,11 +23,52 @@ graph GlobalMob {
     func SetTypeStatMultMap(){
         _typeDifficultyLvlStatMap = Map<int, Map<string, Map<int, Map<int, float>>>>{}
         _typeStatList = ReadCSV(Resources.CSV[EResource_CSV.ZOMBIE_FACT])
-        LogInfo("[GlobalMob] _typeStatList: " + _typeStatList)
+
+        var typeList = List<int>{
+            AIType.UGCAI,
+            AIType.WoodCutZombie,
+            AIType.TankZombie,
+            AIType.ThrowZombie,
+            AIType.ThrowRedZombie,
+            AIType.ExplosiveZombie}
+
+        var difficultyList = List<string>{
+            DifficultyEnum.DIF_LVL_1}
+        
+        var lvlList = List<int>{}
+
+        for i = LVL_MIN, LVL_MAX, 1{
+            Append(lvlList, i)
+        }
+
+        var statTypeList = List<int>{
+            StatType.ATK,
+            StatType.MAX_HP,
+            StatType.SPEED,
+            StatType.CHASE_VICINITY,
+            StatType.EXP}
+
+        for i = 0, List.Length(typeList), 1{
+            var zombieType = typeList[i]
+            _typeDifficultyLvlStatMap[zombieType] = Map<string, Map<int, Map<int, float>>>{}
+            var difficultyLvlStatMap = _typeDifficultyLvlStatMap[zombieType]
+            for j = 0, List.Length(difficultyList), 1{
+                var difficulty = difficultyList[j]
+                difficultyLvlStatMap[difficulty] = Map<int, Map<int, float>>{}
+                var lvlStatMap = difficultyLvlStatMap[difficulty]
+                for k = 0, List.Length(lvlList), 1{
+                    var lvl = lvlList[k]
+                    lvlStatMap[lvl] = Map<int, float>{}
+                }
+            }
+        }
+        LogInfo("[GlobalMob] difficultyLvlStatMap: " + _typeDifficultyLvlStatMap)
+
+        LogInfo("[GlobalMob] _typeStatList: " +  List.Length(_typeStatList)+ " " + _typeStatList )
         for i = 0, List.Length(_typeStatList), 1{
             var typeStat = _typeStatList[i]
             var zombieType = typeStat[1] as int
-            var difficultyType = typeStat[3] as int
+            var difficultyType = typeStat[2] as int
             var lvl = typeStat[4] as int
             var atk = typeStat[5] as float
             var hp = typeStat[6] as float
@@ -38,10 +82,12 @@ graph GlobalMob {
             statMap[StatType.SPEED] = speed
             statMap[StatType.CHASE_VICINITY] = chaseVicinity
             statMap[StatType.EXP] = exp
-            
+            LogInfo("[GlobalMob] statMap: " + statMap)
             var difficultyLvlStatMap = _typeDifficultyLvlStatMap[zombieType]
+            LogInfo("[GlobalMap] difficultyLvlStatMap: " + difficultyType + " " + difficultyLvlStatMap)
             var lvlStatMap = difficultyLvlStatMap[difficultyType]
             lvlStatMap[lvl] = statMap
+            LogInfo("[GlobalMap] lvlStatMap: " + lvl + " " + lvlStatMap)
             difficultyLvlStatMap[difficultyType] = lvlStatMap
             _typeDifficultyLvlStatMap[zombieType] = difficultyLvlStatMap
         }
@@ -53,6 +99,7 @@ graph GlobalMob {
         var difficultyLvlStatMap = _typeDifficultyLvlStatMap[zombieType]
         var lvlStatMap = difficultyLvlStatMap[difficultyEnum]
         var statMap = lvlStatMap[lvl]
+        LogInfo("[GlobalMob] difficultyLvlStatMap: " + statMap + " " + difficultyLvlStatMap)
         return statMap[statEnum]
     }
     

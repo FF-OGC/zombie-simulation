@@ -8,6 +8,7 @@ import "Math.fcc" as math
 import "./Mob.fcg" as Mob
 import "Workflow.fcc" as workflow
 import "AI.fcc" as ai
+import "./GlobalMob.fcg" as GlobalMob
 import MyResources from "EditorGenLib.fcc"
 
 import Resources from "EditorGenLib.fcc"
@@ -15,10 +16,12 @@ import Resources from "EditorGenLib.fcc"
 graph ZoneMobManager {
     X_DELTA float = 10.0
     Z_DELTA float = 10.0
+    LVL_DELTA int = 5
     
     _type int
     _mobList List<entity<Entity>>
     _totalMobCount int
+    _zoneLvl int
     _isSpawning bool
     _hasInit bool
 
@@ -38,6 +41,7 @@ graph ZoneMobManager {
             _mobList = List<entity<Entity>>{}
 
             _totalMobCount = thisEntity<MobSpawner>.TotalCount
+            _zoneLvl = thisEntity<MobSpawner>.Lvl
             _isSpawning = false
             _hasInit = true
         }
@@ -68,6 +72,7 @@ graph ZoneMobManager {
             // AddScript(createdEntity, Mob)
             createdEntity<Mob>.SetSpawner(thisEntity<MobSpawner>)
             createdEntity<Mob>.SetType(_type)
+            createdEntity<Mob>.SetLvl(GetRandomizedLvl())
             WaitForNextFrame()
             // LogInfo("[ZoneMobManager] createdEntity: " + createdEntity + " " + createdEntity<Transform>.Position)
             // IncrementCurrentMobCount()
@@ -123,6 +128,19 @@ graph ZoneMobManager {
         var updatedPosition = Vector3{randomizedXPosition, updatedYPosition, randomizedZPosition}
         // LogInfo("[ZoneMobManager] updatedPosition: " + updatedPosition)
         return updatedPosition
+    }
+
+    func GetRandomizedLvl() int{
+        var deltaLvl = RandomInt(-LVL_DELTA, LVL_DELTA)
+        var result = _zoneLvl + deltaLvl
+        if(result < thisEntity<GlobalMob>.LVL_MIN){
+            result = thisEntity<GlobalMob>.LVL_MIN
+        }
+
+        if(result > thisEntity<GlobalMob>.LVL_MAX){
+            result = thisEntity<GlobalMob>.LVL_MAX
+        }
+        return result
     }
 
     func GetCurrentMobCount() int{
