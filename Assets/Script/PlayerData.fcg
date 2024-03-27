@@ -13,6 +13,7 @@ import "./GlobalAttachment.fcg" as GlobalAttachment
 import "Items.fcc" as items
 import"./PlayerInventory.fcg" as PlayerInventory
 import "./PlayerStatHUD.fcg" as PlayerStatHUD
+import "Physics.fcc" as Physics
 
 graph PlayerData {
     _lastLoginTime int
@@ -24,6 +25,7 @@ graph PlayerData {
 
     GunUnlockList List<int>
     AttachmentUnlockList List<int>
+
 
     func ReadDataInteger(data List<object>, defaultValue int) int {
         var returnValue = defaultValue
