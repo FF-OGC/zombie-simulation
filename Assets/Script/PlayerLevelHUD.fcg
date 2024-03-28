@@ -53,8 +53,8 @@ graph PlayerLevelHUD {
         
         LogInfo("[PlayerLevelHUD] percent: " + expCurrentLvl + "/" + expRequireNextLvl + "=" + percent + ", width: " + Round(currentWidthExpBar))
         txtLvl<HudLabelWidget>.Text = txtLvlContent        
-        imgExpBar<HudWidget>.AnchorMin = Vector2{0, 0.5}
-        imgExpBar<HudWidget>.AnchorMax = Vector2{0, 0}
+        // imgExpBar<HudWidget>.AnchorMin = Vector2{0, 0.5}
+        // imgExpBar<HudWidget>.AnchorMax = Vector2{0, 0}
         imgExpBar<HudWidget>.Width = Round(currentWidthExpBar)
         
         
