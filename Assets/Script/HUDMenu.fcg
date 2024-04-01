@@ -11,6 +11,7 @@ import "./PlayerInventory.fcg" as PlayerInventory
 import "./PlayerData.fcg" as PlayerData
 import "Items.fcc" as Items
 import Resources from "EditorGenLib.fcc"
+import "./PlayerSkill.fcg" as PlayerSkill
 
 graph HUDMenu {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
@@ -24,6 +25,10 @@ graph HUDMenu {
             LogInfo("[HUDMenu] btnStat: " + button)
             player<PlayerStat>.BeginPlayerStat()
             // player<PlayerData>.Debug_ResetData()
-        } 
+        } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_SKILL)){
+            LogInfo("[HUDMenu] btnStat: " + button)
+            player<PlayerSkill>.BeginPlayerSkill()
+        }
+        
     }
 }

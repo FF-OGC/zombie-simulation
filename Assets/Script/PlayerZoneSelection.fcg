@@ -129,9 +129,11 @@ graph PlayerZoneSelection {
         LogInfo("[PlayerZoneSelection] _selectedZone. " + _selectedZone)
         if(_selectedZone != ZoneEnum.NONE){
             thisEntity<PlayerZoneSelectionHUD>.SetActiveZone(_selectedZone, false) 
+            thisEntity<PlayerZoneSelectionHUD>.SetSpriteActiveBtnConfirm(false)
         }
         _selectedZone = _buttonZoneMap[button]
         thisEntity<PlayerZoneSelectionHUD>.SetActiveZone(_selectedZone, true) 
+        thisEntity<PlayerZoneSelectionHUD>.SetSpriteActiveBtnConfirm(true)
         LogInfo("[PlayerZoneSelection] _selectedZone. " + _selectedZone)
     }
 

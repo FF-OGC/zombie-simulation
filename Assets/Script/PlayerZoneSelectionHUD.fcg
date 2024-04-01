@@ -14,7 +14,7 @@ graph PlayerZoneSelectionHUD {
 
     func InitZoneSelectionHUD(){
         if(_zoneSelectionHUD == nil){
-            _zoneSelectionHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.ZONE_SELECTION, 4)
+            _zoneSelectionHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.ZONE_SELECTION, 10)
             LogInfo("[PlayerZoneSelectionHUD] _zoneSelectionHUD: " + _zoneSelectionHUD)
             _zoneSelectionHUD<CustomHud>.Visibility = false
         }
@@ -48,8 +48,19 @@ graph PlayerZoneSelectionHUD {
         img<HudWidget>.Active = isActive
     }
 
+    func SetSpriteActiveBtnConfirm(isActive bool){
+        var btnConfirm = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_CONFIRM)
+        if(isActive){
+            btnConfirm<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_MID_PRESS]
+            return
+        }
+        btnConfirm<HudButtonWidget>.SpriteName = Resources.Texture[EResource_Texture.BTN_DISABLE]
+        return
+    }
+
     func ResetZoneSelectionHUD(){
         ResetAllActiveZone()
+        SetSpriteActiveBtnConfirm(false)
     }
 
     func DeleteZoneSelectionHUD(){

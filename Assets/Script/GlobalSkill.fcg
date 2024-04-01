@@ -1,6 +1,130 @@
+import "Collection.fcc" as Collection
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
+import "List.fcc" as List
+import MyResources from "EditorGenLib.fcc"
 
 graph GlobalSkill {
-    // 
+    _hasInit bool
+    _skillList List<int>
+    _skillTypeMap Map<string, int>
+    _skillTextureMap Map<string, string>
+    _skillNameMap Map<string, object>
+    _skillDescriptionMap Map<string, object>
+    _activeSkillList List<string>
+    _passiveSkillList List<string>
+
+    func InitGlobalSkill(){
+        if(!_hasInit){
+            SetSkillTypeMap()
+            SetSkillTextureMap()
+            SetSkillNameMap()
+            SetSkillDescriptionMap()
+            SetSkillList()
+            _hasInit = true
+        }
+    }
+
+    func SetSkillList(){
+        _skillList = List<int>{}
+        Append(_skillList, SkillEnum.BERSERK)
+        Append(_skillList, SkillEnum.CLOAKING)
+        Append(_skillList, SkillEnum.DETONATOR)
+        Append(_skillList, SkillEnum.GUN_SLINGER)
+        Append(_skillList, SkillEnum.PROFICIENT_HUNTER)
+        Append(_skillList, SkillEnum.SHIELD)
+        Append(_skillList, SkillEnum.VAMPIRIC)
+
+        _activeSkillList = List<int>{}
+        _passiveSkillList = List<int>{}
+        for key, skill in _skillList {
+            var skillType = _skillTypeMap[skill]
+            if(skillType == SkillType.ACTIVE){
+                Append(_activeSkillList, skill)
+            } else{
+                Append(_passiveSkillList, skill)
+            }
+        } 
+    }
+
+    func SetSkillTypeMap(){
+        _skillTypeMap = Map<string, int>{}
+        _skillTypeMap[SkillEnum.BERSERK] = SkillType.ACTIVE
+        _skillTypeMap[SkillEnum.CLOAKING] = SkillType.ACTIVE
+        _skillTypeMap[SkillEnum.DETONATOR] = SkillType.PASSIVE
+        _skillTypeMap[SkillEnum.GUN_SLINGER] = SkillType.PASSIVE
+        _skillTypeMap[SkillEnum.PROFICIENT_HUNTER] = SkillType.PASSIVE
+        _skillTypeMap[SkillEnum.SHIELD] = SkillType.ACTIVE
+        _skillTypeMap[SkillEnum.VAMPIRIC] = SkillType.ACTIVE
+    }
+
+    func SetSkillTextureMap(){
+        _skillTextureMap = Map<string, string>{}
+        _skillTextureMap[SkillEnum.BERSERK] = EResource_Texture.SKILL_BERSERK
+        _skillTextureMap[SkillEnum.CLOAKING] = EResource_Texture.SKILL_CLOAKING
+        _skillTextureMap[SkillEnum.DETONATOR] = EResource_Texture.SKILL_DETONATOR
+        _skillTextureMap[SkillEnum.GUN_SLINGER] = EResource_Texture.SKILL_GUN_SLINGER
+        _skillTextureMap[SkillEnum.PROFICIENT_HUNTER] = EResource_Texture.SKILL_PROFICIENT_HUNTER
+        _skillTextureMap[SkillEnum.SHIELD] = EResource_Texture.SKILL_SHIELD
+        _skillTextureMap[SkillEnum.VAMPIRIC] = EResource_Texture.SKILL_VAMPIRIC
+    }
+
+    func SetSkillNameMap(){
+        _skillNameMap = Map<string, object>{}
+        _skillNameMap[SkillEnum.BERSERK] = MyResources.SkillNameLocalizations[SkillEnum.BERSERK] 
+        _skillNameMap[SkillEnum.CLOAKING] = MyResources.SkillNameLocalizations[SkillEnum.CLOAKING] 
+        _skillNameMap[SkillEnum.DETONATOR] = MyResources.SkillNameLocalizations[SkillEnum.DETONATOR] 
+        _skillNameMap[SkillEnum.GUN_SLINGER] = MyResources.SkillNameLocalizations[SkillEnum.GUN_SLINGER] 
+        _skillNameMap[SkillEnum.PROFICIENT_HUNTER] = MyResources.SkillNameLocalizations[SkillEnum.PROFICIENT_HUNTER] 
+        _skillNameMap[SkillEnum.SHIELD] = MyResources.SkillNameLocalizations[SkillEnum.SHIELD] 
+        _skillNameMap[SkillEnum.VAMPIRIC] = MyResources.SkillNameLocalizations[SkillEnum.VAMPIRIC] 
+    }
+
+    func SetSkillDescriptionMap(){
+        _skillDescriptionMap = Map<string, object>{}
+        _skillDescriptionMap[SkillEnum.BERSERK] = MyResources.SkillDescLocalizations[SkillEnum.BERSERK] 
+        _skillDescriptionMap[SkillEnum.CLOAKING] = MyResources.SkillDescLocalizations[SkillEnum.CLOAKING] 
+        _skillDescriptionMap[SkillEnum.DETONATOR] = MyResources.SkillDescLocalizations[SkillEnum.DETONATOR] 
+        _skillDescriptionMap[SkillEnum.GUN_SLINGER] = MyResources.SkillDescLocalizations[SkillEnum.GUN_SLINGER] 
+        _skillDescriptionMap[SkillEnum.PROFICIENT_HUNTER] = MyResources.SkillDescLocalizations[SkillEnum.PROFICIENT_HUNTER] 
+        _skillDescriptionMap[SkillEnum.SHIELD] = MyResources.SkillDescLocalizations[SkillEnum.SHIELD] 
+        _skillDescriptionMap[SkillEnum.VAMPIRIC] = MyResources.SkillDescLocalizations[SkillEnum.VAMPIRIC] 
+    }
+
+    func GetSkillName(skillEnum string) LocString{
+        InitGlobalSkill()
+        return _skillNameMap[skillEnum]
+    }
+
+    func GetSkillDescription(skillEnum string) LocString{
+        InitGlobalSkill()
+        return _skillDescriptionMap[skillEnum]
+    }
+
+    func GetSkillTexture(skillEnum string) string{
+        InitGlobalSkill()
+        return _skillTextureMap[skillEnum]
+    }
+
+    func GetSkillType(skillEnum string) string{
+        InitGlobalSkill()
+        return _skillTypeMap[skillEnum]
+    }
+
+    func GetActiveSkillList() List<string>{
+        InitGlobalSkill()
+        LogInfo("[GlobalSkill] activeSkillList: " + _activeSkillList)
+        return _activeSkillList
+    }
+
+    func GetPassiveSkillList() List<string>{
+        InitGlobalSkill()
+        LogInfo("[GlobalSkill] passiveSkillList: " + _passiveSkillList)
+        return _passiveSkillList
+    }
+
+    func GetSkillList() List<string>{
+        InitGlobalSkill()
+        return _skillList
+    }
 }

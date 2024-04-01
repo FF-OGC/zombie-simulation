@@ -133,13 +133,15 @@ graph ZoneMobManager {
     func GetRandomizedLvl() int{
         var deltaLvl = RandomInt(-LVL_DELTA, LVL_DELTA)
         var result = _zoneLvl + deltaLvl
-        if(result < thisEntity<GlobalMob>.LVL_MIN){
-            result = thisEntity<GlobalMob>.LVL_MIN
+        LogInfo("[ZoneMobManager] result before: " + result)
+        if(result < globalEntity<GlobalMob>.LVL_MIN){
+            result = globalEntity<GlobalMob>.LVL_MIN
         }
 
-        if(result > thisEntity<GlobalMob>.LVL_MAX){
-            result = thisEntity<GlobalMob>.LVL_MAX
+        if(result > globalEntity<GlobalMob>.LVL_MAX){
+            result = globalEntity<GlobalMob>.LVL_MAX
         }
+        LogInfo("[ZoneMobManager] result after : " + result)
         return result
     }
 

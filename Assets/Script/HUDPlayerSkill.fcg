@@ -1,0 +1,18 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerSkillHUD.fcg" as PlayerSKillHUD
+import "./PlayerSkill.fcg" as PlayerSkill
+
+graph HUDPlayerSkill {
+    
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerSKillHUD>.GetSkillHUDWidget(EResource_UI_SKILL.BTN_EXIT)) {
+            LogInfo("[HUDPlayerSkill] btnExit: " + button) 
+            player<PlayerSkill>.EndPlayerSkill()
+        } else {
+            LogInfo("[HUDPlayerSKill] chooseSkill: " + button)
+            player<PlayerSKillHUD>.ClickButton(button)
+        }
+        
+    }
+}

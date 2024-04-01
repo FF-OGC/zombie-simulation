@@ -2,13 +2,178 @@ import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "Hud.fcc" as Hud
 import "./HUDUtil.fcg" as HUDUtil
+import "./GlobalSkill.fcg" as GlobalSkill
+import Resources from "EditorGenLib.fcc"
+import "./PlayerSkill.fcg" as PlayerSkill
+import "Map.fcc" as Map
 
 graph PlayerSkillHUD {
+    ACTIVE_BTN_COLOR Color = #D7D7D7FF
+    ACTIVE_TXT_COLOR Color = #000000FF
+    INACTIVE_BTN_COLOR Color = #000000FF
+    INACTIVE_TXT_COLOR Color = #FFFFFFFF
+
+    _skillSelectedImgMap Map<string, entity<HudWidget>>
+    _skillImgLockedMap Map<string, entity<HudWidget>>
+    _skillImgEquippedMap Map<string, entity<HudWidget>>
+    _buttonSkillMap Map<entity<HudButtonWidget>, string>
+    _buttonSkillTypeMap Map<entity<HudButtonWidget>, int>
+    _selectedSkill string
+    _selectedSkillType int
+    
     _skillHUD entity<CustomHud>
+    _hasInit bool
 
     func InitSkillHUD(){
         if(_skillHUD == nil){
-            // _skillHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, )
+            _skillHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.SKILL, 10)
+            _skillHUD<CustomHud>.Visibility = false
         }
+        if(!_hasInit){
+            _buttonSkillMap = Map<entity<HudButtonWidget>, string>{}
+            _skillSelectedImgMap = Map<string, entity<HudWidget>>{}
+            _skillImgEquippedMap = Map<string, entity<HudWidget>>{}
+            _skillImgLockedMap = Map<string, entity<HudWidget>>{}
+            _buttonSkillTypeMap = Map<entity<HudButtonWidget>, int>{}
+            _buttonSkillTypeMap[GetSkillHUDWidget(EResource_UI_SKILL.BTN_ACTIVE_TAB) as entity<HudButtonWidget>] = SkillType.ACTIVE
+            _buttonSkillTypeMap[GetSkillHUDWidget(EResource_UI_SKILL.BTN_PASSIVE_TAB) as entity<HudButtonWidget>] = SkillType.PASSIVE
+            _hasInit = true
+        }
+    }
+    
+    func ShowSkillHUD(){
+        InitSkillHUD()
+        ResetSkillHUD()
+        if(_skillHUD<CustomHud>.Visibility == false){
+            _skillHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ResetSkillHUD(){
+        _selectedSkill = ""
+        _selectedSkillType = SkillType.ACTIVE
+        _SelectSkill()
+        _ToggleTab()
+        BuildActiveSkillHUD()
+        BuildPassiveSkillHUD()
+        return 
+    }
+
+    func BuildActiveSkillHUD(){
+        var activeSkillList = globalEntity<GlobalSkill>.GetActiveSkillList()
+        var pivotSkillActive = GetSkillHUDWidget(EResource_UI_SKILL.PIVOT_SKILL_ACTIVE) 
+        SkillBuildLoop(activeSkillList, pivotSkillActive)
+    }
+
+    func BuildPassiveSkillHUD(){
+        var passiveSkillList = globalEntity<GlobalSkill>.GetPassiveSkillList()
+        var pivotSkillPassive = GetSkillHUDWidget(EResource_UI_SKILL.PIVOT_SKILL_PASSIVE) 
+        SkillBuildLoop(passiveSkillList, pivotSkillPassive)
+    }
+    func SkillBuildLoop(skillList List<string>, pivotSkillTemplate entity<HudWidget>){
+        for key, skillEnum in skillList{
+            var skillTexture = globalEntity<GlobalSkill>.GetSkillTexture(skillEnum)
+            var template = pivotSkillTemplate
+            if(key != 0){
+                CloneEntity(out var clonedSkillActive, pivotSkillTemplate)
+                template = clonedSkillActive as entity<HudWidget>
+            }
+            
+            var btnSkill = GetChildByIndex(template, 0)
+            var imgSkillSelected = GetChildByIndex(template, 1) as entity<HudWidget>
+            var imgSkill = GetChildByIndex(template, 2) as entity<HudWidget>
+            var txtSkillName = GetChildByIndex(template, 3) as entity<HudWidget>
+            var txtSkillLvl = GetChildByIndex(template, 4) as entity<HudWidget>
+            var imgSkillLocked = GetChildByIndex(template, 5) as entity<HudWidget>
+            var imgEquipped = GetChildByIndex(template, 6) as entity<HudWidget>
+
+            _skillSelectedImgMap[skillEnum] = imgSkillSelected         
+            _skillImgLockedMap[skillEnum] = imgSkillLocked
+            _skillImgEquippedMap[skillEnum] = imgEquipped
+            _buttonSkillMap[btnSkill] = skillEnum
+
+            imgSkill<HudImageWidget>.SpriteName = Resources.Texture[skillTexture] as IconType
+            txtSkillName<HudLabelWidget>.Text = globalEntity<GlobalSkill>.GetSkillName(skillEnum)
+            txtSkillLvl<HudLabelWidget>.Text = thisEntity<PlayerSkill>.GetSkillLvl(skillEnum)
+        }
+    }
+
+    func ClickButton(button entity<HudButtonWidget>){
+        if(ContainKey(_buttonSkillMap, button)){
+            _selectedSkill = _buttonSkillMap[button]
+            _SelectSkill()
+        }
+
+        if(ContainKey(_buttonSkillTypeMap, button)){
+            _selectedSkillType = _buttonSkillTypeMap[button]
+            _ToggleTab() 
+            return 
+        }
+    }
+
+    func _SelectSkill(){
+        _DeselectAllSkill()
+        if(_selectedSkill == ""){
+            return 
+        } 
+
+        var selectedImg = _skillSelectedImgMap[_selectedSkill]
+        selectedImg<HudWidget>.Active = true
+    }
+
+    func _DeselectAllSkill(){
+        var skillList = GetAllKeys(_skillSelectedImgMap)
+        for key, skillEnum in skillList{
+            var selectedImg = _skillSelectedImgMap[skillEnum]
+            selectedImg<HudWidget>.Active = false
+        }
+    }
+
+    func _ToggleTab(){
+        var btnActiveTab = GetSkillHUDWidget(EResource_UI_SKILL.BTN_ACTIVE_TAB)
+        var btnPassiveTab = GetSkillHUDWidget(EResource_UI_SKILL.BTN_PASSIVE_TAB)
+        var scrollPassive = GetSkillHUDWidget(EResource_UI_SKILL.SCROLL_PASSIVE)
+        var scrollActive = GetSkillHUDWidget(EResource_UI_SKILL.SCROLL_ACTIVE)
+
+        _SetTabActivity(btnActiveTab, scrollActive, false)
+        _SetTabActivity(btnPassiveTab, scrollPassive, false)
+
+        if(_selectedSkillType == SkillType.PASSIVE){
+            _SetTabActivity(btnPassiveTab, scrollPassive, true)
+            return 
+        } 
+        
+        if(_selectedSkillType == SkillType.ACTIVE){
+            _SetTabActivity(btnActiveTab, scrollActive, true)
+            return 
+        }
+    }
+
+    func _SetTabActivity(btnTab entity<HudWidget>, scrollView entity<HudWidget>, active bool){
+        var txtTab = GetChildByIndex(btnTab, 0) as entity<HudLabelWidget>
+        if(active){
+            btnTab<HudButtonWidget>.Color = ACTIVE_BTN_COLOR
+            txtTab<HudLabelWidget>.Color = ACTIVE_TXT_COLOR
+            scrollView<HudWidget>.Active = true
+        } else {
+            btnTab<HudButtonWidget>.Color = INACTIVE_BTN_COLOR
+            txtTab<HudLabelWidget>.Color = INACTIVE_TXT_COLOR
+            scrollView<HudWidget>.Active = false
+        }
+        
+    }
+    
+    func CloseSkillHUD(){
+        if(_skillHUD != nil){
+            _skillHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteSkillHUD(){
+    
+    }
+
+    func GetSkillHUDWidget(eResourceUISkill string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _skillHUD, Resources.UI_SKILL[eResourceUISkill])
     }
 }
