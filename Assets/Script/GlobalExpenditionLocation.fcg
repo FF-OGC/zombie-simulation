@@ -1,17 +1,29 @@
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
+import MyResources from "EditorGenLib.fcc"
+import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
 
 graph GlobalExpenditionLocation {
-
-    [readonly]
-    LocationNameMap Map<ZoneEnum,string> = Map<ZoneEnum,string>{ZoneEnum.WBF:"Peak",
-                                                                ZoneEnum.WB080:"Shipyard",
-                                                                ZoneEnum.WB100:"Cape town",
-                                                                ZoneEnum.LVL030:"Graveyard",
-                                                                ZoneEnum.LVL010:"ClockTown",
-                                                                ZoneEnum.LVL050:"Mars Electric",
-                                                                ZoneEnum.LVL040:"Factory"};
+    _locationNameMap Map<string, object>
 
     LocationMaterialMap Map<ZoneEnum,MaterialEnum> = Map<ZoneEnum,MaterialEnum>{ZoneEnum.WBF:MaterialEnum.WOOD_LOG,};
     LocationIconMap Map<ZoneEnum,IconType>;
+    _hasInit bool
+
+    func InitGlobalExpeditionLocation(){
+        if(!_hasInit){
+            SetLocationNameMap()
+        }
+    }
+
+    func SetLocationNameMap(){
+        _locationNameMap = Map<string, object>{}
+        for key, value in globalEntity<GlobalZoneSelection>.GetZoneList(){
+            _locationNameMap[value] = MyResources.LocationNameLocalizations[value]
+        }
+    }
+
+    func GetLocationName(zoneEnum string) LocString{
+        return _locationNameMap[zoneEnum] as LocString
+    }
 }

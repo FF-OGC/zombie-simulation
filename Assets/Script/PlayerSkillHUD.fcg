@@ -128,6 +128,10 @@ graph PlayerSkillHUD {
             selectedImg<HudWidget>.Active = false
         }
     }
+    
+    func _ShowSkillInfo(){
+        
+    }
 
     func _ToggleTab(){
         var btnActiveTab = GetSkillHUDWidget(EResource_UI_SKILL.BTN_ACTIVE_TAB)

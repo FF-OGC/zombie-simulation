@@ -4,6 +4,10 @@ import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 import "Playable.fcc" as playable
 import "List.fcc" as list
 import "./Boss.fcg" as Boss
+import MyResources from "EditorGenLib.fcc"
+import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
+import "./GlobalExpenditionLocation.fcg" as GlobalExpeditionLocation
+import "Combat.fcc" as Combat
 
 graph ZoneBossManager {
     X_DELTA float = 10.0
@@ -13,6 +17,7 @@ graph ZoneBossManager {
     _totalCount int
     _bossList List<entity<Entity>>
     _isSpawning bool
+    _zoneEnum string
     _hasInit bool
 
     event OnAwake() {
@@ -28,6 +33,7 @@ graph ZoneBossManager {
                 _type = BossEnum.MECHANICAL_SPIDER
             }
             _totalCount = thisEntity<BossSpawner>.TotalCount
+            _zoneEnum = thisEntity<BossSpawner>.ZoneEnum
             _bossList = List<entity<Entity>>{}
 
             _isSpawning = true
@@ -53,6 +59,7 @@ graph ZoneBossManager {
         }
 
         // LogInfo("[ZoneBossManager] exceed: " + _bossList + " " + _type + " " + GetBossSpawnCount() + " " + (GetBossSpawnCount() >= _totalCount))
+        // If exceed the total boss count of the current zone
         if(GetBossSpawnCount() >= _totalCount){
             return
         }
@@ -69,6 +76,20 @@ graph ZoneBossManager {
         createdEntity<Boss>.SetSpawner(thisEntity<BossSpawner>)
         // LogInfo("[ZoneBossManager] _bossList: "  + thisEntity<Entity>.Name + " " + _bossList + " " + spawnLocation)
         WaitForNextFrame()
+    }
+    
+    func EliminateAllBossInCurrentZone(){
+        var empty = MyResources.SceneObjects["EMPTY_BOSS"] as entity<Transform>
+        LogInfo("[ZoneBossManager] empty: " + MyResources.SceneObjects["EMPTY_BOSS"])
+        for i = 0, Length(_bossList), 1{
+            var boss = _bossList[i]
+            Kill(boss as entity<CombatEntity>)
+            SetParent(empty, boss as entity<Transform>, true)
+        }
+        LogInfo("[ZoneBossManager] childrenListBefore: " + GetChildren(empty))
+        DeleteAllChildren(empty)
+        LogInfo("[ZoneBossManager] _bossList: " + _bossList)
+        LogInfo("[ZoneBossManager] childrenListAfter: " + GetChildren(empty))
     }
 
     func EndBossSpawningLoopContent(){
@@ -87,17 +108,28 @@ graph ZoneBossManager {
         return Length(_bossList)
     }
 
+    func GetZoneName() string{
+        var zoneName = globalEntity<GlobalExpeditionLocation>.GetLocationName(_zoneEnum)
+        return zoneName 
+    }
+
+    func GetZoneEnum() string{
+        return _zoneEnum
+    }
+
     func InsertBossToList(boss entity<Entity>){
         if(Contains(_bossList, boss)){
             return
         }
 
         Append(_bossList, boss)
+        globalEntity<GlobalZoneBossManager>.IncrementTotalBossCount()
         // LogInfo("[ZoneBossManager] _bossList: " + _mobList)
     }
 
     func RemoveBossFromList(boss entity<Entity>){
         Delete(_bossList, boss)
+        globalEntity<GlobalZoneBossManager>.DecrementTotalBossCount()
         // LogInfo("[ZoneBossManager] _bossList: " + _mobList)
     }
 }

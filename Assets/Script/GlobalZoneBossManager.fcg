@@ -4,13 +4,17 @@ import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import Resources from "EditorGenLib.fcc"
 import "./ZoneBossManager.fcg" as ZoneBossManager
+import "Math.fcc" as Math
+import "./PlayerBossNotification.fcg" as PlayerBossNotification
 
 graph GlobalZoneBossManager {
     GLOBAL_SPAWN_INTERVAL int = 10 // 10 seconds
+    GLOBAL_BOSS_COUNT_MAX int = 1
 
     _hasInit bool
     _typePrefabMap Map<int, PrefabID>
     _bossSpawnList List<entity<Entity>>
+    _totalBossCount int
 
     func InitGlobalZoneBossManager(){
         var prefabID = ToString(Resources.Prefab[EResource_Prefab.MECHANICAL_SPIDER_BOSS])
@@ -19,24 +23,51 @@ graph GlobalZoneBossManager {
         }
 
         if(!_hasInit){
+            _totalBossCount = 0
             _hasInit = true
         }
     }
 
+    func EliminateAllBoss(){
+        for i = 0, Length(_bossSpawnList), 1{
+            var bossSpawn = _bossSpawnList[i]
+            bossSpawn<ZoneBossManager>.EliminateAllBossInCurrentZone()
+        }
+    }
+
     func GlobalZoneSpawnLoopContent(loopCount int){
+        InitGlobalZoneBossManager()
 
         // Check if this is the loop to spawn 
         if(loopCount % GLOBAL_SPAWN_INTERVAL != 0){
             return
         }
 
-        LogInfo("[GlobalZoneBossManager] LoopContent: " + _bossSpawnList)
-        // Loop through each spawn zone to call the its loop content
-        for i = 0, Length(_bossSpawnList), 1{
-            var bossSpawn = _bossSpawnList[i]
-            // bossSpawn<ZoneBossManager>.MobStuckCheckLoopContent()
-            start bossSpawn<ZoneBossManager>.SpawningLoopContent()
+        LogInfo("[GlobalZoneBossManager] IsLooping: " + _totalBossCount + " " + GLOBAL_BOSS_COUNT_MAX)
+        EliminateAllBoss()
+
+        // TODO: Show HUD notification to all player
+
+        while(_totalBossCount < GLOBAL_BOSS_COUNT_MAX){
+            var randomIndex = RandomInt(0, Length(_bossSpawnList))
+            var randomBossSpawner = _bossSpawnList[randomIndex]
+
+
+            for key, player in GetAllPlayers(){
+                player<PlayerBossNotification>.SetBossSpawnZoneEnum(randomBossSpawner<ZoneBossManager>.GetZoneEnum())
+                start player<PlayerBossNotification>.BeginBossNotification()
+            }
+            
+            start randomBossSpawner<ZoneBossManager>.SpawningLoopContent()
+            LogInfo("[GlobalZoneBossManager] randomZoneName: " + randomBossSpawner<ZoneBossManager>.GetZoneName())
         }
+        // LogInfo("[GlobalZoneBossManager] LoopContent: " + _bossSpawnList)
+        // // Loop through each spawn zone to call the its loop content
+        // for i = 0, Length(_bossSpawnList), 1{
+        //     var bossSpawn = _bossSpawnList[i]
+        //     // bossSpawn<ZoneBossManager>.MobStuckCheckLoopContent()
+        //     start bossSpawn<ZoneBossManager>.SpawningLoopContent()
+        // }
     }
 
     func SetTypePrefabMap(){
@@ -55,6 +86,22 @@ graph GlobalZoneBossManager {
 
     func GetBossSpawnList() List<entity<Entity>>{
         return _bossSpawnList
+    }
+
+    func IncrementTotalBossCount(){
+        _totalBossCount += 1
+        LogInfo("[GlobalZoneBossManager] _totalBossCount: " + _totalBossCount)
+    }
+    
+    func DecrementTotalBossCount(){
+        _totalBossCount -= 1
+        if(_totalBossCount <= 0){
+            _totalBossCount = 0
+            for key, player in GetAllPlayers(){
+                player<PlayerBossNotification>.OnNoBossOnField()
+            }
+        }
+        LogInfo("[GlobalZoneBossManager] _totalBossCount: " + _totalBossCount)
     }
 
     func InsertZoneSpawnList(bossSpawner entity<BossSpawner>){

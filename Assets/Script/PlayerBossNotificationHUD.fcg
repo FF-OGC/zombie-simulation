@@ -1,0 +1,56 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./HUDUtil.fcg" as HUDUtil
+import "Hud.fcc" as Hud
+import Resources from "EditorGenLib.fcc"
+
+graph PlayerBossNotificationHUD {
+    _bossNotificationHUD entity<CustomHud>
+
+    func InitBossNotificationHUD(){
+        if(_bossNotificationHUD == nil){
+            _bossNotificationHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.BOSS_NOTIFICATION, 4) 
+            _bossNotificationHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func ShowBossNotificationHUD(){
+        InitBossNotificationHUD()
+        ResetBossNotificationHUD()
+        if(!_bossNotificationHUD<CustomHud>.Visibility){
+            _bossNotificationHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func HideBossNotificationHUD(){
+        if(_bossNotificationHUD != nil){
+            _bossNotificationHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteBossNotificationHUD(){
+        DeleteEntity(_bossNotificationHUD)
+    }
+
+    func ResetBossNotificationHUD(){
+        SetPivotBossTeleport(true)
+        SetPivotTimerActivity(false)
+    }
+
+    func UpdateTimer(){
+    }
+
+    func SetPivotTimerActivity(active bool){
+        var pivotTimer = GetBossNotificationHUDWidgets(EResource_UI_BOSS_NOTIFICATION.PIVOT_TIMER)
+        pivotTimer<HudWidget>.Active = active
+    }
+
+    func SetPivotBossTeleport(active bool){
+        var pivotBossTeleport = GetBossNotificationHUDWidgets(EResource_UI_BOSS_NOTIFICATION.PIVOT_BOSS_TELEPORT)
+        pivotBossTeleport<HudWidget>.Active = active
+    }
+
+    func GetBossNotificationHUDWidgets(eResourceUIBossNotification string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _bossNotificationHUD, Resources.UI_BOSS_NOTIFICATION[eResourceUIBossNotification])
+    }
+}

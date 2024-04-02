@@ -88,7 +88,7 @@ graph ZoneMobManager {
     }
 
     func EliminateAllZombieInCurrentZone(){
-        var empty = MyResources.SceneObjects["EMPTY"] as entity<Transform>
+        var empty = MyResources.SceneObjects["EMPTY_MOB"] as entity<Transform>
         // LogInfo("[ZoneMobManager] empty: " + MyResources:SceneObjects["EMPTY"])
         for i = 0, Length(_mobList), 1{
             var mob = _mobList[i]

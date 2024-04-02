@@ -137,6 +137,10 @@ graph PlayerZoneSelection {
         LogInfo("[PlayerZoneSelection] _selectedZone. " + _selectedZone)
     }
 
+    func SetSelectedZoneManually(zoneEnum string){
+        _selectedZone = zoneEnum
+    }
+
     func GetSelectedZone() int{
         return _selectedZone
     }

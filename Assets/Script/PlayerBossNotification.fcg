@@ -1,0 +1,41 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerBossNotificationHUD.fcg" as PlayerBossNotificationHUD
+import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
+
+graph PlayerBossNotification {
+    BOSS_NOTIFICATION_DURATION int = 10000
+    _hasInit bool
+    _bossSpawnZoneEnum string
+
+    func InitBossNotification(){
+        if(!_hasInit){
+            _hasInit = true
+        } 
+    }
+
+    async func BeginBossNotification(){
+        thisEntity<PlayerBossNotificationHUD>.ShowBossNotificationHUD()
+        WaitForSeconds(10000)
+        EndBossNotification()
+    }
+
+    func EndBossNotification(){
+        thisEntity<PlayerBossNotificationHUD>.HideBossNotificationHUD()
+    }
+
+    func OnNoBossOnField(){
+        thisEntity<PlayerBossNotificationHUD>.SetPivotBossTeleport(false)
+        thisEntity<PlayerBossNotificationHUD>.SetPivotTimerActivity(true)
+    }
+
+    func TeleportPlayerToBoss(){
+        EndBossNotification()
+        thisEntity<PlayerZoneSelection>.SetSelectedZoneManually(_bossSpawnZoneEnum)
+        start thisEntity<PlayerZoneSelection>.TeleportPlayerToZone()
+    }
+
+    func SetBossSpawnZoneEnum(zoneEnum string){
+        _bossSpawnZoneEnum = zoneEnum
+    }
+}

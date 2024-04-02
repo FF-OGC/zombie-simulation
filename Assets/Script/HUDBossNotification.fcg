@@ -1,0 +1,13 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerBossNotification.fcg" as PlayerBossNotification
+import "./PlayerBossNotificationHUD.fcg" as PlayerBossNotificationHUD
+
+graph HUDBossNotification {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerBossNotificationHUD>.GetBossNotificationHUDWidgets(EResource_UI_BOSS_NOTIFICATION.BTN_TELEPORT)) {
+            LogInfo("[HUDBossNotification] btnMap: " + button) 
+            player<PlayerBossNotification>.TeleportPlayerToBoss()
+        }
+    }
+}
