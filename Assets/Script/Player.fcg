@@ -42,7 +42,7 @@ graph Player {
         thisEntity<PlayerData>.LoadData()
         WaitForSeconds(500)
         thisEntity<PlayerLevel>.BeginPlayerLevel()
-        thisEntity<PlayerDefaultHUD>.SetPlayerHeadHUD()
+        // thisEntity<PlayerDefaultHUD>.SetPlayerHeadHUD()
         globalEntity<Global>.UpdateAllPlayer()
         SetPlayerConfig()
 
