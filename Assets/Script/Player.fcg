@@ -27,6 +27,7 @@ import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
 import "./PlayerStatHUD.fcg" as PlayerStatHUD
 import "./PlayerData.fcg" as PlayerData
 import "./PlayerLevel.fcg" as PlayerLevel
+import "./PlayerCrafting.fcg" as PlayerCrafting
 
 
 graph Player {
@@ -84,11 +85,12 @@ graph Player {
         thisEntity<PlayerMenu>.DeleteMenuHUD()
     }
 
-    func Preload(){
+    async func Preload(){
         AddItemToPlayer(thisEntity<Player> as entity<Player>, ItemIDType.Bag3, 1, out var addedItemList)
         // AddItemToPlayer(thisEntity<Player> as entity<Player>, Resources.Item[EResource_Item.FlameGun] as ItemIDType, 1, out var addedItemList2)
         // AddItemToPlayer(thisEntity<Player> as entity<Player>, Resources.Item[EResource_Item.FlameGun] as ItemIDType, 1, out var addedItemList2)
         AddItemToPlayer(thisEntity<Player> as entity<Player>, ItemIDType.UZI, 1, out var addedItemLis)
+        thisEntity<PlayerCrafting>.Craft(RecipeEnum.UZI)
 
     }
 

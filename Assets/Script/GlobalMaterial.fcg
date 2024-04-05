@@ -2,24 +2,57 @@ import "Map.fcc" as map
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import MyResources from "EditorGenLib.fcc"
+import Resources from "EditorGenLib.fcc"
 
 graph GlobalMaterial {
     _materialNameMap Map<string, object>
+    _materialMap Map<string,List<object>>
+    _matOrder List<string>
+
     _hasInit bool
 
     func InitGlobalMaterial(){
         if(!_hasInit){
             SetMaterialNameMap()
+            initMaterialMap()
             _hasInit = true
         }
     }
 
+    func GetMatOrder() List<string>{
+        _matOrder = List<string>{MaterialEnum.ZOMBIE_ESSENCE,MaterialEnum.BOSS_ESSENCE,MaterialEnum.PET_EGG,MaterialEnum.PET_ESSENCE,MaterialEnum.GOLD}
+        return _matOrder
+    }
+
+    func initMaterialMap(){
+        _materialMap = Map<string,List<object>>{}
+        _materialMap[MaterialEnum.ZOMBIE_ESSENCE] = List<object>{"Zombie Essence",Resources.Texture[EResource_Texture.MAT_ZOMBIE_ESSENCE]}
+        _materialMap[MaterialEnum.BOSS_ESSENCE] = List<object>{"Boss Essence",Resources.Texture[EResource_Texture.MAT_BOSS_ESSENCE]}
+        _materialMap[MaterialEnum.PET_EGG] = List<object>{"Pet Egg",Resources.Texture[EResource_Texture.MAT_PET_EGG]}
+        _materialMap[MaterialEnum.PET_ESSENCE] = List<object>{"Pet Essence",Resources.Texture[EResource_Texture.MAT_PET_ESSENCE]}
+        _materialMap[MaterialEnum.GOLD] = List<object>{"Gold",Resources.Texture[EResource_Texture.MAT_GOLD]}
+    }
+
+    func GetMaterialText(materialEnum string) string{
+        InitGlobalMaterial()
+        return _materialMap[materialEnum][0] as string
+    }
+
+    func GetMaterialIcon(materialEnum string) object{
+        InitGlobalMaterial()
+        return _materialMap[materialEnum][1] as object
+    }
+
+    func GetMaterialAttribute(materialEnum string) List<object>{
+        InitGlobalMaterial()
+        return _materialMap[materialEnum] as List<object>
+    }
+
     func SetMaterialNameMap(){
         _materialNameMap = Map<string, object>{}
-        _materialNameMap[MaterialEnum.WOOD_LOG] = MyResources.MaterialLocalizations[MaterialEnum.WOOD_LOG]
     }
    
-
+   
     func GetMaterialName(materialEnum string) LocString{
         InitGlobalMaterial()
         return _materialNameMap[materialEnum] as LocString
@@ -27,6 +60,6 @@ graph GlobalMaterial {
 
     func GetMaterialList() List<string>{
         InitGlobalMaterial()
-        return GetAllKeys(_materialNameMap) as List<string>
+        return GetAllKeys(_materialMap) as List<string>
     }
 }

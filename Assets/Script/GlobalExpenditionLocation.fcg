@@ -12,6 +12,5 @@ graph GlobalExpenditionLocation {
                                                                 ZoneEnum.LVL050:"Mars Electric",
                                                                 ZoneEnum.LVL040:"Factory"};
 
-    LocationMaterialMap Map<ZoneEnum,MaterialEnum> = Map<ZoneEnum,MaterialEnum>{ZoneEnum.WBF:MaterialEnum.WOOD_LOG,};
     LocationIconMap Map<ZoneEnum,IconType>;
 }

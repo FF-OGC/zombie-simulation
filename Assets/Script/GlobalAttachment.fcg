@@ -48,9 +48,9 @@ graph GlobalAttachment {
         InitGlobalAttachment()
         var attachmentList = List<string>{}
         var csv = ReadCSV(Resources.CSV[EResource_CSV.CRAFTING])
-        var inUseIndex = 1
-        var typeIndex = 2
-        var recIndex = 3
+        var inUseIndex = 2
+        var typeIndex = 3
+        var recIndex = 4
 
         for key, row in csv {
             if row[inUseIndex] as string == "TRUE" {

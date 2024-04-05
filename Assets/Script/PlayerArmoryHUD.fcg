@@ -78,6 +78,8 @@ graph PlayerArmoryHUD {
                 var children = GetChildren(editingGunChoice)
                 var image = children[0]
                 var text = children[1]
+                var checked = children[2]
+                checked<HudWidget>.Active = false
                 image<HudImageWidget>.SpriteName = recipeMap[weapon][imageIndex] as IconType
                 text<HudLabelWidget>.Text = recipeMap[weapon][nameIndex] as text
                 AddTag(editingGunChoice,weapon as text)

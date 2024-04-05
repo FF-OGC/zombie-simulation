@@ -8,6 +8,9 @@ import "Items.fcc" as items
 import "Math.fcc" as math
 import "List.fcc" as List
 import "./PlayerInventory.fcg" as PlayerInventory
+import "./GlobalMaterial.fcg" as GlobalMaterial
+import"./PlayerCrafting.fcg" as PlayerCrafting
+import "Map.fcc" as Map
 
 graph PlayerCraftingHUD {
     _craftHUD entity<CustomHud>
@@ -131,6 +134,7 @@ graph PlayerCraftingHUD {
     func SetWeaponInfo(recipe string) {
         var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
         var recipeMatMap = globalEntity<GlobalCrafting>.GetRecipeMaterial(recipe)
+        var matOrder = globalEntity<GlobalMaterial>.GetMatOrder()
 
         var gunInfoHolder = GetChildren(GetCraftHUDWidget(EResource_UI_CRAFTING.PIVOT_GUN_INFO))
         var gunInfo = GetChildren(gunInfoHolder[0])
@@ -154,7 +158,11 @@ graph PlayerCraftingHUD {
         }
 
         var index = 0
-        for mat, amount in recipeMatMap {
+        for key, mat in matOrder {
+            if !Contains(GetAllKeys(recipeMatMap),mat){
+                continue
+            }
+
             if index != 0 {
                 CloneEntity(out var clonedentity,editingMat)
                 editingMat = clonedentity as entity<HudWidget>
@@ -165,14 +173,15 @@ graph PlayerCraftingHUD {
             var matName = children[1]
             var matAmount = children[2]
 
-            matName<HudLabelWidget>.Text = mat
-            matAmount<HudLabelWidget>.Text = amount   
+            matName<HudLabelWidget>.Text = globalEntity<GlobalMaterial>.GetMaterialText(mat)
+            matImage<HudImageWidget>.SpriteName = globalEntity<GlobalMaterial>.GetMaterialIcon(mat) as IconType
+            matAmount<HudLabelWidget>.Text = recipeMatMap[mat]   
             index++ 
         }
 
         // Set color of crating btn
         var craftingBtn = GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)
-        if thisEntity<PlayerInventory>.CheckHasItem(recipe) {
+        if thisEntity<PlayerInventory>.CheckHasItem(recipe) || !thisEntity<PlayerCrafting>.CheckHasRequirement(recipe){
             craftingBtn<HudButtonWidget>.Color = #4B4B4BFF
         } else {
             craftingBtn<HudButtonWidget>.Color = #FAB41BFF

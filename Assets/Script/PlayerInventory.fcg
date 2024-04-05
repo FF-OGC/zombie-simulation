@@ -143,7 +143,7 @@ graph PlayerInventory {
 
         // Set Obtain noti
         var materialAmountStr =  "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialText(materialEnum)}), ColorRGB(255, 255, 255), 3000)
         LogInfo("[PlayerInventory] material after +: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 
@@ -156,12 +156,12 @@ graph PlayerInventory {
 
         // Consume mat from inventory
         var currentMatAmount = _inventoryMap[materialEnum]
-        var totalMatAmount = currentMatAmount + amount
+        var totalMatAmount = currentMatAmount - amount
         _inventoryMap[materialEnum] = totalMatAmount
 
         // Set Consumption noti
         var materialAmountStr = "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialText(materialEnum)}), ColorRGB(255, 255, 255), 3000)
         LogInfo("[PlayerInventory] material after -: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 
