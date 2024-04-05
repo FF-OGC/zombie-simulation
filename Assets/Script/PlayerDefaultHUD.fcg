@@ -5,9 +5,12 @@ import "Workflow.fcc" as workflow
 import "GameResult.fcc" as gameResult 
 import "./PlayerLevel.fcg" as PlayerLevel
 import "List.fcc" as List
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 
 graph PlayerDefaultHUD {
     _countdownHUD entity<PhaseCountDownHud>
+    _bossResetCountdownHUD entity<PhaseCountDownHud>
+    _bossResetSubtitleHUD entity<MatchInfoSubTitleHud>
     _resultBannerHUD entity<ResultBannerHud>
     _tweenTipsHUD entity<TweenTipsHud>
     _fiveSecondCountDownHUD entity<FiveSecondCountDownHud>
@@ -18,14 +21,39 @@ graph PlayerDefaultHUD {
         DeleteEntity(_countdownHUD)
         _curentPhaseEntity = phaseEntity
         CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType.PhaseCountDownHud)
-        _countdownHUD = createdEntity as entity<PhaseCountDownHud>;
+        _countdownHUD = createdEntity as entity<PhaseCountDownHud>
         _countdownHUD<PhaseCountDownHud>.Duration = phaseEntity<Phase>.PhaseDuration / 1000
         _countdownHUD<PhaseCountDownHud>.BaseTime = globalEntity<Global>.GameTime / 1000
         _countdownHUD<PhaseCountDownHud>.Visibility = true
     }
 
+    func SetBossResetTimerHUD(){
+        // _countdownHUD<PhaseCountDownHud>.Visibility = false
+        // DeleteEntity(_bossResetCountdownHUD)
+        // CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType.PhaseCountDownHud)
+        // _bossResetCountdownHUD = createdEntity as entity<PhaseCountDownHud>
+        // LogInfo("[PlayerDefaultHUD] duration: " + globalEntity<GlobalZoneBossManager>.GLOBAL_SPAWN_INTERVAL )
+        // _bossResetCountdownHUD<PhaseCountDownHud>.Duration = globalEntity<GlobalZoneBossManager>.GLOBAL_SPAWN_INTERVAL 
+        // _bossResetCountdownHUD<PhaseCountDownHud>.BaseTime = globalEntity<Global>.GameTime / 1000
+        // _bossResetCountdownHUD<PhaseCountDownHud>.Visibility = true
+    }
+
+    func SetBossResetSubtitle(){
+        // DeleteEntity(_bossResetCountdownHUD)
+        // CreateInternalHud(out var createdEntity, thisEntity<Player>, InternalHudType.MatchInfoSubTitleHud)
+        // _bossResetSubtitleHUD = createdEntity as entity<MatchInfoSubTitleHud>
+        // _bossResetSubtitleHUD<MatchInfoSubTitleHud>.EnableLocalization = false
+        // _bossResetCountdownHUD<MatchInfoSubTitleHud>.TextKey =  "CONFIRM"
+        // _bossResetCountdownHUD<MatchInfoSubTitleHud>.TextKeyParams = List<int>{}
+        // _bossResetCountdownHUD<MatchInfoSubTitleHud>.Visibility = true
+    }
+
     func DeleteCountdownTimerHUD(){
         DeleteEntity(_countdownHUD)
+    }
+
+    func DeleteBossResetTimerHUD(){
+        DeleteEntity(_bossResetCountdownHUD)
     }
 
     func HideCountdownTimerHUD(){

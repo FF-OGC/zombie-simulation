@@ -4,7 +4,7 @@ import "./PlayerBossNotificationHUD.fcg" as PlayerBossNotificationHUD
 import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
 
 graph PlayerBossNotification {
-    BOSS_NOTIFICATION_DURATION int = 10000
+    BOSS_NOTIFICATION_DURATION int = 60000
     _hasInit bool
     _bossSpawnZoneEnum string
 
@@ -16,7 +16,7 @@ graph PlayerBossNotification {
 
     async func BeginBossNotification(){
         thisEntity<PlayerBossNotificationHUD>.ShowBossNotificationHUD()
-        WaitForSeconds(10000)
+        WaitForSeconds(BOSS_NOTIFICATION_DURATION)
         EndBossNotification()
     }
 
@@ -25,8 +25,8 @@ graph PlayerBossNotification {
     }
 
     func OnNoBossOnField(){
-        thisEntity<PlayerBossNotificationHUD>.SetPivotBossTeleport(false)
-        thisEntity<PlayerBossNotificationHUD>.SetPivotTimerActivity(true)
+        // thisEntity<PlayerBossNotificationHUD>.SetPivotBossTeleport(false)
+        // thisEntity<PlayerBossNotificationHUD>.SetPivotTimerActivity(true)
     }
 
     func TeleportPlayerToBoss(){

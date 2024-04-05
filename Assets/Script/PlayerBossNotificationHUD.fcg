@@ -3,6 +3,9 @@ import "EditorGenLib.fcc" as editorGenLib
 import "./HUDUtil.fcg" as HUDUtil
 import "Hud.fcc" as Hud
 import Resources from "EditorGenLib.fcc"
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
+import "./GlobalLoop.fcg" as GlobalLoop
+import "Convert.fcc" as Convert
 
 graph PlayerBossNotificationHUD {
     _bossNotificationHUD entity<CustomHud>
@@ -22,6 +25,10 @@ graph PlayerBossNotificationHUD {
         }
     }
 
+    func StartBossNotificationTimer(){
+
+    }
+
     func HideBossNotificationHUD(){
         if(_bossNotificationHUD != nil){
             _bossNotificationHUD<CustomHud>.Visibility = false
@@ -38,6 +45,33 @@ graph PlayerBossNotificationHUD {
     }
 
     func UpdateTimer(){
+        var pivotTimer = GetBossNotificationHUDWidgets(EResource_UI_BOSS_NOTIFICATION.PIVOT_TIMER)
+        var txtTimer = GetChildByIndex(pivotTimer, 0) as entity<HudWidget>
+        var alterTime = globalEntity<GlobalZoneBossManager>.GLOBAL_SPAWN_INTERVAL
+        var remainingTimeS = alterTime  - (globalEntity<GlobalLoop>.GetLoopCount() % alterTime)
+        // LogInfo("[PlayerSkybox] remainingTime s = " + remainingTimeS)
+        var remainingTimeM = 0
+
+        if(remainingTimeS > 60){
+            remainingTimeM = remainingTimeS / 60
+            remainingTimeS -= remainingTimeM * 60
+        }
+
+        var txtRemainingTimeM = ""
+        var txtRemainingTimeS = ""
+        if(remainingTimeM < 10) {
+            txtRemainingTimeM = "0" + ToString(remainingTimeM)
+        } else {
+            txtRemainingTimeM = ToString(remainingTimeM)
+        }
+
+        if(remainingTimeS < 10) {
+            txtRemainingTimeS = "0" + ToString(remainingTimeS)
+        } else {
+            txtRemainingTimeS = ToString(remainingTimeS)
+        }
+
+        txtTimer<HudLabelWidget>.Text = txtRemainingTimeM + ":" + txtRemainingTimeS + " Until next world boss"
     }
 
     func SetPivotTimerActivity(active bool){
