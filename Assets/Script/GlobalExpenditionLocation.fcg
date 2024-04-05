@@ -6,7 +6,6 @@ import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
 graph GlobalExpenditionLocation {
     _locationNameMap Map<string, object>
 
-    LocationMaterialMap Map<ZoneEnum,MaterialEnum> = Map<ZoneEnum,MaterialEnum>{ZoneEnum.WBF:MaterialEnum.WOOD_LOG,};
     LocationIconMap Map<ZoneEnum,IconType>;
     _hasInit bool
 

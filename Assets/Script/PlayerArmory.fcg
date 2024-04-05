@@ -63,10 +63,14 @@ graph PlayerArmory {
     func Equip(gun List<string>) {
         InitPlayerArmory()
 
+        LogInfo("gun: " + gun)
+
         var gunIndex = 0
         if CheckEquipedItem(gun[gunIndex]) {
+            LogInfo("Already Equiped")
             return
         } else {
+            LogInfo("Equiping")
             AddItemToPlayer(thisEntity<Player> as entity<Player>, _recipeMap[gun[gunIndex]][4] as ItemIDType, 1,out var addedItems)
             UpdateEquipedGun()
         }

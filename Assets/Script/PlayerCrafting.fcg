@@ -8,6 +8,7 @@ import "Items.fcc" as Items
 import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 
 
+
 graph PlayerCrafting {
     _hasInit bool
     
@@ -17,10 +18,23 @@ graph PlayerCrafting {
         }
     }
 
+    func CheckHasRequirement(RecipeEnum string) bool{
+        var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+        if recipeMap[RecipeEnum][5] == nil {
+            return true
+        }
+        return thisEntity<PlayerInventory>.CheckHasItem(recipeMap[RecipeEnum][5])
+    }
+
    async func Craft(recipeEnum string){
 
         //Check if available
         if !thisEntity<PlayerInventory>.CheckHasItem(recipeEnum) {
+            if(!CheckHasRequirement(recipeEnum)){
+                ShowTips(thisEntity<Player> as entity<Player>,"Craft Previous Item First",#FFFFFFFF,3000)
+                return
+            }
+
             var recipeMatMap = globalEntity<GlobalCrafting>.GetRecipeMaterial(recipeEnum)
             var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
             var craftable = true

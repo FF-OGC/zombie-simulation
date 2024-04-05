@@ -170,6 +170,7 @@ graph PlayerStat {
         if(statType == StatType.ATK){
             var currentATK = _statMap[StatType.ATK]
             _statMap[StatType.ATK] = currentATK + mult * statPointAmount
+            thisEntity<Player>.ATK = _statMap[StatType.ATK]
             LogInfo("[PlayerStat] atk increase by: " + statPointAmount + ", totaling: " + _statMap[StatType.ATK])
             return 
         }
@@ -202,6 +203,7 @@ graph PlayerStat {
         if(statType == StatType.ATK){
             var currentATK = _statMap[StatType.ATK]
             _statMap[StatType.ATK] += mult * statAmount
+            thisEntity<Player>.ATK = _statMap[StatType.ATK]
             LogInfo("[PlayerStat] atk increase by: " + statAmount + ", totaling: " + _statMap[StatType.ATK])
             return 
         }
@@ -276,6 +278,10 @@ graph PlayerStat {
         }
         LogInfo("[PlayerStat] newStatMap: " + newStatMap)
         return newStatMap
+    }
+
+    func GetStat(statEnum int) int{
+        return _statMap[statEnum]
     }
 
     event Player_FinishAction(action string, data object) {        
