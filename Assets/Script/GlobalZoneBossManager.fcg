@@ -6,9 +6,10 @@ import Resources from "EditorGenLib.fcc"
 import "./ZoneBossManager.fcg" as ZoneBossManager
 import "Math.fcc" as Math
 import "./PlayerBossNotification.fcg" as PlayerBossNotification
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 
 graph GlobalZoneBossManager {
-    GLOBAL_SPAWN_INTERVAL int = 10 // 10 seconds
+    GLOBAL_SPAWN_INTERVAL int = 60 // 60 seconds
     GLOBAL_BOSS_COUNT_MAX int = 1
 
     _hasInit bool
@@ -43,6 +44,10 @@ graph GlobalZoneBossManager {
             return
         }
 
+        // Update timer
+        for key, player in GetAllPlayers(){
+        }
+
         LogInfo("[GlobalZoneBossManager] IsLooping: " + _totalBossCount + " " + GLOBAL_BOSS_COUNT_MAX)
         EliminateAllBoss()
 
@@ -52,10 +57,12 @@ graph GlobalZoneBossManager {
             var randomIndex = RandomInt(0, Length(_bossSpawnList))
             var randomBossSpawner = _bossSpawnList[randomIndex]
 
-
             for key, player in GetAllPlayers(){
                 player<PlayerBossNotification>.SetBossSpawnZoneEnum(randomBossSpawner<ZoneBossManager>.GetZoneEnum())
+                // player<PlayerBossNotification>
                 start player<PlayerBossNotification>.BeginBossNotification()
+                player<PlayerDefaultHUD>.SetBossResetTimerHUD()
+                player<PlayerDefaultHUD>.SetBossResetSubtitle()
             }
             
             start randomBossSpawner<ZoneBossManager>.SpawningLoopContent()
