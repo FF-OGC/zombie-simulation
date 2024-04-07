@@ -120,7 +120,7 @@ graph PlayerZoneSelection {
         // Check for distance to start spawning zombie
         globalEntity<GlobalZoneMobManager>.NotifyDistanceChecking(thisEntity<Player>)
 
-        Teleport(thisEntity<Player>, globalEntity<GlobalZoneSelection>.GetZoneTeleportLocation(_selectedZone) + Vector3{0, 3, 0}, Vector3{0, 0, 0})
+        Teleport(thisEntity<Player>, globalEntity<GlobalZoneSelection>.GetZoneTeleportLocation(_selectedZone) + Vector3{0, 2, 0}, Vector3{0, 0, 0})
         
         StopPlayerFromTeleporting()
     }
