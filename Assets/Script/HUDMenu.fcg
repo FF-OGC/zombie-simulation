@@ -12,6 +12,7 @@ import "./PlayerData.fcg" as PlayerData
 import "Items.fcc" as Items
 import Resources from "EditorGenLib.fcc"
 import "./PlayerSkill.fcg" as PlayerSkill
+import "Math.fcc" as Math
 
 graph HUDMenu {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
@@ -24,6 +25,7 @@ graph HUDMenu {
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_STAT)){
             LogInfo("[HUDMenu] btnStat: " + button)
             player<PlayerStat>.BeginPlayerStat()
+            // LogInfo("[_type] randomInt: " + RandomInt(1, 3))
             // player<PlayerData>.Debug_ResetData()
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_SKILL)){
             LogInfo("[HUDMenu] btnStat: " + button)

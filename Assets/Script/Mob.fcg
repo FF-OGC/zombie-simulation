@@ -9,6 +9,7 @@ import "./PlayerInventory.fcg" as PlayerInventory
 import "Playable.fcc" as playable
 import "Math.fcc" as math
 import "./GlobalMob.fcg" as GlobalMob
+import "./PlayerMoney.fcg" as PlayerMoney
 
 graph Mob {
     LOOP_ELIM_DELTA int = 300
@@ -41,6 +42,7 @@ graph Mob {
         _spawner<ZoneMobManager>.RemoveMobFromList(thisEntity<Entity>)
         attacker<PlayerLevel>.IncreaseExpByAmount(_expAmount)
         attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.ZOMBIE_ESSENCE, 1)
+        attacker<PlayerMoney>.AddMoney(GameMoneyType.COIN, 20)
 
     }
 

@@ -8,6 +8,7 @@ import MyResources from "EditorGenLib.fcc"
 import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
 import "./GlobalExpenditionLocation.fcg" as GlobalExpeditionLocation
 import "Combat.fcc" as Combat
+import "Math.fcc" as Math
 
 graph ZoneBossManager {
     X_DELTA float = 10.0
@@ -30,7 +31,7 @@ graph ZoneBossManager {
             //The check exist due to not being able to set default enum value.
             _type = thisEntity<BossSpawner>.Type
             if(_type == 0){
-                _type = BossEnum.MECHANICAL_SPIDER
+                _type = RandomInt(0, 2)
             }
             _totalCount = thisEntity<BossSpawner>.TotalCount
             _zoneEnum = thisEntity<BossSpawner>.ZoneEnum
@@ -83,7 +84,9 @@ graph ZoneBossManager {
         LogInfo("[ZoneBossManager] empty: " + MyResources.SceneObjects["EMPTY_BOSS"])
         for i = 0, Length(_bossList), 1{
             var boss = _bossList[i]
-            Kill(boss as entity<CombatEntity>)
+            // Kill(boss as entity<CombatEntity>)
+            DeleteEntity(boss)
+            globalEntity<GlobalZoneBossManager>.DecrementTotalBossCount()
             SetParent(empty, boss as entity<Transform>, true)
         }
         LogInfo("[ZoneBossManager] childrenListBefore: " + GetChildren(empty))

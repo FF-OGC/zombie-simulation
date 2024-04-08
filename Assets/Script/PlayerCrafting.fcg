@@ -6,6 +6,7 @@ import "Convert.fcc" as convert
 import "./PlayerData.fcg" as PlayerData
 import "Items.fcc" as Items
 import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
+import "./PlayerMoney.fcg" as PlayerMoney
 
 
 
@@ -43,9 +44,16 @@ graph PlayerCrafting {
             for mat, amount in recipeMatMap {
                 LogInfo(mat + ": " + amount)
                 StringToInt(amount, out var amountInt, out var success)
-                thisEntity<PlayerInventory>.IncreaseItemByAmount(mat,100)
-                if thisEntity<PlayerInventory>.GetItemAmount(mat) < amountInt{
-                    craftable = false
+                // thisEntity<PlayerInventory>.IncreaseItemByAmount(mat,100)
+
+                if mat == MaterialEnum.GOLD{
+                    if thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN) < amountInt {
+                        craftable = false
+                    }
+                } else {
+                    if thisEntity<PlayerInventory>.GetItemAmount(mat) < amountInt{
+                        craftable = false
+                    }
                 }
             }
             // Craftable
@@ -53,7 +61,12 @@ graph PlayerCrafting {
                 LogInfo("Craft success")
                 for mat, amount in recipeMatMap {
                     StringToInt(amount, out var amountInt, out var success)
-                    thisEntity<PlayerInventory>.DecreaseItemByAmount(mat, amountInt)
+                    if mat == MaterialEnum.GOLD{
+                        thisEntity<PlayerMoney>.ConsumeMoney(GameMoneyType.COIN, amountInt)
+                    }else {
+                        thisEntity<PlayerInventory>.DecreaseItemByAmount(mat, amountInt)
+                    }
+                    
                 }
 
                 if globalEntity<GlobalCrafting>.CheckIsGun(recipeEnum) {
