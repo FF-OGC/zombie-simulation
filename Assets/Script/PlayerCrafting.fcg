@@ -49,10 +49,12 @@ graph PlayerCrafting {
                 if mat == MaterialEnum.GOLD{
                     if thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN) < amountInt {
                         craftable = false
+                        ShowTips(thisEntity<Player> as entity<Player>,"Not Enough Gold",#FFFFFFFF,3000)
                     }
                 } else {
                     if thisEntity<PlayerInventory>.GetItemAmount(mat) < amountInt{
                         craftable = false
+                        ShowTips(thisEntity<Player> as entity<Player>,"Not Enough Material",#FFFFFFFF,3000)
                     }
                 }
             }
@@ -78,7 +80,7 @@ graph PlayerCrafting {
                     AddItemToPlayer(thisEntity<Player> as entity<Player>, recipeMap[recipeEnum][4] as ItemIDType,3,out var addedItems)
                 }
 
-                thisEntity<PlayerCraftHUD>.UpdateCraftHUD(recipeEnum)
+                thisEntity<PlayerCraftHUD>.UpdateCraftHUD()
                 thisEntity<PlayerData>.WriteData()
             } else { // Not craftable
                 //display insufficient materials

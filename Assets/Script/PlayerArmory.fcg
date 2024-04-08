@@ -19,6 +19,7 @@ graph PlayerArmory {
     _equipedHandGun string = nil
     _equipedMelee string = nil
 
+
     func InitPlayerArmory(){
         if(!_hasInit){
             _hasInit = true

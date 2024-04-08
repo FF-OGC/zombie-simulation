@@ -63,10 +63,11 @@ graph GlobalZoneBossManager {
         // TODO: Show HUD notification to all player
         var count = 0
         while(_totalBossCount < GLOBAL_BOSS_COUNT_MAX){
-            // if(count >= 100){
-            //     break
-            // }
-
+            if(count >= 100){
+                break
+            }
+            count++
+            
             var randomIndex = RandomInt(0, Length(_bossSpawnList))
             var randomBossSpawner = _bossSpawnList[randomIndex]
 
