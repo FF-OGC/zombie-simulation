@@ -66,7 +66,7 @@ graph GlobalZoneSelection {
 
     func GetLocationFromObject(key string) Vector3{
         var obj = MyResources.SceneObjects[key] as entity<LevelObject>
-        LogInfo("[GlobalZoneSelection] obj: " + key + " " + obj + " " + obj<Transform>.Position)
+        // LogInfo("[GlobalZoneSelection] obj: " + key + " " + obj + " " + obj<Transform>.Position)
         return obj<Transform>.Position
     }
 

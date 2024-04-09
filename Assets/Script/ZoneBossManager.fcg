@@ -3,12 +3,15 @@ import "EditorGenLib.fcc" as editorGenLib
 import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 import "Playable.fcc" as playable
 import "List.fcc" as list
-import "./Boss.fcg" as Boss
+import "./Boss.fcg" as BossScript
 import MyResources from "EditorGenLib.fcc"
 import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
 import "./GlobalExpenditionLocation.fcg" as GlobalExpeditionLocation
 import "Combat.fcc" as Combat
 import "Math.fcc" as Math
+import "./PlayerStat.fcg" as PlayerStat
+import DragonECA from "EditorGenLib.fcc"
+import SpiderECA from "EditorGenLib.fcc"
 
 graph ZoneBossManager {
     X_DELTA float = 10.0
@@ -22,7 +25,7 @@ graph ZoneBossManager {
     _hasInit bool
 
     event OnAwake() {
-        LogInfo("[ZoneBossManager] new manager: " + thisEntity<Entity>)
+        // LogInfo("[ZoneBossManager] new manager: " + thisEntity<Entity>)
         BeginBossSpawning()
     } 
 
@@ -32,6 +35,7 @@ graph ZoneBossManager {
             _type = thisEntity<BossSpawner>.Type
             if(_type == 0){
                 _type = RandomInt(0, 2)
+                _type = 1
             }
             _totalCount = thisEntity<BossSpawner>.TotalCount
             _zoneEnum = thisEntity<BossSpawner>.ZoneEnum
@@ -49,7 +53,7 @@ graph ZoneBossManager {
 
     async func SpawningLoopContent(){
         InitZoneBossManager()
-        LogInfo("[ZoneBossManager] SpawningLoopContent")
+        // LogInfo("[ZoneBossManager] SpawningLoopContent")
         // This is here since it does not init some time
         if(_bossList == nil){
             _bossList = List<entity<Entity>>{}
@@ -74,11 +78,28 @@ graph ZoneBossManager {
 
         InsertBossToList(createdEntity)
         createdEntity<Transform>.Position = spawnLocation
-        createdEntity<Boss>.SetSpawner(thisEntity<BossSpawner>)
+        createdEntity<BossScript>.SetSpawner(thisEntity<BossSpawner>)
+        createdEntity<BossComponent>.ATK = GetStat(StatType.ATK)
+        createdEntity<BossComponent>.HP = GetStat(StatType.MAX_HP)
+
+        if(_type == BossEnum.DRAGON){
+            createdEntity<DragonECA>.initBossConfig()
+        } else {
+            createdEntity<SpiderECA>.initBossConfig()
+        }
         // LogInfo("[ZoneBossManager] _bossList: "  + thisEntity<Entity>.Name + " " + _bossList + " " + spawnLocation)
         WaitForNextFrame()
     }
-    
+
+    func GetStat(statEnum int) int{
+        var total = 0
+        for key, player in GetAllPlayers(){
+            var stat = player<PlayerStat>.GetStat(statEnum)
+            total += stat
+        }
+        return total
+    }
+
     func EliminateAllBossInCurrentZone(){
         var empty = MyResources.SceneObjects["EMPTY_BOSS"] as entity<Transform>
         LogInfo("[ZoneBossManager] empty: " + MyResources.SceneObjects["EMPTY_BOSS"])
@@ -89,10 +110,10 @@ graph ZoneBossManager {
             globalEntity<GlobalZoneBossManager>.DecrementTotalBossCount()
             SetParent(empty, boss as entity<Transform>, true)
         }
-        LogInfo("[ZoneBossManager] childrenListBefore: " + GetChildren(empty))
+        // LogInfo("[ZoneBossManager] childrenListBefore: " + GetChildren(empty))
         DeleteAllChildren(empty)
-        LogInfo("[ZoneBossManager] _bossList: " + _bossList)
-        LogInfo("[ZoneBossManager] childrenListAfter: " + GetChildren(empty))
+        // LogInfo("[ZoneBossManager] _bossList: " + _bossList)
+        // LogInfo("[ZoneBossManager] childrenListAfter: " + GetChildren(empty))
     }
 
     func EndBossSpawningLoopContent(){

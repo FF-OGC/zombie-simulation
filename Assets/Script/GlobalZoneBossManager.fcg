@@ -10,7 +10,7 @@ import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 
 graph GlobalZoneBossManager {
     GLOBAL_SPAWN_INTERVAL int = 300 // 300 seconds
-    GLOBAL_FIRST_BOSS_SPAWN_TIME int = 60 // 60 seconds
+    GLOBAL_FIRST_BOSS_SPAWN_TIME int = 20 // 60 seconds
     GLOBAL_BOSS_COUNT_MAX int = 1
 
     _hasInit bool
