@@ -14,10 +14,10 @@ graph PlayerBossNotification {
         } 
     }
 
-    async func BeginBossNotification(){
+    func BeginBossNotification(){
         thisEntity<PlayerBossNotificationHUD>.ShowBossNotificationHUD()
-        WaitForSeconds(BOSS_NOTIFICATION_DURATION)
-        EndBossNotification()
+        // WaitForSeconds(BOSS_NOTIFICATION_DURATION)
+        // EndBossNotification()
     }
 
     func EndBossNotification(){

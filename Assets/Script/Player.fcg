@@ -7,12 +7,15 @@ import "Combat.fcc" as combat
 import "LevelObject.fcc" as levelobject
 import "Items.fcc" as items
 import "List.fcc" as List
+import "Physics.fcc" as Physics
+import "Math.fcc" as Math
 
 import Resources from "EditorGenLib.fcc"
 import MyResources from "EditorGenLib.fcc"
 
 import "./GlobalSpawn.fcg" as GlobalSpawn
 import "./Global.fcg" as Global
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 
 import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
@@ -28,8 +31,9 @@ import "./PlayerStatHUD.fcg" as PlayerStatHUD
 import "./PlayerData.fcg" as PlayerData
 import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerSkillHUD.fcg" as PlayerSkillHUD
-import "Physics.fcc" as Physics
 import "./PlayerCrafting.fcg" as PlayerCrafting
+import "./PlayerBossNotificationHUD.fcg" as PlayerBossNotificationHUD
+import "./PlayerBossNotification.fcg" as PlayerBossNotification
 
 
 graph Player {
@@ -63,6 +67,20 @@ graph Player {
     }
 
 
+    event Player_OnEnterBossZone(bossEnum int) {
+        LogInfo("[Player] Enter Boss zone: " + bossEnum)
+        thisEntity<PlayerBossNotification>.EndBossNotification() 
+    }
+
+    event Player_OnLeaveBossZone(bossEnum int) {
+        LogInfo("[Player] Leave Boss zone: " + bossEnum)
+        thisEntity<PlayerBossNotification>.BeginBossNotification()
+    }
+
+    event OnTakeDamage(attacker entity<Entity>, damageType DamageType, value int, beDamagedPart HitBodyPart) {
+        ShowTips(thisEntity as entity<Player>, "Damage: " + value, ColorRGB(255, 255, 255), 3000)
+    }
+
     // event OnDropWeapon(weapon entity<Weapon>) {
     //     LogInfo("drop weapon")
     //     DeleteResidualLevelObjects()
@@ -82,6 +100,8 @@ graph Player {
         thisEntity<PlayerStatHUD>.InitStatHUD()
         WaitForSeconds(500)
         thisEntity<PlayerSkillHUD>.InitSkillHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerBossNotificationHUD>.InitBossNotificationHUD()
     }
 
     func DeleteAllHUD(){
@@ -99,9 +119,10 @@ graph Player {
     }
 
     func SetPlayerConfig() {
-        // var thisPlayer = thisEntity<Player> as entity<Player>
-        // thisPlayer<Player>.DropItemDisabled = true
+        // var thisPlayer = thisEntity as entity<Player>
+        // thisEntity<Player>.DropItemDisabled = true
         // thisEntity<Player>.PickupItemDisabled = true
+        // thisEntity<Player>.KnockDownState = KnockDownType.SkipKnockDown
     }
 
     async func RunOnKilled(){
@@ -111,6 +132,9 @@ graph Player {
         WaitForNextFrame()
         Revive(thisEntity<Player> as entity<Player>)
         globalEntity<Global>.UpdateAllPlayer()
+        if(globalEntity<GlobalZoneBossManager>.IsBossOnField()){
+            thisEntity<PlayerBossNotification>.BeginBossNotification()
+        }
     }
 
 }

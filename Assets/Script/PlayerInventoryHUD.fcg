@@ -3,14 +3,28 @@ import "EditorGenLib.fcc" as editorGenLib
 import "Hud.fcc" as hud
 import "./HUDUtil.fcg" as HUDUtil
 import Resources from "EditorGenLib.fcc"
+import "./PlayerInventory.fcg" as PlayerInventory
+import "Convert.fcc" as Convert
+import "./GlobalMaterial.fcg" as GlobalMaterial
 
 graph PlayerInventoryHUD {
+    _materialTxtMap Map<string, entity<HudWidget>>
+    _hasInit bool
     _inventoryHUD entity<CustomHud>
 
     func InitInventoryHUD(){
         if(_inventoryHUD == nil){
             _inventoryHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.INVENTORY, 4)
             _inventoryHUD<CustomHud>.Visibility = false
+        }
+
+        if(!_hasInit){
+            _materialTxtMap = Map<string, entity<HudWidget>>{}
+            _materialTxtMap[MaterialEnum.BOSS_ESSENCE] = GetInventoryHUDWidget(EResource_UI_INVENTORY.TXT_BOSS_ESSENCE)
+            _materialTxtMap[MaterialEnum.ZOMBIE_ESSENCE] = GetInventoryHUDWidget(EResource_UI_INVENTORY.TXT_ZOMBIE_ESSENCE)
+            _materialTxtMap[MaterialEnum.PET_ESSENCE] = GetInventoryHUDWidget(EResource_UI_INVENTORY.TXT_PET_ESSENCE)
+
+            _hasInit = true
         }
     }
 
@@ -29,7 +43,7 @@ graph PlayerInventoryHUD {
     }
 
     func ResetInventoryHUD(){
-
+        UpdateAllInventory()
     }
 
     func DeleteInventoryHUD(){
@@ -42,6 +56,18 @@ graph PlayerInventoryHUD {
             pivotInventory<HudWidget>.Active = false
         } else {
             pivotInventory<HudWidget>.Active = true
+        }
+    }
+
+    func UpdateInventory(materialEnum string){
+        var txt = _materialTxtMap[materialEnum]
+        var content = thisEntity<PlayerInventory>.GetItemAmount(materialEnum)
+        txt<HudLabelWidget>.Text = ToString(content)
+    }
+
+    func UpdateAllInventory(){
+        for key, material in globalEntity<GlobalMaterial>.GetMaterialList(){
+            UpdateInventory(material)
         }
     }
 

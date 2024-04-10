@@ -10,6 +10,7 @@ import "./PlayerStat.fcg" as PlayerStat
 import "List.fcc" as List
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "./PlayerLevelHUD.fcg" as PlayerLevelHUD
+import "./PlayerSFX.fcg" as PlayerSFX
 
 graph PlayerLevel {
     _exp int
@@ -25,13 +26,15 @@ graph PlayerLevel {
     func BeginPlayerLevel(){
         InitPlayerLevel()
         thisEntity<PlayerLevelHUD>.DisplayLevelHUD()
+    }
 
+    func RunOnLevelUp(){
+        ShowTips(thisEntity<Player>, "level up", ColorRGB(255, 255, 255), 3000)   
+        thisEntity<PlayerSFX>.PlaySFXOnce(SoundEffects.Horn)
     }
 
     func IncreaseExpByAmount(amount int){
-        if(amount > GetExpRequiredToNextLvl()){
-            
-        }
+        var lvlBefore = GetLvl()
 
         LogInfo("[PlayerLevel] Level up: " + amount)
         _exp += amount
@@ -40,6 +43,12 @@ graph PlayerLevel {
             ShowTips(thisEntity<Player>, MyResources.Localizations["LEVEL_MAX_EXP"], ColorRGB(255, 255, 255), 3000)
 
             _exp = globalEntity<GlobalLevel>.GetMaxExpRequired()
+        }
+
+        var lvlAfter = GetLvl()
+
+        if(lvlAfter - lvlBefore != 0){
+            RunOnLevelUp()
         }
 
         thisEntity<PlayerStat>.ResetPlayerStat()

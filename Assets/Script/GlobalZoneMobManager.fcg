@@ -50,10 +50,10 @@ graph GlobalZoneMobManager {
             _spawnZoneList = List<entity<Entity>>{}
         }
         
-        LogInfo("[GlobalZoneMobManager] contain spawnZone: " + Contains(_spawnZoneList, mobSpawner))
+        // LogInfo("[GlobalZoneMobManager] contain spawnZone: " + Contains(_spawnZoneList, mobSpawner))
 
         if(Contains(_spawnZoneList, mobSpawner)){
-            LogInfo("[GlobalZoneMobManager] duplicate mobSpawner")
+            // LogInfo("[GlobalZoneMobManager] duplicate mobSpawner")
             return
         }
 
@@ -65,10 +65,10 @@ graph GlobalZoneMobManager {
             _clusterList = List<entity<Cluster>>{}
         }
 
-        LogInfo("[GlobalZoneMobManager] contain cluster: " + Contains(_clusterList, cluster))
+        // LogInfo("[GlobalZoneMobManager] contain cluster: " + Contains(_clusterList, cluster))
 
         if(Contains(_clusterList, cluster)){
-            LogInfo("[GlobalZoneMobManager] duplicate cluster")
+            // LogInfo("[GlobalZoneMobManager] duplicate cluster")
             return 
         }
 
@@ -84,7 +84,7 @@ graph GlobalZoneMobManager {
             return
         }
 
-        LogInfo("[GlobalZoneMobManager] LoopContent: " + Length(_spawnZoneList))
+        // LogInfo("[GlobalZoneMobManager] LoopContent: " + Length(_spawnZoneList))
         // Loop through each spawn zone to call the its loop content
         for i = 0, Length(_spawnZoneList), 1{
             var spawnZone = _spawnZoneList[i]
@@ -94,7 +94,7 @@ graph GlobalZoneMobManager {
     }
 
     func NotifyDistanceChecking(player entity<Player>){
-        LogInfo("[GlobalZoneMobManager] _clusterList: " + _clusterList)
+        // LogInfo("[GlobalZoneMobManager] _clusterList: " + _clusterList)
         for i = 0, Length(_clusterList), 1{
             var cluster = _clusterList[i]
             cluster<Cluster>.CheckPlayerDistance(player)
@@ -104,7 +104,7 @@ graph GlobalZoneMobManager {
     func EliminateAllZombie(){
         InitGlobalZoneMobManager()
 
-        LogInfo("[GlobalZoneMobManager] LoopContent: " + Length(_spawnZoneList))
+        // LogInfo("[GlobalZoneMobManager] LoopContent: " + Length(_spawnZoneList))
         // Loop through each spawn zone to call the its loop content
         for i = 0, Length(_spawnZoneList), 1{
             var spawnZone = _spawnZoneList[i]

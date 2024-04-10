@@ -1,3 +1,4 @@
+import "List.fcc" as List
 import "Map.fcc" as map
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
@@ -7,16 +8,27 @@ import Resources from "EditorGenLib.fcc"
 graph GlobalMaterial {
     _materialNameMap Map<string, object>
     _materialMap Map<string,List<object>>
+    _materialList List<string>
     _matOrder List<string>
 
     _hasInit bool
 
     func InitGlobalMaterial(){
         if(!_hasInit){
+            SetMaterialList()
             SetMaterialNameMap()
             initMaterialMap()
             _hasInit = true
         }
+    }
+
+    func SetMaterialList(){
+        _materialList = List<string>{}
+        Append(_materialList, MaterialEnum.BOSS_ESSENCE)
+        Append(_materialList, MaterialEnum.PET_EGG)
+        Append(_materialList, MaterialEnum.ZOMBIE_ESSENCE)
+        Append(_materialList, MaterialEnum.PET_ESSENCE)
+        Append(_materialList, MaterialEnum.GOLD)
     }
 
     func GetMatOrder() List<string>{
@@ -50,6 +62,9 @@ graph GlobalMaterial {
 
     func SetMaterialNameMap(){
         _materialNameMap = Map<string, object>{}
+        for key, material in _materialList{
+            _materialNameMap[material] = MyResources.MaterialLocalizations[material]
+        }
     }
    
    
@@ -60,6 +75,6 @@ graph GlobalMaterial {
 
     func GetMaterialList() List<string>{
         InitGlobalMaterial()
-        return GetAllKeys(_materialMap) as List<string>
+        return _materialList
     }
 }

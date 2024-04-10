@@ -74,7 +74,7 @@ graph GlobalZoneBossManager {
             for key, player in GetAllPlayers(){
                 player<PlayerBossNotification>.SetBossSpawnZoneEnum(randomBossSpawner<ZoneBossManager>.GetZoneEnum())
                 // player<PlayerBossNotification>
-                start player<PlayerBossNotification>.BeginBossNotification()
+                player<PlayerBossNotification>.BeginBossNotification()
                 player<PlayerDefaultHUD>.SetBossResetTimerHUD()
                 player<PlayerDefaultHUD>.SetBossResetSubtitle()
             }
@@ -138,5 +138,12 @@ graph GlobalZoneBossManager {
         }
 
         Append(_bossSpawnList, bossSpawner)
+    }
+
+    func IsBossOnField() bool{
+        if (_totalBossCount > 0){
+            return true
+        }
+        return false
     }
 }

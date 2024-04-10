@@ -1,1 +1,22 @@
-{"ffugclanguage.project.EditorGenLibPath":"Temp\\UGCLanguage\\editorGen\\EditorGenLib.fcc","ffugclanguage.editor.CorePath":"C:\\Users\\trivy.luong_ctv\\AppData\\Local\\Programs\\Craftland Studio\\resources\\LocalData\\Utilities\\UGCLanguage\\release","editor.semanticTokenColorCustomizations":{"rules":{"*.deprecated":{"fontStyle":"strikethrough"}}},"files.exclude":{"**/.git":true,"**/.svn":true,"**/.hg":true,"**/CVS":true,"**/.DS_Store":true,"**/Thumbs.db":true,"**/.classpath":true,"**/.project":true,"**/.settings":true,"**/.factorypath":true,"**/*.meta":true,"**/*.fbx":true,"Cache/":true,"Libraries/":true},"workbench.colorTheme":"Default Light+","path-intellisense.extensionOnImport":true}
+{"ffugclanguage.project.EditorGenLibPath":"Temp\\UGCLanguage\\editorGen\\EditorGenLib.fcc","ffugclanguage.editor.CorePath":"C:\\Users\\trivy.luong_ctv\\AppData\\Local\\Programs\\Craftland Studio\\resources\\LocalData\\Utilities\\UGCLanguage\\release","editor.semanticTokenColorCustomizations":{
+        "rules": {
+            "*.deprecated": {
+                "fontStyle": "strikethrough"
+            }
+        }
+    },"files.exclude":{
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "**/*.meta": true,
+        "**/*.fbx": true,
+        "Cache/": true,
+        "Libraries/": true
+    },"workbench.colorTheme":"Default Light+","path-intellisense.extensionOnImport":true}

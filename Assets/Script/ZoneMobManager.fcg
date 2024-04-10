@@ -10,6 +10,7 @@ import "Workflow.fcc" as workflow
 import "AI.fcc" as ai
 import "./GlobalMob.fcg" as GlobalMob
 import MyResources from "EditorGenLib.fcc"
+import "./PlayerLevel.fcg" as PlayerLevel
 
 import Resources from "EditorGenLib.fcc"
 
@@ -72,7 +73,8 @@ graph ZoneMobManager {
             // AddScript(createdEntity, Mob)
             createdEntity<Mob>.SetSpawner(thisEntity<MobSpawner>)
             createdEntity<Mob>.SetType(_type)
-            createdEntity<Mob>.SetLvl(GetRandomizedLvl())
+            // createdEntity<Mob>.SetLvl(GetRandomizedLvl())
+            createdEntity<Mob>.SetLvl(GetTopPlayerLevel())
             WaitForNextFrame()
             // LogInfo("[ZoneMobManager] createdEntity: " + createdEntity + " " + createdEntity<Transform>.Position)
             // IncrementCurrentMobCount()
@@ -143,6 +145,18 @@ graph ZoneMobManager {
         }
         LogInfo("[ZoneMobManager] result after : " + result)
         return result
+    }
+
+    func GetTopPlayerLevel() int{
+        var topLvl = 0
+        for key, player in GetAllPlayers(){
+            var lvl = player<PlayerLevel>.GetLvl()            
+            if (lvl > topLvl){
+                topLvl = lvl
+            }
+        }
+
+        return topLvl
     }
 
     func GetCurrentMobCount() int{

@@ -139,6 +139,7 @@ graph PlayerInventory {
     func BeginPlayerInventorySystem(){
         InitPlayerInventory()
         thisEntity<PlayerInventoryHUD>.DisplayInventoryHUD()
+        
     }
 
     func IncreaseItemByAmount(materialEnum string, amount int){
@@ -148,11 +149,12 @@ graph PlayerInventory {
         var currentMatAmount = _inventoryMap[materialEnum]
         var totalMatAmount = currentMatAmount + amount
         _inventoryMap[materialEnum] = totalMatAmount
+        thisEntity<PlayerInventoryHUD>.UpdateInventory(materialEnum)
 
         // Set Obtain noti
         var materialAmountStr =  "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialText(materialEnum)}), ColorRGB(255, 255, 255), 3000)
-        LogInfo("[PlayerInventory] material after +: " + materialEnum + " " + _inventoryMap[materialEnum])
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        // LogInfo("[PlayerInventory] material after +: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 
     func GetItemAmount(materialEnum string) int{
@@ -166,11 +168,12 @@ graph PlayerInventory {
         var currentMatAmount = _inventoryMap[materialEnum]
         var totalMatAmount = currentMatAmount - amount
         _inventoryMap[materialEnum] = totalMatAmount
+        thisEntity<PlayerInventoryHUD>.UpdateInventory(materialEnum)
 
         // Set Consumption noti
         var materialAmountStr = "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialText(materialEnum)}), ColorRGB(255, 255, 255), 3000)
-        LogInfo("[PlayerInventory] material after -: " + materialEnum + " " + _inventoryMap[materialEnum])
+        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        // LogInfo("[PlayerInventory] material after -: " + materialEnum + " " + _inventoryMap[materialEnum])
     }
 
 
