@@ -56,8 +56,13 @@ graph PlayerLevelHUD {
         // imgExpBar<HudWidget>.AnchorMin = Vector2{0, 0.5}
         // imgExpBar<HudWidget>.AnchorMax = Vector2{0, 0}
         imgExpBar<HudWidget>.Width = Round(currentWidthExpBar)
-        
-        
+    }
+
+    async func ActivateLevelUpHUDProtocol(){
+        var pivotLvlUp = GetLevelHUDWidget(EResource_UI_LEVEL.PIVOT_LEVEL_UP)
+        pivotLvlUp<HudWidget>.Active = true
+        WaitForSeconds(3000)
+        pivotLvlUp<HudWidget>.Active = false
     }
 
     func CloseLevelHUD(){
