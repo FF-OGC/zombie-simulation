@@ -18,6 +18,7 @@ graph GlobalZoneBossManager {
     _typePrefabMap Map<int, PrefabID>
     _bossSpawnList List<entity<Entity>>
     _totalBossCount int
+    _currentBossEntity entity<LevelObject>
 
     func InitGlobalZoneBossManager(){
         var prefabID = ToString(Resources.Prefab[EResource_Prefab.MECHANICAL_SPIDER_BOSS])
@@ -48,11 +49,6 @@ graph GlobalZoneBossManager {
             }
         }
 
-        
-
-        // if(loopCount % GLOBAL_FIRST_BOSS_SPAWN_TIME != 0 && _isFirstBoss){
-        //     return
-        // }
         // Update timer
         for key, player in GetAllPlayers(){
         }
@@ -82,13 +78,6 @@ graph GlobalZoneBossManager {
             // LogInfo("[GlobalZoneBossManager] randomZoneName: " + randomBossSpawner<ZoneBossManager>.GetZoneName())
         }
         _isFirstBoss = false
-        // LogInfo("[GlobalZoneBossManager] LoopContent: " + _bossSpawnList)
-        // // Loop through each spawn zone to call the its loop content
-        // for i = 0, Length(_bossSpawnList), 1{
-        //     var bossSpawn = _bossSpawnList[i]
-        //     // bossSpawn<ZoneBossManager>.MobStuckCheckLoopContent()
-        //     start bossSpawn<ZoneBossManager>.SpawningLoopContent()
-        // }
     }
 
     func SetTypePrefabMap(){
@@ -137,9 +126,20 @@ graph GlobalZoneBossManager {
             return
         }
 
+        if(bossSpawner<BossSpawner>.ZoneEnum != ZoneEnum.WBF){
+            return
+        }
+
         Append(_bossSpawnList, bossSpawner)
     }
 
+    func SetCurrentBossEntity(bossEntity entity<LevelObject>){
+        _currentBossEntity = bossEntity
+    }
+
+    func GetCurrentBossEntity() entity<LevelObject>{
+        return _currentBossEntity
+    }
     func IsBossOnField() bool{
         if (_totalBossCount > 0){
             return true

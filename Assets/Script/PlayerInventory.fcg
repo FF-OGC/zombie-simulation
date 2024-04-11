@@ -61,6 +61,33 @@ graph PlayerInventory {
         }
     }
 
+    func GetInventoryMap() Map<string, int>{
+        return _inventoryMap
+    }
+    
+    func GetMaterialAmountListFromMap() List<int>{
+        var materialList = globalEntity<GlobalMaterial>.GetMaterialList()
+        var materialAmountList = List<int>{}
+        for key, material in materialList{
+            var amount = _inventoryMap[material]
+            if(amount == nil){
+                amount = 0
+            }
+            Append(materialAmountList, amount)
+        }
+        return materialAmountList
+    }
+
+    func GetMaterialMapFromMaterialAmountList(materialAmountList List<int>) Map<string, int>{
+        var materialList = globalEntity<GlobalMaterial>.GetMaterialList()
+        var materialMap = Map<string, int>{}
+        for i = 0, list.Length(materialList), 1{
+            var material = materialList[i]
+            materialMap[material] = materialAmountList[i]
+        }
+        return materialMap
+    }
+
     func SetGunInventoryMap() {
         if (_gunInventoryMap != nil) {
             return
@@ -264,6 +291,11 @@ graph PlayerInventory {
 
             ChangeGunListToGunMap(gunlist)
             ChangeAttachmentListToAttachmentMap(attachmentList)
+            
+            var materialAmountList = thisEntity<PlayerData>._materialList
+            LogInfo("[PlayerInventory] materialAmountList: " + materialAmountList + " " + list.Length(materialAmountList))
+            _inventoryMap = GetMaterialMapFromMaterialAmountList(materialAmountList)
+            thisEntity<PlayerInventoryHUD>.UpdateAllInventory()
 
             AddAttachmentForPlayerWhenLoad()
         }

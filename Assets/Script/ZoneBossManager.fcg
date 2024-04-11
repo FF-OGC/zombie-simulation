@@ -35,7 +35,7 @@ graph ZoneBossManager {
             _type = thisEntity<BossSpawner>.Type
             if(_type == 0){
                 _type = RandomInt(0, 2)
-                // _type = 0
+                _type = BossEnum.DRAGON
             }
             _totalCount = thisEntity<BossSpawner>.TotalCount
             _zoneEnum = thisEntity<BossSpawner>.ZoneEnum
@@ -75,12 +75,14 @@ graph ZoneBossManager {
         if(createdEntity == nil){
             return 
         }
-
+        globalEntity<GlobalZoneBossManager>.SetCurrentBossEntity(createdEntity as entity<LevelObject>)
         InsertBossToList(createdEntity)
         createdEntity<Transform>.Position = spawnLocation
         createdEntity<BossScript>.SetSpawner(thisEntity<BossSpawner>)
+        createdEntity<BossScript>.SetBossType(_type)
         createdEntity<BossComponent>.ATK = GetStat(StatType.ATK)
         createdEntity<BossComponent>.HP = GetStat(StatType.MAX_HP)
+        LogInfo("[ZoneBossManager] ATK: " + createdEntity<BossComponent>.ATK + " HP: " + createdEntity<BossComponent>.HP)
 
         if(_type == BossEnum.DRAGON){
             createdEntity<DragonECA>.initBossConfig()
@@ -94,7 +96,7 @@ graph ZoneBossManager {
     func GetStat(statEnum int) int{
         var total = 0
         for key, player in GetAllPlayers(){
-            var stat = player<PlayerStat>.GetStat(statEnum)
+            var stat = player<PlayerStat>.GetStatPoint(statEnum)
             total += stat
         }
         return total

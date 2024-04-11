@@ -10,6 +10,7 @@ import "./PlayerMoney.fcg" as PlayerMoney
 graph Boss {
     _spawner entity<BossSpawner>
     _expAmount int
+    _type int
 
     event OnAwake() {
     
@@ -43,5 +44,13 @@ graph Boss {
     }
     func SetSpawner(spawner entity<BossSpawner>){
         _spawner = spawner
+    }
+
+    func SetBossType(bossType int){
+        _type = bossType
+    }
+
+    func GetBossType() int{
+        return _type
     }
 }

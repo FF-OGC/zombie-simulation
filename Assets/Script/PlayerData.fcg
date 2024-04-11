@@ -25,6 +25,8 @@ graph PlayerData {
     GunUnlockList List<int>
     AttachmentUnlockList List<int>
 
+    _materialList List<int>
+
     func ReadDataInteger(data List<object>, defaultValue int) int {
         var returnValue = defaultValue
         if (data[_currentReadPos] != nil) {
@@ -76,15 +78,38 @@ graph PlayerData {
         }
     }
 
+    func InitInventoryData(){
+        _materialList = List<int>{}
+    }
+
+    func ReadInventoryData(data List<object>){
+        _currentReadPos = 0
+        InitInventoryData()
+        if(data == nil){
+            return 
+        }
+        
+        LogInfo("[PlayerData] ReadInventoryData = " + data)
+
+        for i = 0, list.Length(data) - 1, 1{
+            var item = ReadDataInteger(data, 0)
+            Append(_materialList, item)
+        }
+    }
+
     async func LoadData() {
         LogInfo("[PlayerData] LoadData = " + thisEntity<Player>)
         //Generic data            
         wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GENERIC_DATA, out var genericData, "")
         ReadGenericData(genericData as List<object>)
 
+        //Stat data
         wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.STAT_DATA, out var statData, "")
         ReadStatData(statData as List<object>)
         
+        //Inventory data
+        wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.INVENTORY_DATA, out var inventoryData, "")
+        ReadInventoryData(inventoryData as List<object>)
         
         //Gun unlock data
         wait ReadFromDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA, out var gunUnlockData, "")
@@ -108,6 +133,7 @@ graph PlayerData {
         _statPointList = thisEntity<PlayerStat>.GetStatListFromStatMap()
         GunUnlockList = thisEntity<PlayerInventory>.GetGunList()
         AttachmentUnlockList = thisEntity<PlayerInventory>.GetAttachmentList()
+        _materialList = thisEntity<PlayerInventory>.GetMaterialAmountListFromMap()
         LogInfo("[PlayerData] GetDataFromUsers: " + _currentCoin)
     }
 
@@ -138,6 +164,9 @@ graph PlayerData {
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.GUN_UNLOCK_DATA , GunUnlockList, "") 
         WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.ATTACHMENT_UNLOCK_DATA, AttachmentUnlockList, "") 
         LogInfo("[PlayerData] WriteData Gun Unlock  = " + GunUnlockList)
+
+        WriteToDatabase(DataEnum.PLAYER_DATA_TABLE, thisEntity<Player>.UserUID, DataEnum.INVENTORY_DATA, _materialList, "")
+        LogInfo("[PlayerData] WriteData Inventory  = " + _materialList)
     }
 
     func AreDatesDifferent(timeStamp1 int, timeStamp2 int) bool{

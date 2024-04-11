@@ -284,6 +284,10 @@ graph PlayerStat {
         return _statMap[statEnum]
     }
 
+    func GetStatPoint(statEnum int) int{
+        return _statPointMap[statEnum]
+    }
+
     event Player_FinishAction(action string, data object) {        
         if (ToString(action) == ToString(Enum.ACTION_LOAD_DATA_SUCCESS)) {
             LogInfo("[PlayerStat] LoadDataSuccess _statPoint = " + thisEntity<PlayerData>._statPointList)

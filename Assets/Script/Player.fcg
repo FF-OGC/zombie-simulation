@@ -17,6 +17,10 @@ import "./GlobalSpawn.fcg" as GlobalSpawn
 import "./Global.fcg" as Global
 import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 
+import SpiderECA from "EditorGenLib.fcc"
+import DragonECA from "EditorGenLib.fcc"
+import "./Boss.fcg" as BossScript
+
 import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "./PlayerMenu.fcg" as PlayerMenu
@@ -129,11 +133,22 @@ graph Player {
         thisEntity<PlayerData>.WriteData()
         WaitForNextFrame()
         thisEntity<PlayerZoneSelection>.StopPlayerFromTeleporting()
-        WaitForNextFrame()
+        WaitForSeconds(5000)
         Revive(thisEntity<Player> as entity<Player>)
+        WaitForNextFrame()
+        thisEntity<PlayerZoneSelection>.SetSelectedZoneManually(ZoneEnum.BASE)
+        thisEntity<PlayerZoneSelection>.ConfirmZoneSelection()
         globalEntity<Global>.UpdateAllPlayer()
+        
         if(globalEntity<GlobalZoneBossManager>.IsBossOnField()){
             thisEntity<PlayerBossNotification>.BeginBossNotification()
+        }
+        var bossEntity = globalEntity<GlobalZoneBossManager>.GetCurrentBossEntity()
+        var bossType = bossEntity<BossScript>.GetBossType()
+        if(bossType == BossEnum.DRAGON){
+            bossEntity<DragonECA>.removePlayerInZone(thisEntity<Player> as entity<Player>)
+        } else if (bossType == BossEnum.MECHANICAL_SPIDER){
+            bossEntity<SpiderECA>.removePlayerInZone(thisEntity<Player> as entity<Player>)
         }
     }
 
