@@ -53,7 +53,7 @@ graph ZoneBossManager {
 
     async func SpawningLoopContent(){
         InitZoneBossManager()
-        // LogInfo("[ZoneBossManager] SpawningLoopContent")
+        LogInfo("[ZoneBossManager] SpawningLoopContent")
         // This is here since it does not init some time
         if(_bossList == nil){
             _bossList = List<entity<Entity>>{}
@@ -63,7 +63,7 @@ graph ZoneBossManager {
             return
         }
 
-        // LogInfo("[ZoneBossManager] exceed: " + _bossList + " " + _type + " " + GetBossSpawnCount() + " " + (GetBossSpawnCount() >= _totalCount))
+        LogInfo("[ZoneBossManager] exceed: " + _bossList + " " + _type + " " + GetBossSpawnCount() + " " + (GetBossSpawnCount() >= _totalCount))
         // If exceed the total boss count of the current zone
         if(GetBossSpawnCount() >= _totalCount){
             return
@@ -89,7 +89,7 @@ graph ZoneBossManager {
         } else {
             createdEntity<SpiderECA>.initBossConfig()
         }
-        // LogInfo("[ZoneBossManager] _bossList: "  + thisEntity<Entity>.Name + " " + _bossList + " " + spawnLocation)
+        LogInfo("[ZoneBossManager] _bossList: "  + thisEntity<Entity>.Name + " " + _bossList + " " + spawnLocation)
         WaitForNextFrame()
     }
 
@@ -113,9 +113,9 @@ graph ZoneBossManager {
             } else {
                 boss<SpiderECA>.runOnDeath()
             }
+            RemoveBossFromList(boss)
             DeleteEntity(boss)
-            globalEntity<GlobalZoneBossManager>.DecrementTotalBossCount()
-            SetParent(empty, boss as entity<Transform>, true)
+            // SetParent(empty, boss as entity<Transform>, true)
         }
         // LogInfo("[ZoneBossManager] childrenListBefore: " + GetChildren(empty))
         DeleteAllChildren(empty)

@@ -18,43 +18,15 @@ graph PlayerZoneSelection {
 
     func InitZoneSelection(){
         if(!_hasInit){
+            var zoneList = globalEntity<GlobalZoneSelection>.GetZoneList()
+            var bossZoneList = globalEntity<GlobalZoneSelection>.GetBossZoneList()
+            var mobZoneList = globalEntity<GlobalZoneSelection>.GetMobZoneList()
             _buttonZoneMap = Map<entity<HudButtonWidget>, string>{}
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_BASE)] = ZoneEnum.BASE
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_000)] = ZoneEnum.LVL000
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_010)] = ZoneEnum.LVL010
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_020)] = ZoneEnum.LVL020
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_030)] = ZoneEnum.LVL030
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_040)] = ZoneEnum.LVL040
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_050)] = ZoneEnum.LVL050
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_060)] = ZoneEnum.LVL060
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_070)] = ZoneEnum.LVL070
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_080)] = ZoneEnum.LVL080
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_ZONE_090)] = ZoneEnum.LVL090
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_WB_020)] = ZoneEnum.WB020
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_WB_040)] = ZoneEnum.WB040
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_WB_060)] = ZoneEnum.WB060
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_WB_080)] = ZoneEnum.WB080
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_WB_100)] = ZoneEnum.WB100
-            _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.BTN_WB_F)] = ZoneEnum.WBF
-
             _zoneImgChosenMap = Map<string, entity<HudWidget>>{}
-            _zoneImgChosenMap[ZoneEnum.BASE] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_BASE_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL000] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_000_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL010] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_010_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL020] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_020_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL030] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_030_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL040] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_040_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL050] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_050_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL060] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_060_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL070] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_070_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL080] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_080_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.LVL090] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_090_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.WB020] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_WB_020_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.WB040] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_WB_040_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.WB060] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_WB_060_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.WB080] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_WB_080_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.WB100] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_WB_100_CHOSEN)
-            _zoneImgChosenMap[ZoneEnum.WBF] = thisEntity<PlayerZoneSelectionHUD>.GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.IMG_WB_F_CHOSEN)
+            for key, zone in zoneList{
+                _buttonZoneMap[thisEntity<PlayerZoneSelectionHUD>.GetZoneButton(zone)] = zone
+                _zoneImgChosenMap[zone] = thisEntity<PlayerZoneSelectionHUD>.GetZoneChosenImg(zone)
+            } 
             _hasInit = true
         }
     }

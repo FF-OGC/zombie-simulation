@@ -6,6 +6,7 @@ import "./ZoneBossManager.fcg" as ZoneBossManager
 import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerInventory.fcg" as PlayerInventory
 import "./PlayerMoney.fcg" as PlayerMoney
+import "./PlayerBossNotification.fcg" as PlayerBossNotification
 
 graph Boss {
     _spawner entity<BossSpawner>
@@ -39,6 +40,7 @@ graph Boss {
         player<PlayerMoney>.AddMoney(GameMoneyType.COIN, 1000)
         player<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.ZOMBIE_ESSENCE, 100)
         player<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.BOSS_ESSENCE, 2)
+        player<PlayerBossNotification>.EndBossNotification()
       }
 
     }

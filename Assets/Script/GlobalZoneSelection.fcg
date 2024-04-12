@@ -6,6 +6,8 @@ import MyResources from "EditorGenLib.fcc"
 graph GlobalZoneSelection {
     _zoneTeleportLocationMap Map<string, Vector3>
     _zoneNameMap Map<string, object>
+    _bossZoneList List<string>
+    _mobZoneList List<string>
     _zoneList List<string>
     _hasInit bool
     
@@ -39,24 +41,34 @@ graph GlobalZoneSelection {
     }
 
     func SetZoneList(){
+        _mobZoneList = List<string>{}
+        _bossZoneList = List<string>{}
         _zoneList = List<string>{}
         Append(_zoneList, ZoneEnum.BASE)
-        Append(_zoneList, ZoneEnum.LVL000)
-        Append(_zoneList, ZoneEnum.LVL010)
-        Append(_zoneList, ZoneEnum.LVL020)
-        Append(_zoneList, ZoneEnum.LVL030)
-        Append(_zoneList, ZoneEnum.LVL040)
-        Append(_zoneList, ZoneEnum.LVL050)
-        Append(_zoneList, ZoneEnum.LVL060)
-        Append(_zoneList, ZoneEnum.LVL070)
-        Append(_zoneList, ZoneEnum.LVL080)
-        Append(_zoneList, ZoneEnum.LVL090)
-        Append(_zoneList, ZoneEnum.WB020)
-        Append(_zoneList, ZoneEnum.WB040)
-        Append(_zoneList, ZoneEnum.WB060)
-        Append(_zoneList, ZoneEnum.WB080)
-        Append(_zoneList, ZoneEnum.WB100)
-        Append(_zoneList, ZoneEnum.WBF)
+        Append(_mobZoneList, ZoneEnum.LVL000)
+        Append(_mobZoneList, ZoneEnum.LVL010)
+        Append(_mobZoneList, ZoneEnum.LVL020)
+        Append(_mobZoneList, ZoneEnum.LVL030)
+        Append(_mobZoneList, ZoneEnum.LVL040)
+        Append(_mobZoneList, ZoneEnum.LVL050)
+        Append(_mobZoneList, ZoneEnum.LVL060)
+        Append(_mobZoneList, ZoneEnum.LVL070)
+        Append(_mobZoneList, ZoneEnum.LVL080)
+        Append(_mobZoneList, ZoneEnum.LVL090)
+        Append(_bossZoneList, ZoneEnum.WB020)
+        Append(_bossZoneList, ZoneEnum.WB040)
+        Append(_bossZoneList, ZoneEnum.WB060)
+        Append(_bossZoneList, ZoneEnum.WB080)
+        Append(_bossZoneList, ZoneEnum.WB100)
+        Append(_bossZoneList, ZoneEnum.WBF)
+
+        for key, mob in _mobZoneList{
+            Append(_zoneList, mob)
+        }
+
+        for key, boss in _bossZoneList{
+            Append(_zoneList, boss)
+        }
     }
 
     func GetZoneTeleportLocation(zoneEnum string) Vector3{
@@ -73,5 +85,15 @@ graph GlobalZoneSelection {
     func GetZoneList() List<string>{
         InitGlobalZoneSelection()
         return _zoneList
+    }
+
+    func GetMobZoneList() List<string>{
+        InitGlobalZoneSelection()
+        return _mobZoneList
+    }
+
+    func GetBossZoneList() List<string>{
+        InitGlobalZoneSelection()
+        return _bossZoneList
     }
 }

@@ -103,7 +103,7 @@ graph PlayerLevel {
 
             // LogInfo("[PlayerLevel] Level up " + currentLevel)
         }
-        LogInfo("[PlayerLevel] currentLevel: " + currentLevel)
+        // LogInfo("[PlayerLevel] currentLevel: " + currentLevel)
         return currentLevel
     }
 

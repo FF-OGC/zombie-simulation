@@ -8,9 +8,15 @@ import Resources from "EditorGenLib.fcc"
 import "./HUDUtil.fcg" as HUDUtil
 import "Map.fcc" as Map
 import "List.fcc" as List
+import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
+import "./GlobalLoop.fcg" as GlobalLoop
+import "Convert.fcc" as Convert
 
 graph PlayerZoneSelectionHUD {
     _zoneSelectionHUD entity<CustomHud>
+    _zonePivotMap Map<string, entity<HudWidget>>
+    _hasInit bool
 
     func InitZoneSelectionHUD(){
         if(_zoneSelectionHUD == nil){
@@ -18,6 +24,32 @@ graph PlayerZoneSelectionHUD {
             LogInfo("[PlayerZoneSelectionHUD] _zoneSelectionHUD: " + _zoneSelectionHUD)
             _zoneSelectionHUD<CustomHud>.Visibility = false
         }
+
+        if(!_hasInit){
+            SetZonePivotMap()
+            _hasInit = true
+        }
+    }
+
+    func SetZonePivotMap(){
+        _zonePivotMap = Map<string, entity<HudWidget>>{}
+        _zonePivotMap[ZoneEnum.BASE] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_BASE)
+        _zonePivotMap[ZoneEnum.LVL000] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_000)
+        _zonePivotMap[ZoneEnum.LVL010] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_010)
+        _zonePivotMap[ZoneEnum.LVL020] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_020)
+        _zonePivotMap[ZoneEnum.LVL030] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_030)
+        _zonePivotMap[ZoneEnum.LVL040] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_040)
+        _zonePivotMap[ZoneEnum.LVL050] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_050)
+        _zonePivotMap[ZoneEnum.LVL060] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_060)
+        _zonePivotMap[ZoneEnum.LVL070] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_070)
+        _zonePivotMap[ZoneEnum.LVL080] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_080)
+        _zonePivotMap[ZoneEnum.LVL090] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_090)
+        _zonePivotMap[ZoneEnum.WB020] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_WB020)
+        _zonePivotMap[ZoneEnum.WB040] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_WB040)
+        _zonePivotMap[ZoneEnum.WB060] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_WB060)
+        _zonePivotMap[ZoneEnum.WB080] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_WB080)
+        _zonePivotMap[ZoneEnum.WB100] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_WB100)
+        _zonePivotMap[ZoneEnum.WBF] = GetZoneSelectionHUDWidget(EResource_UI_ZONE_SELECTION.PIVOT_WBF)
     }
 
     func DisplayZoneSelectionHUD(){
@@ -36,7 +68,7 @@ graph PlayerZoneSelectionHUD {
     }
 
     func ResetAllActiveZone(){
-        var zoneList = GetAllKeys(thisEntity<PlayerZoneSelection>.GetZoneImgChosenMap())
+        var zoneList = globalEntity<GlobalZoneSelection>.GetZoneList()
         for i = 0, List.Length(zoneList), 1{
             var zone = zoneList[i]
             SetActiveZone(zone, false)
@@ -44,7 +76,7 @@ graph PlayerZoneSelectionHUD {
     }
 
     func SetActiveZone(zoneEnum string, isActive bool){
-        var img = thisEntity<PlayerZoneSelection>._zoneImgChosenMap[zoneEnum]
+        var img = GetZoneChosenImg(zoneEnum)
         img<HudWidget>.Active = isActive
     }
 
@@ -71,4 +103,99 @@ graph PlayerZoneSelectionHUD {
         return GetWidgetFromCustomHud(thisEntity<Player>, _zoneSelectionHUD, Resources.UI_ZONE_SELECTION[eResourceUIZoneSelection])
     }
 
+    func GetZonePivot(zoneEnum string) entity<HudWidget>{
+        InitZoneSelectionHUD()
+        return _zonePivotMap[zoneEnum]
+    }
+
+    func GetZoneButton(zoneEnum string) entity<HudButtonWidget>{
+        InitZoneSelectionHUD()
+        var pivot = GetZonePivot(zoneEnum)
+        return GetChildByIndex(pivot, 0) as entity<HudButtonWidget>
+    }
+    
+    func GetZoneText(zoneEnum string) entity<HudWidget>{
+        InitZoneSelectionHUD()
+        var pivot = GetZonePivot(zoneEnum)        
+        return GetChildByIndex(pivot, 1) as entity<HudWidget>
+    }
+
+    func GetZoneIcon(zoneEnum string) entity<HudWidget>{
+        InitZoneSelectionHUD()
+        var pivot = GetZonePivot(zoneEnum)
+        return GetChildByIndex(pivot, 2) as entity<HudWidget>
+    }
+
+    func GetZoneChosenImg(zoneEnum string) entity<HudWidget>{
+        InitZoneSelectionHUD()
+        var btn = GetZoneButton(zoneEnum)
+        return GetChildByIndex(btn, 0) as entity<HudWidget>
+    }
+
+    func GetZoneTimer(zoneEnum string) entity<HudWidget>{
+        InitZoneSelectionHUD()
+        if(!Contains(globalEntity<GlobalZoneSelection>.GetBossZoneList(), zoneEnum)){
+            LogInfo("[PlayerzoneSelection] " + zoneEnum + " is not a boss zone")
+            return nil
+        }
+        var pivot = GetZonePivot(zoneEnum)
+        return GetChildByIndex(pivot, 3) as entity<HudWidget>
+    }
+
+    func UpdateZoneIcon(){
+        var currentIcon = GetZoneIcon(globalEntity<GlobalZoneBossManager>.GetCurrentSpawnZone())
+        var nextIcon = GetZoneIcon(globalEntity<GlobalZoneBossManager>.GetNextSpawnZone())
+        if(globalEntity<GlobalZoneBossManager>.IsBossOnField()){
+            nextIcon<HudWidget>.Active = false
+            currentIcon<HudWidget>.Active = true
+            currentIcon<HudImageWidget>.SpriteName = IconType.Zombie
+        } else {
+            currentIcon<HudWidget>.Active = false
+            nextIcon<HudWidget>.Active = true
+            nextIcon<HudImageWidget>.SpriteName = IconType.Hourglass
+        }
+    }
+
+    func UpdateZoneTimer(){
+        var nextBossZone = globalEntity<GlobalZoneBossManager>.GetNextSpawnZone()
+        var timer = GetZoneTimer(nextBossZone)
+
+        if(globalEntity<GlobalZoneBossManager>.IsBossOnField()){
+            timer<HudWidget>.Active = false
+            return
+        }
+
+        timer<HudWidget>.Active = true
+        var loopCount = globalEntity<GlobalLoop>.GetLoopCount()
+        var lastSpawnLoopCount = globalEntity<GlobalZoneBossManager>.GetLastSpawnLoopCount()
+
+        var duration = (globalEntity<GlobalZoneBossManager>.GLOBAL_SPAWN_INTERVAL + globalEntity<GlobalZoneBossManager>.GLOBAL_NO_SPAWN_INTERVAL) as int
+        if(globalEntity<GlobalZoneBossManager>.IsFirstBoss()){
+            duration = globalEntity<GlobalZoneBossManager>.GLOBAL_FIRST_BOSS_SPAWN_TIME
+        }
+
+        var remainingTimeS = lastSpawnLoopCount + duration - loopCount
+        var remainingTimeM = 0
+        
+        if(remainingTimeS > 60){
+            remainingTimeM = remainingTimeS / 60
+            remainingTimeS -= remainingTimeM * 60
+        }
+
+        var txtRemainingTimeM = ""
+        var txtRemainingTimeS = ""
+        if(remainingTimeM < 10) {
+            txtRemainingTimeM = "0" + ToString(remainingTimeM)
+        } else {
+            txtRemainingTimeM = ToString(remainingTimeM)
+        }
+
+        if(remainingTimeS < 10) {
+            txtRemainingTimeS = "0" + ToString(remainingTimeS)
+        } else {
+            txtRemainingTimeS = ToString(remainingTimeS)
+        }
+
+        timer<HudLabelWidget>.Text = txtRemainingTimeM + ":" + txtRemainingTimeS
+    }
 }

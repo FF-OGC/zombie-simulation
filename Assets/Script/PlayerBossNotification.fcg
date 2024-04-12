@@ -2,12 +2,11 @@ import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "./PlayerBossNotificationHUD.fcg" as PlayerBossNotificationHUD
 import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 
 graph PlayerBossNotification {
     BOSS_NOTIFICATION_DURATION int = 60000
     _hasInit bool
-    _bossSpawnZoneEnum string
-
     func InitBossNotification(){
         if(!_hasInit){
             _hasInit = true
@@ -31,11 +30,8 @@ graph PlayerBossNotification {
 
     func TeleportPlayerToBoss(){
         EndBossNotification()
-        thisEntity<PlayerZoneSelection>.SetSelectedZoneManually(_bossSpawnZoneEnum)
+        var bossSpawnZoneEnum = globalEntity<GlobalZoneBossManager>.GetCurrentSpawnZone()
+        thisEntity<PlayerZoneSelection>.SetSelectedZoneManually(bossSpawnZoneEnum)
         start thisEntity<PlayerZoneSelection>.TeleportPlayerToZone()
-    }
-
-    func SetBossSpawnZoneEnum(zoneEnum string){
-        _bossSpawnZoneEnum = zoneEnum
     }
 }
