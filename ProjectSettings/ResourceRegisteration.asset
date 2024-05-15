@@ -151,6 +151,14 @@
             {
               "id": "FbyiMS7t",
               "scriptName": "IMG_STAT_NOTI"
+            },
+            {
+              "id": "s2ICH2h0",
+              "scriptName": "BTN_CRAFTING"
+            },
+            {
+              "id": "T9hxMOkm",
+              "scriptName": "IMG_CRAFTING_NOTI"
             }
           ]
         },
@@ -195,18 +203,6 @@
           "scriptName": "INVENTORY",
           "children": [
             {
-              "id": "v3IrSyrd",
-              "scriptName": "PIVOT_INVENTORY"
-            },
-            {
-              "id": "EIcB1CL7",
-              "scriptName": "PIVOT_PROMPT"
-            },
-            {
-              "id": "jOOXLa9G",
-              "scriptName": "BTN_PROMPT"
-            },
-            {
               "id": "zkqW91rN",
               "scriptName": "TXT_ZOMBIE_ESSENCE"
             },
@@ -217,6 +213,10 @@
             {
               "id": "uLcHFCC1",
               "scriptName": "TXT_PET_ESSENCE"
+            },
+            {
+              "id": "RONjVsYL",
+              "scriptName": "TXT_COIN"
             }
           ]
         },
@@ -232,20 +232,44 @@
           "scriptName": "DEBUG",
           "children": [
             {
-              "id": "bSjnkDeQ",
-              "scriptName": "TXT_ZOMBIE_COUNT"
+              "id": "7CO6fsXo",
+              "scriptName": "PIVOT_DEBUG_MENU"
             },
             {
-              "id": "d5MNCi1G",
-              "scriptName": "TXT_ZOMBIE_MAX"
+              "id": "aSKxp2uN",
+              "scriptName": "PIVOT_DEBUG_PROMPT"
             },
             {
-              "id": "z7RO6J3C",
-              "scriptName": "BTN_PLUS_100"
+              "id": "t0yTmoLt",
+              "scriptName": "BTN_DEBUG_PROMPT"
             },
             {
-              "id": "IAgHyisL",
-              "scriptName": "BTN_MINUS_100"
+              "id": "r8Haydzr",
+              "scriptName": "BTN_ADD_ZE"
+            },
+            {
+              "id": "RwJJR49r",
+              "scriptName": "BTN_ADD_BE"
+            },
+            {
+              "id": "x99pNkvS",
+              "scriptName": "BTN_ADD_PE"
+            },
+            {
+              "id": "px72a4yG",
+              "scriptName": "BTN_ADD_COIN"
+            },
+            {
+              "id": "pbY7wF6X",
+              "scriptName": "BTN_ELIMINATE_BOSS"
+            },
+            {
+              "id": "smpfsMAd",
+              "scriptName": "BTN_RESET_DATA"
+            },
+            {
+              "id": "L8Sv3IsT",
+              "scriptName": "BTN_INVULNERABLE"
             }
           ]
         },
@@ -303,6 +327,34 @@
             {
               "id": "i7sqbZpf",
               "scriptName": "USERNAME"
+            },
+            {
+              "id": "LwF7Y6pY",
+              "scriptName": "PIVOT_HP_TIP"
+            },
+            {
+              "id": "8HYWgoSx",
+              "scriptName": "PIVOT_ATK_TIP"
+            },
+            {
+              "id": "BLHSkZVj",
+              "scriptName": "PIVOT_STAT_TIP"
+            },
+            {
+              "id": "eTx3zniw",
+              "scriptName": "BTN_HP_TIP"
+            },
+            {
+              "id": "MhQ4fuue",
+              "scriptName": "BTN_ATK_TIP"
+            },
+            {
+              "id": "CU8IqrLm",
+              "scriptName": "BTN_STAT_TIP"
+            },
+            {
+              "id": "HdVznd29",
+              "scriptName": "TXT_LVL"
             }
           ]
         },

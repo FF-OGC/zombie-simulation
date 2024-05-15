@@ -40,13 +40,21 @@ graph PlayerDebugHUD {
         
     }
 
-    func ToggleDebugHUD(){
-        if(_debugHUD<CustomHud>.Visibility){
-            // _debugHUD<CustomHud>.Visibility = false
-            CloseDebugHUD()
+    func ToggleActivityDebugMenu(){
+        var pivotDebugMenu = GetDebugHUDWidget(EResource_UI_DEBUG.PIVOT_DEBUG_MENU)
+        if(pivotDebugMenu<HudWidget>.Active){
+            SetActivityDebugMenu(false)
         } else {
-            // _debugHUD<CustomHud>.Visibility = true
-            DisplayDebugHUD()
+            SetActivityDebugMenu(true)
+        }
+    }
+
+    func SetActivityDebugMenu(active bool){
+        var pivotDebugMenu = GetDebugHUDWidget(EResource_UI_DEBUG.PIVOT_DEBUG_MENU)
+        if(active){
+            pivotDebugMenu<HudWidget>.Active = true
+        } else {
+            pivotDebugMenu<HudWidget>.Active = false
         }
     }
 

@@ -27,6 +27,7 @@ graph PlayerCraftingHUD {
             _craftHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.CRAFTING, 5)
             _craftHUD<CustomHud>.Visibility = false
             SetWeaponCraftHUD(WeaponType.Rifle)
+            _unlockableList = List<string>{}
         }
     }
 
@@ -298,7 +299,7 @@ graph PlayerCraftingHUD {
             }
         }
         if _unlockable {
-            DispatchEvent(PlayerCraftHUD_HasNewUnlockable,thisEntity<Player> as entity<Player>,_unlockableList)
+            DispatchEvent(PlayerCraftHUD_HasNewUnlockable,thisEntity<Player> as entity<Player>, List<object>{_unlockableList})
         }
 
         UpdateEquipBtn()

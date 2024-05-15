@@ -37,13 +37,16 @@ import "./PlayerData.fcg" as PlayerData
 import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerSkillHUD.fcg" as PlayerSkillHUD
 import "./PlayerCrafting.fcg" as PlayerCrafting
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 import "./PlayerBossNotificationHUD.fcg" as PlayerBossNotificationHUD
 import "./PlayerBossNotification.fcg" as PlayerBossNotification
-
+import "./PlayerFarmSuggestionHUD.fcg" as PlayerFarmSuggestionHUD
+import "./PlayerStorageHUD.fcg" as PlayerStorageHUD
 
 graph Player {
     event Player_PlayerJoinGame() {
         start InitAllHUD() 
+        thisEntity<PlayerDebug>.BeginPlayerDebug()
         thisEntity<PlayerMenu>.DisplayMenuHUD()
         thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
         thisEntity<PlayerInventory>.BeginPlayerInventorySystem()
@@ -112,11 +115,26 @@ graph Player {
         thisEntity<PlayerSkillHUD>.InitSkillHUD()
         WaitForSeconds(500)
         thisEntity<PlayerBossNotificationHUD>.InitBossNotificationHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerStorageHUD>.InitPlayerStorageHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerCraftHUD>.InitCraftHUD()
+        WaitForSeconds(500)
+        thisEntity<PlayerFarmSuggestionHUD>.InitFarmSuggestionHUD()
     }
 
     func DeleteAllHUD(){
         thisEntity<PlayerZoneSelectionHUD>.DeleteZoneSelectionHUD()
         thisEntity<PlayerMenu>.DeleteMenuHUD()
+        thisEntity<PlayerLevelHUD>.DeleteLevelHUD()
+        thisEntity<PlayerInventoryHUD>.DeleteInventoryHUD()
+        thisEntity<PlayerDebugHUD>.DeleteDebugHUD()
+        thisEntity<PlayerStatHUD>.DeleteStatHUD()
+        thisEntity<PlayerSkillHUD>.DeleteSkillHUD()
+        thisEntity<PlayerBossNotificationHUD>.DeleteBossNotificationHUD()
+        thisEntity<PlayerStorageHUD>.DeletePlayerStorageHUD()
+        thisEntity<PlayerCraftHUD>.DeleteCraftHUD()
+        thisEntity<PlayerFarmSuggestionHUD>.InitFarmSuggestionHUD()
     }
 
     async func Preload(){

@@ -70,9 +70,9 @@ graph PlayerInventory {
         var materialAmountList = List<int>{}
         for key, material in materialList{
             var amount = _inventoryMap[material]
-            if(amount == nil){
-                amount = 0
-            }
+            // if(amount == nil){
+            //     amount = 0
+            // }
             Append(materialAmountList, amount)
         }
         return materialAmountList

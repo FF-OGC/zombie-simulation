@@ -1,9 +1,32 @@
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "./PlayerDebugHUD.fcg" as PlayerDebugHUD
+import "./PlayerInventory.fcg" as PlayerInventory
+import "./PlayerMoney.fcg" as PlayerMoney
+import "./PlayerData.fcg" as PlayerData
 
 graph PlayerDebug {
     func BeginPlayerDebug(){
         thisEntity<PlayerDebugHUD>.DisplayDebugHUD()
+    }
+
+    func _GetWhiteListAccountID() List<string>{
+
+    }
+
+    func AddMaterial(materialEnum string){
+        if(materialEnum != MaterialEnum.GOLD){
+            thisEntity<PlayerInventory>.IncreaseItemByAmount(materialEnum, 1000)
+        } else {
+            thisEntity<PlayerMoney>.AddMoney(GameMoneyType.COIN, 1000)
+        }
+    }
+
+    func SetInvulnerable(){
+        thisEntity<Player>.GodState = true
+    }
+
+    func ResetData(){
+        start thisEntity<PlayerData>.Debug_ResetData()
     }
 }

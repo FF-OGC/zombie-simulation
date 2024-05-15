@@ -10,6 +10,7 @@ import "Convert.fcc" as Convert
 import "Strings.fcc" as Strings
 import "List.fcc" as List
 import "Avatar.fcc" as Avatar
+import "./PlayerLevel.fcg" as PlayerLevel
 
 graph PlayerStatHUD {
     _statHUD entity<CustomHud>
@@ -20,6 +21,9 @@ graph PlayerStatHUD {
     _statTypeBtnDecMap Map<int, entity<HudWidget>>
     _btnStatTypeDecMap Map<string, int>
     _statTypeTxtMap Map<int, entity<HudWidget>>
+    _statTypeTipMap Map<int, entity<HudWidget>>
+    _statTypeBtnTipMap Map<int, entity<HudWidget>>
+    _btnTipStatTypeMap Map<string, int>
 
     _hasInit bool
     
@@ -29,6 +33,7 @@ graph PlayerStatHUD {
             _statHUD<CustomHud>.Visibility = false
             SetStatTypeMap()
             SetAvatar()
+            UpdateLvl()
         }
     }
 
@@ -36,14 +41,23 @@ graph PlayerStatHUD {
         _statTypeBtnIncMap = Map<int, entity<HudWidget>>{}
         _statTypeBtnDecMap = Map<int, entity<HudWidget>>{}
         _statTypeTxtMap = Map<int, entity<HudWidget>>{}
+        _statTypeBtnTipMap = Map<int, entity<HudWidget>>{}
+        _statTypeTipMap = Map<int, entity<HudWidget>>{}
         _btnStatTypeDecMap = Map<string, int>{}
         _btnStatTypeIncMap = Map<string, int>{}
+        _btnTipStatTypeMap = Map<string, int>{}
 
         _statTypeBtnIncMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_INCREASE_ATK)
         _statTypeBtnIncMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_INCREASE_HP)
 
         _statTypeBtnDecMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_DECREASE_ATK)
         _statTypeBtnDecMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_DECREASE_HP)
+
+        _statTypeTipMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.PIVOT_ATK_TIP)
+        _statTypeTipMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.PIVOT_HP_TIP)
+
+        _statTypeBtnTipMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_ATK_TIP)
+        _statTypeBtnTipMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_HP_TIP)
 
         var statTypeList = GetAllKeys(_statTypeBtnIncMap)
         for i = 0, List.Length(statTypeList), 1{
@@ -52,8 +66,11 @@ graph PlayerStatHUD {
             var btnIncID = btnInc<HudWidget>.UniqueID
             var btnDec = _statTypeBtnDecMap[statType] as entity<HudWidget>
             var btnDecID = btnDec<HudWidget>.UniqueID
+            var btnTip = _statTypeBtnTipMap[statType]
+            var btnTipID = btnTip<HudWidget>.UniqueID
             _btnStatTypeDecMap[btnDecID] = statType
             _btnStatTypeIncMap[btnIncID] = statType
+            _btnTipStatTypeMap[btnTipID] = statType
         }
 
         _statTypeTxtMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.TXT_ATK)
@@ -67,6 +84,14 @@ graph PlayerStatHUD {
         avatar<HudProfileInfo>.AccountID = thisEntity<Player>.UserUID
         name<HudLabelWidget>.Text = thisEntity<Player>.NickName
     }
+
+    func UpdateLvl(){
+        var txtLvl = GetStatHUDWidget(EResource_UI_PLAYER_STAT.TXT_LVL)
+        var lvl = thisEntity<PlayerLevel>.GetLvl()
+        LogInfo("[PlayerStatHUD] Lvl: " + lvl)
+
+        txtLvl<HudLabelWidget>.Text = "Lvl." + ToString(lvl)
+    }
     
     func DisplayStatHUD(){
         InitStatHUD()
@@ -77,8 +102,12 @@ graph PlayerStatHUD {
     }
 
     func ResetStatHUD(){
+        var lvl = thisEntity<PlayerLevel>.GetLvl()
+        LogInfo("[PlayerStatHUD] Lvl: " + lvl)
         UpdateTxtStatHUD()
         UpdateBtnStatHUD()
+        TurnOffAllTip()
+        UpdateLvl()
     }
 
     func UpdateTxtStatHUD(){
@@ -141,6 +170,42 @@ graph PlayerStatHUD {
         }
     }
 
+    func SetActivityStatTip(statTypeEnum int, active bool){
+        var tip = _statTypeTipMap[statTypeEnum]
+        tip<HudWidget>.Active = active
+    }
+
+    func SetActivityStatPointTip(active bool){
+        var tip = GetStatHUDWidget(EResource_UI_PLAYER_STAT.PIVOT_STAT_TIP)
+        tip<HudWidget>.Active = active
+    }
+
+    func TurnOffAllTip(){
+        var statTypeList = GetAllKeys(_statTypeBtnIncMap)
+        for i = 0, List.Length(statTypeList), 1{
+            var statType = statTypeList[i] as int
+            SetActivityStatTip(statType, false)
+        }
+
+        SetActivityStatPointTip(false)
+    }
+    
+    func ToggleTip(statTypeEnum int){
+        var tip = _statTypeTipMap[statTypeEnum]
+        if(!tip<HudWidget>.Active){
+            TurnOffAllTip()
+            SetActivityStatTip(statTypeEnum, true)
+        }
+    }
+
+    func ToggleTipStatPoint(){
+        var tip = GetStatHUDWidget(EResource_UI_PLAYER_STAT.PIVOT_STAT_TIP)
+        if(!tip<HudWidget>.Active){
+            TurnOffAllTip()
+            SetActivityStatPointTip(true)
+        }
+    }
+
     func DeleteStatHUD(){
         DeleteEntity(_statHUD)
     }
@@ -161,15 +226,19 @@ graph PlayerStatHUD {
         }
     }
 
-
     func ClickButton(button entity<HudButtonWidget>){
         var statType = 0
         var isDecreasing = false
         if(ContainKey(_btnStatTypeDecMap, button<HudWidget>.UniqueID)){
+            
             statType = _btnStatTypeDecMap[button<HudWidget>.UniqueID] as int
             isDecreasing = true
-        } else {
+        } else if (ContainKey(_btnStatTypeIncMap, button<HudWidget>.UniqueID)){
             statType = _btnStatTypeIncMap[button<HudWidget>.UniqueID] as int
+        } else if (ContainKey(_btnTipStatTypeMap, button<HudWidget>.UniqueID)){
+            statType = _btnTipStatTypeMap[button<HudWidget>.UniqueID]
+            ToggleTip(statType)
+            return 
         }
 
         // LogInfo("[PlayerStatHUD] statType: " + statType + " " + _btnStatTypeIncMap[button<HudWidget>.UniqueID] as int + " " +_btnStatTypeDecMap + " " + _statTypeBtnDecMap + " " + button<HudWidget>.UniqueID)

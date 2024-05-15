@@ -13,6 +13,9 @@ graph HUDPlayerStat {
         } else if(button == player<PlayerStatHUD>.GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_EXIT) as entity<HudButtonWidget>){
           LogInfo("[HUDPlayerStat] btnDecreaseATK")
           player<PlayerStat>.EndPlayerStat()
+        } else if(button == player<PlayerStatHUD>.GetStatHUDWidget(EResource_UI_PLAYER_STAT.BTN_STAT_TIP) as entity<HudButtonWidget>){
+          LogInfo("[HUDPlayerStat] btnStatTip")
+          player<PlayerStatHUD>.ToggleTipStatPoint()
         } else {
           player<PlayerStatHUD>.ClickButton(button)
         }

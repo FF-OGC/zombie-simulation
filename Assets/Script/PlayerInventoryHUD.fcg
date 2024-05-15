@@ -7,6 +7,7 @@ import "./PlayerInventory.fcg" as PlayerInventory
 import "Convert.fcc" as Convert
 import "./GlobalMaterial.fcg" as GlobalMaterial
 import "Math.fcc" as math 
+import "./PlayerMoney.fcg" as PlayerMoney
 
 graph PlayerInventoryHUD {
     OBTAIN_X_DELTA = 75
@@ -26,7 +27,7 @@ graph PlayerInventoryHUD {
             _materialTxtMap[MaterialEnum.BOSS_ESSENCE] = GetInventoryHUDWidget(EResource_UI_INVENTORY.TXT_BOSS_ESSENCE)
             _materialTxtMap[MaterialEnum.ZOMBIE_ESSENCE] = GetInventoryHUDWidget(EResource_UI_INVENTORY.TXT_ZOMBIE_ESSENCE)
             _materialTxtMap[MaterialEnum.PET_ESSENCE] = GetInventoryHUDWidget(EResource_UI_INVENTORY.TXT_PET_ESSENCE)
-
+            _materialTxtMap[MaterialEnum.GOLD] = GetInventoryHUDWidget(EResource_UI_INVENTORY.TXT_COIN)
             _hasInit = true
         }
     }
@@ -54,12 +55,12 @@ graph PlayerInventoryHUD {
     }
 
     func ToggleInventory(){
-        var pivotInventory = GetInventoryHUDWidget(EResource_UI_INVENTORY.PIVOT_INVENTORY)
-        if(pivotInventory<HudWidget>.Active){
-            pivotInventory<HudWidget>.Active = false
-        } else {
-            pivotInventory<HudWidget>.Active = true
-        }
+        // var pivotInventory = GetInventoryHUDWidget(EResource_UI_INVENTORY.PIVOT_INVENTORY)
+        // if(pivotInventory<HudWidget>.Active){
+        //     pivotInventory<HudWidget>.Active = false
+        // } else {
+        //     pivotInventory<HudWidget>.Active = true
+        // }
     }
 
     func UpdateInventory(materialEnum string){
@@ -70,8 +71,19 @@ graph PlayerInventoryHUD {
 
     func UpdateAllInventory(){
         for key, material in globalEntity<GlobalMaterial>.GetMaterialList(){
+            if(material == MaterialEnum.GOLD){
+                continue
+            }
             UpdateInventory(material)
         }
+        UpdateCoin()
+    }
+
+    func UpdateCoin(){
+        InitInventoryHUD()
+        var txt = _materialTxtMap[MaterialEnum.GOLD]
+        var content = thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN)
+        txt<HudLabelWidget>.Text = ToString(content)
     }
 
     func GetInventoryHUDWidget(eResourceUIInventory string) entity<HudWidget>{

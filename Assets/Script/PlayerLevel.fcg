@@ -13,6 +13,7 @@ import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "./PlayerLevelHUD.fcg" as PlayerLevelHUD
 import "./PlayerSFX.fcg" as PlayerSFX
 import Resources from "EditorGenLib.fcc"
+import "./PlayerStatHUD.fcg" as PlayerStatHUD
 
 graph PlayerLevel {
     _exp int
@@ -131,6 +132,7 @@ graph PlayerLevel {
             LogInfo("[PlayerLevel] LoadDataSuccess _exp = " + thisEntity<PlayerData>._exp)
             _exp = thisEntity<PlayerData>._exp
             thisEntity<PlayerLevelHUD>.DisplayLevelHUD()
+            thisEntity<PlayerStatHUD>.UpdateLvl()
         }
     }
 }

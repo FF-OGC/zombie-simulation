@@ -488,14 +488,7 @@
                   "itemID": 117,
                   "seParent": null,
                   "ecaScripts": [
-                    {
-                      "fileId": "jv45zpuqlg-ltcmweq9-1m9ff41km6a",
-                      "filePath": "Assets\\Script\\TriggerBase.fcg",
-                      "_tag": {
-                        "type": "GFileRefer"
-                      },
-                      "fileType": "ugcscript"
-                    }
+                    null
                   ],
                   "ecaProps": {
                     "CustomizeTrigger": {},
@@ -526,7 +519,6 @@
                     "_levelObjectID": 75
                   },
                   "_filters": [
-                    "node.withscript",
                     "game.related7",
                     "entityTag91712955"
                   ]
@@ -701,7 +693,7 @@
               ],
               "prefabVariant": null,
               "activeValue": {
-                "selfValue": true,
+                "selfValue": false,
                 "valueTag": "activeValue"
               },
               "unlockedValue": {
@@ -770,7 +762,8 @@
                 "Entity": {},
                 "Visibility": {},
                 "Collider": {},
-                "MeshRender": {}
+                "MeshRender": {},
+                "ColliderShape": {}
               },
               "entityVersion": 3,
               "_entityName": "Craft pivot",
@@ -837,14 +830,7 @@
                   "itemID": 117,
                   "seParent": null,
                   "ecaScripts": [
-                    {
-                      "fileId": "jv45zpuqlg-ltcmweq9-1m9ff41km6a",
-                      "filePath": "Assets\\Script\\TriggerBase.fcg",
-                      "_tag": {
-                        "type": "GFileRefer"
-                      },
-                      "fileType": "ugcscript"
-                    }
+                    null
                   ],
                   "ecaProps": {
                     "CustomizeTrigger": {},
@@ -877,7 +863,6 @@
                   "editorLockValue": false,
                   "editorVisibleValue": true,
                   "_filters": [
-                    "node.withscript",
                     "game.related7",
                     "entityTag12759361"
                   ]

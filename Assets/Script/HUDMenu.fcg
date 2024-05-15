@@ -14,6 +14,7 @@ import "./PlayerStorageHUD.fcg" as PlayerStorageHUD
 import Resources from "EditorGenLib.fcc"
 import "./PlayerSkill.fcg" as PlayerSkill
 import "Math.fcc" as Math
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 
 graph HUDMenu {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
@@ -22,7 +23,6 @@ graph HUDMenu {
             player<PlayerZoneSelection>.BeginZoneSelection()
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_DEBUG)){
             LogInfo("[HUDMenu] btnDebug: " + button)
-            player<PlayerDebugHUD>.ToggleDebugHUD()
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_STAT)){
             LogInfo("[HUDMenu] btnStat: " + button)
             player<PlayerStorageHUD>.DisplayPlayerStorageHUD()
@@ -31,7 +31,11 @@ graph HUDMenu {
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_SKILL)){
             LogInfo("[HUDMenu] btnStat: " + button)
             player<PlayerSkill>.BeginPlayerSkill()
-        }
+        } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_CRAFTING)){
+            LogInfo(("[HUDMenu] btnCrafting: " + button))
+            player<PlayerCraftHUD>.DisplayCraftHUD()
+            player<PlayerMenu>.SetActivityCraftingNoti(false)
+        } 
         
     }
 }

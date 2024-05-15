@@ -17,16 +17,16 @@ graph PlayerMoney {
     _walletHUD entity<WalletHud>
         
     func DisplayWalletHUD() {
-        if (_walletHUD == nil) {
-            DeleteEntity(_walletHUD)                    
-            CreateInternalHud(out var createdHUD, thisEntity<Player>, InternalHudType.WalletHud)
-            _walletHUD = createdHUD<WalletHud>
-        }        
-        if (_userWallet != nil) {
-            for i, currencyHUD in _userWallet<Wallet>.Content {
-                _walletHUD<WalletHud>.BindMoney = currencyHUD
-            }
-        }
+        // if (_walletHUD == nil) {
+        //     DeleteEntity(_walletHUD)                    
+        //     CreateInternalHud(out var createdHUD, thisEntity<Player>, InternalHudType.WalletHud)
+        //     _walletHUD = createdHUD<WalletHud>
+        // }        
+        // if (_userWallet != nil) {
+        //     for i, currencyHUD in _userWallet<Wallet>.Content {
+        //         _walletHUD<WalletHud>.BindMoney = currencyHUD
+        //     }
+        // }
     }
     
     func AddMoney(moneyType int, count int) {
@@ -36,7 +36,7 @@ graph PlayerMoney {
             AddMoneyToWallet(_userWallet, MoneyType.Basic, count) 
             // ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{count, globalEntity<GlobalMaterial>.GetMaterialName(MaterialEnum.GOLD)}), ColorRGB(255, 255, 255), 3000)
             start thisEntity<PlayerInventoryHUD>.DisplayObtainHUD(MaterialEnum.GOLD, count)
-            DisplayWalletHUD()
+            thisEntity<PlayerInventoryHUD>.UpdateCoin()
         }
 
         if (moneyType == GameMoneyType.TOKEN) {
@@ -62,6 +62,7 @@ graph PlayerMoney {
         if (moneyType == GameMoneyType.COIN) {
             if (GetMoney(moneyType) >= count) {                                 
                 CostMoneyFromWallet(_userWallet, MoneyType.Basic, count)
+                thisEntity<PlayerInventoryHUD>.UpdateCoin()
                 return true
             } else {
                 // thisEntity<PlayerCurrencyExchange>.BeginCurrencyExchange(count)

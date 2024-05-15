@@ -13,15 +13,22 @@ import "./PlayerData.fcg" as PlayerData
 
 graph HUDDebug {
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
-        if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_PLUS_100)) {
-            // LogInfo("[HUDDebug] btnPlus100: " + button) 
-            // LogInfo("[HUDDebug] spawnPoint: " + globalEntity<GlobalSpawn>.GetSpawnPoint())
-            player<PlayerData>.Debug_ResetData()
-        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_MINUS_100)) {
-            LogInfo("[HUDDebug] btnMinus100: " + button) 
-            player<PlayerLevel>.IncreaseExpByAmount(10000000)
-            player<PlayerData>.Debug_ResetData()
-            LogInfo("[HUDDebug] exp: " + player<PlayerLevel>.GetExp())
+        if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_ADD_BE)) {
+            player<PlayerDebug>.AddMaterial(MaterialEnum.BOSS_ESSENCE)
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_ADD_PE)) {
+            player<PlayerDebug>.AddMaterial(MaterialEnum.PET_ESSENCE)
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_DEBUG_PROMPT)){
+            player<PlayerDebugHUD>.ToggleActivityDebugMenu()
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_ADD_ZE)){
+            player<PlayerDebug>.AddMaterial(MaterialEnum.ZOMBIE_ESSENCE)
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_ADD_COIN)){
+            player<PlayerDebug>.AddMaterial(MaterialEnum.GOLD)
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_ELIMINATE_BOSS)){
+
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_INVULNERABLE)){
+            player<PlayerDebug>.SetInvulnerable()
+        } else if (button == player<PlayerDebugHUD>.GetDebugHUDWidget(EResource_UI_DEBUG.BTN_RESET_DATA)){
+            player<PlayerDebug>.ResetData()
         }
     }
 }

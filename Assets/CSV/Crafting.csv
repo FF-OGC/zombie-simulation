@@ -1,59 +1,59 @@
-Name,,In Use,Type,Recipe ID \ Material ID,Material,Gold,Zombie Essence
-,Tier,,,,,MAT_GOLD,MAT_ZOMBIE_ESSENCE
-M1887,Tier 5,TRUE,Weapon,REC_M1887,0,0,0
-M1014,Tier 4,TRUE,Weapon,REC_M1014,0,1000,300
-Mag7,Tier 3,TRUE,Weapon,REC_MAG7,0,2000,1000
-Trogon,Tier 2,TRUE,Weapon,REC_TROGON,0,3000,3000
-Charge Buster,Tier 1,TRUE,Weapon,REC_CHARGE,0,5000,5000
-AN94,Tier 5,TRUE,Weapon,REC_AN94,0,0,0
-M4A1,Tier 4,TRUE,Weapon,REC_M4A1,0,1000,300
-AK47,Tier 3,TRUE,Weapon,REC_AK47,0,2000,1000
-Scar,Tier 2,TRUE,Weapon,REC_SCAR,0,3000,3000
-Groza,Tier 1,TRUE,Weapon,REC_GROZA,0,5000,5000
-MP5,Tier 5,TRUE,Weapon,REC_MP5,0,0,0
-UMP,Tier 4,TRUE,Weapon,REC_UMP,0,1000,300
-Bizon,Tier 3,TRUE,Weapon,REC_BIZON,0,2000,1000
-P90,Tier 2,TRUE,Weapon,REC_P90,0,3000,3000
-MP40,Tier 1,TRUE,Weapon,REC_MP40,0,5000,5000
-Kar98,Tier 5,TRUE,Weapon,REC_KAR98,0,0,0
-SKS,Tier 4,TRUE,Weapon,REC_SKS,0,1000,300
-M24,Tier 3,TRUE,Weapon,REC_M24,0,2000,1000
-M82B,Tier 2,TRUE,Weapon,REC_M82B,0,3000,3000
-AWM,Tier 1,TRUE,Weapon,REC_AWM,0,5000,5000
-Pan,Tier 5,TRUE,Weapon,REC_PAN,0,0,0
-Parang,Tier 4,TRUE,Weapon,REC_PARANG,0,1000,300
-Bat,Tier 3,TRUE,Weapon,REC_BAT,0,2000,1000
-Scythe,Tier 2,TRUE,Weapon,REC_SCYTHE,0,3000,3000
-Katana,Tier 1,TRUE,Weapon,REC_KATANA,0,5000,5000
-Mini Uzi,Tier 5,TRUE,Weapon,REC_UZI,0,0,0
-Desert Eagle,Tier 4,TRUE,Weapon,REC_DE,0,1000,300
-RGS-50,Tier 3,TRUE,Weapon,REC_RGS,0,2000,1000
-Flamethrower,Tier 2,TRUE,Weapon,REC_FLAMETHROWER,0,3000,3000
-Hookgun,Tier 1,TRUE,Weapon,REC_HOOKGUN,0,5000,5000
-Med Kit,,FALSE,Consumables,,300,1000,0
-Super Med Kit,,FALSE,Consumables,,300,1000,0
-Grenade,,FALSE,Consumables,,300,1000,0
-Freeze Grenade,,FALSE,Consumables,,300,1000,0
-Vest I,,FALSE,Armor,,1000,1000,0
-Vest II,,FALSE,Armor,,300,1000,0
-Vest III,,FALSE,Armor,,300,1000,0
-Vest IV,,FALSE,Armor,,300,1000,0
-Helmet I,,FALSE,Armor,,300,1000,0
-Helmet II,,FALSE,Armor,,300,1000,0
-Helmet III,,FALSE,Armor,,300,1000,0
-Helmet IV,,FALSE,Armor,,300,1000,0
-Scope Lv.1,,TRUE,Accessory,REC_SCOPE_1,300,1000,0
-Scope Lv.2,,TRUE,Accessory,REC_SCOPE_2,300,1000,0
-Scope Lv.3,,TRUE,Accessory,REC_SCOPE_3,300,1000,0
-Muzzle Lvl.1,,TRUE,Accessory,REC_MUZZLE_1,300,1000,0
-Muzzle Lvl.2,,TRUE,Accessory,REC_MUZZLE_2,300,1000,0
-Muzzle Lvl.3,,TRUE,Accessory,REC_MUZZLE_3,300,1000,0
-Magazine Lvl.1,,TRUE,Accessory,REC_MAGAZINE_1,300,1000,0
-Magazine Lvl.2,,TRUE,Accessory,REC_MAGAZINE_2,300,1000,0
-Magazine Lvl.3,,TRUE,Accessory,REC_MAGAZINE_3,300,1000,0
-Foregrip Lvl.1,,TRUE,Accessory,REC_FOREGRIP_1,300,1000,0
-Foregrip Lvl.2,,TRUE,Accessory,REC_FOREGRIP_2,300,1000,0
-Foregrip Lvl.3,,TRUE,Accessory,REC_FOREGRIP_3,300,1000,0
-Stock Lvl.1,,TRUE,Accessory,REC_STOCK_1,300,1000,0
-Stock Lvl.2,,TRUE,Accessory,REC_STOCK_2,300,1000,0
-Stock Lvl.3,,TRUE,Accessory,REC_STOCK_3,300,1000,0
+Name,Tier,In Use,Type,Recipe ID \ Material ID,Material,Gold,Zombie Essence,Boss Essence
+,,,,,,MAT_GOLD,MAT_ZOMBIE_ESSENCE,MAT_BOSS_ESSENCE
+M1887,Tier 5,TRUE,Weapon,REC_M1887,0,0,0,1
+M1014,Tier 4,TRUE,Weapon,REC_M1014,0,1000,300,1
+Mag7,Tier 3,TRUE,Weapon,REC_MAG7,0,2000,1000,1
+Trogon,Tier 2,TRUE,Weapon,REC_TROGON,0,3000,3000,1
+Charge Buster,Tier 1,TRUE,Weapon,REC_CHARGE,0,5000,5000,1
+AN94,Tier 5,TRUE,Weapon,REC_AN94,0,0,0,1
+M4A1,Tier 4,TRUE,Weapon,REC_M4A1,0,1000,300,1
+AK47,Tier 3,TRUE,Weapon,REC_AK47,0,2000,1000,1
+Scar,Tier 2,TRUE,Weapon,REC_SCAR,0,3000,3000,1
+Groza,Tier 1,TRUE,Weapon,REC_GROZA,0,5000,5000,1
+MP5,Tier 5,TRUE,Weapon,REC_MP5,0,0,0,1
+UMP,Tier 4,TRUE,Weapon,REC_UMP,0,1000,300,1
+Bizon,Tier 3,TRUE,Weapon,REC_BIZON,0,2000,1000,1
+P90,Tier 2,TRUE,Weapon,REC_P90,0,3000,3000,1
+MP40,Tier 1,TRUE,Weapon,REC_MP40,0,5000,5000,1
+Kar98,Tier 5,TRUE,Weapon,REC_KAR98,0,0,0,1
+SKS,Tier 4,TRUE,Weapon,REC_SKS,0,1000,300,1
+M24,Tier 3,TRUE,Weapon,REC_M24,0,2000,1000,1
+M82B,Tier 2,TRUE,Weapon,REC_M82B,0,3000,3000,1
+AWM,Tier 1,TRUE,Weapon,REC_AWM,0,5000,5000,1
+Pan,Tier 5,TRUE,Weapon,REC_PAN,0,0,0,1
+Parang,Tier 4,TRUE,Weapon,REC_PARANG,0,1000,300,1
+Bat,Tier 3,TRUE,Weapon,REC_BAT,0,2000,1000,1
+Scythe,Tier 2,TRUE,Weapon,REC_SCYTHE,0,3000,3000,1
+Katana,Tier 1,TRUE,Weapon,REC_KATANA,0,5000,5000,1
+Mini Uzi,Tier 5,TRUE,Weapon,REC_UZI,0,0,0,1
+Desert Eagle,Tier 4,TRUE,Weapon,REC_DE,0,1000,300,1
+RGS-50,Tier 3,TRUE,Weapon,REC_RGS,0,2000,1000,1
+Flamethrower,Tier 2,TRUE,Weapon,REC_FLAMETHROWER,0,3000,3000,1
+Hookgun,Tier 1,TRUE,Weapon,REC_HOOKGUN,0,5000,5000,1
+Med Kit,,FALSE,Consumables,,300,1000,0,1
+Super Med Kit,,FALSE,Consumables,,300,1000,0,1
+Grenade,,FALSE,Consumables,,300,1000,0,1
+Freeze Grenade,,FALSE,Consumables,,300,1000,0,1
+Vest I,,FALSE,Armor,,1000,1000,0,1
+Vest II,,FALSE,Armor,,300,1000,0,1
+Vest III,,FALSE,Armor,,300,1000,0,1
+Vest IV,,FALSE,Armor,,300,1000,0,1
+Helmet I,,FALSE,Armor,,300,1000,0,1
+Helmet II,,FALSE,Armor,,300,1000,0,1
+Helmet III,,FALSE,Armor,,300,1000,0,1
+Helmet IV,,FALSE,Armor,,300,1000,0,1
+Scope Lv.1,,TRUE,Accessory,REC_SCOPE_1,300,1000,0,1
+Scope Lv.2,,TRUE,Accessory,REC_SCOPE_2,300,1000,0,1
+Scope Lv.3,,TRUE,Accessory,REC_SCOPE_3,300,1000,0,1
+Muzzle Lvl.1,,TRUE,Accessory,REC_MUZZLE_1,300,1000,0,1
+Muzzle Lvl.2,,TRUE,Accessory,REC_MUZZLE_2,300,1000,0,1
+Muzzle Lvl.3,,TRUE,Accessory,REC_MUZZLE_3,300,1000,0,1
+Magazine Lvl.1,,TRUE,Accessory,REC_MAGAZINE_1,300,1000,0,1
+Magazine Lvl.2,,TRUE,Accessory,REC_MAGAZINE_2,300,1000,0,1
+Magazine Lvl.3,,TRUE,Accessory,REC_MAGAZINE_3,300,1000,0,1
+Foregrip Lvl.1,,TRUE,Accessory,REC_FOREGRIP_1,300,1000,0,1
+Foregrip Lvl.2,,TRUE,Accessory,REC_FOREGRIP_2,300,1000,0,1
+Foregrip Lvl.3,,TRUE,Accessory,REC_FOREGRIP_3,300,1000,0,1
+Stock Lvl.1,,TRUE,Accessory,REC_STOCK_1,300,1000,0,1
+Stock Lvl.2,,TRUE,Accessory,REC_STOCK_2,300,1000,0,1
+Stock Lvl.3,,TRUE,Accessory,REC_STOCK_3,300,1000,0,1

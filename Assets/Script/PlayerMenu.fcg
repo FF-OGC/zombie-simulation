@@ -7,16 +7,18 @@ import "./HUDUtil.fcg" as HUDUtil
 import "Playable.fcc" as playable 
 import "./PlayerStat.fcg" as PlayerStat
 import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
+import MyResources from "EditorGenLib.fcc"
 
 graph PlayerMenu {
     NOTI_ORIGINAL_COLOR = #000000FF
     NOTI_TWEEN_COLOR = #00000000
     NOTI_ORIGINAL_ALPHA = 1.0
-    NOTI_TWEEN_ALPHA = 0.0
-    NOTI_TWEEN_DURATION = 2000 // 2 second
+    NOTI_TWEEN_ALPHA = 0.4
+    NOTI_TWEEN_DURATION = 500 // 0.5 second
     _menuHUD entity<CustomHud>
     _bossNotiTween entity<Tween>
     _statNotiTween entity<Tween>
+    _craftingNotiTween entity<Tween>
 
     func InitMenuHUD(){
         if(_menuHUD == nil){
@@ -42,15 +44,17 @@ graph PlayerMenu {
     func SetNotiTween(){
         var imgBossNoti = GetMenuHUDWidget(EResource_UI_MENU.IMG_BOSS_NOTI)
         var imgStatNoti = GetMenuHUDWidget(EResource_UI_MENU.IMG_STAT_NOTI)
+        var imgCraftingNoti = GetMenuHUDWidget(EResource_UI_MENU.IMG_CRAFTING_NOTI)
         var curve = CreateTweenCurve(List<float>{0, 0, 1, 1})
         
-        // CreateTween(imgBossNoti, HudImageWidget.Color, NOTI_ORIGINAL_COLOR, NOTI_TWEEN_COLOR, TweenStyle.Loop, curve, NOTI_TWEEN_DURATION, out var notiBossTween )
-        CreateTween(imgBossNoti, HudImageWidget.Alpha, NOTI_ORIGINAL_ALPHA, NOTI_TWEEN_ALPHA, TweenStyle.PingPong, curve, NOTI_TWEEN_DURATION, out var notiBossTween, false )
+        CreateTween(imgBossNoti, HudImageWidget.Alpha, NOTI_ORIGINAL_ALPHA, NOTI_TWEEN_ALPHA, TweenStyle.PingPong, curve, NOTI_TWEEN_DURATION, out var notiBossTween, false)
         _bossNotiTween = notiBossTween
 
-        // CreateTween(imgStatNoti, HudImageWidget.Color, NOTI_ORIGINAL_COLOR, NOTI_TWEEN_COLOR, TweenStyle.Loop, curve, NOTI_TWEEN_DURATION, out var notiStatTween)
         CreateTween(imgStatNoti, HudImageWidget.Alpha, NOTI_ORIGINAL_ALPHA, NOTI_TWEEN_ALPHA, TweenStyle.PingPong, curve, NOTI_TWEEN_DURATION, out var notiStatTween,false)
         _statNotiTween = notiStatTween
+
+        CreateTween(imgCraftingNoti, HudImageWidget.Alpha, NOTI_ORIGINAL_ALPHA, NOTI_TWEEN_ALPHA, TweenStyle.PingPong, curve, NOTI_TWEEN_DURATION, out var notiCraftingTween, false)
+        _craftingNotiTween = notiCraftingTween
     }
 
     func CloseMenuHUD(){
@@ -96,7 +100,22 @@ graph PlayerMenu {
         imgBossNoti<HudWidget>.Active = true
     }
 
+    func SetActivityCraftingNoti(active bool){
+        var imgCraftingNoti = GetMenuHUDWidget(EResource_UI_MENU.IMG_CRAFTING_NOTI)
+        if(active){
+            imgCraftingNoti<HudWidget>.Active = false
+            Pause(_craftingNotiTween)
+        } else {
+            imgCraftingNoti<HudWidget>.Active = true
+            Play(_craftingNotiTween, false)
+        }
+    }
+
     func GetMenuHUDWidget(eResourceUIMenu string) entity<HudWidget>{
         return GetWidgetFromCustomHud(thisEntity<Player>, _menuHUD, Resources.UI_MENU[eResourceUIMenu])
+    }
+
+    event PlayerCraftHUD_HasNewUnlockable(unlockableWeapon List<string>) {
+        SetActivityCraftingNoti(true)        
     }
 }

@@ -38,12 +38,12 @@
             "y": 0.5
           },
           "anchoredPosition": {
-            "x": -2,
-            "y": 3
+            "x": 0,
+            "y": 0
           },
           "sizeDelta": {
-            "x": 10,
-            "y": 8
+            "x": 100,
+            "y": 100
           }
         },
         "alpha": 100,
@@ -198,7 +198,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "editorLockValue": false,
           "editorVisibleValue": true,
           "propsData": {
@@ -1973,7 +1976,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "editorLockValue": false,
               "editorVisibleValue": true,
               "propsData": {
@@ -2056,7 +2062,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "editorLockValue": false,
           "editorVisibleValue": true,
           "propsData": {
@@ -2371,7 +2380,7 @@
                   },
                   "anchoredPosition": {
                     "x": 0,
-                    "y": 31
+                    "y": 45
                   },
                   "sizeDelta": {
                     "x": 200,
@@ -2383,7 +2392,7 @@
                   "value": "AK47",
                   "key": "",
                   "font": "Default",
-                  "fontSize": 20,
+                  "fontSize": 24,
                   "fontStyle": {
                     "bold": false,
                     "italic": false,
@@ -2646,7 +2655,7 @@
                   },
                   "anchoredPosition": {
                     "x": 0,
-                    "y": 31
+                    "y": 45
                   },
                   "sizeDelta": {
                     "x": 200,
@@ -2658,7 +2667,7 @@
                   "value": "AK47",
                   "key": "",
                   "font": "Default",
-                  "fontSize": 20,
+                  "fontSize": 24,
                   "fontStyle": {
                     "bold": false,
                     "italic": false,
@@ -2921,7 +2930,7 @@
                   },
                   "anchoredPosition": {
                     "x": 0,
-                    "y": 31
+                    "y": 45
                   },
                   "sizeDelta": {
                     "x": 200,
@@ -2933,7 +2942,7 @@
                   "value": "AK47",
                   "key": "",
                   "font": "Default",
-                  "fontSize": 20,
+                  "fontSize": 24,
                   "fontStyle": {
                     "bold": false,
                     "italic": false,
@@ -3196,7 +3205,7 @@
                   },
                   "anchoredPosition": {
                     "x": 0,
-                    "y": 31
+                    "y": 43
                   },
                   "sizeDelta": {
                     "x": 200,
@@ -3208,7 +3217,7 @@
                   "value": "AK47",
                   "key": "",
                   "font": "Default",
-                  "fontSize": 20,
+                  "fontSize": 24,
                   "fontStyle": {
                     "bold": false,
                     "italic": false,
@@ -3672,7 +3681,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "propsData": {
             "activeSelf": true,
             "transform": {
@@ -3898,7 +3910,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "propsData": {
             "activeSelf": true,
             "transform": {

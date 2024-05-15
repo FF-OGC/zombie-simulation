@@ -48,7 +48,7 @@
               "V": {
                 "shadow": {
                   "type": "tys",
-                  "id": "An=1-FE=*%7vm?=}X%q=",
+                  "id": "Iy/8H^m5rk:Rn#5T8x($",
                   "extraState": "Bool"
                 },
                 "block": {
@@ -87,7 +87,7 @@
                   "V": {
                     "shadow": {
                       "type": "tys",
-                      "id": "6Qy(n$-n(447f8r1]0v`",
+                      "id": "hFHe$./|mo(^N(8s[()A",
                       "extraState": "Bool"
                     },
                     "block": {
@@ -126,7 +126,7 @@
                       "V": {
                         "shadow": {
                           "type": "tys",
-                          "id": "|~u|]*];avK?Am,!7y~)",
+                          "id": "TuilTq8WJw[s$3m3+b_q",
                           "extraState": "Bool"
                         },
                         "block": {
@@ -165,7 +165,7 @@
                           "V": {
                             "shadow": {
                               "type": "tys",
-                              "id": "BWI~*71.0d?G$jYGCnf`",
+                              "id": "O~xnE[P}#?AH!jY2U{LI",
                               "extraState": "KnockDownStateType"
                             },
                             "block": {
@@ -177,11 +177,117 @@
                               }
                             }
                           }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "a",
+                            "id": "S}4T649)LgZuGI%^j3TI",
+                            "extraState": {
+                              "X": 528,
+                              "L": [
+                                1,
+                                2,
+                                3
+                              ],
+                              "T": "SetPlayerHubSwitch",
+                              "OT": null
+                            },
+                            "inputs": {
+                              "P1": {
+                                "shadow": {
+                                  "type": "tys",
+                                  "id": "ZCwhF.DpN87Wit-Ce/Lc",
+                                  "extraState": "Player"
+                                },
+                                "block": {
+                                  "type": "lcg",
+                                  "id": "PRQNX.LNG^r|rff(9kR`",
+                                  "extraState": "4_,JB?W=.wVnO_a_0?5hP1",
+                                  "fields": {
+                                    "VR": "Triggering player"
+                                  }
+                                }
+                              },
+                              "P2": {
+                                "shadow": {
+                                  "type": "ipe",
+                                  "id": "xL8KU9B=hWscX;kH#6S5",
+                                  "extraState": "PlayerHudSwitchType",
+                                  "fields": {
+                                    "I": "BagHUD"
+                                  }
+                                }
+                              },
+                              "P3": {
+                                "shadow": {
+                                  "type": "ipe",
+                                  "id": "NzNf$!l?N1#dgY;f%jYl",
+                                  "extraState": "CommonHudSwitchValue",
+                                  "fields": {
+                                    "I": "Close"
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "jO(*7:Si.8iD!y*JOzR|",
+        "x": 177,
+        "y": 371,
+        "extraState": {
+          "X": 528,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "SetPlayerHubSwitch",
+          "OT": null
+        },
+        "inputs": {
+          "P1": {
+            "shadow": {
+              "type": "tys",
+              "id": "ZCwhF.DpN87Wit-Ce/Lc",
+              "extraState": "Player"
+            },
+            "block": {
+              "type": "lcg",
+              "id": "Ifn[}ukuLlW=wT%x.L]N",
+              "extraState": "4_,JB?W=.wVnO_a_0?5hP1",
+              "fields": {
+                "VR": "Triggering player"
+              }
+            }
+          },
+          "P2": {
+            "shadow": {
+              "type": "ipe",
+              "id": "kj6Af0VvjKODrw]r/I1K",
+              "extraState": "PlayerHudSwitchType",
+              "fields": {
+                "I": "BagHUD"
+              }
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "ipe",
+              "id": "r/{JYsAAVR){;No;8`(V",
+              "extraState": "CommonHudSwitchValue",
+              "fields": {
+                "I": "Close"
               }
             }
           }

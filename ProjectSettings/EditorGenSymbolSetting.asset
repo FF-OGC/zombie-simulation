@@ -177,6 +177,9 @@
           },
           "vBdoltGul": {
             "label": "LocationNameLocalizations"
+          },
+          "vUzmpZi8j": {
+            "label": "Localization"
           }
         },
         "funcs": {
@@ -1602,6 +1605,24 @@
         "funcs": {
           "z@?5B5IXaHX*j?/EwzT@": {
             "label": "SetBossOwner"
+          },
+          "cHRuM7;+^Y#3WSb/2]8,": {
+            "label": "updateHPBar"
+          },
+          "M@%A4t0jk{4OPYUt7#v)": {
+            "label": "initHPBar"
+          },
+          "X5mOd0iW:tYM53~VV!Ou": {
+            "label": "getHPInEachPhaseList"
+          },
+          "-26A5O;tKlQv;UQsEJF)": {
+            "label": "removeHPBar"
+          },
+          "onLxYP]!]`PiHciE/v1u": {
+            "label": "SetHPBarName"
+          },
+          "h]gN2H;StxZ9?mCZV=%k": {
+            "label": "SetHPBarIcon"
           }
         }
       },
@@ -2135,6 +2156,18 @@
           },
           "7=U7i=i13pQ{X(9H*T^}": {
             "label": "showDamage"
+          },
+          "X5mOd0iW:tYM53~VV!Ou": {
+            "label": "getHPInEachPhaseList"
+          },
+          "-26A5O;tKlQv;UQsEJF)": {
+            "label": "removeHPBar"
+          },
+          "onLxYP]!]`PiHciE/v1u": {
+            "label": "SetHPBarName"
+          },
+          "h]gN2H;StxZ9?mCZV=%k": {
+            "label": "SetHPBarIcon"
           }
         }
       },
@@ -2564,6 +2597,24 @@
           },
           "MPbtHh2kF5Jc1l2aDF)i": {
             "label": "SetHookGun"
+          },
+          "cHRuM7;+^Y#3WSb/2]8,": {
+            "label": "updateHPBar"
+          },
+          "M@%A4t0jk{4OPYUt7#v)": {
+            "label": "initHPBar"
+          },
+          "X5mOd0iW:tYM53~VV!Ou": {
+            "label": "getHPInEachPhaseList"
+          },
+          "-26A5O;tKlQv;UQsEJF)": {
+            "label": "removeHPBar"
+          },
+          "onLxYP]!]`PiHciE/v1u": {
+            "label": "SetHPBarName"
+          },
+          "h]gN2H;StxZ9?mCZV=%k": {
+            "label": "SetHPBarIcon"
           }
         }
       },
@@ -2888,6 +2939,42 @@
           },
           "g:9Tr7ir*(A-+{u0K5=_": {
             "label": "IsPhase1"
+          },
+          "U;O=5Fi3E!B1:Q:%xnea": {
+            "label": "switchState"
+          },
+          "5c~4q99CN|s43$_TaFt8": {
+            "label": "playAnimation"
+          },
+          "7.M%/j}C`x@N?JuFtb(n": {
+            "label": "turnOnMetalZone"
+          },
+          "56|3E04,!WRR_FmKf;6Z": {
+            "label": "switchPhase1"
+          },
+          "Qv^L_1)NN{/{a=N7~F_]": {
+            "label": "initBossConfig"
+          },
+          "uk,JWQMiYDMZ`i*O$oG]": {
+            "label": "skill2"
+          },
+          "M+ESiltvSSkPZ=[k$r}R": {
+            "label": "initSkillCoolDown2"
+          },
+          "Vfgv7Y{IzHOhWapro$Q]": {
+            "label": "resetCoolDown2"
+          },
+          "]NcSw*b9|$;@sFvbhs9+": {
+            "label": "createFireBall2"
+          },
+          "=k!@Yd$Q`V4wT{K1K`r4": {
+            "label": "createDamageZone"
+          },
+          "xmm)*BaNt|i86m3Rmpg!": {
+            "label": "activateKnockUp"
+          },
+          "OR+6Uba(JF7670r0Yk.a": {
+            "label": "createRedZone"
           }
         }
       },
