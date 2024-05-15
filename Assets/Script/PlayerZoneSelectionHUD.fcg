@@ -105,6 +105,11 @@ graph PlayerZoneSelectionHUD {
 
     func GetZonePivot(zoneEnum string) entity<HudWidget>{
         InitZoneSelectionHUD()
+        
+        if(!ContainKey(_zonePivotMap, zoneEnum)){
+            LogInfo("[PlayerZoneSelectionHUD] " + zoneEnum + " is not a valid zone")
+            return nil
+        }
         return _zonePivotMap[zoneEnum]
     }
 
@@ -147,12 +152,18 @@ graph PlayerZoneSelectionHUD {
         var nextIcon = GetZoneIcon(globalEntity<GlobalZoneBossManager>.GetNextSpawnZone())
         if(globalEntity<GlobalZoneBossManager>.IsBossOnField()){
             nextIcon<HudWidget>.Active = false
-            currentIcon<HudWidget>.Active = true
-            currentIcon<HudImageWidget>.SpriteName = IconType.Zombie
+            if(currentIcon != nil){
+                currentIcon<HudWidget>.Active = true
+                currentIcon<HudImageWidget>.SpriteName = IconType.Zombie as SpriteID
+            }
+            
         } else {
-            currentIcon<HudWidget>.Active = false
+            if(currentIcon != nil){
+                currentIcon<HudWidget>.Active = false
+            }
+            
             nextIcon<HudWidget>.Active = true
-            nextIcon<HudImageWidget>.SpriteName = IconType.Hourglass
+            nextIcon<HudImageWidget>.SpriteName = IconType.Hourglass as SpriteID
         }
     }
 
@@ -164,8 +175,14 @@ graph PlayerZoneSelectionHUD {
             timer<HudWidget>.Active = false
             return
         }
-
         timer<HudWidget>.Active = true
+        // timer<HudLabelWidget>.Text = txtRemainingTimeM + ":" + txtRemainingTimeS
+        timer<HudLabelWidget>.Text = getRemainingTime()
+    }
+
+    func getRemainingTime() string{
+        
+     
         var loopCount = globalEntity<GlobalLoop>.GetLoopCount()
         var lastSpawnLoopCount = globalEntity<GlobalZoneBossManager>.GetLastSpawnLoopCount()
 
@@ -195,7 +212,6 @@ graph PlayerZoneSelectionHUD {
         } else {
             txtRemainingTimeS = ToString(remainingTimeS)
         }
-
-        timer<HudLabelWidget>.Text = txtRemainingTimeM + ":" + txtRemainingTimeS
+        return txtRemainingTimeM + ":" + txtRemainingTimeS
     }
 }

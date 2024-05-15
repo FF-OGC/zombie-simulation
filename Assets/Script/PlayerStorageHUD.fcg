@@ -1,0 +1,106 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as Hud
+import "./HUDUtil.fcg" as HUDUtil
+import Resources from "EditorGenLib.fcc"
+import MyResources from "EditorGenLib.fcc"
+import "./PlayerStat.fcg" as PlayerStat
+import "Map.fcc" as Map
+import "Convert.fcc" as Convert
+import "Strings.fcc" as Strings
+import "List.fcc" as List
+import "./GlobalCrafting.fcg" as GlobalCrafting
+import "./GlobalArmory.fcg" as GlobalArmory
+import "./PlayerArmory.fcg" as PlayerArmory
+import "./PlayerStatHUD.fcg" as PlayerStatHUD
+
+
+graph PlayerStorageHUD {
+
+    _PlayerSotrageHUD entity<CustomHud>
+
+    func InitPlayerStorageHUD() {
+        if(_PlayerSotrageHUD == nil){
+            _PlayerSotrageHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.STORAGE, 5)
+            _PlayerSotrageHUD<CustomHud>.Visibility = false
+            SetPlayerStorageHUD()
+            UpdatePlayerStorageHUD()
+        }
+    }
+
+    func DisplayPlayerStorageHUD() {
+        LogInfo("PlayerStorageHUD" + _PlayerSotrageHUD)
+        LogInfo("eresource" + EResource_UI.STORAGE)
+        InitPlayerStorageHUD()
+        if(!_PlayerSotrageHUD<CustomHud>.Visibility){
+            _PlayerSotrageHUD<CustomHud>.Visibility = true
+        }
+
+        thisEntity<PlayerStat>.BeginPlayerStat()
+    }
+
+    func ClosePlayerStorageHUD() {
+        if(_PlayerSotrageHUD != nil){
+            _PlayerSotrageHUD<CustomHud>.Visibility = false
+        }
+        thisEntity<PlayerStat>.EndPlayerStat()
+    }
+
+    func DeletePlayerStorageHUD () {
+        DeleteEntity(_PlayerSotrageHUD)
+    }
+
+    func GetPlayerStorageHUDWidget(eResourcePlayerStorage string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player> as entity<Player>, _PlayerSotrageHUD, Resources.UI_STORAGE[eResourcePlayerStorage])
+    }
+
+    func SetPlayerStorageHUD() {
+        var avatar = GetPlayerStorageHUDWidget(EResource_UI_STORAGE.AVATAR)
+        var name =  GetPlayerStorageHUDWidget(EResource_UI_STORAGE.NAME)
+
+        // Set right holder
+        avatar<HudProfileInfo>.AccountID = thisEntity<Player>.UserUID
+        name<HudLabelWidget>.Text = thisEntity<Player>.NickName
+        
+        UpdatePlayerStorageHUD()
+    }
+
+    func SetWeapon(weaponHolder entity<HudWidget>, recipeEnum string) {
+        var image = GetChildByIndex(weaponHolder, 0)
+        var text = GetChildByIndex(weaponHolder, 1)
+        LogInfo("recipeEnum" + recipeEnum)
+
+        if recipeEnum == "nil" {
+            if weaponHolder == GetPlayerStorageHUDWidget(EResource_UI_STORAGE.MELEE) {
+                image<HudImageWidget>.SpriteName = Resources.Texture[EResource_Texture.ICON_FIST] as SpriteID
+                text<HudLabelWidget>.Text = "Fist"
+            } else {
+                text<HudLabelWidget>.Text = MyResources.Localizations["EMPTY"]
+                image<HudWidget>.Active = false
+            }
+            
+        } else {
+            image<HudWidget>.Active = true
+            image<HudImageWidget>.SpriteName = globalEntity<GlobalCrafting>.GetGunImage(recipeEnum)
+            text<HudLabelWidget>.Text = globalEntity<GlobalCrafting>.GetGunName(recipeEnum)
+
+            LogInfo("recipe Name: " + globalEntity<GlobalCrafting>.GetGunName(recipeEnum))
+        }
+        
+    }
+
+    func UpdatePlayerStorageHUD() {
+        var primaryWeapon1 = GetPlayerStorageHUDWidget(EResource_UI_STORAGE.WEAPON1)
+        var primaryWeapon2 = GetPlayerStorageHUDWidget(EResource_UI_STORAGE.WEAPON2)
+        var handgun = GetPlayerStorageHUDWidget(EResource_UI_STORAGE.HANDGUN)
+        var melee = GetPlayerStorageHUDWidget(EResource_UI_STORAGE.MELEE)
+        var equipedGuns = thisEntity<PlayerArmory>.GetEquipedGuns()
+        
+        SetWeapon(primaryWeapon1, equipedGuns[0])
+        SetWeapon(primaryWeapon2,  equipedGuns[1])
+        SetWeapon(handgun,  equipedGuns[2])
+        SetWeapon(melee,  equipedGuns[3])
+
+    }
+
+}

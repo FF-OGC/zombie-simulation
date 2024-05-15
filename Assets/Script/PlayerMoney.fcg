@@ -10,6 +10,7 @@ import "Convert.fcc" as convert
 import "./PlayerCraftlandToken.fcg" as PlayerCraftlandToken
 import MyResources from "EditorGenLib.fcc"
 import "./GlobalMaterial.fcg" as GlobalMaterial
+import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
 
 graph PlayerMoney {
     _userWallet entity<Wallet>
@@ -33,7 +34,8 @@ graph PlayerMoney {
                 ", count = " + count)        
         if (moneyType == GameMoneyType.COIN) {            
             AddMoneyToWallet(_userWallet, MoneyType.Basic, count) 
-            ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{count, globalEntity<GlobalMaterial>.GetMaterialName(MaterialEnum.GOLD)}), ColorRGB(255, 255, 255), 3000)
+            // ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{count, globalEntity<GlobalMaterial>.GetMaterialName(MaterialEnum.GOLD)}), ColorRGB(255, 255, 255), 3000)
+            start thisEntity<PlayerInventoryHUD>.DisplayObtainHUD(MaterialEnum.GOLD, count)
             DisplayWalletHUD()
         }
 
@@ -41,6 +43,8 @@ graph PlayerMoney {
             thisEntity<PlayerCraftlandToken>.AddCraftlandTokenByAmount(count)
             ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{count, "Token"}), ColorRGB(255, 255, 255), 3000)
         }
+
+        start thisEntity<PlayerData>.WriteData()
     }
 
     func GetMoney(moneyType int) int {

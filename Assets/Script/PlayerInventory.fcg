@@ -180,8 +180,10 @@ graph PlayerInventory {
 
         // Set Obtain noti
         var materialAmountStr =  "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        // ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("OBTAIN", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        start thisEntity<PlayerInventoryHUD>.DisplayObtainHUD(materialEnum, amount)
         // LogInfo("[PlayerInventory] material after +: " + materialEnum + " " + _inventoryMap[materialEnum])
+        start thisEntity<PlayerData>.WriteData()
     }
 
     func GetItemAmount(materialEnum string) int{
@@ -199,8 +201,9 @@ graph PlayerInventory {
 
         // Set Consumption noti
         var materialAmountStr = "x" + ToString(amount)
-        ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
+        // ShowTips(thisEntity<Player>, MyResources.GetLocalizationWParam("CONSUME", List<object>{materialAmountStr, globalEntity<GlobalMaterial>.GetMaterialName(materialEnum)}), ColorRGB(255, 255, 255), 3000)
         // LogInfo("[PlayerInventory] material after -: " + materialEnum + " " + _inventoryMap[materialEnum])
+        start thisEntity<PlayerData>.WriteData()
     }
 
 

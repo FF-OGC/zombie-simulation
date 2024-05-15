@@ -1,3 +1,4 @@
+import "CSVData.fcc" as CSVData
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "Map.fcc" as map

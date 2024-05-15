@@ -1,0 +1,65 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "./GlobalCrafting.fcg" as GlobalCrafting
+import "Items.fcc" as items
+import "Math.fcc" as math
+import "List.fcc" as List
+
+graph PlayerFarmSuggestionHUD {
+
+    _farmSuggestionHUD entity<CustomHud>
+
+    func InitFarmSuggestionHUD(){
+        if(_farmSuggestionHUD == nil){
+            _farmSuggestionHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.FARM_SUGGESTION, 99)
+            _farmSuggestionHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DisplayFarmSuggestionHUD(){
+        InitFarmSuggestionHUD()
+        ResetFarmSuggestionHUD()
+        if(!_farmSuggestionHUD<CustomHud>.Visibility){
+            _farmSuggestionHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ResetFarmSuggestionHUD(){
+        
+    }
+
+    func CloseFarmSuggestionHUD(){
+        if(_farmSuggestionHUD != nil){
+            _farmSuggestionHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteFarmSuggestionHUD(){
+        DeleteEntity(_farmSuggestionHUD)
+    }
+
+    func SetMaxZombieCount(){
+        
+    }
+
+    func ToggleFarmSuggestionHUD(){
+        if(_farmSuggestionHUD<CustomHud>.Visibility){
+            // _farmSuggestionHUD<CustomHud>.Visibility = false
+            CloseFarmSuggestionHUD()
+        } else {
+            // _farmSuggestionHUD<CustomHud>.Visibility = true
+            DisplayFarmSuggestionHUD()
+        }
+    }
+
+    func GetFarmSuggestionHUDWidget(eResourceUIFarmSuggestion string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _farmSuggestionHUD, Resources.UI_FARM_SUGGESTION[eResourceUIFarmSuggestion])
+    }
+}

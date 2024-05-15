@@ -7,7 +7,7 @@ import "./PlayerData.fcg" as PlayerData
 import "Items.fcc" as Items
 import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 import "./PlayerMoney.fcg" as PlayerMoney
-
+import "./PlayerFarmSuggestionHUD.fcg" as PlayerFarmSuggestionHUD
 
 
 graph PlayerCrafting {
@@ -25,6 +25,49 @@ graph PlayerCrafting {
             return true
         }
         return thisEntity<PlayerInventory>.CheckHasItem(recipeMap[RecipeEnum][5])
+    }
+
+    func CheckHasEnoughMaterial(RecipeEnum string) bool{
+        var recipeMatMap = globalEntity<GlobalCrafting>.GetRecipeMaterial(RecipeEnum)
+        for mat, amount in recipeMatMap {
+            StringToInt(amount, out var amountInt, out var success)
+            if mat == MaterialEnum.GOLD{
+                if thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN) < amountInt {
+                    return false
+                }
+            } else {
+                if thisEntity<PlayerInventory>.GetItemAmount(mat) < amountInt{
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+    func CheckHasEnoughOneMaterial(RecipeEnum string, MatEnum string) bool{
+        var recipeMatMap Map<string, int> = globalEntity<GlobalCrafting>.GetRecipeMaterial(RecipeEnum)
+   
+        var amount string = recipeMatMap[MatEnum]
+
+        LogInfo("CheckHasEnoughOneMaterial Mat: " + MatEnum)
+        LogInfo("CheckHasEnoughOneMaterial Map: " + recipeMatMap)
+        LogInfo("CheckHasEnoughOneMaterial Amount: " + amount)
+        StringToInt(amount, out var amountInt, out var success)
+
+        LogInfo("CheckHasEnoughOneMaterial: " + MatEnum + " " + amountInt)
+        LogInfo("CheckHasEnoughOneMaterial: " + thisEntity<PlayerInventory>.GetItemAmount(MatEnum) + " " + amountInt)
+
+        if MatEnum == MaterialEnum.GOLD {
+            if thisEntity<PlayerMoney>.GetMoney(GameMoneyType.COIN) < amountInt {
+                return false
+            }
+        } else if MatEnum == MaterialEnum.ZOMBIE_ESSENCE {
+            if thisEntity<PlayerInventory>.GetItemAmount(MatEnum) < amountInt{
+                return false
+            }
+        }
+
+        return true
     }
 
    async func Craft(recipeEnum string){
@@ -55,6 +98,7 @@ graph PlayerCrafting {
                     if thisEntity<PlayerInventory>.GetItemAmount(mat) < amountInt{
                         craftable = false
                         ShowTips(thisEntity<Player> as entity<Player>,"Not Enough Material",#FFFFFFFF,3000)
+                        thisEntity<PlayerFarmSuggestionHUD>.DisplayFarmSuggestionHUD()
                     }
                 }
             }

@@ -39,7 +39,7 @@ graph PlayerLevel {
 
     async func StartLevelUpVFX(){
         CreateFromPrefab(out var createdPrefab, Resources.Prefab[EResource_Prefab.LEVEL_UP])
-        CreateFollow(createdPrefab, thisEntity<Player>, Vector3{0,0,0}, CoordinateType.WorldPosition, out var createdFollowing)
+        CreateFollow(createdPrefab, thisEntity<Player>, Vector3{0,0,0}, CoordinateType.WorldPosition, out var createdFollowing, false)
         Play(createdFollowing, false)
         WaitForSeconds(3000)
         Pause(createdFollowing)

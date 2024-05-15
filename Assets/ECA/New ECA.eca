@@ -1,0 +1,56 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "a",
+        "id": "8oA;433J#`D~s8,^Hc07",
+        "x": 367,
+        "y": 341,
+        "extraState": {
+          "X": 147,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "PlayerRemoveItem",
+          "OT": null
+        },
+        "inputs": {
+          "P1": {
+            "shadow": {
+              "type": "tys",
+              "id": "zEoc,tkch4F0d5ssxFZJ",
+              "extraState": "Player"
+            }
+          },
+          "P2": {
+            "shadow": {
+              "type": "pki",
+              "id": "MfGa7eD%C7p}2Z3+^RDg",
+              "fields": {
+                "V": ""
+              }
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "ipi",
+              "id": "6oNAqO)5he=$rbuA7+)X",
+              "fields": {
+                "V": 0
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "graphData": {
+    "ownerType": "Entity",
+    "componentTypes": "Entity",
+    "isStatic": false
+  }
+}
+//"{FE:{"v":"1.8.2949557","c":{"FF":4404},"s":100}

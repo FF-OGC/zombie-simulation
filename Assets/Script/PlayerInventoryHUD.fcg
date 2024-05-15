@@ -6,15 +6,18 @@ import Resources from "EditorGenLib.fcc"
 import "./PlayerInventory.fcg" as PlayerInventory
 import "Convert.fcc" as Convert
 import "./GlobalMaterial.fcg" as GlobalMaterial
+import "Math.fcc" as math 
 
 graph PlayerInventoryHUD {
+    OBTAIN_X_DELTA = 75
+    OBTAIN_Y_DELTA = 50
     _materialTxtMap Map<string, entity<HudWidget>>
     _hasInit bool
     _inventoryHUD entity<CustomHud>
 
     func InitInventoryHUD(){
         if(_inventoryHUD == nil){
-            _inventoryHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.INVENTORY, 4)
+            _inventoryHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.INVENTORY, 10)
             _inventoryHUD<CustomHud>.Visibility = false
         }
 
@@ -75,4 +78,27 @@ graph PlayerInventoryHUD {
         return GetWidgetFromCustomHud(thisEntity<Player>, _inventoryHUD, Resources.UI_INVENTORY[eResourceUIInventory])
     }
 
+    func GetObtainHUDWidget(obtainHUD entity<CustomHud>, eResourceObtain string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, obtainHUD, Resources.UI_OBTAIN[eResourceObtain])
+    }
+
+    async func DisplayObtainHUD(materialEnum string, amount int){
+        var obtainHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.OBTAIN, 4)
+        var pivot = GetObtainHUDWidget(obtainHUD, EResource_UI_OBTAIN.PIVOT_OBTAIN)
+        var position = pivot<HudWidget>.AnchorPosition
+        var randomX = RandomInt(-OBTAIN_X_DELTA, OBTAIN_X_DELTA)
+        var randomY = RandomInt(-OBTAIN_Y_DELTA, OBTAIN_Y_DELTA)
+        var newPosition = Vector3{position.X + randomX, position.Y + randomY, position.Z}
+        var txtAmount = GetChildByIndex(pivot, 0) as entity<HudLabelWidget>
+        var imgIcon = GetChildByIndex(txtAmount, 0) as entity<HudImageWidget>
+        var icon = globalEntity<GlobalMaterial>.GetMaterialIcon(materialEnum)
+        var amountStr = "+ " + ToString(amount)
+
+        txtAmount<HudLabelWidget>.Text = amountStr
+        imgIcon<HudImageWidget>.SpriteName = icon as SpriteID
+        pivot<HudWidget>.AnchorPosition = newPosition
+
+        WaitForSeconds(1500)
+        DeleteEntity(obtainHUD)
+    }
 }

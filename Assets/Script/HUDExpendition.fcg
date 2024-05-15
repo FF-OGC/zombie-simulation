@@ -2,6 +2,9 @@ import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "Hud.fcc" as Hud
 
-graph HUDExpendition {
-    
+
+graph HUDExpadition {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {
+
+    }
 }

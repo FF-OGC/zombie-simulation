@@ -1,1 +1,3324 @@
-{"rootEntity":"behaviorRoot","entityMap":{"behaviorRoot":{"_tag":{"type":"XBTRootEntity","resourceId":""},"_entityId":"behaviorRoot","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"bGKAz9CH","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"nLVT7lSg","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"EuVpp9nA","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"09yefrfykvg9-luaoic3l-9gg0nfer1j5","filePath":"Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase1 Dragon.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":774.1876831054688,"y":-357.6414489746094,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase1","id":"EuVpp9nA","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"4LWpKSos","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"yz9bua44ck-luaoic06-tzaqxmkakg","filePath":"Assets\\ECA\\Behavior ECA\\Dragon\\Attack Dragon.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":779.2567138671875,"y":155.80517578125,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"4LWpKSos","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"x3H1vEKy","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8qdky6jmc83-luaoic1y-blqoda6ypio","filePath":"Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":596.5452880859375,"y":-62.62252426147461,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"x3H1vEKy","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":349.79241943359375,"y":38.42856979370117,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Sequence","id":"nLVT7lSg","keyName":"Sequence","desc":"FE_42_JH_WS_EXSEQUENCE","varArr":[],"in":null,"icon":"General_Sequence_20","out":["EuVpp9nA","4LWpKSos","x3H1vEKy"]},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"xE18lYXL","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"o1u3U8uv","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"s68r98bfro-luaoic4q-hvidtu5fam9","filePath":"Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase2 Dragon.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":948.473388671875,"y":376.6442565917969,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase2","id":"o1u3U8uv","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"dYqaCEz8","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8qdky6jmc83-luaoic1y-blqoda6ypio","filePath":"Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1040.916015625,"y":449.047607421875,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"dYqaCEz8","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"9Rgec7GU","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"x0r8q57rllh-luap04bl-0agmim4h1ncq","filePath":"Assets\\ECA\\Behavior ECA\\Dragon\\Attack2 Dragon.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1168.4986572265625,"y":499.92437744140625,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"9Rgec7GU","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":632.8431396484375,"y":274.8795471191406,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Sequence","id":"xE18lYXL","keyName":"Sequence","desc":"FE_42_JH_WS_EXSEQUENCE","varArr":[],"in":null,"icon":"General_Sequence_20","out":["o1u3U8uv","dYqaCEz8","9Rgec7GU"]},"readonlyScripts":[null],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":265,"y":153.64706420898438,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Priority","id":"bGKAz9CH","keyName":"Priority","desc":"FE_42_JH_WS_PRIORITY","varArr":[],"in":null,"icon":"General_Selector_20","out":["nLVT7lSg","xE18lYXL"]},"readonlyScripts":[null],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[],"x":0,"y":0,"width":180,"height":88,"nodeInfo":{"type":"root","name":"Root","id":"behaviorRoot","varArr":[],"out":"bGKAz9CH","icon":"General_Root_20"},"_entityName":"XBTRootEntity"},"bGKAz9CH":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"bGKAz9CH","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"nLVT7lSg","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"EuVpp9nA","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"b6dkq52elku-ltqorg3y-7puczn8jxmu","filePath":"Assets\\ECA\\Behavior ECA\\IsPhase1.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":774.1876831054688,"y":-357.6414489746094,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase1","id":"EuVpp9nA","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"4LWpKSos","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"s47wmlifjvj-lt44yuwa-zwnytdtqerr","filePath":"Assets\\ECA\\Behavior ECA\\Attack.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":779.2567138671875,"y":155.80517578125,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"4LWpKSos","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"x3H1vEKy","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":596.5452880859375,"y":-62.62252426147461,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"x3H1vEKy","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"AeWfyVId","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":629.4188232421875,"y":54.906211853027344,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Move","id":"AeWfyVId","varArr":[],"ecaScript":{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":349.79241943359375,"y":38.42856979370117,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Sequence","id":"nLVT7lSg","keyName":"Sequence","desc":"FE_42_JH_WS_EXSEQUENCE","varArr":[],"in":null,"icon":"General_Sequence_20","out":["EuVpp9nA","4LWpKSos","x3H1vEKy","AeWfyVId"]},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"xE18lYXL","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"o1u3U8uv","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"0qtw0c9tts-ltqqzsgg-jh447jzjv1","filePath":"Assets\\ECA\\Behavior ECA\\IsPhase2.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":948.473388671875,"y":376.6442565917969,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase2","id":"o1u3U8uv","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"dYqaCEz8","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1040.916015625,"y":449.047607421875,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"dYqaCEz8","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"9Rgec7GU","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","filePath":"Assets\\ECA\\Behavior ECA\\HasTarget.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1168.4986572265625,"y":499.92437744140625,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"9Rgec7GU","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"nrDSaU7Q","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1143.4986572265625,"y":626.5910034179688,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Move","id":"nrDSaU7Q","varArr":[],"ecaScript":{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":632.8431396484375,"y":274.8795471191406,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Sequence","id":"xE18lYXL","keyName":"Sequence","desc":"FE_42_JH_WS_EXSEQUENCE","varArr":[],"in":null,"icon":"General_Sequence_20","out":["o1u3U8uv","dYqaCEz8","9Rgec7GU","nrDSaU7Q"]},"readonlyScripts":[null],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":265,"y":153.64706420898438,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Priority","id":"bGKAz9CH","keyName":"Priority","desc":"FE_42_JH_WS_PRIORITY","varArr":[],"in":null,"icon":"General_Selector_20","out":["nLVT7lSg","xE18lYXL"]},"readonlyScripts":[null],"_entityName":"XBTEntity"},"nLVT7lSg":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"nLVT7lSg","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"EuVpp9nA","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"b6dkq52elku-ltqorg3y-7puczn8jxmu","filePath":"Assets\\ECA\\Behavior ECA\\IsPhase1.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":774.1876831054688,"y":-357.6414489746094,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase1","id":"EuVpp9nA","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"4LWpKSos","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"s47wmlifjvj-lt44yuwa-zwnytdtqerr","filePath":"Assets\\ECA\\Behavior ECA\\Attack.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":779.2567138671875,"y":155.80517578125,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"4LWpKSos","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"x3H1vEKy","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":596.5452880859375,"y":-62.62252426147461,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"x3H1vEKy","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"AeWfyVId","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":629.4188232421875,"y":54.906211853027344,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Move","id":"AeWfyVId","varArr":[],"ecaScript":{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":349.79241943359375,"y":38.42856979370117,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Sequence","id":"nLVT7lSg","keyName":"Sequence","desc":"FE_42_JH_WS_EXSEQUENCE","varArr":[],"in":null,"icon":"General_Sequence_20","out":["EuVpp9nA","4LWpKSos","x3H1vEKy","AeWfyVId"]},"readonlyScripts":[null],"_entityName":"XBTEntity"},"EuVpp9nA":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"EuVpp9nA","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"b6dkq52elku-ltqorg3y-7puczn8jxmu","filePath":"Assets\\ECA\\Behavior ECA\\IsPhase1.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":774.1876831054688,"y":-357.6414489746094,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase1","id":"EuVpp9nA","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},"4LWpKSos":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"4LWpKSos","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"s47wmlifjvj-lt44yuwa-zwnytdtqerr","filePath":"Assets\\ECA\\Behavior ECA\\Attack.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":779.2567138671875,"y":155.80517578125,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"4LWpKSos","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},"x3H1vEKy":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"x3H1vEKy","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":596.5452880859375,"y":-62.62252426147461,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"x3H1vEKy","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},"xE18lYXL":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"xE18lYXL","children":[{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"o1u3U8uv","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"0qtw0c9tts-ltqqzsgg-jh447jzjv1","filePath":"Assets\\ECA\\Behavior ECA\\IsPhase2.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":948.473388671875,"y":376.6442565917969,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase2","id":"o1u3U8uv","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"dYqaCEz8","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1040.916015625,"y":449.047607421875,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"dYqaCEz8","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"9Rgec7GU","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","filePath":"Assets\\ECA\\Behavior ECA\\HasTarget.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1168.4986572265625,"y":499.92437744140625,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"9Rgec7GU","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"nrDSaU7Q","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1143.4986572265625,"y":626.5910034179688,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Move","id":"nrDSaU7Q","varArr":[],"ecaScript":{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[null],"x":632.8431396484375,"y":274.8795471191406,"width":180,"height":88,"nodeInfo":{"type":"composite","name":"Sequence","id":"xE18lYXL","keyName":"Sequence","desc":"FE_42_JH_WS_EXSEQUENCE","varArr":[],"in":null,"icon":"General_Sequence_20","out":["o1u3U8uv","dYqaCEz8","9Rgec7GU","nrDSaU7Q"]},"readonlyScripts":[null],"_entityName":"XBTEntity"},"o1u3U8uv":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"o1u3U8uv","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"0qtw0c9tts-ltqqzsgg-jh447jzjv1","filePath":"Assets\\ECA\\Behavior ECA\\IsPhase2.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":948.473388671875,"y":376.6442565917969,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"isPhase2","id":"o1u3U8uv","varArr":[],"ecaScript":null,"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[null],"_entityName":"XBTEntity"},"dYqaCEz8":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"dYqaCEz8","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1040.916015625,"y":449.047607421875,"width":180,"height":88,"nodeInfo":{"type":"condition","name":"HasTarget","id":"dYqaCEz8","varArr":[],"ecaScript":{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},"9Rgec7GU":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"9Rgec7GU","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"8ftkl1saim-lt41ckmn-bc92kh88ydm","filePath":"Assets\\ECA\\Behavior ECA\\HasTarget.eca","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1168.4986572265625,"y":499.92437744140625,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Attack","id":"9Rgec7GU","varArr":[],"ecaScript":{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"az1dhtt0mk-lt44c2xt-6p2n7qamuo","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},"AeWfyVId":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"AeWfyVId","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":629.4188232421875,"y":54.906211853027344,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Move","id":"AeWfyVId","varArr":[],"ecaScript":{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"},"nrDSaU7Q":{"_tag":{"type":"XBTEntity","resourceId":""},"_entityId":"nrDSaU7Q","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"ecaScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"x":1143.4986572265625,"y":626.5910034179688,"width":180,"height":88,"nodeInfo":{"type":"action","name":"Move","id":"nrDSaU7Q","varArr":[],"ecaScript":{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"},"iscustom":true,"desc":"","icon":"General_Customize_20"},"readonlyScripts":[{"fileId":"pzmjz413dp-lt41cqjs-yyf0hlbtcor","_tag":{"type":"GFileRefer"},"fileType":"eca"}],"_entityName":"XBTEntity"}},"graphJson":{"cells":[{"position":{"x":-330,"y":170},"size":{"width":180,"height":88},"view":"vue-shape-view","shape":"vue-shape","id":"behaviorRoot","component":"xbt-base-node","data":{},"zIndex":1,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"out","args":{"x":172,"y":69},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"1cdc37ae-3e16-4a6f-94bc-d1aaf116b4ea"}]}},{"position":{"x":430,"y":-190},"size":{"width":180,"height":130},"view":"vue-shape-view","shape":"vue-shape","id":"nLVT7lSg","component":"xbt-base-node","data":{},"zIndex":2,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"1598fa93-bdcf-451d-8860-6d0799a583b6"},{"group":"out","args":{"x":172,"y":69},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"9ed546ef-0417-4e9a-ae2e-6568f632e075"},{"group":"out","args":{"x":172,"y":83},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"ceeaddac-8cb9-49d4-b75e-0581b708b83c"},{"group":"out","args":{"x":172,"y":97},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"0c651e61-6f71-4c10-968b-6bee6e3abeea"},{"group":"out","args":{"x":172,"y":111},"attrs":{"text":{"text":"out"}},"id":"244fcc4e-81c2-4335-94ee-92900a55c03a"}]}},{"position":{"x":1020,"y":-380},"size":{"width":180,"height":88},"view":"vue-shape-view","shape":"vue-shape","id":"x3H1vEKy","component":"xbt-base-node","data":{},"zIndex":4,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"24b028db-5f00-4781-a4f9-8f3083ad9c52"}]}},{"position":{"x":1000,"y":-240},"size":{"width":180,"height":88},"view":"vue-shape-view","shape":"vue-shape","id":"4LWpKSos","component":"xbt-base-node","data":{},"zIndex":10,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"cb64b0ba-0036-498d-9daa-5cffbb41cf60"}]}},{"position":{"x":10,"y":160},"size":{"width":180,"height":116},"view":"vue-shape-view","shape":"vue-shape","id":"bGKAz9CH","component":"xbt-base-node","data":{},"zIndex":13,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"311ce3e9-a657-43ec-ad9d-26aa6c992049"},{"group":"out","args":{"x":172,"y":69},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"2af792fe-1796-4dca-9854-e1c5db798d41"},{"group":"out","args":{"x":172,"y":83},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"3af21aef-f713-483a-8b11-3fb08a779bbd"},{"group":"out","args":{"x":172,"y":97},"attrs":{"text":{"text":"out"}},"id":"4fea596d-52fa-4f98-9e25-8768304391f1"}]}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"9f6210c6-22b0-4162-8a17-30610dceb594","zIndex":14,"source":{"cell":"behaviorRoot","port":"1cdc37ae-3e16-4a6f-94bc-d1aaf116b4ea"},"target":{"cell":"bGKAz9CH","port":"311ce3e9-a657-43ec-ad9d-26aa6c992049"}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"5ea6ef4d-ed4a-4ae8-b4e7-0401d44c7673","zIndex":15,"source":{"cell":"bGKAz9CH","port":"2af792fe-1796-4dca-9854-e1c5db798d41"},"target":{"cell":"nLVT7lSg","port":"1598fa93-bdcf-451d-8860-6d0799a583b6"}},{"position":{"x":410,"y":200},"size":{"width":180,"height":130},"view":"vue-shape-view","shape":"vue-shape","id":"xE18lYXL","component":"xbt-base-node","data":{},"zIndex":16,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"1d3bd5a6-4d5e-4963-96f8-07ab9eb7f4bc"},{"group":"out","args":{"x":172,"y":69},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"21fd9fd0-1bd3-4850-9055-293e1a0c0aa1"},{"group":"out","args":{"x":172,"y":83},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"b859c477-b800-4971-8d53-eac6bddca78c"},{"group":"out","args":{"x":172,"y":97},"attrs":{"text":{"text":"out"},"circle":{"fill":"var(--t15)"}},"id":"85099af9-cc5f-4b43-a059-89362364bea3"},{"group":"out","args":{"x":172,"y":111},"attrs":{"text":{"text":"out"}},"id":"5b33aab5-c5c1-4f5c-9626-1fea9f6a2a9d"}]}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"7d0afa2d-4317-4afb-9b92-c1bbabf7d8b3","zIndex":17,"source":{"cell":"bGKAz9CH","port":"3af21aef-f713-483a-8b11-3fb08a779bbd"},"target":{"cell":"xE18lYXL","port":"1d3bd5a6-4d5e-4963-96f8-07ab9eb7f4bc"}},{"position":{"x":1010,"y":-540},"size":{"width":180,"height":88},"view":"vue-shape-view","shape":"vue-shape","id":"EuVpp9nA","component":"xbt-base-node","data":{},"zIndex":18,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"9cc8d123-d135-4066-aad5-cb846923d8b7"}]}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"df721437-b27f-441e-b31a-f38dbdbda434","zIndex":19,"source":{"cell":"nLVT7lSg","port":"9ed546ef-0417-4e9a-ae2e-6568f632e075"},"target":{"cell":"EuVpp9nA","port":"9cc8d123-d135-4066-aad5-cb846923d8b7"}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"123484d4-f44e-421c-9811-c994bd6824ca","zIndex":20,"source":{"cell":"nLVT7lSg","port":"ceeaddac-8cb9-49d4-b75e-0581b708b83c"},"target":{"cell":"x3H1vEKy","port":"24b028db-5f00-4781-a4f9-8f3083ad9c52"}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"ef79b7bd-077b-4aee-8850-74e5613a58a9","zIndex":21,"source":{"cell":"nLVT7lSg","port":"0c651e61-6f71-4c10-968b-6bee6e3abeea"},"target":{"cell":"4LWpKSos","port":"cb64b0ba-0036-498d-9daa-5cffbb41cf60"}},{"position":{"x":1030,"y":50},"size":{"width":180,"height":88},"view":"vue-shape-view","shape":"vue-shape","id":"o1u3U8uv","component":"xbt-base-node","data":{},"zIndex":23,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"a335999d-a5dc-476f-aa15-9399a0a01ed3"}]}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"c27c2436-2359-4899-8e92-ae5e24d22ca3","zIndex":24,"source":{"cell":"xE18lYXL","port":"21fd9fd0-1bd3-4850-9055-293e1a0c0aa1"},"target":{"cell":"o1u3U8uv","port":"a335999d-a5dc-476f-aa15-9399a0a01ed3"}},{"position":{"x":1030,"y":160},"size":{"width":180,"height":88},"view":"vue-shape-view","shape":"vue-shape","id":"dYqaCEz8","component":"xbt-base-node","data":{},"zIndex":25,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"c78d05c1-3e18-4573-b935-2206f52683a1"}]}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"b975e54a-ff72-4391-a7ef-68c3af6e266f","zIndex":26,"source":{"cell":"xE18lYXL","port":"b859c477-b800-4971-8d53-eac6bddca78c"},"target":{"cell":"dYqaCEz8","port":"c78d05c1-3e18-4573-b935-2206f52683a1"}},{"position":{"x":1030,"y":290},"size":{"width":180,"height":88},"view":"vue-shape-view","shape":"vue-shape","id":"9Rgec7GU","component":"xbt-base-node","data":{},"zIndex":27,"ports":{"groups":{"in":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"inVal":{"position":"left","label":{"position":"right"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}},"out":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--bg5)"},"text":{"fill":"var(--t15)","fontSize":12}}},"outVal":{"position":"absolute","label":{"position":"left"},"attrs":{"circle":{"r":4,"magnet":true,"stroke":"var(--t15)","strokeWidth":1,"fill":"var(--t15)"},"text":{"fill":"var(--t15)","fontSize":12}}}},"items":[{"group":"in","args":{"dx":8,"dy":25},"attrs":{"text":{"text":"in"},"circle":{"fill":"var(--t15)"}},"id":"ae7d55bf-b781-4ff6-9c56-bf4e046e32c6"}]}},{"shape":"edge","attrs":{"line":{"stroke":"var(--t11)","strokeWidth":1}},"id":"ceccc082-4c5b-4f50-a7dc-2032fbb3d802","zIndex":29,"source":{"cell":"xE18lYXL","port":"85099af9-cc5f-4b43-a059-89362364bea3"},"target":{"cell":"9Rgec7GU","port":"ae7d55bf-b781-4ff6-9c56-bf4e046e32c6"}}]}}//"{FE:{"v":"1.7.6","c":{"FF":43},"s":100}
+{
+  "rootEntity": "behaviorRoot",
+  "entityMap": {
+    "behaviorRoot": {
+      "_tag": {
+        "type": "XBTRootEntity",
+        "resourceId": ""
+      },
+      "_entityId": "behaviorRoot",
+      "children": [
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "bGKAz9CH",
+          "children": [
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "nLVT7lSg",
+              "children": [
+                {
+                  "_tag": {
+                    "type": "XBTEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "EuVpp9nA",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "ecaScripts": [
+                    {
+                      "fileId": "09yefrfykvg9-luaoic3l-9gg0nfer1j5",
+                      "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase1 Dragon.eca",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "x": 774.1876831054688,
+                  "y": -357.6414489746094,
+                  "width": 180,
+                  "height": 88,
+                  "nodeInfo": {
+                    "type": "condition",
+                    "name": "isPhase1",
+                    "id": "EuVpp9nA",
+                    "varArr": [],
+                    "ecaScript": null,
+                    "iscustom": true,
+                    "desc": "",
+                    "icon": "General_Customize_20"
+                  },
+                  "readonlyScripts": [
+                    null
+                  ],
+                  "_entityName": "XBTEntity"
+                },
+                {
+                  "_tag": {
+                    "type": "XBTEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "4LWpKSos",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "ecaScripts": [
+                    {
+                      "fileId": "yz9bua44ck-luaoic06-tzaqxmkakg",
+                      "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack Dragon.eca",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "x": 779.2567138671875,
+                  "y": 155.80517578125,
+                  "width": 180,
+                  "height": 88,
+                  "nodeInfo": {
+                    "type": "action",
+                    "name": "Attack",
+                    "id": "4LWpKSos",
+                    "varArr": [],
+                    "ecaScript": {
+                      "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    },
+                    "iscustom": true,
+                    "desc": "",
+                    "icon": "General_Customize_20"
+                  },
+                  "readonlyScripts": [
+                    {
+                      "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "_entityName": "XBTEntity"
+                },
+                {
+                  "_tag": {
+                    "type": "XBTEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "x3H1vEKy",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "ecaScripts": [
+                    {
+                      "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+                      "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "x": 596.5452880859375,
+                  "y": -62.62252426147461,
+                  "width": 180,
+                  "height": 88,
+                  "nodeInfo": {
+                    "type": "condition",
+                    "name": "HasTarget",
+                    "id": "x3H1vEKy",
+                    "varArr": [],
+                    "ecaScript": {
+                      "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    },
+                    "iscustom": true,
+                    "desc": "",
+                    "icon": "General_Customize_20"
+                  },
+                  "readonlyScripts": [
+                    {
+                      "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "_entityName": "XBTEntity"
+                }
+              ],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                null
+              ],
+              "x": 349.79241943359375,
+              "y": 38.42856979370117,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "composite",
+                "name": "Sequence",
+                "id": "nLVT7lSg",
+                "keyName": "Sequence",
+                "desc": "FE_42_JH_WS_EXSEQUENCE",
+                "varArr": [],
+                "in": null,
+                "icon": "General_Sequence_20",
+                "out": [
+                  "EuVpp9nA",
+                  "4LWpKSos",
+                  "x3H1vEKy"
+                ]
+              },
+              "readonlyScripts": [
+                null
+              ],
+              "_entityName": "XBTEntity"
+            },
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "xE18lYXL",
+              "children": [
+                {
+                  "_tag": {
+                    "type": "XBTEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "o1u3U8uv",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "ecaScripts": [
+                    {
+                      "fileId": "s68r98bfro-luaoic4q-hvidtu5fam9",
+                      "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase2 Dragon.eca",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "x": 948.473388671875,
+                  "y": 376.6442565917969,
+                  "width": 180,
+                  "height": 88,
+                  "nodeInfo": {
+                    "type": "condition",
+                    "name": "isPhase2",
+                    "id": "o1u3U8uv",
+                    "varArr": [],
+                    "ecaScript": null,
+                    "iscustom": true,
+                    "desc": "",
+                    "icon": "General_Customize_20"
+                  },
+                  "readonlyScripts": [
+                    null
+                  ],
+                  "_entityName": "XBTEntity"
+                },
+                {
+                  "_tag": {
+                    "type": "XBTEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "dYqaCEz8",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "ecaScripts": [
+                    {
+                      "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+                      "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "x": 1040.916015625,
+                  "y": 449.047607421875,
+                  "width": 180,
+                  "height": 88,
+                  "nodeInfo": {
+                    "type": "condition",
+                    "name": "HasTarget",
+                    "id": "dYqaCEz8",
+                    "varArr": [],
+                    "ecaScript": {
+                      "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    },
+                    "iscustom": true,
+                    "desc": "",
+                    "icon": "General_Customize_20"
+                  },
+                  "readonlyScripts": [
+                    {
+                      "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "_entityName": "XBTEntity"
+                },
+                {
+                  "_tag": {
+                    "type": "XBTEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "9Rgec7GU",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "ecaScripts": [
+                    {
+                      "fileId": "x0r8q57rllh-luap04bl-0agmim4h1ncq",
+                      "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack2 Dragon.eca",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "x": 1168.4986572265625,
+                  "y": 499.92437744140625,
+                  "width": 180,
+                  "height": 88,
+                  "nodeInfo": {
+                    "type": "action",
+                    "name": "Attack",
+                    "id": "9Rgec7GU",
+                    "varArr": [],
+                    "ecaScript": {
+                      "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    },
+                    "iscustom": true,
+                    "desc": "",
+                    "icon": "General_Customize_20"
+                  },
+                  "readonlyScripts": [
+                    {
+                      "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                      "_tag": {
+                        "type": "GFileRefer"
+                      },
+                      "fileType": "eca"
+                    }
+                  ],
+                  "_entityName": "XBTEntity"
+                }
+              ],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                null
+              ],
+              "x": 632.8431396484375,
+              "y": 274.8795471191406,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "composite",
+                "name": "Sequence",
+                "id": "xE18lYXL",
+                "keyName": "Sequence",
+                "desc": "FE_42_JH_WS_EXSEQUENCE",
+                "varArr": [],
+                "in": null,
+                "icon": "General_Sequence_20",
+                "out": [
+                  "o1u3U8uv",
+                  "dYqaCEz8",
+                  "9Rgec7GU"
+                ]
+              },
+              "readonlyScripts": [
+                null
+              ],
+              "_entityName": "XBTEntity"
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            null
+          ],
+          "x": 265,
+          "y": 153.64706420898438,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "composite",
+            "name": "Priority",
+            "id": "bGKAz9CH",
+            "keyName": "Priority",
+            "desc": "FE_42_JH_WS_PRIORITY",
+            "varArr": [],
+            "in": null,
+            "icon": "General_Selector_20",
+            "out": [
+              "nLVT7lSg",
+              "xE18lYXL"
+            ]
+          },
+          "readonlyScripts": [
+            null
+          ],
+          "_entityName": "XBTEntity"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [],
+      "x": 0,
+      "y": 0,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "root",
+        "name": "Root",
+        "id": "behaviorRoot",
+        "varArr": [],
+        "out": "bGKAz9CH",
+        "icon": "General_Root_20"
+      },
+      "_entityName": "XBTRootEntity"
+    },
+    "bGKAz9CH": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "bGKAz9CH",
+      "children": [
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "nLVT7lSg",
+          "children": [
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "EuVpp9nA",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                {
+                  "fileId": "09yefrfykvg9-luaoic3l-9gg0nfer1j5",
+                  "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase1 Dragon.eca",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "x": 774.1876831054688,
+              "y": -357.6414489746094,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "condition",
+                "name": "isPhase1",
+                "id": "EuVpp9nA",
+                "varArr": [],
+                "ecaScript": null,
+                "iscustom": true,
+                "desc": "",
+                "icon": "General_Customize_20"
+              },
+              "readonlyScripts": [
+                null
+              ],
+              "_entityName": "XBTEntity"
+            },
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "4LWpKSos",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                {
+                  "fileId": "yz9bua44ck-luaoic06-tzaqxmkakg",
+                  "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack Dragon.eca",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "x": 779.2567138671875,
+              "y": 155.80517578125,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "action",
+                "name": "Attack",
+                "id": "4LWpKSos",
+                "varArr": [],
+                "ecaScript": {
+                  "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                },
+                "iscustom": true,
+                "desc": "",
+                "icon": "General_Customize_20"
+              },
+              "readonlyScripts": [
+                {
+                  "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "_entityName": "XBTEntity"
+            },
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "x3H1vEKy",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                {
+                  "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+                  "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "x": 596.5452880859375,
+              "y": -62.62252426147461,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "condition",
+                "name": "HasTarget",
+                "id": "x3H1vEKy",
+                "varArr": [],
+                "ecaScript": {
+                  "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                },
+                "iscustom": true,
+                "desc": "",
+                "icon": "General_Customize_20"
+              },
+              "readonlyScripts": [
+                {
+                  "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "_entityName": "XBTEntity"
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            null
+          ],
+          "x": 349.79241943359375,
+          "y": 38.42856979370117,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "composite",
+            "name": "Sequence",
+            "id": "nLVT7lSg",
+            "keyName": "Sequence",
+            "desc": "FE_42_JH_WS_EXSEQUENCE",
+            "varArr": [],
+            "in": null,
+            "icon": "General_Sequence_20",
+            "out": [
+              "EuVpp9nA",
+              "4LWpKSos",
+              "x3H1vEKy"
+            ]
+          },
+          "readonlyScripts": [
+            null
+          ],
+          "_entityName": "XBTEntity"
+        },
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "xE18lYXL",
+          "children": [
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "o1u3U8uv",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                {
+                  "fileId": "s68r98bfro-luaoic4q-hvidtu5fam9",
+                  "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase2 Dragon.eca",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "x": 948.473388671875,
+              "y": 376.6442565917969,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "condition",
+                "name": "isPhase2",
+                "id": "o1u3U8uv",
+                "varArr": [],
+                "ecaScript": null,
+                "iscustom": true,
+                "desc": "",
+                "icon": "General_Customize_20"
+              },
+              "readonlyScripts": [
+                null
+              ],
+              "_entityName": "XBTEntity"
+            },
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "dYqaCEz8",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                {
+                  "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+                  "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "x": 1040.916015625,
+              "y": 449.047607421875,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "condition",
+                "name": "HasTarget",
+                "id": "dYqaCEz8",
+                "varArr": [],
+                "ecaScript": {
+                  "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                },
+                "iscustom": true,
+                "desc": "",
+                "icon": "General_Customize_20"
+              },
+              "readonlyScripts": [
+                {
+                  "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "_entityName": "XBTEntity"
+            },
+            {
+              "_tag": {
+                "type": "XBTEntity",
+                "resourceId": ""
+              },
+              "_entityId": "9Rgec7GU",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "ecaScripts": [
+                {
+                  "fileId": "x0r8q57rllh-luap04bl-0agmim4h1ncq",
+                  "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack2 Dragon.eca",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "x": 1168.4986572265625,
+              "y": 499.92437744140625,
+              "width": 180,
+              "height": 88,
+              "nodeInfo": {
+                "type": "action",
+                "name": "Attack",
+                "id": "9Rgec7GU",
+                "varArr": [],
+                "ecaScript": {
+                  "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                },
+                "iscustom": true,
+                "desc": "",
+                "icon": "General_Customize_20"
+              },
+              "readonlyScripts": [
+                {
+                  "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "eca"
+                }
+              ],
+              "_entityName": "XBTEntity"
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            null
+          ],
+          "x": 632.8431396484375,
+          "y": 274.8795471191406,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "composite",
+            "name": "Sequence",
+            "id": "xE18lYXL",
+            "keyName": "Sequence",
+            "desc": "FE_42_JH_WS_EXSEQUENCE",
+            "varArr": [],
+            "in": null,
+            "icon": "General_Sequence_20",
+            "out": [
+              "o1u3U8uv",
+              "dYqaCEz8",
+              "9Rgec7GU"
+            ]
+          },
+          "readonlyScripts": [
+            null
+          ],
+          "_entityName": "XBTEntity"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        null
+      ],
+      "x": 265,
+      "y": 153.64706420898438,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "composite",
+        "name": "Priority",
+        "id": "bGKAz9CH",
+        "keyName": "Priority",
+        "desc": "FE_42_JH_WS_PRIORITY",
+        "varArr": [],
+        "in": null,
+        "icon": "General_Selector_20",
+        "out": [
+          "nLVT7lSg",
+          "xE18lYXL"
+        ]
+      },
+      "readonlyScripts": [
+        null
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "nLVT7lSg": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "nLVT7lSg",
+      "children": [
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "EuVpp9nA",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            {
+              "fileId": "09yefrfykvg9-luaoic3l-9gg0nfer1j5",
+              "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase1 Dragon.eca",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "x": 774.1876831054688,
+          "y": -357.6414489746094,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "condition",
+            "name": "isPhase1",
+            "id": "EuVpp9nA",
+            "varArr": [],
+            "ecaScript": null,
+            "iscustom": true,
+            "desc": "",
+            "icon": "General_Customize_20"
+          },
+          "readonlyScripts": [
+            null
+          ],
+          "_entityName": "XBTEntity"
+        },
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "4LWpKSos",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            {
+              "fileId": "yz9bua44ck-luaoic06-tzaqxmkakg",
+              "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack Dragon.eca",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "x": 779.2567138671875,
+          "y": 155.80517578125,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "action",
+            "name": "Attack",
+            "id": "4LWpKSos",
+            "varArr": [],
+            "ecaScript": {
+              "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            },
+            "iscustom": true,
+            "desc": "",
+            "icon": "General_Customize_20"
+          },
+          "readonlyScripts": [
+            {
+              "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "_entityName": "XBTEntity"
+        },
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "x3H1vEKy",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            {
+              "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+              "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "x": 596.5452880859375,
+          "y": -62.62252426147461,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "condition",
+            "name": "HasTarget",
+            "id": "x3H1vEKy",
+            "varArr": [],
+            "ecaScript": {
+              "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            },
+            "iscustom": true,
+            "desc": "",
+            "icon": "General_Customize_20"
+          },
+          "readonlyScripts": [
+            {
+              "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "_entityName": "XBTEntity"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        null
+      ],
+      "x": 349.79241943359375,
+      "y": 38.42856979370117,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "composite",
+        "name": "Sequence",
+        "id": "nLVT7lSg",
+        "keyName": "Sequence",
+        "desc": "FE_42_JH_WS_EXSEQUENCE",
+        "varArr": [],
+        "in": null,
+        "icon": "General_Sequence_20",
+        "out": [
+          "EuVpp9nA",
+          "4LWpKSos",
+          "x3H1vEKy"
+        ]
+      },
+      "readonlyScripts": [
+        null
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "EuVpp9nA": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "EuVpp9nA",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "09yefrfykvg9-luaoic3l-9gg0nfer1j5",
+          "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase1 Dragon.eca",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 774.1876831054688,
+      "y": -357.6414489746094,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "condition",
+        "name": "isPhase1",
+        "id": "EuVpp9nA",
+        "varArr": [],
+        "ecaScript": null,
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        null
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "4LWpKSos": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "4LWpKSos",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "yz9bua44ck-luaoic06-tzaqxmkakg",
+          "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack Dragon.eca",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 779.2567138671875,
+      "y": 155.80517578125,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "action",
+        "name": "Attack",
+        "id": "4LWpKSos",
+        "varArr": [],
+        "ecaScript": {
+          "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        },
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        {
+          "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "x3H1vEKy": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "x3H1vEKy",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+          "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 596.5452880859375,
+      "y": -62.62252426147461,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "condition",
+        "name": "HasTarget",
+        "id": "x3H1vEKy",
+        "varArr": [],
+        "ecaScript": {
+          "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        },
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        {
+          "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "xE18lYXL": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "xE18lYXL",
+      "children": [
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "o1u3U8uv",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            {
+              "fileId": "s68r98bfro-luaoic4q-hvidtu5fam9",
+              "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase2 Dragon.eca",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "x": 948.473388671875,
+          "y": 376.6442565917969,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "condition",
+            "name": "isPhase2",
+            "id": "o1u3U8uv",
+            "varArr": [],
+            "ecaScript": null,
+            "iscustom": true,
+            "desc": "",
+            "icon": "General_Customize_20"
+          },
+          "readonlyScripts": [
+            null
+          ],
+          "_entityName": "XBTEntity"
+        },
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "dYqaCEz8",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            {
+              "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+              "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "x": 1040.916015625,
+          "y": 449.047607421875,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "condition",
+            "name": "HasTarget",
+            "id": "dYqaCEz8",
+            "varArr": [],
+            "ecaScript": {
+              "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            },
+            "iscustom": true,
+            "desc": "",
+            "icon": "General_Customize_20"
+          },
+          "readonlyScripts": [
+            {
+              "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "_entityName": "XBTEntity"
+        },
+        {
+          "_tag": {
+            "type": "XBTEntity",
+            "resourceId": ""
+          },
+          "_entityId": "9Rgec7GU",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "ecaScripts": [
+            {
+              "fileId": "x0r8q57rllh-luap04bl-0agmim4h1ncq",
+              "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack2 Dragon.eca",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "x": 1168.4986572265625,
+          "y": 499.92437744140625,
+          "width": 180,
+          "height": 88,
+          "nodeInfo": {
+            "type": "action",
+            "name": "Attack",
+            "id": "9Rgec7GU",
+            "varArr": [],
+            "ecaScript": {
+              "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            },
+            "iscustom": true,
+            "desc": "",
+            "icon": "General_Customize_20"
+          },
+          "readonlyScripts": [
+            {
+              "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "eca"
+            }
+          ],
+          "_entityName": "XBTEntity"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        null
+      ],
+      "x": 632.8431396484375,
+      "y": 274.8795471191406,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "composite",
+        "name": "Sequence",
+        "id": "xE18lYXL",
+        "keyName": "Sequence",
+        "desc": "FE_42_JH_WS_EXSEQUENCE",
+        "varArr": [],
+        "in": null,
+        "icon": "General_Sequence_20",
+        "out": [
+          "o1u3U8uv",
+          "dYqaCEz8",
+          "9Rgec7GU"
+        ]
+      },
+      "readonlyScripts": [
+        null
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "o1u3U8uv": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "o1u3U8uv",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "s68r98bfro-luaoic4q-hvidtu5fam9",
+          "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\IsPhase2 Dragon.eca",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 948.473388671875,
+      "y": 376.6442565917969,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "condition",
+        "name": "isPhase2",
+        "id": "o1u3U8uv",
+        "varArr": [],
+        "ecaScript": null,
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        null
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "dYqaCEz8": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "dYqaCEz8",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "8qdky6jmc83-luaoic1y-blqoda6ypio",
+          "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\HasTarget Dragon.eca",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 1040.916015625,
+      "y": 449.047607421875,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "condition",
+        "name": "HasTarget",
+        "id": "dYqaCEz8",
+        "varArr": [],
+        "ecaScript": {
+          "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        },
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        {
+          "fileId": "8ftkl1saim-lt41ckmn-bc92kh88ydm",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "9Rgec7GU": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "9Rgec7GU",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "x0r8q57rllh-luap04bl-0agmim4h1ncq",
+          "filePath": "Assets\\ECA\\Behavior ECA\\Dragon\\Attack2 Dragon.eca",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 1168.4986572265625,
+      "y": 499.92437744140625,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "action",
+        "name": "Attack",
+        "id": "9Rgec7GU",
+        "varArr": [],
+        "ecaScript": {
+          "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        },
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        {
+          "fileId": "az1dhtt0mk-lt44c2xt-6p2n7qamuo",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "AeWfyVId": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "AeWfyVId",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "pzmjz413dp-lt41cqjs-yyf0hlbtcor",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 629.4188232421875,
+      "y": 54.906211853027344,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "action",
+        "name": "Move",
+        "id": "AeWfyVId",
+        "varArr": [],
+        "ecaScript": {
+          "fileId": "pzmjz413dp-lt41cqjs-yyf0hlbtcor",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        },
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        {
+          "fileId": "pzmjz413dp-lt41cqjs-yyf0hlbtcor",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "_entityName": "XBTEntity"
+    },
+    "nrDSaU7Q": {
+      "_tag": {
+        "type": "XBTEntity",
+        "resourceId": ""
+      },
+      "_entityId": "nrDSaU7Q",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "ecaScripts": [
+        {
+          "fileId": "pzmjz413dp-lt41cqjs-yyf0hlbtcor",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "x": 1143.4986572265625,
+      "y": 626.5910034179688,
+      "width": 180,
+      "height": 88,
+      "nodeInfo": {
+        "type": "action",
+        "name": "Move",
+        "id": "nrDSaU7Q",
+        "varArr": [],
+        "ecaScript": {
+          "fileId": "pzmjz413dp-lt41cqjs-yyf0hlbtcor",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        },
+        "iscustom": true,
+        "desc": "",
+        "icon": "General_Customize_20"
+      },
+      "readonlyScripts": [
+        {
+          "fileId": "pzmjz413dp-lt41cqjs-yyf0hlbtcor",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "eca"
+        }
+      ],
+      "_entityName": "XBTEntity"
+    }
+  },
+  "graphJson": {
+    "cells": [
+      {
+        "position": {
+          "x": -330,
+          "y": 170
+        },
+        "size": {
+          "width": 180,
+          "height": 88
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "behaviorRoot",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 1,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 69
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "1cdc37ae-3e16-4a6f-94bc-d1aaf116b4ea"
+            }
+          ]
+        }
+      },
+      {
+        "position": {
+          "x": 450,
+          "y": -110
+        },
+        "size": {
+          "width": 180,
+          "height": 130
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "nLVT7lSg",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 2,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "1598fa93-bdcf-451d-8860-6d0799a583b6"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 69
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "9ed546ef-0417-4e9a-ae2e-6568f632e075"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 83
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "ceeaddac-8cb9-49d4-b75e-0581b708b83c"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 97
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "0c651e61-6f71-4c10-968b-6bee6e3abeea"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 111
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                }
+              },
+              "id": "244fcc4e-81c2-4335-94ee-92900a55c03a"
+            }
+          ]
+        }
+      },
+      {
+        "position": {
+          "x": 1020,
+          "y": -380
+        },
+        "size": {
+          "width": 180,
+          "height": 88
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "x3H1vEKy",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 4,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "24b028db-5f00-4781-a4f9-8f3083ad9c52"
+            }
+          ]
+        }
+      },
+      {
+        "position": {
+          "x": 1000,
+          "y": -240
+        },
+        "size": {
+          "width": 180,
+          "height": 88
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "4LWpKSos",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 10,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "cb64b0ba-0036-498d-9daa-5cffbb41cf60"
+            }
+          ]
+        }
+      },
+      {
+        "position": {
+          "x": 10,
+          "y": 160
+        },
+        "size": {
+          "width": 180,
+          "height": 116
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "bGKAz9CH",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 13,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "311ce3e9-a657-43ec-ad9d-26aa6c992049"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 69
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "2af792fe-1796-4dca-9854-e1c5db798d41"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 83
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "3af21aef-f713-483a-8b11-3fb08a779bbd"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 97
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                }
+              },
+              "id": "4fea596d-52fa-4f98-9e25-8768304391f1"
+            }
+          ]
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "9f6210c6-22b0-4162-8a17-30610dceb594",
+        "zIndex": 14,
+        "source": {
+          "cell": "behaviorRoot",
+          "port": "1cdc37ae-3e16-4a6f-94bc-d1aaf116b4ea"
+        },
+        "target": {
+          "cell": "bGKAz9CH",
+          "port": "311ce3e9-a657-43ec-ad9d-26aa6c992049"
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "5ea6ef4d-ed4a-4ae8-b4e7-0401d44c7673",
+        "zIndex": 15,
+        "source": {
+          "cell": "bGKAz9CH",
+          "port": "2af792fe-1796-4dca-9854-e1c5db798d41"
+        },
+        "target": {
+          "cell": "nLVT7lSg",
+          "port": "1598fa93-bdcf-451d-8860-6d0799a583b6"
+        }
+      },
+      {
+        "position": {
+          "x": 450,
+          "y": 90
+        },
+        "size": {
+          "width": 180,
+          "height": 130
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "xE18lYXL",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 16,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "1d3bd5a6-4d5e-4963-96f8-07ab9eb7f4bc"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 69
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "21fd9fd0-1bd3-4850-9055-293e1a0c0aa1"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 83
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "b859c477-b800-4971-8d53-eac6bddca78c"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 97
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "85099af9-cc5f-4b43-a059-89362364bea3"
+            },
+            {
+              "group": "out",
+              "args": {
+                "x": 172,
+                "y": 111
+              },
+              "attrs": {
+                "text": {
+                  "text": "out"
+                }
+              },
+              "id": "5b33aab5-c5c1-4f5c-9626-1fea9f6a2a9d"
+            }
+          ]
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "7d0afa2d-4317-4afb-9b92-c1bbabf7d8b3",
+        "zIndex": 17,
+        "source": {
+          "cell": "bGKAz9CH",
+          "port": "3af21aef-f713-483a-8b11-3fb08a779bbd"
+        },
+        "target": {
+          "cell": "xE18lYXL",
+          "port": "1d3bd5a6-4d5e-4963-96f8-07ab9eb7f4bc"
+        }
+      },
+      {
+        "position": {
+          "x": 1010,
+          "y": -540
+        },
+        "size": {
+          "width": 180,
+          "height": 88
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "EuVpp9nA",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 18,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "9cc8d123-d135-4066-aad5-cb846923d8b7"
+            }
+          ]
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "df721437-b27f-441e-b31a-f38dbdbda434",
+        "zIndex": 19,
+        "source": {
+          "cell": "nLVT7lSg",
+          "port": "9ed546ef-0417-4e9a-ae2e-6568f632e075"
+        },
+        "target": {
+          "cell": "EuVpp9nA",
+          "port": "9cc8d123-d135-4066-aad5-cb846923d8b7"
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "123484d4-f44e-421c-9811-c994bd6824ca",
+        "zIndex": 20,
+        "source": {
+          "cell": "nLVT7lSg",
+          "port": "ceeaddac-8cb9-49d4-b75e-0581b708b83c"
+        },
+        "target": {
+          "cell": "x3H1vEKy",
+          "port": "24b028db-5f00-4781-a4f9-8f3083ad9c52"
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "ef79b7bd-077b-4aee-8850-74e5613a58a9",
+        "zIndex": 21,
+        "source": {
+          "cell": "nLVT7lSg",
+          "port": "0c651e61-6f71-4c10-968b-6bee6e3abeea"
+        },
+        "target": {
+          "cell": "4LWpKSos",
+          "port": "cb64b0ba-0036-498d-9daa-5cffbb41cf60"
+        }
+      },
+      {
+        "position": {
+          "x": 1020,
+          "y": 40
+        },
+        "size": {
+          "width": 180,
+          "height": 88
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "o1u3U8uv",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 23,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "a335999d-a5dc-476f-aa15-9399a0a01ed3"
+            }
+          ]
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "c27c2436-2359-4899-8e92-ae5e24d22ca3",
+        "zIndex": 24,
+        "source": {
+          "cell": "xE18lYXL",
+          "port": "21fd9fd0-1bd3-4850-9055-293e1a0c0aa1"
+        },
+        "target": {
+          "cell": "o1u3U8uv",
+          "port": "a335999d-a5dc-476f-aa15-9399a0a01ed3"
+        }
+      },
+      {
+        "position": {
+          "x": 1030,
+          "y": 160
+        },
+        "size": {
+          "width": 180,
+          "height": 88
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "dYqaCEz8",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 25,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "c78d05c1-3e18-4573-b935-2206f52683a1"
+            }
+          ]
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "b975e54a-ff72-4391-a7ef-68c3af6e266f",
+        "zIndex": 26,
+        "source": {
+          "cell": "xE18lYXL",
+          "port": "b859c477-b800-4971-8d53-eac6bddca78c"
+        },
+        "target": {
+          "cell": "dYqaCEz8",
+          "port": "c78d05c1-3e18-4573-b935-2206f52683a1"
+        }
+      },
+      {
+        "position": {
+          "x": 1030,
+          "y": 290
+        },
+        "size": {
+          "width": 180,
+          "height": 88
+        },
+        "view": "vue-shape-view",
+        "shape": "vue-shape",
+        "id": "9Rgec7GU",
+        "component": "xbt-base-node",
+        "data": {},
+        "zIndex": 27,
+        "ports": {
+          "groups": {
+            "in": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "inVal": {
+              "position": "left",
+              "label": {
+                "position": "right"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "out": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--bg5)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            },
+            "outVal": {
+              "position": "absolute",
+              "label": {
+                "position": "left"
+              },
+              "attrs": {
+                "circle": {
+                  "r": 4,
+                  "magnet": true,
+                  "stroke": "var(--t15)",
+                  "strokeWidth": 1,
+                  "fill": "var(--t15)"
+                },
+                "text": {
+                  "fill": "var(--t15)",
+                  "fontSize": 12
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "group": "in",
+              "args": {
+                "dx": 8,
+                "dy": 25
+              },
+              "attrs": {
+                "text": {
+                  "text": "in"
+                },
+                "circle": {
+                  "fill": "var(--t15)"
+                }
+              },
+              "id": "ae7d55bf-b781-4ff6-9c56-bf4e046e32c6"
+            }
+          ]
+        }
+      },
+      {
+        "shape": "edge",
+        "attrs": {
+          "line": {
+            "stroke": "var(--t11)",
+            "strokeWidth": 1
+          }
+        },
+        "id": "ceccc082-4c5b-4f50-a7dc-2032fbb3d802",
+        "zIndex": 29,
+        "source": {
+          "cell": "xE18lYXL",
+          "port": "85099af9-cc5f-4b43-a059-89362364bea3"
+        },
+        "target": {
+          "cell": "9Rgec7GU",
+          "port": "ae7d55bf-b781-4ff6-9c56-bf4e046e32c6"
+        }
+      }
+    ]
+  }
+}
+//"{FE:{"v":"1.8.2949557","c":{"FF":4404},"s":100}

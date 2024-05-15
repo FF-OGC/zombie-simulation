@@ -92,7 +92,7 @@ graph PlayerSkillHUD {
             _skillImgEquippedMap[skillEnum] = imgEquipped
             _buttonSkillMap[btnSkill] = skillEnum
 
-            imgSkill<HudImageWidget>.SpriteName = Resources.Texture[skillTexture] as IconType
+            imgSkill<HudImageWidget>.SpriteName = Resources.Texture[skillTexture] as SpriteID
             txtSkillName<HudLabelWidget>.Text = globalEntity<GlobalSkill>.GetSkillName(skillEnum)
             txtSkillLvl<HudLabelWidget>.Text = thisEntity<PlayerSkill>.GetSkillLvl(skillEnum)
         }

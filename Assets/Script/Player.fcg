@@ -19,6 +19,7 @@ import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 
 import SpiderECA from "EditorGenLib.fcc"
 import DragonECA from "EditorGenLib.fcc"
+import BossBase from "EditorGenLib.fcc"
 import "./Boss.fcg" as BossScript
 
 import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
@@ -46,14 +47,19 @@ graph Player {
         thisEntity<PlayerMenu>.DisplayMenuHUD()
         thisEntity<PlayerCraftlandToken>.SetCraftlandTokenWalletHUD()
         thisEntity<PlayerInventory>.BeginPlayerInventorySystem()
-        Preload()
-        // MyResources.SetHookGun()
         thisEntity<PlayerData>.LoadData()
         WaitForSeconds(500)
+        Preload()
+        // MyResources.SetHookGun()
         thisEntity<PlayerLevel>.BeginPlayerLevel()
         // thisEntity<PlayerDefaultHUD>.SetPlayerHeadHUD()
         globalEntity<Global>.UpdateAllPlayer()
         SetPlayerConfig()
+    }
+
+    event OnEquipWeapon(weapon entity<Weapon>) {
+        GetEquipments(thisEntity<Player> as entity<Player>,EquipmentSlot.PrimaryWeapon1, out var primaryWeapon, out var attachmentlist)
+        LogInfo("Primary Weapon 1: " + primaryWeapon<Weapon>.ItemID)
     }
 
     event Player_PlayerQuitGame() {
@@ -81,9 +87,9 @@ graph Player {
         thisEntity<PlayerBossNotification>.BeginBossNotification()
     }
 
-    event OnTakeDamage(attacker entity<Entity>, damageType DamageType, value int, beDamagedPart HitBodyPart) {
-        ShowTips(thisEntity as entity<Player>, "Damage: " + value, ColorRGB(255, 255, 255), 3000)
-    }
+    // event OnTakeDamage(attacker entity<Entity>, damageType DamageType, value int, beDamagedPart HitBodyPart) {
+    //     ShowTips(thisEntity as entity<Player>, "Damage: " + value, ColorRGB(255, 255, 255), 3000)
+    // }
 
     // event OnDropWeapon(weapon entity<Weapon>) {
     //     LogInfo("drop weapon")
@@ -117,6 +123,7 @@ graph Player {
         AddItemToPlayer(thisEntity<Player> as entity<Player>, ItemIDType.Bag3, 1, out var addedItemList)
         // AddItemToPlayer(thisEntity<Player> as entity<Player>, Resources.Item[EResource_Item.FlameGun] as ItemIDType, 1, out var addedItemList2)
         // AddItemToPlayer(thisEntity<Player> as entity<Player>, Resources.Item[EResource_Item.FlameGun] as ItemIDType, 1, out var addedItemList2)
+        
         AddItemToPlayer(thisEntity<Player> as entity<Player>, ItemIDType.UZI, 1, out var addedItemLis)
         thisEntity<PlayerCrafting>.Craft(RecipeEnum.UZI)
 
@@ -146,9 +153,9 @@ graph Player {
         var bossEntity = globalEntity<GlobalZoneBossManager>.GetCurrentBossEntity()
         var bossType = bossEntity<BossScript>.GetBossType()
         if(bossType == BossEnum.DRAGON){
-            bossEntity<DragonECA>.removePlayerInZone(thisEntity<Player> as entity<Player>)
+            bossEntity<BossBase>.removePlayerInZone(thisEntity<Player> as entity<Player>)
         } else if (bossType == BossEnum.MECHANICAL_SPIDER){
-            bossEntity<SpiderECA>.removePlayerInZone(thisEntity<Player> as entity<Player>)
+            bossEntity<BossBase>.removePlayerInZone(thisEntity<Player> as entity<Player>)
         }
     }
 

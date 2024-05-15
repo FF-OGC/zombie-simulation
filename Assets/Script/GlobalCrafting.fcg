@@ -1,3 +1,4 @@
+import "CSVData.fcc" as CSVData
 import "LevelObject.fcc" as LevelObject
 import "Items.fcc" as items
 import "Math.fcc" as math
@@ -73,7 +74,7 @@ graph GlobalCrafting {
 
     }
 
-    func GetRecipeMaterial(recipeEnum string) Map<string,int>{
+    func GetRecipeMaterial(recipeEnum string) Map<string, int>{
         InitGlobalCrafting()
         return _recipeMaterialMap[recipeEnum]
     }
@@ -202,19 +203,29 @@ graph GlobalCrafting {
     func GetTierColor(tier int) Color{
         var color Color
         if tier == TierEnum.Tier0 {
-            color = #EC0000FF
+            color = #FF0000FF
         } else if tier == TierEnum.Tier1 {
             color = #FFF000FF
         } else if tier == TierEnum.Tier2 {
-            color = #D300B9FF
+            color = #FF00E0FF
         } else if tier == TierEnum.Tier3 {
-            color = #00399FFF
+            color = #00D9FFFF
         } else if tier == TierEnum.Tier4 {
-            color = #29C102FF
+            color = #34FF00FF
         } else if tier == TierEnum.Tier5 {
-            color = #9A9A9AFF
+            color = #FFFFFFFF
         }
         return color
+    }
+
+    func GetGunName(RecipeEnum string) string{
+        InitRecipeMap()
+        return _recipeMap[RecipeEnum][2] as string
+    }
+
+    func GetGunImage(RecipeEnum string) SpriteID{
+        InitRecipeMap()
+        return _recipeMap[RecipeEnum][1] as SpriteID
     }
 
 }

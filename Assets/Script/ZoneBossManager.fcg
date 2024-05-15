@@ -12,6 +12,7 @@ import "Math.fcc" as Math
 import "./PlayerStat.fcg" as PlayerStat
 import DragonECA from "EditorGenLib.fcc"
 import SpiderECA from "EditorGenLib.fcc"
+import BossBase from "EditorGenLib.fcc"
 
 graph ZoneBossManager {
     X_DELTA float = 10.0
@@ -35,7 +36,7 @@ graph ZoneBossManager {
             _type = thisEntity<BossSpawner>.Type
             if(_type == 0){
                 _type = RandomInt(0, 2)
-                _type = BossEnum.DRAGON
+                _type = 1
             }
             _totalCount = thisEntity<BossSpawner>.TotalCount
             _zoneEnum = thisEntity<BossSpawner>.ZoneEnum
@@ -85,9 +86,9 @@ graph ZoneBossManager {
         LogInfo("[ZoneBossManager] ATK: " + createdEntity<BossComponent>.ATK + " HP: " + createdEntity<BossComponent>.HP)
 
         if(_type == BossEnum.DRAGON){
-            createdEntity<DragonECA>.initBossConfig()
+            createdEntity<BossBase>.initBossConfig()
         } else {
-            createdEntity<SpiderECA>.initBossConfig()
+            createdEntity<BossBase>.initBossConfig()
         }
         LogInfo("[ZoneBossManager] _bossList: "  + thisEntity<Entity>.Name + " " + _bossList + " " + spawnLocation)
         WaitForNextFrame()
@@ -109,9 +110,9 @@ graph ZoneBossManager {
             var boss = _bossList[i]
             // Kill(boss as entity<CombatEntity>)
             if(_type == BossEnum.DRAGON){
-                boss<DragonECA>.runOnDeath()
+                boss<BossBase>.runOnDeath()
             } else {
-                boss<SpiderECA>.runOnDeath()
+                boss<BossBase>.runOnDeath()
             }
             RemoveBossFromList(boss)
             DeleteEntity(boss)

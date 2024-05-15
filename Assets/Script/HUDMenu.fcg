@@ -10,6 +10,7 @@ import "./GlobalCrafting.fcg" as GlobalCrafting
 import "./PlayerInventory.fcg" as PlayerInventory
 import "./PlayerData.fcg" as PlayerData
 import "Items.fcc" as Items
+import "./PlayerStorageHUD.fcg" as PlayerStorageHUD
 import Resources from "EditorGenLib.fcc"
 import "./PlayerSkill.fcg" as PlayerSkill
 import "Math.fcc" as Math
@@ -24,7 +25,7 @@ graph HUDMenu {
             player<PlayerDebugHUD>.ToggleDebugHUD()
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_STAT)){
             LogInfo("[HUDMenu] btnStat: " + button)
-            player<PlayerStat>.BeginPlayerStat()
+            player<PlayerStorageHUD>.DisplayPlayerStorageHUD()
             // LogInfo("[_type] randomInt: " + RandomInt(1, 3))
             // player<PlayerData>.Debug_ResetData()
         } else if(button == player<PlayerMenu>.GetMenuHUDWidget(EResource_UI_MENU.BTN_SKILL)){

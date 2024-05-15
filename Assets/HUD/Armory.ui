@@ -1,1 +1,3281 @@
-{"_tag":{"type":"UIRootEntity","resourceId":""},"_entityId":"3JZ0o3nt","children":[{"_tag":{"type":"UIImageEntity","resourceId":""},"_entityId":"qTtHnweK","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0,"y":0},"anchorMax":{"x":1,"y":1},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-1,"y":7},"sizeDelta":{"x":70,"y":44}},"alpha":100,"image":{"source":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"color":"#000000","reverse":{"x":false,"y":false},"fillType":1,"slicedBorder":{"left":0,"right":0,"top":0,"bottom":0},"tiledBorder":{"left":0,"right":0,"top":0,"bottom":0},"centerInvisible":false,"fillDir":0,"fillAmount":0,"invertFill":false,"flip":0,"gradient":1,"gradientTop":{"r":255,"g":255,"b":255,"a":1},"gradientBottom":{"r":255,"g":255,"b":255,"a":1}}},"ecaScripts":[],"ecaProps":{"HudImageWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"bg (1)","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UIImageEntity","resourceId":""},"_entityId":"rX1gAaEV","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":true,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0,"y":0},"anchorMax":{"x":1,"y":1},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-1,"y":7},"sizeDelta":{"x":70,"y":44}},"alpha":100,"image":{"source":{"fileId":"140ab5cb-7d5e-4845-90a9-4be81b3f6f64","filePath":"Assets\\Texture\\HUD\\bg_team_dark.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"color":"#ffffff","reverse":{"x":false,"y":false},"fillType":1,"slicedBorder":{"left":0,"right":0,"top":0,"bottom":0},"tiledBorder":{"left":0,"right":0,"top":0,"bottom":0},"centerInvisible":false,"fillDir":0,"fillAmount":0,"invertFill":false,"flip":0,"gradient":1,"gradientTop":{"r":255,"g":255,"b":255,"a":1},"gradientBottom":{"r":255,"g":255,"b":255,"a":1}}},"ecaScripts":[],"ecaProps":{"HudImageWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"bg","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"9xi2syrn","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-549,"y":340},"sizeDelta":{"x":200,"y":100}},"alpha":100,"text":{"value":"ARMORY","key":"","font":"Default","fontSize":60,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#D3D3D3","alignment":{"h":"center","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":true,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"title","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"JpzCdKYl","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":630,"y":321},"sizeDelta":{"x":54,"y":48}},"alpha":100,"button":{"spriteName":{"fileId":"30a2c32c-c1e4-47fb-b074-d5e121ce5c54","filePath":"Assets\\Texture\\HUD\\ui_common_close.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#FFFFFF","highlight":"#e2a222","pressed":"#774315","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"closeBTN","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UIScrollViewEntity","resourceId":""},"_entityId":"qzbG40EP","children":[{"_tag":{"type":"UILayoutEntityV2","resourceId":""},"_entityId":"76YyOWTK","children":[{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"6IHiWdMZ","children":[{"_tag":{"type":"UIImageEntity","resourceId":""},"_entityId":"PmMKbYbz","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":0,"y":-16},"sizeDelta":{"x":170,"y":50}},"alpha":100,"image":{"source":{"fileId":"5baf1d2fb293e367feb428ee1abeba1e","filePath":"lib://fftextures/WorkshopIconLibrary/Icon_HUD_AK.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"color":"#ffffff","reverse":{"x":false,"y":false},"fillType":5,"slicedBorder":{"left":0,"right":0,"top":0,"bottom":0},"tiledBorder":{"left":0,"right":0,"top":0,"bottom":0},"centerInvisible":false,"fillDir":0,"fillAmount":0,"invertFill":false,"flip":0,"gradient":1,"gradientTop":{"r":255,"g":255,"b":255,"a":1},"gradientBottom":{"r":255,"g":255,"b":255,"a":1}}},"ecaScripts":[],"ecaProps":{"HudImageWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Image","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"NjwTBWht","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":0,"y":31},"sizeDelta":{"x":200,"y":100}},"alpha":100,"text":{"value":"AK47","key":"","font":"Default","fontSize":20,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"center","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Text","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UIImageEntity","resourceId":""},"_entityId":"oTUuhDkl","children":[],"prefabVariant":null,"activeValue":{"selfValue":false,"valueTag":"activeValue"},"unlockedValue":null,"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":false,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":102,"y":-51},"sizeDelta":{"x":34,"y":30}},"alpha":100,"image":{"source":{"fileId":"b9df4ffb-896c-4f4f-9162-5435cc688424","filePath":"Assets\\Texture\\HUD\\achievement_check.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"color":"#ffffff","reverse":{"x":false,"y":false},"fillType":0,"slicedBorder":{"left":0,"right":0,"top":0,"bottom":0},"tiledBorder":{"left":0,"right":0,"top":0,"bottom":0},"centerInvisible":false,"fillDir":0,"fillAmount":0,"invertFill":false,"flip":0,"gradient":1,"gradientTop":{"r":255,"g":255,"b":255,"a":1},"gradientBottom":{"r":255,"g":255,"b":255,"a":1}}},"ecaScripts":[],"ecaProps":{"HudImageWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Image","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":1.5,"y":263},"sizeDelta":{"x":235,"y":130}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#2E2E2E","highlight":"#e2a222","pressed":"#171717","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"gun","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-2,"y":-1},"sizeDelta":{"x":232,"y":656}},"alpha":100,"layout":{"enable":true,"type":"grid","corner":0,"offset":{"up":0,"down":0,"left":0,"right":0},"space":{"x":0,"y":10},"size":{"x":235,"y":130},"constraint":0,"direction":0,"fixedRowCount":2,"fixedColumnCount":2,"tableOffset":{"up":0,"down":0,"left":0,"right":0},"tableSpace":0}},"ecaScripts":[],"ecaProps":{"HudLayout":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Layout","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0,"y":0},"anchorMax":{"x":0,"y":1},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":119,"y":-41},"sizeDelta":{"x":248,"y":-82}},"alpha":100,"panel":{"enableBackground":true,"maskName":null,"bgName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"bgColor":{"r":0,"g":0,"b":0,"a":0.2},"clippingType":2,"softness":{"x":0,"y":0}},"scrollView":{"contentOrigin":0,"direction":1,"scrollWheelFactor":0.25,"momentumAmount":35,"dragEffect":0,"restrict":true,"smoothStart":true,"cancelIFFits":false,"verticalBar":0,"horizontalBar":0,"customXY":{"x":0,"y":0}}},"ecaScripts":[],"ecaProps":{"HudScrollView":{},"HudPanel":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"gunListScrollView","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UIScrollViewEntity","resourceId":""},"_entityId":"R9407gvg","children":[{"_tag":{"type":"UILayoutEntityV2","resourceId":""},"_entityId":"i1mlyzR5","children":[{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"yA0A4isT","children":[{"_tag":{"type":"UIImageEntity","resourceId":""},"_entityId":"XWLdMkTY","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":0,"y":8},"sizeDelta":{"x":50,"y":50}},"alpha":100,"image":{"source":{"fileId":"b71c3a5251390ec2f55a567df218190b","filePath":"lib://fftextures/WorkshopIconLibrary/FF_ingame_hud_UGC_Dyeing_Pickicon.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"color":"#ffffff","reverse":{"x":false,"y":false},"fillType":1,"slicedBorder":{"left":0,"right":0,"top":0,"bottom":0},"tiledBorder":{"left":0,"right":0,"top":0,"bottom":0},"centerInvisible":false,"fillDir":0,"fillAmount":0,"invertFill":false,"flip":0,"gradient":1,"gradientTop":{"r":255,"g":255,"b":255,"a":1},"gradientBottom":{"r":255,"g":255,"b":255,"a":1}}},"ecaScripts":[],"ecaProps":{"HudImageWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Image","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"oMjuAhSF","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-1,"y":-27},"sizeDelta":{"x":200,"y":100}},"alpha":100,"text":{"value":"Magazine Lv3","key":"","font":"Default","fontSize":14,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"center","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Text","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-373,"y":0},"sizeDelta":{"x":130,"y":80}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#2E2E2E","highlight":"#e2a222","pressed":"#171717","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"attachment","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-5,"y":7},"sizeDelta":{"x":876,"y":80}},"alpha":100,"layout":{"enable":true,"type":"grid","corner":0,"offset":{"up":0,"down":0,"left":0,"right":0},"space":{"x":10,"y":0},"size":{"x":130,"y":80},"constraint":0,"direction":0,"fixedRowCount":2,"fixedColumnCount":2,"tableOffset":{"up":0,"down":0,"left":0,"right":0},"tableSpace":0}},"ecaScripts":[],"ecaProps":{"HudLayout":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Layout","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":false,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":false,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":36,"y":-328},"sizeDelta":{"x":884,"y":92}},"alpha":100,"panel":{"enableBackground":true,"maskName":null,"bgName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"bgColor":{"r":0,"g":0,"b":0,"a":0.2},"clippingType":2,"softness":{"x":0,"y":0}},"scrollView":{"contentOrigin":0,"direction":0,"scrollWheelFactor":0.25,"momentumAmount":35,"dragEffect":0,"restrict":true,"smoothStart":true,"cancelIFFits":false,"verticalBar":0,"horizontalBar":0,"customXY":{"x":0,"y":0}}},"ecaScripts":[],"ecaProps":{"HudScrollView":{},"HudPanel":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"attachmentListScrollView","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UIEmptyEntity","resourceId":""},"_entityId":"3V9YUo7z","children":[{"_tag":{"type":"UIImageEntity","resourceId":""},"_entityId":"SB3fsey8","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":135,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":108,"y":-17},"sizeDelta":{"x":300,"y":300}},"alpha":100,"image":{"source":{"fileId":"pndcppkmy8b-ltcegzqx-uh1ys4uxxi","filePath":"Assets\\Images\\icon_weapon_ak.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"color":"#ffffff","reverse":{"x":false,"y":true},"fillType":5,"slicedBorder":{"left":0,"right":0,"top":0,"bottom":0},"tiledBorder":{"left":0,"right":0,"top":0,"bottom":0},"centerInvisible":false,"fillDir":0,"fillAmount":0,"invertFill":false,"flip":0,"gradient":1,"gradientTop":{"r":255,"g":255,"b":255,"a":1},"gradientBottom":{"r":255,"g":255,"b":255,"a":1}}},"ecaScripts":[],"ecaProps":{"HudImageWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"gun","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"XfXE8Tu5","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":90,"y":251},"sizeDelta":{"x":200,"y":100}},"alpha":100,"text":{"value":"AK47","key":"","font":"Default","fontSize":40,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"center","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Text","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"mL4p7SKP","children":[{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"PuTxb3He","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":10},"sizeDelta":{"x":104,"y":24}},"alpha":100,"text":{"value":"Scope","key":"","font":"Default","fontSize":20,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Attachment","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"R0HYNz5S","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":-13},"sizeDelta":{"x":104,"y":24}},"alpha":80,"text":{"value":"2X","key":"","font":"Default","fontSize":16,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#E4E4E4","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Name","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":119,"y":136},"sizeDelta":{"x":116,"y":60}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#2B2B2B","highlight":"#e2a222","pressed":"#171717","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{"TagsList":["Attachment","Scope"]},"Component":{"Component_12451224_custom":null}},"_entityName":"Scope","entityTagData":{"tagPointers":["entityTag76595232","entityTag62404477"]}},{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"LPdUJ046","children":[{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"wopgANvW","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":10},"sizeDelta":{"x":104,"y":24}},"alpha":100,"text":{"value":"Muzzle","key":"","font":"Default","fontSize":20,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Attachment","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"4xSwCpM5","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":-13},"sizeDelta":{"x":104,"y":24}},"alpha":80,"text":{"value":"Muzzle Lv3","key":"","font":"Default","fontSize":16,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#E4E4E4","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Name","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":449,"y":-4},"sizeDelta":{"x":116,"y":60}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#2B2B2B","highlight":"#e2a222","pressed":"#171717","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{"TagsList":["Attachment","Muzzle"]},"Component":{"Component_12451224_custom":null}},"_entityName":"Muzzle","entityTagData":{"tagPointers":["entityTag76595232","entityTag55657727"]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"yXy4NycN","children":[{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"EUBq2T7H","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":10},"sizeDelta":{"x":104,"y":24}},"alpha":100,"text":{"value":"Magazine","key":"","font":"Default","fontSize":20,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Attachment","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"MmaQOv3P","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":-13},"sizeDelta":{"x":104,"y":24}},"alpha":80,"text":{"value":"Magazine Lv3","key":"","font":"Default","fontSize":16,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#E4E4E4","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Name","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":12,"y":-193},"sizeDelta":{"x":116,"y":60}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#2B2B2B","highlight":"#e2a222","pressed":"#171717","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{"TagsList":["Attachment","Magazine"]},"Component":{"Component_12451224_custom":null}},"_entityName":"Magazine","entityTagData":{"tagPointers":["entityTag76595232","entityTag43873268"]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"yjVCd5et","children":[{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"IAuLmABo","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":10},"sizeDelta":{"x":104,"y":24}},"alpha":100,"text":{"value":"Foregrip","key":"","font":"Default","fontSize":20,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Attachment","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"5Pzqejqd","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":-13},"sizeDelta":{"x":104,"y":24}},"alpha":80,"text":{"value":"Foregrip Lv3","key":"","font":"Default","fontSize":16,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#E4E4E4","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Name","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":267,"y":-178},"sizeDelta":{"x":116,"y":60}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#2B2B2B","highlight":"#e2a222","pressed":"#171717","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{"TagsList":["Attachment","Foregrip"]},"Component":{"Component_12451224_custom":null}},"_entityName":"Foregrip","entityTagData":{"tagPointers":["entityTag76595232","entityTag57279088"]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"gYt2HTzh","children":[{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"vUUkh4As","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":10},"sizeDelta":{"x":104,"y":24}},"alpha":100,"text":{"value":"Stock","key":"","font":"Default","fontSize":20,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Attachment","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true},{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"Lz6m4pg1","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":2,"y":-13},"sizeDelta":{"x":104,"y":24}},"alpha":80,"text":{"value":"Stock Lv3","key":"","font":"Default","fontSize":16,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#E4E4E4","alignment":{"h":"left","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Name","entityTagData":{"tagPointers":[]},"editorLockValue":false,"editorVisibleValue":true}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":-223,"y":-24},"sizeDelta":{"x":116,"y":60}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#2B2B2B","highlight":"#e2a222","pressed":"#171717","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{"TagsList":["Attachment","Stock"]},"Component":{"Component_12451224_custom":null}},"_entityName":"Stock","entityTagData":{"tagPointers":["entityTag76595232","entityTag65287639"]},"editorLockValue":false,"editorVisibleValue":true}],"prefabVariant":null,"activeValue":{"selfValue":false,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":false,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":0,"y":0},"sizeDelta":{"x":100,"y":100}},"alpha":100},"ecaScripts":[],"ecaProps":{"HudEmptyWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"gunAttachment","entityTagData":{"tagPointers":[]}},{"_tag":{"type":"UIButtonEntity","resourceId":""},"_entityId":"e3rO07aI","children":[{"_tag":{"type":"UITextEntity","resourceId":""},"_entityId":"5fQegafm","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":0,"y":0},"sizeDelta":{"x":200,"y":100}},"alpha":100,"text":{"value":"EQUIP","key":"","font":"Default","fontSize":24,"fontStyle":{"bold":false,"italic":false,"underline":false},"color":"#ffffff","alignment":{"h":"center","v":"middle"},"lineSpacing":0,"background":false,"backgroundColor":"#e7b200","overflow":0,"backgroundRGBA":{"r":0,"g":0,"b":0,"a":0},"shadow":false,"shadowColor":"#000000","shadowOffset":{"x":1,"y":1}}},"ecaScripts":[],"ecaProps":{"HudLabelWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Text","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0.5,"y":0.5},"anchorMax":{"x":0.5,"y":0.5},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":585,"y":-335},"sizeDelta":{"x":178,"y":50}},"alpha":100,"button":{"spriteName":{"fileId":"b063b0439839b3d97a8fd2aa6a57ef8b","filePath":"lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png","_tag":{"type":"GFileRefer"},"fileType":"texture"},"normal":"#FFBA00","highlight":"#e2a222","pressed":"#774315","disabled":"#494949","onClicks":[],"enableBorderImage":true}},"ecaScripts":[],"ecaProps":{"HudButtonWidget":{},"HudWidget":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"equipBTN","entityTagData":{"tagPointers":[]}}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"propsData":{"activeSelf":true,"transform":{"rotate":0,"anchorMin":{"x":0,"y":0},"anchorMax":{"x":0,"y":0},"pivot":{"x":0.5,"y":0.5},"anchoredPosition":{"x":667,"y":375},"sizeDelta":{"x":1334,"y":750}},"alpha":100},"ecaScripts":[{"fileId":"ps7ykl7d3bb-lte90mg4-x2r02sqe3qd","filePath":"Assets\\Script\\HUDArmory.fcg","_tag":{"type":"GFileRefer"},"fileType":"ugcscript"}],"ecaProps":{"CustomHud":{},"Entity":{},"Component":{"Component_12451224_custom":null}},"_entityName":"Armory","entityTagData":{"tagPointers":[]},"layer":1,"discriminator":"ISceneLike","version":3}//"{FE:{"v":"1.7.6","c":{"FF":43},"s":100}
+{
+  "_tag": {
+    "type": "UIRootEntity",
+    "resourceId": ""
+  },
+  "_entityId": "3JZ0o3nt",
+  "children": [
+    {
+      "_tag": {
+        "type": "UIImageEntity",
+        "resourceId": ""
+      },
+      "_entityId": "qTtHnweK",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "propsData": {
+        "activeSelf": true,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0,
+            "y": 0
+          },
+          "anchorMax": {
+            "x": 1,
+            "y": 1
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": -1,
+            "y": 7
+          },
+          "sizeDelta": {
+            "x": 70,
+            "y": 44
+          }
+        },
+        "alpha": 100,
+        "image": {
+          "source": {
+            "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+            "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "color": "#000000",
+          "reverse": {
+            "x": false,
+            "y": false
+          },
+          "fillType": 1,
+          "slicedBorder": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "tiledBorder": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "centerInvisible": false,
+          "fillDir": 0,
+          "fillAmount": 0,
+          "invertFill": false,
+          "flip": 0,
+          "gradient": 1,
+          "gradientTop": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          },
+          "gradientBottom": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          }
+        }
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudImageWidget": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "bg (1)",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "_filters": []
+    },
+    {
+      "_tag": {
+        "type": "UIImageEntity",
+        "resourceId": ""
+      },
+      "_entityId": "rX1gAaEV",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": true,
+      "editorVisibleValue": true,
+      "propsData": {
+        "activeSelf": true,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0,
+            "y": 0
+          },
+          "anchorMax": {
+            "x": 1,
+            "y": 1
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": -1,
+            "y": 7
+          },
+          "sizeDelta": {
+            "x": 70,
+            "y": 44
+          }
+        },
+        "alpha": 100,
+        "image": {
+          "source": {
+            "fileId": "140ab5cb-7d5e-4845-90a9-4be81b3f6f64",
+            "filePath": "Assets\\Texture\\HUD\\bg_team_dark.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "color": "#ffffff",
+          "reverse": {
+            "x": false,
+            "y": false
+          },
+          "fillType": 1,
+          "slicedBorder": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "tiledBorder": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "centerInvisible": false,
+          "fillDir": 0,
+          "fillAmount": 0,
+          "invertFill": false,
+          "flip": 0,
+          "gradient": 1,
+          "gradientTop": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          },
+          "gradientBottom": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          }
+        }
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudImageWidget": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "bg",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_filters": []
+    },
+    {
+      "_tag": {
+        "type": "UITextEntity",
+        "resourceId": ""
+      },
+      "_entityId": "9xi2syrn",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "propsData": {
+        "activeSelf": true,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": -549,
+            "y": 340
+          },
+          "sizeDelta": {
+            "x": 200,
+            "y": 100
+          }
+        },
+        "alpha": 100,
+        "text": {
+          "value": "ARMORY",
+          "key": "",
+          "font": "Default",
+          "fontSize": 60,
+          "fontStyle": {
+            "bold": false,
+            "italic": false,
+            "underline": false
+          },
+          "color": "#D3D3D3",
+          "alignment": {
+            "h": "center",
+            "v": "middle"
+          },
+          "lineSpacing": 0,
+          "background": false,
+          "backgroundColor": "#e7b200",
+          "overflow": 0,
+          "backgroundRGBA": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "shadow": true,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "x": 1,
+            "y": 1
+          }
+        }
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudLabelWidget": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "title",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_filters": []
+    },
+    {
+      "_tag": {
+        "type": "UIButtonEntity",
+        "resourceId": ""
+      },
+      "_entityId": "JpzCdKYl",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "propsData": {
+        "activeSelf": true,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": 630,
+            "y": 321
+          },
+          "sizeDelta": {
+            "x": 54,
+            "y": 48
+          }
+        },
+        "alpha": 100,
+        "button": {
+          "spriteName": {
+            "fileId": "30a2c32c-c1e4-47fb-b074-d5e121ce5c54",
+            "filePath": "Assets\\Texture\\HUD\\ui_common_close.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "normal": "#FFFFFF",
+          "highlight": "#e2a222",
+          "pressed": "#774315",
+          "disabled": "#494949",
+          "onClicks": [],
+          "enableBorderImage": true
+        }
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudButtonWidget": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "closeBTN",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_filters": []
+    },
+    {
+      "_tag": {
+        "type": "UIScrollViewEntity",
+        "resourceId": ""
+      },
+      "_entityId": "qzbG40EP",
+      "children": [
+        {
+          "_tag": {
+            "type": "UILayoutEntityV2",
+            "resourceId": ""
+          },
+          "_entityId": "76YyOWTK",
+          "children": [
+            {
+              "_tag": {
+                "type": "UIButtonEntity",
+                "resourceId": ""
+              },
+              "_entityId": "6IHiWdMZ",
+              "children": [
+                {
+                  "_tag": {
+                    "type": "UIImageEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "PmMKbYbz",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "propsData": {
+                    "activeSelf": true,
+                    "transform": {
+                      "rotate": 0,
+                      "anchorMin": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchorMax": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "pivot": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchoredPosition": {
+                        "x": 0,
+                        "y": -16
+                      },
+                      "sizeDelta": {
+                        "x": 170,
+                        "y": 50
+                      }
+                    },
+                    "alpha": 100,
+                    "image": {
+                      "source": {
+                        "fileId": "5baf1d2fb293e367feb428ee1abeba1e",
+                        "filePath": "lib://fftextures/WorkshopIconLibrary/Icon_HUD_AK.png",
+                        "_tag": {
+                          "type": "GFileRefer"
+                        },
+                        "fileType": "texture"
+                      },
+                      "color": "#ffffff",
+                      "reverse": {
+                        "x": false,
+                        "y": false
+                      },
+                      "fillType": 5,
+                      "slicedBorder": {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0
+                      },
+                      "tiledBorder": {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0
+                      },
+                      "centerInvisible": false,
+                      "fillDir": 0,
+                      "fillAmount": 0,
+                      "invertFill": false,
+                      "flip": 0,
+                      "gradient": 1,
+                      "gradientTop": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1
+                      },
+                      "gradientBottom": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1
+                      }
+                    }
+                  },
+                  "ecaScripts": [],
+                  "ecaProps": {
+                    "HudImageWidget": {},
+                    "HudWidget": {},
+                    "Entity": {},
+                    "Component": {
+                      "Component_12451224_custom": null
+                    }
+                  },
+                  "_entityName": "Image",
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "_filters": []
+                },
+                {
+                  "_tag": {
+                    "type": "UITextEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "NjwTBWht",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "propsData": {
+                    "activeSelf": true,
+                    "transform": {
+                      "rotate": 0,
+                      "anchorMin": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchorMax": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "pivot": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchoredPosition": {
+                        "x": 0,
+                        "y": 31
+                      },
+                      "sizeDelta": {
+                        "x": 200,
+                        "y": 100
+                      }
+                    },
+                    "alpha": 100,
+                    "text": {
+                      "value": "AK47",
+                      "key": "",
+                      "font": "Default",
+                      "fontSize": 20,
+                      "fontStyle": {
+                        "bold": false,
+                        "italic": false,
+                        "underline": false
+                      },
+                      "color": "#ffffff",
+                      "alignment": {
+                        "h": "center",
+                        "v": "middle"
+                      },
+                      "lineSpacing": 0,
+                      "background": false,
+                      "backgroundColor": "#e7b200",
+                      "overflow": 0,
+                      "backgroundRGBA": {
+                        "r": 0,
+                        "g": 0,
+                        "b": 0,
+                        "a": 0
+                      },
+                      "shadow": false,
+                      "shadowColor": "#000000",
+                      "shadowOffset": {
+                        "x": 1,
+                        "y": 1
+                      }
+                    }
+                  },
+                  "ecaScripts": [],
+                  "ecaProps": {
+                    "HudLabelWidget": {},
+                    "HudWidget": {},
+                    "Entity": {},
+                    "Component": {
+                      "Component_12451224_custom": null
+                    }
+                  },
+                  "_entityName": "Text",
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "_filters": []
+                },
+                {
+                  "_tag": {
+                    "type": "UIImageEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "oTUuhDkl",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": false,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "propsData": {
+                    "activeSelf": false,
+                    "transform": {
+                      "rotate": 0,
+                      "anchorMin": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchorMax": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "pivot": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchoredPosition": {
+                        "x": 102,
+                        "y": -51
+                      },
+                      "sizeDelta": {
+                        "x": 34,
+                        "y": 30
+                      }
+                    },
+                    "alpha": 100,
+                    "image": {
+                      "source": {
+                        "fileId": "b9df4ffb-896c-4f4f-9162-5435cc688424",
+                        "filePath": "Assets\\Texture\\HUD\\achievement_check.png",
+                        "_tag": {
+                          "type": "GFileRefer"
+                        },
+                        "fileType": "texture"
+                      },
+                      "color": "#ffffff",
+                      "reverse": {
+                        "x": false,
+                        "y": false
+                      },
+                      "fillType": 0,
+                      "slicedBorder": {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0
+                      },
+                      "tiledBorder": {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0
+                      },
+                      "centerInvisible": false,
+                      "fillDir": 0,
+                      "fillAmount": 0,
+                      "invertFill": false,
+                      "flip": 0,
+                      "gradient": 1,
+                      "gradientTop": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1
+                      },
+                      "gradientBottom": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1
+                      }
+                    }
+                  },
+                  "ecaScripts": [],
+                  "ecaProps": {
+                    "HudImageWidget": {},
+                    "HudWidget": {},
+                    "Entity": {},
+                    "Component": {
+                      "Component_12451224_custom": null
+                    }
+                  },
+                  "_entityName": "Image",
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "_filters": []
+                }
+              ],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 1.5,
+                    "y": 263
+                  },
+                  "sizeDelta": {
+                    "x": 235,
+                    "y": 130
+                  }
+                },
+                "alpha": 100,
+                "button": {
+                  "spriteName": {
+                    "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+                    "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+                    "_tag": {
+                      "type": "GFileRefer"
+                    },
+                    "fileType": "texture"
+                  },
+                  "normal": "#2E2E2E",
+                  "highlight": "#e2a222",
+                  "pressed": "#171717",
+                  "disabled": "#494949",
+                  "onClicks": [],
+                  "enableBorderImage": true
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudButtonWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "gun",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "_filters": []
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": -2,
+                "y": -1
+              },
+              "sizeDelta": {
+                "x": 232,
+                "y": 656
+              }
+            },
+            "alpha": 100,
+            "layout": {
+              "enable": true,
+              "type": "grid",
+              "corner": 0,
+              "offset": {
+                "up": 0,
+                "down": 0,
+                "left": 0,
+                "right": 0
+              },
+              "space": {
+                "x": 0,
+                "y": 10
+              },
+              "size": {
+                "x": 235,
+                "y": 130
+              },
+              "constraint": 0,
+              "direction": 0,
+              "fixedRowCount": 2,
+              "fixedColumnCount": 2,
+              "tableOffset": {
+                "up": 0,
+                "down": 0,
+                "left": 0,
+                "right": 0
+              },
+              "tableSpace": 0
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudLayout": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Layout",
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "_filters": []
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "propsData": {
+        "activeSelf": true,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0,
+            "y": 0
+          },
+          "anchorMax": {
+            "x": 0,
+            "y": 1
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": 119,
+            "y": -41
+          },
+          "sizeDelta": {
+            "x": 248,
+            "y": -82
+          }
+        },
+        "alpha": 100,
+        "panel": {
+          "enableBackground": true,
+          "maskName": null,
+          "bgName": {
+            "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+            "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "bgColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.2
+          },
+          "clippingType": 2,
+          "softness": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "scrollView": {
+          "contentOrigin": 0,
+          "direction": 1,
+          "scrollWheelFactor": 0.25,
+          "momentumAmount": 35,
+          "dragEffect": 0,
+          "restrict": true,
+          "smoothStart": true,
+          "cancelIFFits": false,
+          "verticalBar": 0,
+          "horizontalBar": 0,
+          "customXY": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudScrollView": {},
+        "HudPanel": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "gunListScrollView",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_filters": []
+    },
+    {
+      "_tag": {
+        "type": "UIScrollViewEntity",
+        "resourceId": ""
+      },
+      "_entityId": "R9407gvg",
+      "children": [
+        {
+          "_tag": {
+            "type": "UILayoutEntityV2",
+            "resourceId": ""
+          },
+          "_entityId": "i1mlyzR5",
+          "children": [
+            {
+              "_tag": {
+                "type": "UIButtonEntity",
+                "resourceId": ""
+              },
+              "_entityId": "yA0A4isT",
+              "children": [
+                {
+                  "_tag": {
+                    "type": "UIImageEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "XWLdMkTY",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "propsData": {
+                    "activeSelf": true,
+                    "transform": {
+                      "rotate": 0,
+                      "anchorMin": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchorMax": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "pivot": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchoredPosition": {
+                        "x": 0,
+                        "y": 8
+                      },
+                      "sizeDelta": {
+                        "x": 50,
+                        "y": 50
+                      }
+                    },
+                    "alpha": 100,
+                    "image": {
+                      "source": {
+                        "fileId": "b71c3a5251390ec2f55a567df218190b",
+                        "filePath": "lib://fftextures/WorkshopIconLibrary/FF_ingame_hud_UGC_Dyeing_Pickicon.png",
+                        "_tag": {
+                          "type": "GFileRefer"
+                        },
+                        "fileType": "texture"
+                      },
+                      "color": "#ffffff",
+                      "reverse": {
+                        "x": false,
+                        "y": false
+                      },
+                      "fillType": 1,
+                      "slicedBorder": {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0
+                      },
+                      "tiledBorder": {
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "bottom": 0
+                      },
+                      "centerInvisible": false,
+                      "fillDir": 0,
+                      "fillAmount": 0,
+                      "invertFill": false,
+                      "flip": 0,
+                      "gradient": 1,
+                      "gradientTop": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1
+                      },
+                      "gradientBottom": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255,
+                        "a": 1
+                      }
+                    }
+                  },
+                  "ecaScripts": [],
+                  "ecaProps": {
+                    "HudImageWidget": {},
+                    "HudWidget": {},
+                    "Entity": {},
+                    "Component": {
+                      "Component_12451224_custom": null
+                    }
+                  },
+                  "_entityName": "Image",
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "_filters": []
+                },
+                {
+                  "_tag": {
+                    "type": "UITextEntity",
+                    "resourceId": ""
+                  },
+                  "_entityId": "oMjuAhSF",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "propsData": {
+                    "activeSelf": true,
+                    "transform": {
+                      "rotate": 0,
+                      "anchorMin": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchorMax": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "pivot": {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      "anchoredPosition": {
+                        "x": -1,
+                        "y": -27
+                      },
+                      "sizeDelta": {
+                        "x": 200,
+                        "y": 100
+                      }
+                    },
+                    "alpha": 100,
+                    "text": {
+                      "value": "Magazine Lv3",
+                      "key": "",
+                      "font": "Default",
+                      "fontSize": 14,
+                      "fontStyle": {
+                        "bold": false,
+                        "italic": false,
+                        "underline": false
+                      },
+                      "color": "#ffffff",
+                      "alignment": {
+                        "h": "center",
+                        "v": "middle"
+                      },
+                      "lineSpacing": 0,
+                      "background": false,
+                      "backgroundColor": "#e7b200",
+                      "overflow": 0,
+                      "backgroundRGBA": {
+                        "r": 0,
+                        "g": 0,
+                        "b": 0,
+                        "a": 0
+                      },
+                      "shadow": false,
+                      "shadowColor": "#000000",
+                      "shadowOffset": {
+                        "x": 1,
+                        "y": 1
+                      }
+                    }
+                  },
+                  "ecaScripts": [],
+                  "ecaProps": {
+                    "HudLabelWidget": {},
+                    "HudWidget": {},
+                    "Entity": {},
+                    "Component": {
+                      "Component_12451224_custom": null
+                    }
+                  },
+                  "_entityName": "Text",
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "_filters": []
+                }
+              ],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": -373,
+                    "y": 0
+                  },
+                  "sizeDelta": {
+                    "x": 130,
+                    "y": 80
+                  }
+                },
+                "alpha": 100,
+                "button": {
+                  "spriteName": {
+                    "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+                    "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+                    "_tag": {
+                      "type": "GFileRefer"
+                    },
+                    "fileType": "texture"
+                  },
+                  "normal": "#2E2E2E",
+                  "highlight": "#e2a222",
+                  "pressed": "#171717",
+                  "disabled": "#494949",
+                  "onClicks": [],
+                  "enableBorderImage": true
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudButtonWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "attachment",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "_filters": []
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": -5,
+                "y": 7
+              },
+              "sizeDelta": {
+                "x": 876,
+                "y": 80
+              }
+            },
+            "alpha": 100,
+            "layout": {
+              "enable": true,
+              "type": "grid",
+              "corner": 0,
+              "offset": {
+                "up": 0,
+                "down": 0,
+                "left": 0,
+                "right": 0
+              },
+              "space": {
+                "x": 10,
+                "y": 0
+              },
+              "size": {
+                "x": 130,
+                "y": 80
+              },
+              "constraint": 0,
+              "direction": 0,
+              "fixedRowCount": 2,
+              "fixedColumnCount": 2,
+              "tableOffset": {
+                "up": 0,
+                "down": 0,
+                "left": 0,
+                "right": 0
+              },
+              "tableSpace": 0
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudLayout": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Layout",
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "_filters": []
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": false,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "propsData": {
+        "activeSelf": false,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": 36,
+            "y": -328
+          },
+          "sizeDelta": {
+            "x": 884,
+            "y": 92
+          }
+        },
+        "alpha": 100,
+        "panel": {
+          "enableBackground": true,
+          "maskName": null,
+          "bgName": {
+            "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+            "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "bgColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.2
+          },
+          "clippingType": 2,
+          "softness": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "scrollView": {
+          "contentOrigin": 0,
+          "direction": 0,
+          "scrollWheelFactor": 0.25,
+          "momentumAmount": 35,
+          "dragEffect": 0,
+          "restrict": true,
+          "smoothStart": true,
+          "cancelIFFits": false,
+          "verticalBar": 0,
+          "horizontalBar": 0,
+          "customXY": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudScrollView": {},
+        "HudPanel": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "attachmentListScrollView",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_filters": []
+    },
+    {
+      "_tag": {
+        "type": "UIEmptyEntity",
+        "resourceId": ""
+      },
+      "_entityId": "3V9YUo7z",
+      "children": [
+        {
+          "_tag": {
+            "type": "UIImageEntity",
+            "resourceId": ""
+          },
+          "_entityId": "SB3fsey8",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 135,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 108,
+                "y": -17
+              },
+              "sizeDelta": {
+                "x": 300,
+                "y": 300
+              }
+            },
+            "alpha": 100,
+            "image": {
+              "source": {
+                "fileId": "pndcppkmy8b-ltcegzqx-uh1ys4uxxi",
+                "filePath": "Assets\\Images\\icon_weapon_ak.png",
+                "_tag": {
+                  "type": "GFileRefer"
+                },
+                "fileType": "texture"
+              },
+              "color": "#ffffff",
+              "reverse": {
+                "x": false,
+                "y": true
+              },
+              "fillType": 5,
+              "slicedBorder": {
+                "left": 0,
+                "right": 0,
+                "top": 0,
+                "bottom": 0
+              },
+              "tiledBorder": {
+                "left": 0,
+                "right": 0,
+                "top": 0,
+                "bottom": 0
+              },
+              "centerInvisible": false,
+              "fillDir": 0,
+              "fillAmount": 0,
+              "invertFill": false,
+              "flip": 0,
+              "gradient": 1,
+              "gradientTop": {
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 1
+              },
+              "gradientBottom": {
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 1
+              }
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudImageWidget": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "gun",
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "_filters": []
+        },
+        {
+          "_tag": {
+            "type": "UITextEntity",
+            "resourceId": ""
+          },
+          "_entityId": "XfXE8Tu5",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 90,
+                "y": 251
+              },
+              "sizeDelta": {
+                "x": 200,
+                "y": 100
+              }
+            },
+            "alpha": 100,
+            "text": {
+              "value": "AK47",
+              "key": "",
+              "font": "Default",
+              "fontSize": 40,
+              "fontStyle": {
+                "bold": false,
+                "italic": false,
+                "underline": false
+              },
+              "color": "#ffffff",
+              "alignment": {
+                "h": "center",
+                "v": "middle"
+              },
+              "lineSpacing": 0,
+              "background": false,
+              "backgroundColor": "#e7b200",
+              "overflow": 0,
+              "backgroundRGBA": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+              },
+              "shadow": false,
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudLabelWidget": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Text",
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "_filters": []
+        },
+        {
+          "_tag": {
+            "type": "UIButtonEntity",
+            "resourceId": ""
+          },
+          "_entityId": "mL4p7SKP",
+          "children": [
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "PuTxb3He",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": 10
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 100,
+                "text": {
+                  "value": "Scope",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 20,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#ffffff",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Attachment",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "_filters": []
+            },
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "R0HYNz5S",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": -13
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 80,
+                "text": {
+                  "value": "2X",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 16,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#E4E4E4",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Name",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 119,
+                "y": 136
+              },
+              "sizeDelta": {
+                "x": 116,
+                "y": 60
+              }
+            },
+            "alpha": 100,
+            "button": {
+              "spriteName": {
+                "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+                "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+                "_tag": {
+                  "type": "GFileRefer"
+                },
+                "fileType": "texture"
+              },
+              "normal": "#2B2B2B",
+              "highlight": "#e2a222",
+              "pressed": "#171717",
+              "disabled": "#494949",
+              "onClicks": [],
+              "enableBorderImage": true
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudButtonWidget": {},
+            "HudWidget": {},
+            "Entity": {
+              "TagsList": [
+                "Attachment",
+                "Scope"
+              ]
+            },
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Scope",
+          "entityTagData": {
+            "tagPointers": [
+              "entityTag76595232",
+              "entityTag62404477"
+            ]
+          },
+          "_filters": [
+            "entityTag76595232",
+            "entityTag62404477"
+          ]
+        },
+        {
+          "_tag": {
+            "type": "UIButtonEntity",
+            "resourceId": ""
+          },
+          "_entityId": "LPdUJ046",
+          "children": [
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "wopgANvW",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": 10
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 100,
+                "text": {
+                  "value": "Muzzle",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 20,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#ffffff",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Attachment",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            },
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "4xSwCpM5",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": -13
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 80,
+                "text": {
+                  "value": "Muzzle Lv3",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 16,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#E4E4E4",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Name",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 449,
+                "y": -4
+              },
+              "sizeDelta": {
+                "x": 116,
+                "y": 60
+              }
+            },
+            "alpha": 100,
+            "button": {
+              "spriteName": {
+                "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+                "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+                "_tag": {
+                  "type": "GFileRefer"
+                },
+                "fileType": "texture"
+              },
+              "normal": "#2B2B2B",
+              "highlight": "#e2a222",
+              "pressed": "#171717",
+              "disabled": "#494949",
+              "onClicks": [],
+              "enableBorderImage": true
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudButtonWidget": {},
+            "HudWidget": {},
+            "Entity": {
+              "TagsList": [
+                "Attachment",
+                "Muzzle"
+              ]
+            },
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Muzzle",
+          "entityTagData": {
+            "tagPointers": [
+              "entityTag76595232",
+              "entityTag55657727"
+            ]
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "_filters": [
+            "entityTag76595232",
+            "entityTag55657727"
+          ]
+        },
+        {
+          "_tag": {
+            "type": "UIButtonEntity",
+            "resourceId": ""
+          },
+          "_entityId": "yXy4NycN",
+          "children": [
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "EUBq2T7H",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": 10
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 100,
+                "text": {
+                  "value": "Magazine",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 20,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#ffffff",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Attachment",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            },
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "MmaQOv3P",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": -13
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 80,
+                "text": {
+                  "value": "Magazine Lv3",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 16,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#E4E4E4",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Name",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 12,
+                "y": -193
+              },
+              "sizeDelta": {
+                "x": 116,
+                "y": 60
+              }
+            },
+            "alpha": 100,
+            "button": {
+              "spriteName": {
+                "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+                "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+                "_tag": {
+                  "type": "GFileRefer"
+                },
+                "fileType": "texture"
+              },
+              "normal": "#2B2B2B",
+              "highlight": "#e2a222",
+              "pressed": "#171717",
+              "disabled": "#494949",
+              "onClicks": [],
+              "enableBorderImage": true
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudButtonWidget": {},
+            "HudWidget": {},
+            "Entity": {
+              "TagsList": [
+                "Attachment",
+                "Magazine"
+              ]
+            },
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Magazine",
+          "entityTagData": {
+            "tagPointers": [
+              "entityTag76595232",
+              "entityTag43873268"
+            ]
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "_filters": [
+            "entityTag76595232",
+            "entityTag43873268"
+          ]
+        },
+        {
+          "_tag": {
+            "type": "UIButtonEntity",
+            "resourceId": ""
+          },
+          "_entityId": "yjVCd5et",
+          "children": [
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "IAuLmABo",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": 10
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 100,
+                "text": {
+                  "value": "Foregrip",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 20,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#ffffff",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Attachment",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            },
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "5Pzqejqd",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": -13
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 80,
+                "text": {
+                  "value": "Foregrip Lv3",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 16,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#E4E4E4",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Name",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 267,
+                "y": -178
+              },
+              "sizeDelta": {
+                "x": 116,
+                "y": 60
+              }
+            },
+            "alpha": 100,
+            "button": {
+              "spriteName": {
+                "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+                "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+                "_tag": {
+                  "type": "GFileRefer"
+                },
+                "fileType": "texture"
+              },
+              "normal": "#2B2B2B",
+              "highlight": "#e2a222",
+              "pressed": "#171717",
+              "disabled": "#494949",
+              "onClicks": [],
+              "enableBorderImage": true
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudButtonWidget": {},
+            "HudWidget": {},
+            "Entity": {
+              "TagsList": [
+                "Attachment",
+                "Foregrip"
+              ]
+            },
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Foregrip",
+          "entityTagData": {
+            "tagPointers": [
+              "entityTag76595232",
+              "entityTag57279088"
+            ]
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "_filters": [
+            "entityTag76595232",
+            "entityTag57279088"
+          ]
+        },
+        {
+          "_tag": {
+            "type": "UIButtonEntity",
+            "resourceId": ""
+          },
+          "_entityId": "gYt2HTzh",
+          "children": [
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "vUUkh4As",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": 10
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 100,
+                "text": {
+                  "value": "Stock",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 20,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#ffffff",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Attachment",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            },
+            {
+              "_tag": {
+                "type": "UITextEntity",
+                "resourceId": ""
+              },
+              "_entityId": "Lz6m4pg1",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "propsData": {
+                "activeSelf": true,
+                "transform": {
+                  "rotate": 0,
+                  "anchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "pivot": {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  "anchoredPosition": {
+                    "x": 2,
+                    "y": -13
+                  },
+                  "sizeDelta": {
+                    "x": 104,
+                    "y": 24
+                  }
+                },
+                "alpha": 80,
+                "text": {
+                  "value": "Stock Lv3",
+                  "key": "",
+                  "font": "Default",
+                  "fontSize": 16,
+                  "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                  },
+                  "color": "#E4E4E4",
+                  "alignment": {
+                    "h": "left",
+                    "v": "middle"
+                  },
+                  "lineSpacing": 0,
+                  "background": false,
+                  "backgroundColor": "#e7b200",
+                  "overflow": 0,
+                  "backgroundRGBA": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 0
+                  },
+                  "shadow": false,
+                  "shadowColor": "#000000",
+                  "shadowOffset": {
+                    "x": 1,
+                    "y": 1
+                  }
+                }
+              },
+              "ecaScripts": [],
+              "ecaProps": {
+                "HudLabelWidget": {},
+                "HudWidget": {},
+                "Entity": {},
+                "Component": {
+                  "Component_12451224_custom": null
+                }
+              },
+              "_entityName": "Name",
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "_filters": []
+            }
+          ],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": -223,
+                "y": -24
+              },
+              "sizeDelta": {
+                "x": 116,
+                "y": 60
+              }
+            },
+            "alpha": 100,
+            "button": {
+              "spriteName": {
+                "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+                "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+                "_tag": {
+                  "type": "GFileRefer"
+                },
+                "fileType": "texture"
+              },
+              "normal": "#2B2B2B",
+              "highlight": "#e2a222",
+              "pressed": "#171717",
+              "disabled": "#494949",
+              "onClicks": [],
+              "enableBorderImage": true
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudButtonWidget": {},
+            "HudWidget": {},
+            "Entity": {
+              "TagsList": [
+                "Attachment",
+                "Stock"
+              ]
+            },
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Stock",
+          "entityTagData": {
+            "tagPointers": [
+              "entityTag76595232",
+              "entityTag65287639"
+            ]
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "_filters": [
+            "entityTag76595232",
+            "entityTag65287639"
+          ]
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "propsData": {
+        "activeSelf": true,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": 0,
+            "y": 0
+          },
+          "sizeDelta": {
+            "x": 100,
+            "y": 100
+          }
+        },
+        "alpha": 100
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudEmptyWidget": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "gunAttachment",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_filters": []
+    },
+    {
+      "_tag": {
+        "type": "UIButtonEntity",
+        "resourceId": ""
+      },
+      "_entityId": "e3rO07aI",
+      "children": [
+        {
+          "_tag": {
+            "type": "UITextEntity",
+            "resourceId": ""
+          },
+          "_entityId": "5fQegafm",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 0,
+                "y": 0
+              },
+              "sizeDelta": {
+                "x": 200,
+                "y": 100
+              }
+            },
+            "alpha": 100,
+            "text": {
+              "value": "EQUIP",
+              "key": "",
+              "font": "Default",
+              "fontSize": 24,
+              "fontStyle": {
+                "bold": false,
+                "italic": false,
+                "underline": false
+              },
+              "color": "#ffffff",
+              "alignment": {
+                "h": "center",
+                "v": "middle"
+              },
+              "lineSpacing": 0,
+              "background": false,
+              "backgroundColor": "#e7b200",
+              "overflow": 0,
+              "backgroundRGBA": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+              },
+              "shadow": false,
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudLabelWidget": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {
+              "Component_12451224_custom": null
+            }
+          },
+          "_entityName": "Text",
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "_filters": []
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "propsData": {
+        "activeSelf": true,
+        "transform": {
+          "rotate": 0,
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchoredPosition": {
+            "x": 585,
+            "y": -335
+          },
+          "sizeDelta": {
+            "x": 178,
+            "y": 50
+          }
+        },
+        "alpha": 100,
+        "button": {
+          "spriteName": {
+            "fileId": "b063b0439839b3d97a8fd2aa6a57ef8b",
+            "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_SQUARE.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "normal": "#FFBA00",
+          "highlight": "#e2a222",
+          "pressed": "#774315",
+          "disabled": "#494949",
+          "onClicks": [],
+          "enableBorderImage": true
+        }
+      },
+      "ecaScripts": [],
+      "ecaProps": {
+        "HudButtonWidget": {},
+        "HudWidget": {},
+        "Entity": {},
+        "Component": {
+          "Component_12451224_custom": null
+        }
+      },
+      "_entityName": "equipBTN",
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_filters": []
+    }
+  ],
+  "prefabVariant": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
+  "editorLockValue": false,
+  "editorVisibleValue": true,
+  "propsData": {
+    "activeSelf": true,
+    "transform": {
+      "rotate": 0,
+      "anchorMin": {
+        "x": 0,
+        "y": 0
+      },
+      "anchorMax": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "anchoredPosition": {
+        "x": 667,
+        "y": 375
+      },
+      "sizeDelta": {
+        "x": 1334,
+        "y": 750
+      }
+    },
+    "alpha": 100
+  },
+  "ecaScripts": [
+    {
+      "fileId": "ps7ykl7d3bb-lte90mg4-x2r02sqe3qd",
+      "filePath": "Assets\\Script\\HUDArmory.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    }
+  ],
+  "ecaProps": {
+    "CustomHud": {},
+    "Entity": {},
+    "Component": {
+      "Component_12451224_custom": null
+    }
+  },
+  "_entityName": "Armory",
+  "entityTagData": {
+    "tagPointers": []
+  },
+  "layer": 1,
+  "discriminator": "ISceneLike",
+  "version": 3,
+  "_filters": []
+}
+//"{FE:{"v":"1.8.2949557","c":{"FF":4404},"s":100}

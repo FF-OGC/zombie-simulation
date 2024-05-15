@@ -7,6 +7,7 @@ import Resources from "EditorGenLib.fcc"
 
 graph GlobalMaterial {
     _materialNameMap Map<string, object>
+    _materialIconMap Map<string, string>
     _materialMap Map<string,List<object>>
     _materialList List<string>
     _matOrder List<string>
@@ -66,7 +67,6 @@ graph GlobalMaterial {
             _materialNameMap[material] = MyResources.MaterialLocalizations[material]
         }
     }
-   
    
     func GetMaterialName(materialEnum string) LocString{
         InitGlobalMaterial()

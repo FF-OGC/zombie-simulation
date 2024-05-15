@@ -1,0 +1,24 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerInventoryHUD.fcg" as PlayerInventoryHUD
+import "./PlayerWeaponSelectionHUD.fcg" as PlayerWeaponSelectionHUD
+import "Items.fcc" as Items
+import "./PlayerArmory.fcg" as PlayerArmory
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
+
+graph HUDWeaponSelection {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
+        if (button == player<PlayerWeaponSelectionHUD>.GetWeaponSelectionHUDWidget(EResource_UI_WEAPONSELECTION.CLOSE)) {
+            player<PlayerWeaponSelectionHUD>.CloseWeaponSelectionHUD()
+            
+        } else if (button == player<PlayerWeaponSelectionHUD>.GetWeaponSelectionHUDWidget(EResource_UI_WEAPONSELECTION.GUN1)) {
+            DeleteEquipment(player, EquipSlotType.PrimaryWeapon1,1,out var isSuccessfull)
+            player<PlayerArmory>.Equip(player<PlayerCraftHUD>.GetChosenWeapon())
+            player<PlayerWeaponSelectionHUD>.CloseWeaponSelectionHUD()
+        } else if (button == player<PlayerWeaponSelectionHUD>.GetWeaponSelectionHUDWidget(EResource_UI_WEAPONSELECTION.GUN2)) {
+            DeleteEquipment(player, EquipSlotType.PrimaryWeapon2,1,out var isSuccessfull)
+            player<PlayerArmory>.Equip(player<PlayerCraftHUD>.GetChosenWeapon())
+            player<PlayerWeaponSelectionHUD>.CloseWeaponSelectionHUD()
+        }
+    }
+}

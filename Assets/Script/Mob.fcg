@@ -75,7 +75,7 @@ graph Mob {
         SetChaseVicinity(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.CHASE_VICINITY))
         SetSpeed(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.SPEED))
         SetExpAmount(Round(globalEntity<GlobalMob>.GetMobStat(_type, DifficultyEnum.DIF_LVL_1, _lvl, StatType.EXP)))
-        LogInfo("[Mob] stat: " + " atk: " + _atk + ", hp: " + _maxHp + ", chase vicinity: " + _chaseVicinity + ", speed: " + _speed + ", exp: " + _expAmount) 
+        // LogInfo("[Mob] stat: " + " atk: " + _atk + ", hp: " + _maxHp + ", chase vicinity: " + _chaseVicinity + ", speed: " + _speed + ", exp: " + _expAmount) 
     }
 
     func SetAtk(atk int){

@@ -1,0 +1,37 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./PlayerStorageHUD.fcg" as PlayerStorageHUD
+import "Hud.fcc" as Hud
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
+
+graph HUDStorage {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>,player entity<Player>) {
+        if(button == player<PlayerStorageHUD>.GetPlayerStorageHUDWidget(EResource_UI_STORAGE.BTN_CRAFTING)){
+          LogInfo("CRAFTING BUTTON CLICKED")
+          player<PlayerStorageHUD>.ClosePlayerStorageHUD()
+          player<PlayerCraftHUD>.DisplayCraftHUD()
+
+        } else if (button == player<PlayerStorageHUD>.GetPlayerStorageHUDWidget(EResource_UI_STORAGE.BTN_CLOSE)) {
+          player<PlayerStorageHUD>.ClosePlayerStorageHUD()
+        } else if button == player<PlayerStorageHUD>.GetPlayerStorageHUDWidget(EResource_UI_STORAGE.WEAPON1) || button == player<PlayerStorageHUD>.GetPlayerStorageHUDWidget(EResource_UI_STORAGE.WEAPON2) {
+          player<PlayerStorageHUD>.ClosePlayerStorageHUD()
+          player<PlayerCraftHUD>.DisplayCraftHUD()
+          player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Rifle)
+          player<PlayerCraftHUD>.UpdateTabStatus(player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_AR))
+
+        } else if  button == player<PlayerStorageHUD>.GetPlayerStorageHUDWidget(EResource_UI_STORAGE.HANDGUN) {
+          player<PlayerStorageHUD>.ClosePlayerStorageHUD()
+          player<PlayerCraftHUD>.DisplayCraftHUD()
+          player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Pistol)
+          player<PlayerCraftHUD>.UpdateTabStatus(player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_HG))
+
+        } else if button == player<PlayerStorageHUD>.GetPlayerStorageHUDWidget(EResource_UI_STORAGE.MELEE) {
+          player<PlayerStorageHUD>.ClosePlayerStorageHUD()
+          player<PlayerCraftHUD>.DisplayCraftHUD()
+          player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Melee)
+          player<PlayerCraftHUD>.UpdateTabStatus(player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_ML))
+        }
+
+        
+    }
+}

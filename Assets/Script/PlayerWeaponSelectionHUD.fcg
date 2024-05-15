@@ -1,0 +1,86 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PlayerArmory.fcg" as PlayerArmory
+import "Hud.fcc" as Hud
+import "./HUDUtil.fcg" as HUDUtil
+import "Items.fcc" as Items
+import "./GlobalCrafting.fcg" as GlobalCrafting
+
+graph PlayerWeaponSelectionHUD {
+    _weaponSelectionHUD entity<CustomHud>
+
+
+    func InitWeaponSelectionHUD(){
+        if(_weaponSelectionHUD == nil){
+            _weaponSelectionHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.WEAPONSELECTION,99)
+            _weaponSelectionHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DisplayWeaponSelectionHUD(){
+        LogInfo("weaponSelectionHUD" + _weaponSelectionHUD)
+        InitWeaponSelectionHUD()
+        ResetWeaponSelectionHUD()
+        UpdateWeaponSelectionHUD()
+        if(!_weaponSelectionHUD<CustomHud>.Visibility){
+            _weaponSelectionHUD<CustomHud>.Visibility = true
+        }
+    }
+
+    func ResetWeaponSelectionHUD(){
+
+    }
+
+    func UpdateWeaponSelectionHUD(){
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.PrimaryWeapon1,out var main1, out var attachmentList1)
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.PrimaryWeapon2,out var main2, out var attachmentList2)
+
+        var Gun1Btn = GetWeaponSelectionHUDWidget(EResource_UI_WEAPONSELECTION.GUN1)
+        var Gun2Btn = GetWeaponSelectionHUDWidget(EResource_UI_WEAPONSELECTION.GUN2)
+        var Gun1BtnImg = GetChildByIndex(Gun1Btn,0)
+        var Gun2BtnImg = GetChildByIndex(Gun2Btn,0)
+        var Gun1BtnTxt = GetChildByIndex(Gun1Btn,1)
+        var Gun2BtnTxt = GetChildByIndex(Gun2Btn,1)
+
+        var recipeMap = globalEntity<GlobalCrafting>.GetRecipeMap()
+        var itemIDRecipeMap = globalEntity<GlobalCrafting>.GetItemIDRecipeMap()
+        var recipeGun1 = itemIDRecipeMap[main1<Weapon>.ItemID]
+        var recipeGun2 = itemIDRecipeMap[main2<Weapon>.ItemID]
+
+        Gun1BtnImg<HudImageWidget>.SpriteName= recipeMap[recipeGun1][1] as SpriteID
+        Gun2BtnImg<HudImageWidget>.SpriteName = recipeMap[recipeGun2][1] as SpriteID
+        
+        Gun1BtnTxt<HudLabelWidget>.Text = recipeMap[recipeGun1][2] as string
+        Gun2BtnTxt<HudLabelWidget>.Text = recipeMap[recipeGun2][2] as string
+
+        Gun1Btn<HudButtonWidget>.Color = globalEntity<GlobalCrafting>.GetTierColor(recipeMap[recipeGun1][0] as int)
+        Gun2Btn<HudButtonWidget>.Color = globalEntity<GlobalCrafting>.GetTierColor(recipeMap[recipeGun2][0] as int)
+        
+    }
+
+    func WeaponSelect(recipeEnum string) {
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.PrimaryWeapon1,out var main1, out var attachmentList1)
+        GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.PrimaryWeapon2,out var main2, out var attachmentList2)
+        LogInfo("main1: " + main1 + " main2: " + main2)
+        if main1 == nil || main2 == nil{
+            thisEntity<PlayerArmory>.Equip(recipeEnum)
+        } else {
+            DisplayWeaponSelectionHUD()
+        }
+    }
+
+    func CloseWeaponSelectionHUD(){
+        if(_weaponSelectionHUD != nil){
+            _weaponSelectionHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    func DeleteWeaponSelectionHUD(){
+        DeleteEntity(_weaponSelectionHUD)
+    }
+
+    func GetWeaponSelectionHUDWidget(eResourceUILevel string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _weaponSelectionHUD, Resources.UI_WEAPONSELECTION[eResourceUILevel])
+    }
+}

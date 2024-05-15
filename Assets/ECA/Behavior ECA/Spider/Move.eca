@@ -1,1 +1,225 @@
-{"blocks":{"languageVersion":0,"blocks":[{"type":"e","id":"aDzQ7|I[}gVH${5H9/bk","x":302,"y":126,"extraState":{"X":8004,"L":[1,2],"T":"OnNodeEnter","OT":"BehaviourTreeNode"},"fields":{"P1":{"name":"Node name","type":"String"},"P2":{"name":"Behavior-mountable tree entity","type":"BehaviourTreeAttachable"}},"next":{"block":{"type":"ife1","id":"]SW}|Z!XFoy+2yA!^,vz","extraState":{"X":1,"CIDS":[]},"inputs":{"C":{"shadow":{"type":"tys","id":"{!u1alo1lDZ,^5C^LWMl","extraState":"bool"},"block":{"type":"opc","id":"UI5o9%b%eawr{(vt/Jw~","fields":{"O":"EQ"},"inputs":{"V1":{"shadow":{"type":"tys","id":"tf$+I2Q-K4eO^:+9:BKn","extraState":"any"},"block":{"type":"exg","id":"fwYh275AjkOvQiqq=W2o","fields":{"G":"mizij13r0of-lu88xehy-fl3qnurwlxl","VI":"vocmZpKeB"},"inputs":{"H":{"shadow":{"type":"tys","id":"QgRM/)%CP(-OZ(-l@{m?","extraState":"Component"},"block":{"type":"lcg","id":"12XV/r=:Y_A=cVU-}zjr","extraState":"aDzQ7|I[}gVH${5H9/bkP2","fields":{"VR":"Behavior-mountable tree entity"}}}}}},"V2":{"shadow":{"type":"tys","id":"#=|]86Y@JN`C,@R}IW*m","extraState":"any"},"block":{"type":"ipe","id":"k4fE`bz]fa4FKykRsJ67","extraState":"CustomEnum30737081","fields":{"I":"E26093291"}}}}}},"D":{"block":{"type":"exa","id":",ge?amDkfBi!:!AgF/De","extraState":{"graphId":"r9lroztkmm9-lu88xei3-6stl9czmqfa","id":"wFGwDwOL|3b-dyz@Nzvd","name":"findPath","params":[{"id":"_arg1595","name":"speed","type":"Float"},{"id":"_arg9078","name":"location","type":"any"}],"tooltip":"Assets\\ECA\\Spider\\BossMovement.eca"},"fields":{"T":"S"},"inputs":{"H":{"shadow":{"type":"tys","id":"Vk1@#W2lNU9ofFT$%5C8","extraState":"Component"},"block":{"type":"lcg","id":"E7XQ3C@%Yf=!iT^Li/|L","extraState":"aDzQ7|I[}gVH${5H9/bkP2","fields":{"VR":"Behavior-mountable tree entity"}}},"_arg1595":{"shadow":{"type":"tys","id":"]EbXG$|8FhG,lOga2J*5","extraState":"Float"},"block":{"type":"ipf","id":"hPu=[a8:WYgO|#$4E(Un","fields":{"V":0.1}}},"_arg9078":{"shadow":{"type":"tys","id":"Av#vQzE5h_BQH#xbm`+U","extraState":"any"},"block":{"type":"prg","id":"(a{pi?4:#8ci{Io)XY|t","extraState":{"X":1,"T":"Vector3"},"fields":{"P":"DirectPositionVec3:Player"},"inputs":{"H":{"shadow":{"type":"tys","id":"NDkc_kLe=lIc_L_gwWvP","extraState":"Component"},"block":{"type":"exg","id":"^|I|VfxJdP%O8uDMa6BP","fields":{"G":"r9lroztkmm9-lu88xei3-6stl9czmqfa","VI":"vAN7XesXo"},"inputs":{"H":{"shadow":{"type":"tys","id":"w6E*%f{];Lesy|n:HlRD","extraState":"Component"},"block":{"type":"lcg","id":"MFsaxk[Zy|8l!tWIJw7e","extraState":"aDzQ7|I[}gVH${5H9/bkP2","fields":{"VR":"Behavior-mountable tree entity"}}}}}}}}}}}}}}}}]},"graphData":{"ownerType":"Entity","componentTypes":"Entity","isStatic":false}}//"{FE:{"v":"1.7.6","c":{"FF":43},"s":100}
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "e",
+        "id": "aDzQ7|I[}gVH${5H9/bk",
+        "x": 302,
+        "y": 126,
+        "extraState": {
+          "X": 8004,
+          "L": [
+            1,
+            2
+          ],
+          "T": "OnNodeEnter",
+          "OT": "BehaviourTreeNode"
+        },
+        "fields": {
+          "P1": {
+            "name": "Node name",
+            "type": "String"
+          },
+          "P2": {
+            "name": "Behavior-mountable tree entity",
+            "type": "BehaviourTreeAttachable"
+          }
+        },
+        "next": {
+          "block": {
+            "type": "ife1",
+            "id": "]SW}|Z!XFoy+2yA!^,vz",
+            "extraState": {
+              "X": 1,
+              "CIDS": []
+            },
+            "inputs": {
+              "C": {
+                "shadow": {
+                  "type": "tys",
+                  "id": "{!u1alo1lDZ,^5C^LWMl",
+                  "extraState": "bool"
+                },
+                "block": {
+                  "type": "opc",
+                  "id": "UI5o9%b%eawr{(vt/Jw~",
+                  "fields": {
+                    "O": "EQ"
+                  },
+                  "inputs": {
+                    "V1": {
+                      "shadow": {
+                        "type": "tys",
+                        "id": "j)og(P,?u?+z5k7am9Z`",
+                        "extraState": "any"
+                      },
+                      "block": {
+                        "type": "exg",
+                        "id": "fwYh275AjkOvQiqq=W2o",
+                        "fields": {
+                          "G": "mizij13r0of-lu88xehy-fl3qnurwlxl",
+                          "VI": "vocmZpKeB"
+                        },
+                        "inputs": {
+                          "H": {
+                            "shadow": {
+                              "type": "tys",
+                              "id": "QgRM/)%CP(-OZ(-l@{m?",
+                              "extraState": "Component"
+                            },
+                            "block": {
+                              "type": "lcg",
+                              "id": "12XV/r=:Y_A=cVU-}zjr",
+                              "extraState": "aDzQ7|I[}gVH${5H9/bkP2",
+                              "fields": {
+                                "VR": "Behavior-mountable tree entity"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "V2": {
+                      "shadow": {
+                        "type": "tys",
+                        "id": "G(`9d$^G#~^o#0=(UxF_",
+                        "extraState": "any"
+                      },
+                      "block": {
+                        "type": "ipe",
+                        "id": "k4fE`bz]fa4FKykRsJ67",
+                        "extraState": "CustomEnum30737081",
+                        "fields": {
+                          "I": "E26093291"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "D": {
+                "block": {
+                  "type": "exa",
+                  "id": ",ge?amDkfBi!:!AgF/De",
+                  "extraState": {
+                    "graphId": "r9lroztkmm9-lu88xei3-6stl9czmqfa",
+                    "id": "wFGwDwOL|3b-dyz@Nzvd",
+                    "name": "findPath",
+                    "params": [
+                      {
+                        "id": "_arg1595",
+                        "name": "speed",
+                        "type": "Float",
+                        "isOut": false
+                      },
+                      {
+                        "id": "_arg9078",
+                        "name": "location",
+                        "type": "any",
+                        "isOut": false
+                      }
+                    ],
+                    "tooltip": "Assets\\ECA\\Spider\\BossMovement.eca"
+                  },
+                  "fields": {
+                    "T": "S"
+                  },
+                  "inputs": {
+                    "H": {
+                      "shadow": {
+                        "type": "tys",
+                        "id": "Vk1@#W2lNU9ofFT$%5C8",
+                        "extraState": "Component"
+                      },
+                      "block": {
+                        "type": "lcg",
+                        "id": "E7XQ3C@%Yf=!iT^Li/|L",
+                        "extraState": "aDzQ7|I[}gVH${5H9/bkP2",
+                        "fields": {
+                          "VR": "Behavior-mountable tree entity"
+                        }
+                      }
+                    },
+                    "_arg1595": {
+                      "shadow": {
+                        "type": "tys",
+                        "id": "cKiH)V.m7b$`sz8Ok]@=",
+                        "extraState": "Float"
+                      },
+                      "block": {
+                        "type": "ipf",
+                        "id": "hPu=[a8:WYgO|#$4E(Un",
+                        "fields": {
+                          "V": 0.1
+                        }
+                      }
+                    },
+                    "_arg9078": {
+                      "shadow": {
+                        "type": "tys",
+                        "id": "j(;Th*DnzxWbkm5U(^:5",
+                        "extraState": "any"
+                      },
+                      "block": {
+                        "type": "prg",
+                        "id": "(a{pi?4:#8ci{Io)XY|t",
+                        "extraState": {
+                          "X": 1,
+                          "T": "Vector3"
+                        },
+                        "fields": {
+                          "P": "DirectPositionVec3:Player"
+                        },
+                        "inputs": {
+                          "H": {
+                            "shadow": {
+                              "type": "tys",
+                              "id": "NDkc_kLe=lIc_L_gwWvP",
+                              "extraState": "Component"
+                            },
+                            "block": {
+                              "type": "exg",
+                              "id": "^|I|VfxJdP%O8uDMa6BP",
+                              "fields": {
+                                "G": "r9lroztkmm9-lu88xei3-6stl9czmqfa",
+                                "VI": "vAN7XesXo"
+                              },
+                              "inputs": {
+                                "H": {
+                                  "shadow": {
+                                    "type": "tys",
+                                    "id": "w6E*%f{];Lesy|n:HlRD",
+                                    "extraState": "Component"
+                                  },
+                                  "block": {
+                                    "type": "lcg",
+                                    "id": "MFsaxk[Zy|8l!tWIJw7e",
+                                    "extraState": "aDzQ7|I[}gVH${5H9/bkP2",
+                                    "fields": {
+                                      "VR": "Behavior-mountable tree entity"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "graphData": {
+    "ownerType": "Entity",
+    "componentTypes": "Entity",
+    "isStatic": false
+  }
+}
+//"{FE:{"v":"1.8.2949557","c":{"FF":4404},"s":100}

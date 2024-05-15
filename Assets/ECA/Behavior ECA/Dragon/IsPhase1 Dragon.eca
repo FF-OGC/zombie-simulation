@@ -1,1 +1,111 @@
-{"blocks":{"languageVersion":0,"blocks":[{"type":"fnv","id":"g:9Tr7ir*(A-+{u0K5=_","x":1189,"y":18,"extraState":[{"id":"_arg4522","name":"owner","type":"BehaviourTreeAttachable","isOut":false}],"fields":{"N":"IsPhase1","R":"Bool","_arg4522":{"name":"owner","type":"BehaviourTreeAttachable"}},"inputs":{"D":{"block":{"type":"fnr","id":"}fS/sMGHH:q2r*DnN@Pj","extraState":{"rt":"Bool"},"inputs":{"R":{"shadow":{"type":"tys","id":"T*Fk^N/+9f_e*=5P$FHK","extraState":"Bool"},"block":{"type":"opc","id":"mE5gc!aw%Y=l%;:}srZD","fields":{"O":"EQ"},"inputs":{"V1":{"shadow":{"type":"tys","id":"^EUxQa,!--TL(6TXl/e2","extraState":"any"},"block":{"type":"exg","id":"taRq{X(/fWVB3^Qy|!Nb","fields":{"G":"pl3346rfam-lu88xehn-atki1jko4nk","VI":"vuv54lBPy"},"inputs":{"H":{"shadow":{"type":"tys","id":"zOz]YY2%K}mXqOu(E5LN","extraState":"Component"},"block":{"type":"lcg","id":"w~Y_`SOjcz[yn!^B4NdI","extraState":"g:9Tr7ir*(A-+{u0K5=__arg4522","fields":{"VR":"owner"}}}}}},"V2":{"shadow":{"type":"tys","id":"L3H2P}u;SMnS$Q(l{siN","extraState":"any"},"block":{"type":"ipe","id":"II1k)x93Rz[ch_B{tKO`","extraState":"CustomEnum72048329","fields":{"I":"E57796212"}}}}}}}}}}}]},"graphData":{"ownerType":"Entity","componentTypes":"Entity","isStatic":false}}//"{FE:{"v":"1.7.6","c":{"FF":43},"s":100}
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "fnv",
+        "id": "g:9Tr7ir*(A-+{u0K5=_",
+        "x": 1189,
+        "y": 18,
+        "extraState": [
+          {
+            "id": "_arg4522",
+            "name": "owner",
+            "type": "BehaviourTreeAttachable",
+            "isOut": false
+          }
+        ],
+        "fields": {
+          "N": "IsPhase1",
+          "R": "Bool",
+          "_arg4522": {
+            "name": "owner",
+            "type": "BehaviourTreeAttachable"
+          }
+        },
+        "inputs": {
+          "D": {
+            "block": {
+              "type": "fnr",
+              "id": "}fS/sMGHH:q2r*DnN@Pj",
+              "extraState": {
+                "rt": "Bool"
+              },
+              "inputs": {
+                "R": {
+                  "shadow": {
+                    "type": "tys",
+                    "id": "T}=#)VthVQDE1[=rm*,Y",
+                    "extraState": "Bool"
+                  },
+                  "block": {
+                    "type": "opc",
+                    "id": "mE5gc!aw%Y=l%;:}srZD",
+                    "fields": {
+                      "O": "EQ"
+                    },
+                    "inputs": {
+                      "V1": {
+                        "shadow": {
+                          "type": "tys",
+                          "id": "a^65jBdR`U+mdY(MR91I",
+                          "extraState": "any"
+                        },
+                        "block": {
+                          "type": "exg",
+                          "id": "taRq{X(/fWVB3^Qy|!Nb",
+                          "fields": {
+                            "G": "pl3346rfam-lu88xehn-atki1jko4nk",
+                            "VI": "vuv54lBPy"
+                          },
+                          "inputs": {
+                            "H": {
+                              "shadow": {
+                                "type": "tys",
+                                "id": "zOz]YY2%K}mXqOu(E5LN",
+                                "extraState": "Component"
+                              },
+                              "block": {
+                                "type": "lcg",
+                                "id": "w~Y_`SOjcz[yn!^B4NdI",
+                                "extraState": "g:9Tr7ir*(A-+{u0K5=__arg4522",
+                                "fields": {
+                                  "VR": "owner"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "V2": {
+                        "shadow": {
+                          "type": "tys",
+                          "id": "Uz*)Y)Xr9)Y7m=ec^$?1",
+                          "extraState": "any"
+                        },
+                        "block": {
+                          "type": "ipe",
+                          "id": "II1k)x93Rz[ch_B{tKO`",
+                          "extraState": "CustomEnum72048329",
+                          "fields": {
+                            "I": "E57796212"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "graphData": {
+    "ownerType": "Entity",
+    "componentTypes": "Entity",
+    "isStatic": false
+  }
+}
+//"{FE:{"v":"1.8.2936671","c":{"FF":4404},"s":100}

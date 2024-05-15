@@ -9,10 +9,8 @@ graph PlayerSFX {
     }
 
     async func PlaySFXOverTime(SFXType SoundEffects, millisecond int){
-        CreateSound(out var createdSFX, thisEntity<Player>, SFXType) 
-        Play(createdSFX, true)
+        PlaySound(thisEntity<Player>, SFXType) 
+        // Play(createdSFX, true)
         WaitForSeconds(millisecond)
-        Pause(createdSFX)
-        DeleteEntity(createdSFX)
     }
 }

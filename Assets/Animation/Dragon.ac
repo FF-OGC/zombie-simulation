@@ -1,1 +1,529 @@
-{"_tag":{"type":"ACEntity","resourceId":"ac.acEntity"},"_entityId":"e5w3wZV1","children":[{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"IlODmj1i","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"blm205SY","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-travelidle.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\travelidle.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":true,"DisableChanged":true,"_entityName":"Idle Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"HRaoGCXs","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"rrU3DyzU","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-winidle.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\winidle.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Idle Combat Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"1ABziFYJ","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"V4J2rfUD","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-winstart.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\winstart.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"},{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"KD3YjVwj","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-winover.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\winover.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"New Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Start Combat Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"UmRPvn07","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"Ah0tCVk4","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-cast_1.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\cast_1.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Skill0 Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"aDnfHVWS","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"iU64QD0H","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-attack_4.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\attack_4.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Skill1 Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"VKgJCOyB","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"zlHKfxjj","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-attack_3.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\attack_3.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Skill2 Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"nNzDoULi","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"ArpkWFSE","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-soar.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\soar.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Fly Up Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"MTUYCAis","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"BgpmHobW","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-attack_5.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\attack_5.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Idle Fly Dragon"},{"_tag":{"type":"ACStateEntity","resourceId":""},"_entityId":"GEhp3HM0","children":[{"_tag":{"type":"ACClipEntity","resourceId":""},"_entityId":"9O8bkBRW","children":[],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"speed":1,"loop":false,"clipRefer":{"fileId":"i6wm25ckr0d-lu831y28-opingrhlcl-dead.Anim","filePath":"fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\dead.anim","_tag":{"type":"GFileRefer"},"fileType":"anim"},"_entityName":"Clip"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"isLoop":false,"DisableChanged":false,"_entityName":"Dead Dragon"}],"prefabVariant":null,"activeValue":{"selfValue":true,"valueTag":"activeValue"},"unlockedValue":{"selfValue":true,"valueTag":"unlockedValue"},"editorLockValue":false,"editorVisibleValue":true,"_entityName":"ACEntity"}//"{FE:{"v":"1.7.6","c":{"FF":43},"s":100}
+{
+  "_tag": {
+    "type": "ACEntity",
+    "resourceId": "ac.acEntity"
+  },
+  "_entityId": "e5w3wZV1",
+  "children": [
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "IlODmj1i",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "blm205SY",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-travelidle.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\travelidle.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": true,
+      "DisableChanged": true,
+      "_entityName": "Idle Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "HRaoGCXs",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "rrU3DyzU",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-winidle.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\winidle.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Idle Combat Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "1ABziFYJ",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "V4J2rfUD",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-winstart.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\winstart.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        },
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "KD3YjVwj",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-winover.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\winover.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "New Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Start Combat Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "UmRPvn07",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "Ah0tCVk4",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-cast_1.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\cast_1.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Skill0 Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "aDnfHVWS",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "iU64QD0H",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-attack_4.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\attack_4.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Skill1 Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "VKgJCOyB",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "zlHKfxjj",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-attack_3.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\attack_3.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Skill2 Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "nNzDoULi",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "ArpkWFSE",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-soar.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\soar.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Fly Up Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "MTUYCAis",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "BgpmHobW",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-attack_5.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\attack_5.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Idle Fly Dragon"
+    },
+    {
+      "_tag": {
+        "type": "ACStateEntity",
+        "resourceId": ""
+      },
+      "_entityId": "GEhp3HM0",
+      "children": [
+        {
+          "_tag": {
+            "type": "ACClipEntity",
+            "resourceId": ""
+          },
+          "_entityId": "9O8bkBRW",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "speed": 1,
+          "loop": false,
+          "clipRefer": {
+            "fileId": "i6wm25ckr0d-lu831y28-opingrhlcl-dead.Anim",
+            "filePath": "fab://Assets\\Model\\Dragon\\Skeleton_dragon.fbx\\dead.anim",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "anim"
+          },
+          "_entityName": "Clip"
+        }
+      ],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "isLoop": false,
+      "DisableChanged": false,
+      "_entityName": "Dead Dragon"
+    }
+  ],
+  "prefabVariant": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
+  "editorLockValue": false,
+  "editorVisibleValue": true,
+  "_entityName": "ACEntity"
+}
+//"{FE:{"v":"1.8.2936671","c":{"FF":4404},"s":100}

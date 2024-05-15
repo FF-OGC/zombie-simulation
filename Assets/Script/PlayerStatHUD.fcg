@@ -9,6 +9,7 @@ import "Map.fcc" as Map
 import "Convert.fcc" as Convert
 import "Strings.fcc" as Strings
 import "List.fcc" as List
+import "Avatar.fcc" as Avatar
 
 graph PlayerStatHUD {
     _statHUD entity<CustomHud>
@@ -24,9 +25,10 @@ graph PlayerStatHUD {
     
     func InitStatHUD(){
         if(_statHUD == nil){
-            _statHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.PLAYER_STAT, 4)
+            _statHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.PLAYER_STAT, 99)
             _statHUD<CustomHud>.Visibility = false
             SetStatTypeMap()
+            SetAvatar()
         }
     }
 
@@ -56,6 +58,14 @@ graph PlayerStatHUD {
 
         _statTypeTxtMap[StatType.ATK] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.TXT_ATK)
         _statTypeTxtMap[StatType.MAX_HP] = GetStatHUDWidget(EResource_UI_PLAYER_STAT.TXT_HP)
+    }
+
+    func SetAvatar() {
+        var avatar = GetStatHUDWidget(EResource_UI_PLAYER_STAT.AVATAR)
+        var name = GetStatHUDWidget(EResource_UI_PLAYER_STAT.USERNAME)
+
+        avatar<HudProfileInfo>.AccountID = thisEntity<Player>.UserUID
+        name<HudLabelWidget>.Text = thisEntity<Player>.NickName
     }
     
     func DisplayStatHUD(){

@@ -7,6 +7,8 @@ import "./GlobalGun.fcg" as GlobalGun
 import "./GlobalAttachment.fcg" as GlobalAttachment
 import "Items.fcc" as Items
 import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
+import "./PlayerStorageHUD.fcg" as PlayerStorageHUD
 
 graph PlayerArmory {
     _hasInit bool
@@ -25,6 +27,7 @@ graph PlayerArmory {
             _hasInit = true
             SetOrder()
             SetRecipeMap()
+            UpdateEquipedGun()
         }
     }
 
@@ -52,31 +55,71 @@ graph PlayerArmory {
         GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.SecondaryWeapon,out var secondary, out var attachmentList3)
         GetEquipments(thisEntity<Player> as entity<Player>, EquipmentSlot.MeleeWeapon,out var melee, out var attachmentList4)
 
-        _equipedGun1 = itemIDRecipeMap[main1<Weapon>.ItemID]
-        _equipedGun2 = itemIDRecipeMap[main2<Weapon>.ItemID]
-        _equipedHandGun = itemIDRecipeMap[secondary<Weapon>.ItemID]
-        _equipedMelee = itemIDRecipeMap[melee<Weapon>.ItemID]
+        _equipedGun1 = SetGun(main1, itemIDRecipeMap)
+        _equipedGun2 = SetGun(main2, itemIDRecipeMap)
+        _equipedHandGun = SetGun(secondary, itemIDRecipeMap)
+        _equipedMelee = SetGun(melee, itemIDRecipeMap)
+        
         var equipedItems = List<string>{_equipedGun1, _equipedGun2, _equipedHandGun, _equipedMelee}
 
         thisEntity<PlayerArmoryHUD>.UpdateArmoryHUD(equipedItems)
     }
 
-    func Equip(gun List<string>) {
-        InitPlayerArmory()
+    func SetGun(weapon entity<Entity>,itemIDRecipeMap Map<int,string>) string{
+        if weapon == nil || weapon<Weapon>.ItemID == 1{
+            return "nil"
+        } 
+        return itemIDRecipeMap[weapon<Weapon>.ItemID]
+    }
 
-        LogInfo("gun: " + gun)
+    func Equip(gun string) {
+        if thisEntity<PlayerInventory>.CheckHasGun(gun) {
+            InitPlayerArmory()
+            LogInfo("gun: " + gun)
 
-        var gunIndex = 0
-        if CheckEquipedItem(gun[gunIndex]) {
-            LogInfo("Already Equiped")
-            return
+            var gunIndex = 0
+            if CheckEquipedItem(gun) {
+                LogInfo("Already Equiped")
+                return
+            } else {
+                LogInfo("Equiping")
+                AddItemToPlayer(thisEntity<Player> as entity<Player>, _recipeMap[gun][4] as ItemIDType, 1,out var addedItems)
+                UpdateEquipedGun()
+                thisEntity<PlayerCraftHUD>.UpdateCraftHUD()
+                thisEntity<PlayerStorageHUD>.UpdatePlayerStorageHUD()
+            }
+        
         } else {
-            LogInfo("Equiping")
-            AddItemToPlayer(thisEntity<Player> as entity<Player>, _recipeMap[gun[gunIndex]][4] as ItemIDType, 1,out var addedItems)
-            UpdateEquipedGun()
+            LogInfo("No Gun")
         }
         
+    }
 
+    func UnEquip(gun string) {
+        if thisEntity<PlayerInventory>.CheckHasGun(gun) {
+            InitPlayerArmory()
+            LogInfo("gun: " + gun)
+
+            var gunIndex = 0
+            if CheckEquipedItem(gun) {
+                LogInfo("UnEquiping")
+                RemoveItem(thisEntity<Player> as entity<Player>, _recipeMap[gun][4] as ItemIDType, 1)
+                UpdateEquipedGun()
+                thisEntity<PlayerCraftHUD>.UpdateCraftHUD()
+                thisEntity<PlayerStorageHUD>.UpdatePlayerStorageHUD()
+            } else {
+                LogInfo("Not Equiped")
+                return
+            }
+        
+        } else {
+            LogInfo("No Gun")
+        }
+    }
+
+    func GetEquipedGuns() List<string> {
+        InitPlayerArmory()
+        return List<string>{_equipedGun1, _equipedGun2, _equipedHandGun, _equipedMelee}
     }
 
 

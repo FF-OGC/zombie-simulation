@@ -11,7 +11,7 @@ graph HUDArmory{
             player<PlayerArmoryHUD>.CloseArmoryHUD()
 
         } else if (button == player<PlayerArmoryHUD>.GetArmoryHUDWidget(EResource_UI_ARMORY.BTN_EQUIP)){
-            player<PlayerArmory>.Equip(player<PlayerArmoryHUD>.GetChosenWeapon())
+            player<PlayerArmory>.Equip(player<PlayerArmoryHUD>.GetChosenWeapon()[0])
         } else if (button<Entity>.TagsList[1] == "gun"){
             player<PlayerArmoryHUD>.SetWeaponInfo(button<Entity>.TagsList[0])
         } else {

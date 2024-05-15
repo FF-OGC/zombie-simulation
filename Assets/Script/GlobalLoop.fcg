@@ -2,6 +2,7 @@ import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
 import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
+import "./PlayerData.fcg" as PlayerData
 
 graph GlobalLoop {
     _loopCount int = 1

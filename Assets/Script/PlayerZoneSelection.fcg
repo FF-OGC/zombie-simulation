@@ -1,3 +1,5 @@
+import "List.fcc" as List
+import "Playable.fcc" as Playable
 import "StdLibrary.fcc" as stdLibrary
 import "EditorGenLib.fcc" as editorGenLib
 import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
@@ -8,8 +10,11 @@ import "./GlobalZoneSelection.fcg" as GlobalZoneSelection
 import MyResources from "EditorGenLib.fcc"
 import "./GlobalDebug.fcg" as GlobalDebug
 import "./GlobalZoneMobManager.fcg" as GlobalZoneMobManager
+import Resources from "EditorGenLib.fcc"
+
 
 graph PlayerZoneSelection {
+    TELEPORT_WAIT_DURATION = 3000
     _buttonZoneMap Map<entity<HudButtonWidget>, string>
     _zoneImgChosenMap Map<string, entity<HudWidget>>
     _selectedZone string
@@ -81,7 +86,7 @@ graph PlayerZoneSelection {
         if(globalEntity<GlobalDebug>.IsShortTeleport){
             WaitForNextFrame()
         } else {
-            WaitForSeconds(5000)
+            wait PlayTeleportVFX()
         }
 
         // This should only be possible if player died before being teleported.
@@ -95,6 +100,16 @@ graph PlayerZoneSelection {
         Teleport(thisEntity<Player>, globalEntity<GlobalZoneSelection>.GetZoneTeleportLocation(_selectedZone) + Vector3{0, 2, 0}, Vector3{0, 0, 0})
         
         StopPlayerFromTeleporting()
+    }
+
+    async func PlayTeleportVFX(){
+        CreateFromPrefab(out var createdPrefab, Resources.Prefab[EResource_Prefab.TELEPORT])
+        CreateFollow(createdPrefab, thisEntity<Player>, Vector3{0,0,0}, CoordinateType.WorldPosition, out var createdFollowing,false)
+        Play(createdFollowing, false)
+        WaitForSeconds(TELEPORT_WAIT_DURATION)
+        Pause(createdFollowing)
+        DeleteEntity(createdFollowing)
+        DeleteEntity(createdPrefab)
     }
 
     func SetSelectedZone(button entity<HudButtonWidget>){
@@ -111,6 +126,18 @@ graph PlayerZoneSelection {
 
     func SetSelectedZoneManually(zoneEnum string){
         _selectedZone = zoneEnum
+    }
+
+    func TeleportToRandomFarmZone() {
+        var zoneList = globalEntity<GlobalZoneSelection>.GetZoneList()
+        Shuffle(zoneList)
+        SetSelectedZoneManually(zoneList[0])
+        start TeleportPlayerToZone()
+    }
+
+    async func TeleportToBoss() {
+        SetSelectedZoneManually(ZoneEnum.WBF)
+        TeleportPlayerToZone()
     }
 
     func GetSelectedZone() int{

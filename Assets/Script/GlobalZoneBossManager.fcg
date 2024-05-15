@@ -8,6 +8,7 @@ import "Math.fcc" as Math
 import "./PlayerBossNotification.fcg" as PlayerBossNotification
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
+import "./PlayerMenu.fcg" as PlayerMenu
 
 graph GlobalZoneBossManager {
     GLOBAL_SPAWN_INTERVAL int = 300 // 300 seconds
@@ -53,7 +54,7 @@ graph GlobalZoneBossManager {
         if(_lastSpawnLoopCount == GLOBAL_FIRST_BOSS_SPAWN_TIME && (loopCount - deduct) >= (GLOBAL_NO_SPAWN_INTERVAL + GLOBAL_SPAWN_INTERVAL)){
             deduct = GLOBAL_NO_SPAWN_INTERVAL + GLOBAL_SPAWN_INTERVAL + _lastSpawnLoopCount
         }
-        LogInfo("[GlobalZoneBossManager] loopCount: " + loopCount + " " + deduct + " " + (loopCount - deduct))
+        // LogInfo("[GlobalZoneBossManager] loopCount: " + loopCount + " " + deduct + " " + (loopCount - deduct))
         loopCount -= deduct
         InitGlobalZoneBossManager()
         
@@ -65,7 +66,7 @@ graph GlobalZoneBossManager {
             }
         // }
         var normalBossEliminateCondition = loopCount % GLOBAL_SPAWN_INTERVAL == 0
-        LogInfo("[GlobalZoneBossManager] elimCondition: " + normalBossEliminateCondition + " " + _lastSpawnLoopCount + " " + loopCount + " " + (loopCount + deduct) + " " + (GLOBAL_SPAWN_INTERVAL + GLOBAL_NO_SPAWN_INTERVAL) + " " + deduct)
+        // LogInfo("[GlobalZoneBossManager] elimCondition: " + normalBossEliminateCondition + " " + _lastSpawnLoopCount + " " + loopCount + " " + (loopCount + deduct) + " " + (GLOBAL_SPAWN_INTERVAL + GLOBAL_NO_SPAWN_INTERVAL) + " " + deduct)
         if(normalBossEliminateCondition){
             LogInfo("[GlobalZoneBossManager] IsLooping: " + _totalBossCount + " " + GLOBAL_BOSS_COUNT_MAX)
             EliminateAllBoss()
@@ -73,16 +74,16 @@ graph GlobalZoneBossManager {
 
         var firstBossBreakCondition = !_isFirstBoss || loopCount % GLOBAL_FIRST_BOSS_SPAWN_TIME != 0
         var normalBossBreakCondition = (loopCount % (GLOBAL_SPAWN_INTERVAL + GLOBAL_NO_SPAWN_INTERVAL)) != 0
-        LogInfo("[GlobalZoneBossManager] breakCondition: " + firstBossBreakCondition + " " + normalBossBreakCondition + " " + _lastSpawnLoopCount + " " + loopCount + " " + (loopCount + deduct) + " " + (GLOBAL_SPAWN_INTERVAL + GLOBAL_NO_SPAWN_INTERVAL) + " " + deduct)
+        // LogInfo("[GlobalZoneBossManager] breakCondition: " + firstBossBreakCondition + " " + normalBossBreakCondition + " " + _lastSpawnLoopCount + " " + loopCount + " " + (loopCount + deduct) + " " + (GLOBAL_SPAWN_INTERVAL + GLOBAL_NO_SPAWN_INTERVAL) + " " + deduct)
         if(firstBossBreakCondition && normalBossBreakCondition){
             // Check if this is the loop to spawn 
             return
         }
 
-        LogInfo("[GlobalZoneBossManager] IsLooping: " + _totalBossCount + " " + GLOBAL_BOSS_COUNT_MAX)
+        // LogInfo("[GlobalZoneBossManager] IsLooping: " + _totalBossCount + " " + GLOBAL_BOSS_COUNT_MAX)
         EliminateAllBoss()
 
-        LogInfo("run here")
+        // LogInfo("run here")
         var count = 0
         while(_totalBossCount < GLOBAL_BOSS_COUNT_MAX){
             if(count >= 100){
@@ -101,9 +102,13 @@ graph GlobalZoneBossManager {
             }
 
             start _currentSpawner<ZoneBossManager>.SpawningLoopContent()
+
+            for key, player in GetAllPlayers(){
+                player<PlayerMenu>.UpdateBossNoti()
+            }
             // LogInfo("[GlobalZoneBossManager] randomZoneName: " + randomBossSpawner<ZoneBossManager>.GetZoneName())
         }
-        LogInfo("[GlobalZoneBossManager] spawn: " + _totalBossCount)
+        // LogInfo("[GlobalZoneBossManager] spawn: " + _totalBossCount)
         // Update next spawn zone
         var randomIndex = RandomInt(0, Length(_bossSpawnList))
         _nextSpawner = _bossSpawnList[randomIndex]

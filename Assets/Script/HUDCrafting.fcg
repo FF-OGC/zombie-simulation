@@ -3,11 +3,24 @@ import "EditorGenLib.fcc" as editorGenLib
 import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
 import "./PlayerCrafting.fcg" as PlayerCrafting
 import "Hud.fcc" as hud
+import "./PlayerArmoryHUD.fcg" as PlayerArmoryHUD
+import "./PlayerArmory.fcg" as PlayerArmory
+import "./PlayerWeaponSelectionHUD.fcg" as PlayerWeaponSelectionHUD
+import "./PlayerInventory.fcg" as PlayerInventory
+import "Items.fcc" as Items
+import "./PlayerFarmSuggestionHUD.fcg" as PlayerFarmSuggestionHUD
+import "./PlayerStorageHUD.fcg" as PlayerStorageHUD
+
 graph HUDCrafting {
+    _SelectingBtn entity<HudButtonWidget>
+    _SelectingTab string = "AR"
     event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {        
         if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CLOSE)) {
             LogInfo("[HUDCrafting] btnMap: " + button) 
             player<PlayerCraftHUD>.CloseCraftHUD()
+            player<PlayerWeaponSelectionHUD>.CloseWeaponSelectionHUD()
+            player<PlayerFarmSuggestionHUD>.CloseFarmSuggestionHUD()
+
         } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT)){
             player<PlayerCrafting>.Craft(player<PlayerCraftHUD>.GetChosenWeapon())
         } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_AR) || 
@@ -18,29 +31,100 @@ graph HUDCrafting {
                    button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SNIPER) || 
                    button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAP_ATTACH)){
             UpdateCraftHUD(player,button)
-        }  else {
+        
+        }  else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_EQUIP)) {
+
+            if player<PlayerArmory>.CheckEquipedItem(player<PlayerCraftHUD>.GetChosenWeapon()) {
+                player<PlayerArmory>.UnEquip(player<PlayerCraftHUD>.GetChosenWeapon())
+                return
+            }
+
+            if _SelectingTab == "AR" || _SelectingTab == "SMG" || _SelectingTab == "SG" || _SelectingTab == "SNIPER" {
+                EquipMainWeapon(player<PlayerCraftHUD>.GetChosenWeapon(),player)
+            } else {
+                player<PlayerArmory>.Equip(player<PlayerCraftHUD>.GetChosenWeapon())
+            }
+            
+            
+        } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_INVENTORY)){
+            player<PlayerCraftHUD>.CloseCraftHUD()
+            player<PlayerStorageHUD>.DisplayPlayerStorageHUD()
+
+        } else if (button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.BTN_CRAFT_TAB)){
+
+        } else {
             player<PlayerCraftHUD>.SetWeaponInfo(button<Entity>.TagsList[0])
+            SetSelectingBorder(button,player)
+        }
+    }
+
+    func EquipMainWeapon(weapon string,player entity<Player>) {
+        if !player<PlayerInventory>.CheckHasGun(weapon){
+
+        } else {
+            player<PlayerWeaponSelectionHUD>.WeaponSelect(weapon)
         }
     }
 
     func UpdateCraftHUD(player entity<Player>, button entity<HudButtonWidget>) {
+        _SelectingBtn = nil
         if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_AR) {
+            if _SelectingTab == "AR" {
+                return
+            }
             player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Rifle)
+            _SelectingTab = "AR"
         } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SMG) {
+            if _SelectingTab == "SMG" {
+                return
+            }
             player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.SubMachineGun)
+            _SelectingTab = "SMG"
         } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SG) {
+            if _SelectingTab == "SG" {
+                return
+            }
             player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Shotgun)
+            _SelectingTab = "SG"
         } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_HG) {
+            if _SelectingTab == "HG" {
+                return
+            }
             player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Pistol)
+            _SelectingTab = "HG"
         } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_ML) {
+            if _SelectingTab == "ML" {
+                return
+            }
             player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Melee)
+            _SelectingTab = "ML"
         } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAB_SNIPER) {
+            if _SelectingTab == "SNIPER" {
+                return
+            }
             player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.Sniper)
+            _SelectingTab = "SNIPER"
         } else if button == player<PlayerCraftHUD>.GetCraftHUDWidget(EResource_UI_CRAFTING.TAP_ATTACH) {
+            if _SelectingTab == "ATTACHMENT" {
+                return
+            }
             // CG15 = ATTACHMENT
             player<PlayerCraftHUD>.SetWeaponCraftHUD(WeaponType.CG15)
+            _SelectingTab = "ATTACHMENT"
         } 
 
         player<PlayerCraftHUD>.UpdateTabStatus(button)
+    }
+
+    func SetSelectingBorder(button entity<HudButtonWidget>,player entity<Player>) {
+        if button == _SelectingBtn {
+            return
+        }
+        var selectingBorder = GetChildByIndex(button,3)
+        selectingBorder<HudWidget>.Active = true
+        if _SelectingBtn != nil {
+            GetChildByIndex(_SelectingBtn,3)<HudWidget>.Active = false
+        }
+        _SelectingBtn = button
     }
 }

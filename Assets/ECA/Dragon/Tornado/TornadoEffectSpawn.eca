@@ -1,0 +1,306 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "e",
+        "id": "NuxKXNIu.VI+a;:NLo8O",
+        "x": 1079,
+        "y": 232,
+        "extraState": {
+          "X": 138,
+          "L": [],
+          "T": "OnAwake",
+          "OT": "Entity"
+        },
+        "next": {
+          "block": {
+            "type": "a",
+            "id": ";F.sr?99=qWg?8EMsHZf",
+            "extraState": {
+              "X": 31,
+              "L": [],
+              "T": "WaitForNextFrame",
+              "OT": null
+            },
+            "next": {
+              "block": {
+                "type": "a",
+                "id": "e_a7!*^,oz|T*m?4@m*{",
+                "extraState": {
+                  "X": 743,
+                  "L": [
+                    1,
+                    2,
+                    3,
+                    -1,
+                    4,
+                    5
+                  ],
+                  "T": "CreateEffectEntityV2",
+                  "OT": null
+                },
+                "fields": {
+                  "P1": {
+                    "name": "Visual effects entity",
+                    "type": "EffectEntity"
+                  }
+                },
+                "inputs": {
+                  "P2": {
+                    "shadow": {
+                      "type": "tys",
+                      "id": ",8a}{_o3bQ_kx;=E+Z!}",
+                      "extraState": "Player"
+                    }
+                  },
+                  "P3": {
+                    "shadow": {
+                      "type": "pet",
+                      "id": "`?Uj~1|fOejzT~Mss{BK",
+                      "fields": {
+                        "V": "EffectType_UGC_T_36_M_WS_VFX6_01"
+                      }
+                    }
+                  },
+                  "P4": {
+                    "shadow": {
+                      "type": "ipe",
+                      "id": "ZVxDapA^)HsgQ~ho=9;6",
+                      "extraState": "AnimationOverrideLoopType",
+                      "fields": {
+                        "I": "Loop"
+                      }
+                    }
+                  },
+                  "P5": {
+                    "shadow": {
+                      "type": "ipb",
+                      "id": "b@$jiZl;|_u_OZ~CGV}!",
+                      "fields": {
+                        "V": "T"
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "a",
+                    "id": ".F=~fYqi`]x{BL=C1$Ql",
+                    "extraState": {
+                      "X": 435,
+                      "L": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "T": "SetParent",
+                      "OT": null
+                    },
+                    "inputs": {
+                      "P1": {
+                        "shadow": {
+                          "type": "tys",
+                          "id": "Iuj=p1c/3Ia`=[#sb)L#",
+                          "extraState": "Transform"
+                        },
+                        "block": {
+                          "type": "ent",
+                          "id": "mixG7PmH1pU:vuR}zPyX"
+                        }
+                      },
+                      "P2": {
+                        "shadow": {
+                          "type": "tys",
+                          "id": "Asp_`2rPC[VV7v|5@u-G",
+                          "extraState": "Transform"
+                        },
+                        "block": {
+                          "type": "lcg",
+                          "id": "e^rKh,a|fCNk8h0y#CTM",
+                          "extraState": "e_a7!*^,oz|T*m?4@m*{P1",
+                          "fields": {
+                            "VR": "Visual effects entity"
+                          }
+                        }
+                      },
+                      "P3": {
+                        "shadow": {
+                          "type": "ipb",
+                          "id": "Uj+N~oKjyTR5qz8N!@9~",
+                          "fields": {
+                            "V": "F"
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "prs",
+                        "id": "Jk2/jX@Y-W!I|MAxx[AT",
+                        "fields": {
+                          "P": "LocalPosition:Transform",
+                          "O": "UK"
+                        },
+                        "inputs": {
+                          "H": {
+                            "shadow": {
+                              "type": "tys",
+                              "id": "i9(HMjaoHscOhs/-Ya~h",
+                              "extraState": "Component"
+                            },
+                            "block": {
+                              "type": "lcg",
+                              "id": "|5Zb[NEq{M(co+sXp4,%",
+                              "extraState": "e_a7!*^,oz|T*m?4@m*{P1",
+                              "fields": {
+                                "VR": "Visual effects entity"
+                              }
+                            }
+                          },
+                          "V": {
+                            "shadow": {
+                              "type": "tys",
+                              "id": "X~eTp(B:^Q-d#oW=Ob)j",
+                              "extraState": "Vector3"
+                            },
+                            "block": {
+                              "type": "v",
+                              "id": "n^`66v2e%Z]swB(A8Pag",
+                              "extraState": {
+                                "X": 56,
+                                "L": [
+                                  1,
+                                  2,
+                                  3
+                                ],
+                                "T": "NewVector",
+                                "OT": null
+                              },
+                              "inputs": {
+                                "P1": {
+                                  "shadow": {
+                                    "type": "ipf",
+                                    "id": "Pt^h,GL4Y-C!8/i@`;rn",
+                                    "fields": {
+                                      "V": 0
+                                    }
+                                  }
+                                },
+                                "P2": {
+                                  "shadow": {
+                                    "type": "ipf",
+                                    "id": "ck[_5hbM/Xo9{+1JdK|o",
+                                    "fields": {
+                                      "V": 0
+                                    }
+                                  }
+                                },
+                                "P3": {
+                                  "shadow": {
+                                    "type": "ipf",
+                                    "id": "]^f/YPPE`Ei=C0VK8whg",
+                                    "fields": {
+                                      "V": 0
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "prs",
+                            "id": "q|b1XGVjk#U^KJJRtz#6",
+                            "fields": {
+                              "P": "LocalScale:Transform",
+                              "O": "UK"
+                            },
+                            "inputs": {
+                              "H": {
+                                "shadow": {
+                                  "type": "tys",
+                                  "id": "i9(HMjaoHscOhs/-Ya~h",
+                                  "extraState": "Component"
+                                },
+                                "block": {
+                                  "type": "lcg",
+                                  "id": "RBT(+|S:#q6Vu?TOh.cN",
+                                  "extraState": "e_a7!*^,oz|T*m?4@m*{P1",
+                                  "fields": {
+                                    "VR": "Visual effects entity"
+                                  }
+                                }
+                              },
+                              "V": {
+                                "shadow": {
+                                  "type": "tys",
+                                  "id": "CMkeJJ-xMF~}AvgnTWcI",
+                                  "extraState": "Vector3"
+                                },
+                                "block": {
+                                  "type": "v",
+                                  "id": "=ap69P7r_{}owmA:DAwx",
+                                  "extraState": {
+                                    "X": 56,
+                                    "L": [
+                                      1,
+                                      2,
+                                      3
+                                    ],
+                                    "T": "NewVector",
+                                    "OT": null
+                                  },
+                                  "inputs": {
+                                    "P1": {
+                                      "shadow": {
+                                        "type": "ipf",
+                                        "id": "i7[T_oW0qu(K/94p?/d`",
+                                        "fields": {
+                                          "V": 2
+                                        }
+                                      }
+                                    },
+                                    "P2": {
+                                      "shadow": {
+                                        "type": "ipf",
+                                        "id": "R=QTN{w.PCgAn_,8Zm/j",
+                                        "fields": {
+                                          "V": 7
+                                        }
+                                      }
+                                    },
+                                    "P3": {
+                                      "shadow": {
+                                        "type": "ipf",
+                                        "id": "iFH{_~[~na~$I7ewa3bK",
+                                        "fields": {
+                                          "V": 2
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "graphData": {
+    "ownerType": "Entity",
+    "componentTypes": "Entity",
+    "isStatic": false
+  }
+}
+//"{FE:{"v":"1.8.2949557","c":{"FF":4404},"s":100}

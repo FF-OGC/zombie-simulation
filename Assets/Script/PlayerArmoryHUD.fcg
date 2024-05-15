@@ -80,7 +80,7 @@ graph PlayerArmoryHUD {
                 var text = children[1]
                 var checked = children[2]
                 checked<HudWidget>.Active = false
-                image<HudImageWidget>.SpriteName = recipeMap[weapon][imageIndex] as IconType
+                image<HudImageWidget>.SpriteName = recipeMap[weapon][imageIndex] as SpriteID
                 text<HudLabelWidget>.Text = recipeMap[weapon][nameIndex] as text
                 AddTag(editingGunChoice,weapon as text)
                 AddTag(editingGunChoice,"gun")
@@ -133,7 +133,7 @@ graph PlayerArmoryHUD {
         var stockBtn = gunInfoHolder[6] as entity<HudWidget>
         var attachmentBtn = List<entity<HudWidget>>{scopeBtn, muzzleBtn, magazineBtn, foregripBtn, stockBtn}
 
-        gunImage<HudImageWidget>.SpriteName = recipeMap[recipe][1] as IconType
+        gunImage<HudImageWidget>.SpriteName = recipeMap[recipe][1] as SpriteID
         gunText<HudLabelWidget>.Text = recipeMap[recipe][2] as text
 
         for key, attachment in attachmentBtn {

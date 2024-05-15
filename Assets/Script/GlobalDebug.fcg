@@ -4,5 +4,5 @@ import "EditorGenLib.fcc" as editorGenLib
 graph GlobalDebug {
     IsDebug bool = false
     IsStageSelectionActive bool = true
-    IsShortTeleport bool = true
+    IsShortTeleport bool = false
 }

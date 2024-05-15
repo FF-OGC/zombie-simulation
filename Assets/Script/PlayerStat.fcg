@@ -11,6 +11,7 @@ import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "./Enum.fcg" as Enum
 import "Items.fcc" as Items
 import "Animation.fcc" as Animation
+import "./PlayerMenu.fcg" as PlayerMenu
 
 graph PlayerStat {
     ORIGINAL_MAX_HP int = 200
@@ -82,6 +83,7 @@ graph PlayerStat {
             var stat = _statMap[statType] as int
             AdjustStatByAmount(statType, statPoint, false)
             _remainingStatPoint -= statPoint
+            thisEntity<PlayerMenu>.UpdateStatNoti()
         }
     }
 
@@ -112,6 +114,7 @@ graph PlayerStat {
         }
 
         _remainingStatPoint = lvl - statPointUsed
+        thisEntity<PlayerMenu>.UpdateStatNoti()
         LogInfo("[PlayerStat] _remainingStatPoint: " + _remainingStatPoint)
     }
 
@@ -132,6 +135,7 @@ graph PlayerStat {
         _statPointMap[statType] = currentStatPoint + mult * amount
         AdjustStatByPoint(statType, amount, isDecreasing)
         _remainingStatPoint += (-1) * mult * amount
+        thisEntity<PlayerMenu>.UpdateStatNoti()
         LogInfo("[PlayerStat] statPointMap: " + _statPointMap)
     }
 

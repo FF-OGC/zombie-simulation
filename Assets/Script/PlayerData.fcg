@@ -134,7 +134,7 @@ graph PlayerData {
         GunUnlockList = thisEntity<PlayerInventory>.GetGunList()
         AttachmentUnlockList = thisEntity<PlayerInventory>.GetAttachmentList()
         _materialList = thisEntity<PlayerInventory>.GetMaterialAmountListFromMap()
-        LogInfo("[PlayerData] GetDataFromUsers: " + _currentCoin)
+        LogInfo("[PlayerData] GetDataFromUsers: " + GunUnlockList)
     }
 
     func PrepareData() List<int> {

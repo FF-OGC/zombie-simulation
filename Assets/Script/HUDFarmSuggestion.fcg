@@ -1,0 +1,35 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as Hud
+import "./PlayerFarmSuggestionHUD.fcg" as PlayerFarmSuggestionHUD
+import "./PlayerZoneSelection.fcg" as PlayerZoneSelection
+import "./PlayerCraftHUD.fcg" as PlayerCraftHUD
+import "./PlayerWeaponSelectionHUD.fcg" as PlayerWeaponSelectionHUD
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
+import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
+graph HUDFarmSuggestion {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {
+        if button == player<PlayerFarmSuggestionHUD>.GetFarmSuggestionHUDWidget(EResource_UI_FARM_SUGGESTION.GO1) {
+            player<PlayerCraftHUD>.CloseCraftHUD()
+            player<PlayerWeaponSelectionHUD>.CloseWeaponSelectionHUD()
+            player<PlayerFarmSuggestionHUD>.CloseFarmSuggestionHUD()
+
+            player<PlayerZoneSelection>.TeleportToRandomFarmZone()
+
+        } else if button == player<PlayerFarmSuggestionHUD>.GetFarmSuggestionHUDWidget(EResource_UI_FARM_SUGGESTION.GO2) {
+            player<PlayerCraftHUD>.CloseCraftHUD()
+            player<PlayerWeaponSelectionHUD>.CloseWeaponSelectionHUD()
+            player<PlayerFarmSuggestionHUD>.CloseFarmSuggestionHUD()
+
+            if globalEntity<GlobalZoneBossManager>.IsBossOnField() {
+                player<PlayerZoneSelection>.TeleportToBoss()
+            } else {
+                player<PlayerZoneSelectionHUD>.DisplayZoneSelectionHUD()
+                player<PlayerZoneSelectionHUD>.SetActiveZone(ZoneEnum.WBF,true)
+
+            }
+        } else if button == player<PlayerFarmSuggestionHUD>.GetFarmSuggestionHUDWidget(EResource_UI_FARM_SUGGESTION.CLOSE) {
+            player<PlayerFarmSuggestionHUD>.CloseFarmSuggestionHUD()
+        }
+    }
+}

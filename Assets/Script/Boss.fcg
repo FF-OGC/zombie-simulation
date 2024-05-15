@@ -7,6 +7,9 @@ import "./PlayerLevel.fcg" as PlayerLevel
 import "./PlayerInventory.fcg" as PlayerInventory
 import "./PlayerMoney.fcg" as PlayerMoney
 import "./PlayerBossNotification.fcg" as PlayerBossNotification
+import "./PlayerMenu.fcg" as PlayerMenu
+import "./PlayerZoneSelectionHUD.fcg" as PlayerZoneSelectionHUD
+import "./GlobalZoneBossManager.fcg" as GlobalZoneBossManager
 
 graph Boss {
     _spawner entity<BossSpawner>
@@ -24,23 +27,20 @@ graph Boss {
     
     }
 
-    event OnBeKilled(attacker entity<Entity>,
-      damageType DamageType,
-      beDamagedPart HitBodyPart) {
-        _spawner<ZoneBossManager>.RemoveBossFromList(thisEntity<Entity>)    
-        attacker<PlayerLevel>.IncreaseExpByAmount(_expAmount)
-        attacker<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.BOSS_ESSENCE, 1)
-    }
-
-    event Boss_OnEliminated(param1 int) {
-      LogInfo("[Boss] Boss is ded: " + param1)
+    event Boss_OnEliminated(bossEnum int) {
+      LogInfo("[Boss] Boss is ded: " + bossEnum)
       _spawner<ZoneBossManager>.RemoveBossFromList(thisEntity<Entity>)    
+      LogInfo("[Boss] IsBossOnField: " + globalEntity<GlobalZoneBossManager>.IsBossOnField())
       for key, player in GetAllPlayers(){
+        _expAmount = 2500
         player<PlayerLevel>.IncreaseExpByAmount(_expAmount)
         player<PlayerMoney>.AddMoney(GameMoneyType.COIN, 1000)
         player<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.ZOMBIE_ESSENCE, 100)
         player<PlayerInventory>.IncreaseItemByAmount(MaterialEnum.BOSS_ESSENCE, 2)
         player<PlayerBossNotification>.EndBossNotification()
+        player<PlayerMenu>.UpdateBossNoti()
+        player<PlayerZoneSelectionHUD>.UpdateZoneIcon()
+        player<PlayerZoneSelectionHUD>.UpdateZoneTimer()
       }
 
     }
